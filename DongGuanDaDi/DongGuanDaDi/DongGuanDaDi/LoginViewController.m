@@ -18,12 +18,4 @@
     self.navigationController.navigationBar.hidden = YES;
 }
 
-- (IBAction)login:(id)sender {
-    
-    MainViewController* main = [[MainViewController alloc] init];
-    
-    [self.navigationController pushViewController:main animated:YES];
-    
-}
-
 @end

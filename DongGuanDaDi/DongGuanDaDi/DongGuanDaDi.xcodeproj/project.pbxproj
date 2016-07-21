@@ -16,6 +16,7 @@
 		19E5BC191D3F331600C1A1A9 /* DongGuanDaDiUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E5BC181D3F331600C1A1A9 /* DongGuanDaDiUITests.m */; };
 		19E5BC281D3F344500C1A1A9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E5BC271D3F344500C1A1A9 /* LoginViewController.m */; };
 		19E5BC2B1D3F391C00C1A1A9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E5BC2A1D3F391C00C1A1A9 /* MainViewController.m */; };
+		D7D4F50E1D410B16005A7729 /* MainViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D4F50D1D410B16005A7729 /* MainViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		19E5BC271D3F344500C1A1A9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		19E5BC291D3F391C00C1A1A9 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		19E5BC2A1D3F391C00C1A1A9 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		D7D4F50C1D410B16005A7729 /* MainViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewCell.h; sourceTree = "<group>"; };
+		D7D4F50D1D410B16005A7729 /* MainViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +113,8 @@
 				19E5BC271D3F344500C1A1A9 /* LoginViewController.m */,
 				19E5BC291D3F391C00C1A1A9 /* MainViewController.h */,
 				19E5BC2A1D3F391C00C1A1A9 /* MainViewController.m */,
+				D7D4F50C1D410B16005A7729 /* MainViewCell.h */,
+				D7D4F50D1D410B16005A7729 /* MainViewCell.m */,
 				19E5BBFC1D3F331600C1A1A9 /* Main.storyboard */,
 				19E5BBFF1D3F331600C1A1A9 /* Assets.xcassets */,
 				19E5BC011D3F331600C1A1A9 /* LaunchScreen.storyboard */,
@@ -278,6 +283,7 @@
 				19E5BBF81D3F331600C1A1A9 /* AppDelegate.m in Sources */,
 				19E5BBF51D3F331600C1A1A9 /* main.m in Sources */,
 				19E5BC281D3F344500C1A1A9 /* LoginViewController.m in Sources */,
+				D7D4F50E1D410B16005A7729 /* MainViewCell.m in Sources */,
 				19E5BC2B1D3F391C00C1A1A9 /* MainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -506,6 +512,7 @@
 				19E5BC1F1D3F331600C1A1A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		19E5BC201D3F331600C1A1A9 /* Build configuration list for PBXNativeTarget "DongGuanDaDiTests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +521,7 @@
 				19E5BC221D3F331600C1A1A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		19E5BC231D3F331600C1A1A9 /* Build configuration list for PBXNativeTarget "DongGuanDaDiUITests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +530,7 @@
 				19E5BC251D3F331600C1A1A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
