@@ -8,6 +8,10 @@
 
 #import "MainViewController.h"
 #import "MainViewCell.h"
+#import "DinnerViewController.h"
+#import "CarsTableViewController.h"
+#import "AddressListTableViewController.h"
+#import "PersonalTableViewController.h"
 
 @implementation MainViewController
 
@@ -82,6 +86,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger section = indexPath.section;
+    UIViewController* vc;
     if (0 == section) {
         
     }
@@ -93,29 +98,29 @@
     {
         if (0 == indexPath.row)
         {
-            cell.title.text = @"用餐";
+            vc= [[DinnerViewController alloc] init];
         }
         else if (1 == indexPath.row)
         {
-            cell.title.text = @"公车";
+            vc = [[CarsTableViewController alloc] init];
         }
         else if (2 == indexPath.row)
         {
-            cell.title.text = @"通讯录";
+            vc = [[AddressListTableViewController alloc] init];
         }
         else if (3 == indexPath.row)
         {
-            cell.title.text = @"任务";
+            vc = [[CarsTableViewController alloc] init];
         }
         else if (4 == indexPath.row)
         {
-            cell.title.text = @"监控";
+            vc = [[CarsTableViewController alloc] init];
         }
         else if (5 == indexPath.row)
         {
-            cell.title.text = @"个人";
+            vc = [[PersonalTableViewController alloc] init];
         }
-        cell.backgroundColor = [UIColor blueColor];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 @end
