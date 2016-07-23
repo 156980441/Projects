@@ -7,8 +7,11 @@
 //
 
 #import "DinnerViewController.h"
+#import "ASDayPickerViewController.h"
 
 @interface DinnerViewController ()
+
+@property(nonatomic,strong) ASDayPickerViewController* dayPickerVc;
 
 @end
 
@@ -17,6 +20,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.dayPickerVc = [[ASDayPickerViewController alloc] init];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
