@@ -22,6 +22,8 @@
     // Do any additional setup after loading the view.
     
     self.dayPickerVc = [[ASDayPickerViewController alloc] init];
+    self.dayPickerVc.view.frame = CGRectMake(0, 0, 320, 480);
+    [self.view addSubview:self.dayPickerVc.view];
     
     
 }

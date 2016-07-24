@@ -98,19 +98,19 @@
     {
         if (0 == indexPath.row)
         {
-            vc= [[DinnerViewController alloc] init];
+            [self performSegueWithIdentifier:@"dinner" sender:self];
         }
         else if (1 == indexPath.row)
         {
-            vc = [[CarsTableViewController alloc] init];
+            [self performSegueWithIdentifier:@"cars" sender:self];
         }
         else if (2 == indexPath.row)
         {
-            vc = [[AddressListTableViewController alloc] init];
+            [self performSegueWithIdentifier:@"cars" sender:self];
         }
         else if (3 == indexPath.row)
         {
-            vc = [[CarsTableViewController alloc] init];
+            [self performSegueWithIdentifier:@"cars" sender:self];
         }
         else if (4 == indexPath.row)
         {
@@ -118,7 +118,7 @@
         }
         else if (5 == indexPath.row)
         {
-            vc = [[PersonalTableViewController alloc] init];
+            [self performSegueWithIdentifier:@"personal" sender:self];
         }
         [self.navigationController pushViewController:vc animated:YES];
     }
