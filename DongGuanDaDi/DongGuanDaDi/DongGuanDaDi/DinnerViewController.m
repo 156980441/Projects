@@ -7,11 +7,8 @@
 //
 
 #import "DinnerViewController.h"
-#import "ASDayPickerViewController.h"
 
 @interface DinnerViewController ()
-
-@property(nonatomic,strong) ASDayPickerViewController* dayPickerVc;
 
 @end
 
@@ -21,9 +18,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.dayPickerVc = [[ASDayPickerViewController alloc] init];
-    self.dayPickerVc.view.frame = CGRectMake(0, 0, 320, 480);
-    [self.view addSubview:self.dayPickerVc.view];
+    NSDateComponents *weeks = [[NSDateComponents alloc] init];
+    weeks.weekOfMonth = 4;
+    NSDate *endDate = [[NSCalendar currentCalendar] dateByAddingComponents:weeks toDate:[NSDate date] options:0];
+    [self.dayPicker setStartDate:[NSDate date] endDate:endDate];
+    [self.dayPicker addObserver:self forKeyPath:@"selectedDate" options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew context:nil];
     
     
 }
@@ -31,6 +30,11 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    NSDate *day = change[NSKeyValueChangeNewKey];
+    
 }
 
 /*

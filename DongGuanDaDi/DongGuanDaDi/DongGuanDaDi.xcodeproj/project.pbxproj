@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		194D0F101D48B56100827F3C /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 194D0F0F1D48B56100827F3C /* MenuView.m */; };
 		19E5BBF51D3F331600C1A1A9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E5BBF41D3F331600C1A1A9 /* main.m */; };
 		19E5BBF81D3F331600C1A1A9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E5BBF71D3F331600C1A1A9 /* AppDelegate.m */; };
 		19E5BBFE1D3F331600C1A1A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19E5BBFC1D3F331600C1A1A9 /* Main.storyboard */; };
@@ -21,7 +22,6 @@
 		D79FCE5E1D42754F00BE99BB /* AddressListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D79FCE5D1D42754F00BE99BB /* AddressListTableViewController.m */; };
 		D79FCE621D42757400BE99BB /* PersonalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D79FCE611D42757400BE99BB /* PersonalTableViewController.m */; };
 		D7AF7A0A1D436942005EA6DE /* ASDayPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = D7AF7A091D436942005EA6DE /* ASDayPicker.m */; };
-		D7AF7A0D1D4369A6005EA6DE /* ASDayPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7AF7A0C1D4369A6005EA6DE /* ASDayPickerViewController.m */; };
 		D7D4F50E1D410B16005A7729 /* MainViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D4F50D1D410B16005A7729 /* MainViewCell.m */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		194D0F0E1D48B56100827F3C /* MenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuView.h; sourceTree = "<group>"; };
+		194D0F0F1D48B56100827F3C /* MenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuView.m; sourceTree = "<group>"; };
 		19E5BBF01D3F331600C1A1A9 /* DongGuanDaDi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DongGuanDaDi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19E5BBF41D3F331600C1A1A9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		19E5BBF61D3F331600C1A1A9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -71,8 +73,6 @@
 		D79FCE611D42757400BE99BB /* PersonalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalTableViewController.m; sourceTree = "<group>"; };
 		D7AF7A081D436942005EA6DE /* ASDayPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASDayPicker.h; sourceTree = "<group>"; };
 		D7AF7A091D436942005EA6DE /* ASDayPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASDayPicker.m; sourceTree = "<group>"; };
-		D7AF7A0B1D4369A6005EA6DE /* ASDayPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASDayPickerViewController.h; sourceTree = "<group>"; };
-		D7AF7A0C1D4369A6005EA6DE /* ASDayPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASDayPickerViewController.m; sourceTree = "<group>"; };
 		D7D4F50C1D410B16005A7729 /* MainViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewCell.h; sourceTree = "<group>"; };
 		D7D4F50D1D410B16005A7729 /* MainViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -180,8 +180,8 @@
 				D7AF7A091D436942005EA6DE /* ASDayPicker.m */,
 				D79FCE541D4273E100BE99BB /* DinnerViewController.h */,
 				D79FCE551D4273E100BE99BB /* DinnerViewController.m */,
-				D7AF7A0B1D4369A6005EA6DE /* ASDayPickerViewController.h */,
-				D7AF7A0C1D4369A6005EA6DE /* ASDayPickerViewController.m */,
+				194D0F0E1D48B56100827F3C /* MenuView.h */,
+				194D0F0F1D48B56100827F3C /* MenuView.m */,
 			);
 			name = dinner;
 			sourceTree = "<group>";
@@ -352,11 +352,11 @@
 			files = (
 				D79FCE5E1D42754F00BE99BB /* AddressListTableViewController.m in Sources */,
 				19E5BBF81D3F331600C1A1A9 /* AppDelegate.m in Sources */,
-				D7AF7A0D1D4369A6005EA6DE /* ASDayPickerViewController.m in Sources */,
 				D79FCE5A1D4274BA00BE99BB /* CarsTableViewController.m in Sources */,
 				19E5BBF51D3F331600C1A1A9 /* main.m in Sources */,
 				D7AF7A0A1D436942005EA6DE /* ASDayPicker.m in Sources */,
 				19E5BC281D3F344500C1A1A9 /* LoginViewController.m in Sources */,
+				194D0F101D48B56100827F3C /* MenuView.m in Sources */,
 				D7D4F50E1D410B16005A7729 /* MainViewCell.m in Sources */,
 				D79FCE561D4273E100BE99BB /* DinnerViewController.m in Sources */,
 				19E5BC2B1D3F391C00C1A1A9 /* MainViewController.m in Sources */,

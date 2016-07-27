@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ASDayPicker.h"
+#import "MenuView.h"
 
 @interface DinnerViewController : UIViewController
+@property (strong, nonatomic) IBOutlet ASDayPicker *dayPicker;
+@property (strong, nonatomic) IBOutlet MenuView *menu;
 
 @end
