@@ -13,6 +13,12 @@
 #import "AddressListTableViewController.h"
 #import "PersonalTableViewController.h"
 
+@interface MainViewController ()
+
+@property (nonatomic, strong) NSArray* dataSources;
+
+@end
+
 @implementation MainViewController
 
 -(void)viewDidLoad
@@ -20,6 +26,7 @@
     [super viewDidLoad];
     
     self.navigationController.navigationBar.hidden = NO;
+    self.dataSources = @[@"用餐",@"公车",@"通讯录",@"任务",@"监控",@"个人"];
 }
 
 
@@ -27,7 +34,7 @@
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 3;
+    return 2;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -37,11 +44,7 @@
     }
     else if (1 == section)
     {
-        return 1;
-    }
-    else if (2 == section)
-    {
-        return 6;
+        return self.dataSources.count;
     }
     else
     {
@@ -55,42 +58,19 @@
     NSInteger section = indexPath.section;
     if (0 == section) {
         cell.backgroundColor = [UIColor redColor];
+        cell.title.text = @"Welcome";
     }
     else if (1 == section)
     {
-        cell.backgroundColor = [UIColor yellowColor];
+        cell.title.text = [self.dataSources objectAtIndex:indexPath.row];
+        cell.backgroundColor = [UIColor greenColor];
     }
-    else if (2 == section)
-    {
-        if (0 == indexPath.row)
-        {
-            cell.title.text = @"用餐";
-        }
-        else if (1 == indexPath.row)
-        {
-            cell.title.text = @"公车";
-        }
-        else if (2 == indexPath.row)
-        {
-            cell.title.text = @"通讯录";
-        }
-        else if (3 == indexPath.row)
-        {
-            cell.title.text = @"任务";
-        }
-        else if (4 == indexPath.row)
-        {
-            cell.title.text = @"监控";
-        }
-        else if (5 == indexPath.row)
-        {
-            cell.title.text = @"个人";
-        }
-        cell.backgroundColor = [UIColor blueColor];
-    }
+    cell.title.backgroundColor = [UIColor blueColor];
     return cell;
 }
+
 #pragma mark -- UICollectionViewDelegate
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger section = indexPath.section;
@@ -99,10 +79,6 @@
         
     }
     else if (1 == section)
-    {
-        
-    }
-    else if (2 == section)
     {
         if (0 == indexPath.row)
         {
@@ -131,6 +107,25 @@
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
+
+#pragma mark -
+#pragma mark UICollectionViewFlowLayoutDelegate
+
+//这里可以通过storyboard来做吗，即不同的cell不同的大小。
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGSize size = CGSizeZero;
+    NSInteger section = indexPath.section;
+    if (0 == section) {
+        size = CGSizeMake(collectionView.frame.size.width, collectionView.frame.size.height / 2.2);
+    }
+    else if (1 == section)
+    {
+        size = CGSizeMake(collectionView.frame.size.width / 3, collectionView.frame.size.height / 2.2 / 2);
+    }
+    return size;
+}
+
 - (IBAction)logout:(id)sender {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"是否注销" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
