@@ -15,6 +15,14 @@
 
 @implementation MainViewController
 
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.navigationController.navigationBar.hidden = NO;
+}
+
+
 #pragma mark -- UICollectionViewDataSource
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -122,5 +130,15 @@
         }
         [self.navigationController pushViewController:vc animated:YES];
     }
+}
+- (IBAction)logout:(id)sender {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"是否注销" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+    [alertController addAction:cancelAction];
+    [alertController addAction:okAction];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 @end

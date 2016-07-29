@@ -10,4 +10,6 @@
 
 @interface MainViewController : UICollectionViewController
 
+- (IBAction)logout:(id)sender;
+
 @end

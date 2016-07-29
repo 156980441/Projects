@@ -119,7 +119,14 @@
                             <outlet property="delegate" destination="Qwp-Ve-hoz" id="Xrt-hs-RLh"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="HGL-7P-5LY"/>
+                    <navigationItem key="navigationItem" id="HGL-7P-5LY">
+                        <barButtonItem key="leftBarButtonItem" title="东莞大堤" id="fIY-Hf-3IB"/>
+                        <barButtonItem key="rightBarButtonItem" title="注销" id="mXC-HY-rjf">
+                            <connections>
+                                <action selector="logout:" destination="Qwp-Ve-hoz" id="Fib-qi-BTT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="0Za-b9-rwA" kind="show" identifier="dinner" id="vvQ-c5-MYN"/>
                         <segue destination="OD3-IU-F9c" kind="show" identifier="cars" id="2Eq-Kr-S1x"/>
