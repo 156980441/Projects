@@ -699,6 +699,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="searchBar" destination="GvI-IP-j07" id="2Ci-Ka-Tqc"/>
                         <outlet property="searchDisplayController" destination="jJt-5k-x5e" id="wKi-D6-WbT"/>
                     </connections>
                 </tableViewController>

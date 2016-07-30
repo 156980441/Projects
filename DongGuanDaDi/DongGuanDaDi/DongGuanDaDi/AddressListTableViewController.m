@@ -22,6 +22,8 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.filteredNameArray = [NSMutableArray arrayWithCapacity:self.nameDataSources.count];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -94,5 +96,32 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
+{
+    // 根据搜索栏的内容和范围更新过滤后的数组。
+    // 先将过滤后的数组清空。
+    [self.filteredNameArray removeAllObjects];
+    
+    // 用NSPredicate来过滤数组。
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name contains[c] %@",searchText];
+    self.filteredNameArray = [NSMutableArray arrayWithArray:[self.nameDataSources filteredArrayUsingPredicate:predicate]];
+}
+
+#pragma mark - UISearchDisplayController Delegate Methods
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    // 当用户改变搜索字符串时，让列表的数据来源重新加载数据
+    [self filterContentForSearchText:searchString scope:[[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
+    // 返回YES，让table view重新加载。
+    return YES;
+}
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption
+{
+    // 当用户改变搜索范围时，让列表的数据来源重新加载数据
+    [self filterContentForSearchText:self.searchDisplayController.searchBar.text scope:[[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
+    // 返回YES，让table view重新加载。
+    return YES;
+}
 
 @end
