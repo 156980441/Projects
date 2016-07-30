@@ -1,0 +1,3 @@
+2016-07-31
+
+这里个人界面选择用 UITableViewController 同时使用 storyboard 来快速开发。由于只是简单的显示个人信息，决定设置 Content 为 Static Cells
