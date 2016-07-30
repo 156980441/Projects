@@ -19,6 +19,7 @@
 		19E5BC2B1D3F391C00C1A1A9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E5BC2A1D3F391C00C1A1A9 /* MainViewController.m */; };
 		19E8D6671D4C9132005A6DB4 /* CarDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E8D6661D4C9132005A6DB4 /* CarDetailCell.m */; };
 		19E8D66A1D4C9C22005A6DB4 /* ModifyPerInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E8D6691D4C9C22005A6DB4 /* ModifyPerInfoTableViewController.m */; };
+		D721E80B1D4CBEAA00A73D9D /* ModifyPassTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D721E80A1D4CBEAA00A73D9D /* ModifyPassTableViewController.m */; };
 		D79FCE561D4273E100BE99BB /* DinnerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D79FCE551D4273E100BE99BB /* DinnerViewController.m */; };
 		D79FCE5A1D4274BA00BE99BB /* CarsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D79FCE591D4274BA00BE99BB /* CarsTableViewController.m */; };
 		D79FCE5E1D42754F00BE99BB /* AddressListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D79FCE5D1D42754F00BE99BB /* AddressListTableViewController.m */; };
@@ -69,6 +70,8 @@
 		19E8D6661D4C9132005A6DB4 /* CarDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarDetailCell.m; sourceTree = "<group>"; };
 		19E8D6681D4C9C22005A6DB4 /* ModifyPerInfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPerInfoTableViewController.h; sourceTree = "<group>"; };
 		19E8D6691D4C9C22005A6DB4 /* ModifyPerInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPerInfoTableViewController.m; sourceTree = "<group>"; };
+		D721E8091D4CBEAA00A73D9D /* ModifyPassTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPassTableViewController.h; sourceTree = "<group>"; };
+		D721E80A1D4CBEAA00A73D9D /* ModifyPassTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPassTableViewController.m; sourceTree = "<group>"; };
 		D79FCE541D4273E100BE99BB /* DinnerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DinnerViewController.h; sourceTree = "<group>"; };
 		D79FCE551D4273E100BE99BB /* DinnerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DinnerViewController.m; sourceTree = "<group>"; };
 		D79FCE581D4274BA00BE99BB /* CarsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarsTableViewController.h; sourceTree = "<group>"; };
@@ -215,10 +218,12 @@
 		D79FCE5F1D42755E00BE99BB /* personal */ = {
 			isa = PBXGroup;
 			children = (
-				D79FCE601D42757400BE99BB /* PersonalTableViewController.h */,
-				D79FCE611D42757400BE99BB /* PersonalTableViewController.m */,
+				D721E8091D4CBEAA00A73D9D /* ModifyPassTableViewController.h */,
+				D721E80A1D4CBEAA00A73D9D /* ModifyPassTableViewController.m */,
 				19E8D6681D4C9C22005A6DB4 /* ModifyPerInfoTableViewController.h */,
 				19E8D6691D4C9C22005A6DB4 /* ModifyPerInfoTableViewController.m */,
+				D79FCE601D42757400BE99BB /* PersonalTableViewController.h */,
+				D79FCE611D42757400BE99BB /* PersonalTableViewController.m */,
 			);
 			name = personal;
 			sourceTree = "<group>";
@@ -364,6 +369,7 @@
 				19E5BBF81D3F331600C1A1A9 /* AppDelegate.m in Sources */,
 				D79FCE5A1D4274BA00BE99BB /* CarsTableViewController.m in Sources */,
 				19E8D6671D4C9132005A6DB4 /* CarDetailCell.m in Sources */,
+				D721E80B1D4CBEAA00A73D9D /* ModifyPassTableViewController.m in Sources */,
 				19E5BBF51D3F331600C1A1A9 /* main.m in Sources */,
 				D7AF7A0A1D436942005EA6DE /* ASDayPicker.m in Sources */,
 				19E5BC281D3F344500C1A1A9 /* LoginViewController.m in Sources */,
