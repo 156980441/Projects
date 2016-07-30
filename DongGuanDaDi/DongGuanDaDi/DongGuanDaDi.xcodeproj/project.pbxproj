@@ -17,6 +17,7 @@
 		19E5BC191D3F331600C1A1A9 /* DongGuanDaDiUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E5BC181D3F331600C1A1A9 /* DongGuanDaDiUITests.m */; };
 		19E5BC281D3F344500C1A1A9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E5BC271D3F344500C1A1A9 /* LoginViewController.m */; };
 		19E5BC2B1D3F391C00C1A1A9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E5BC2A1D3F391C00C1A1A9 /* MainViewController.m */; };
+		19E8D6671D4C9132005A6DB4 /* CarDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E8D6661D4C9132005A6DB4 /* CarDetailCell.m */; };
 		D79FCE561D4273E100BE99BB /* DinnerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D79FCE551D4273E100BE99BB /* DinnerViewController.m */; };
 		D79FCE5A1D4274BA00BE99BB /* CarsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D79FCE591D4274BA00BE99BB /* CarsTableViewController.m */; };
 		D79FCE5E1D42754F00BE99BB /* AddressListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D79FCE5D1D42754F00BE99BB /* AddressListTableViewController.m */; };
@@ -63,6 +64,8 @@
 		19E5BC271D3F344500C1A1A9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		19E5BC291D3F391C00C1A1A9 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		19E5BC2A1D3F391C00C1A1A9 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		19E8D6651D4C9132005A6DB4 /* CarDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarDetailCell.h; sourceTree = "<group>"; };
+		19E8D6661D4C9132005A6DB4 /* CarDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarDetailCell.m; sourceTree = "<group>"; };
 		D79FCE541D4273E100BE99BB /* DinnerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DinnerViewController.h; sourceTree = "<group>"; };
 		D79FCE551D4273E100BE99BB /* DinnerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DinnerViewController.m; sourceTree = "<group>"; };
 		D79FCE581D4274BA00BE99BB /* CarsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarsTableViewController.h; sourceTree = "<group>"; };
@@ -191,6 +194,8 @@
 			children = (
 				D79FCE581D4274BA00BE99BB /* CarsTableViewController.h */,
 				D79FCE591D4274BA00BE99BB /* CarsTableViewController.m */,
+				19E8D6651D4C9132005A6DB4 /* CarDetailCell.h */,
+				19E8D6661D4C9132005A6DB4 /* CarDetailCell.m */,
 			);
 			name = cars;
 			sourceTree = "<group>";
@@ -353,6 +358,7 @@
 				D79FCE5E1D42754F00BE99BB /* AddressListTableViewController.m in Sources */,
 				19E5BBF81D3F331600C1A1A9 /* AppDelegate.m in Sources */,
 				D79FCE5A1D4274BA00BE99BB /* CarsTableViewController.m in Sources */,
+				19E8D6671D4C9132005A6DB4 /* CarDetailCell.m in Sources */,
 				19E5BBF51D3F331600C1A1A9 /* main.m in Sources */,
 				D7AF7A0A1D436942005EA6DE /* ASDayPicker.m in Sources */,
 				19E5BC281D3F344500C1A1A9 /* LoginViewController.m in Sources */,
