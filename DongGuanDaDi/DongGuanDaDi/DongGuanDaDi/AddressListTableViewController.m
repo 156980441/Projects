@@ -7,6 +7,7 @@
 //
 
 #import "AddressListTableViewController.h"
+#import "Staff.h"
 
 @interface AddressListTableViewController ()
 
@@ -23,7 +24,22 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    self.filteredNameArray = [NSMutableArray arrayWithCapacity:self.nameDataSources.count];
+    self.filteredStaffArray = [NSMutableArray arrayWithCapacity:self.staffDataSources.count];
+    self.staffDataSources = [NSMutableArray arrayWithCapacity:0];
+    for (int i = 0; i < 3; i++) {
+        Staff* temp = [[Staff alloc] init];
+        temp.name = [NSString stringWithFormat:@"张%d",i];
+        temp.phone = @"123456";
+        temp.wechat =  @"88888";
+        [self.staffDataSources addObject:temp];
+    }
+    for (int i = 0; i < 5; i++) {
+        Staff* temp = [[Staff alloc] init];
+        temp.name = [NSString stringWithFormat:@"王%d",i];
+        temp.phone = @"123456";
+        temp.wechat =  @"88888";
+        [self.staffDataSources addObject:temp];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,24 +50,38 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    
+    if (tableView == self.searchDisplayController.searchResultsTableView)
+    {
+        return self.filteredStaffArray.count;
+    }
+    else
+    {
+        return self.staffDataSources.count;
+    }
+    
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"staff" forIndexPath:indexPath];
+    Staff* staff = nil;
+    if (tableView == self.searchDisplayController.searchResultsTableView)
+    {
+        staff = [self.filteredStaffArray objectAtIndex:indexPath.row];
+    }
+    else
+    {
+        staff = [self.staffDataSources objectAtIndex:indexPath.row];
+    }
+    cell.textLabel.text = staff.name;
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -101,11 +131,11 @@
 {
     // 根据搜索栏的内容和范围更新过滤后的数组。
     // 先将过滤后的数组清空。
-    [self.filteredNameArray removeAllObjects];
+    [self.filteredStaffArray removeAllObjects];
     
     // 用NSPredicate来过滤数组。
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name contains[c] %@",searchText];
-    self.filteredNameArray = [NSMutableArray arrayWithArray:[self.nameDataSources filteredArrayUsingPredicate:predicate]];
+    self.filteredStaffArray = [NSMutableArray arrayWithArray:[self.staffDataSources filteredArrayUsingPredicate:predicate]];
 }
 
 #pragma mark - UISearchDisplayController Delegate Methods

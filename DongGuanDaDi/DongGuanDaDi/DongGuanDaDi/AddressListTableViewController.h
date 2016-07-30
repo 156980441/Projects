@@ -10,8 +10,8 @@
 
 @interface AddressListTableViewController : UITableViewController
 
-@property (strong,nonatomic) NSMutableArray *nameDataSources;
-@property (strong,nonatomic) NSMutableArray *filteredNameArray;
+@property (strong,nonatomic) NSMutableArray *staffDataSources;
+@property (strong,nonatomic) NSMutableArray *filteredStaffArray;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end

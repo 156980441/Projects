@@ -90,7 +90,7 @@
         }
         else if (2 == indexPath.row)
         {
-            [self performSegueWithIdentifier:@"cars" sender:self];
+            [self performSegueWithIdentifier:@"addressList" sender:self];
         }
         else if (3 == indexPath.row)
         {
@@ -104,7 +104,6 @@
         {
             [self performSegueWithIdentifier:@"personal" sender:self];
         }
-        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 
