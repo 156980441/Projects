@@ -54,7 +54,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
+    // 检查现在显示的是哪个列表视图，然后返回相应的数组长度
     if (tableView == self.searchDisplayController.searchResultsTableView)
     {
         return self.filteredStaffArray.count;
@@ -68,8 +68,10 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"staff" forIndexPath:indexPath];
+    // 这里要用 self.tableView 来解决 Assertion failure when using UISearchDisplayController in UITableViewController
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"staff" forIndexPath:indexPath];
     Staff* staff = nil;
+    // 检查现在应该显示普通列表还是过滤后的列表
     if (tableView == self.searchDisplayController.searchResultsTableView)
     {
         staff = [self.filteredStaffArray objectAtIndex:indexPath.row];
