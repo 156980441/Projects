@@ -8,6 +8,7 @@
 
 #import "AddressListTableViewController.h"
 #import "Staff.h"
+#import "PersonDetailTableViewController.h"
 
 @interface AddressListTableViewController ()
 
@@ -156,4 +157,23 @@
     return YES;
 }
 
+#pragma mark - Segue
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+    PersonDetailTableViewController *detail = [segue destinationViewController];
+    Staff *staff = nil;
+    // 我们需要知道哪个是现在正显示的列表视图，这样才能从相应的数组中提取正确的信息，显示在详细视图中。
+    if(sender == self.searchDisplayController.searchResultsTableView)
+    {
+        NSIndexPath *indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+       staff = [self.filteredStaffArray objectAtIndex:[indexPath row]];
+    }
+    else
+    {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        staff = [self.staffDataSources objectAtIndex:[indexPath row]];
+    }
+    detail.staff = staff;
+}
 @end

@@ -21,6 +21,7 @@
 		19E8D66A1D4C9C22005A6DB4 /* ModifyPerInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E8D6691D4C9C22005A6DB4 /* ModifyPerInfoTableViewController.m */; };
 		D721E80B1D4CBEAA00A73D9D /* ModifyPassTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D721E80A1D4CBEAA00A73D9D /* ModifyPassTableViewController.m */; };
 		D721E80E1D4CC84B00A73D9D /* Staff.m in Sources */ = {isa = PBXBuildFile; fileRef = D721E80D1D4CC84B00A73D9D /* Staff.m */; };
+		D75D13DC1D4E36AD00E082CF /* PersonDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D75D13DB1D4E36AD00E082CF /* PersonDetailTableViewController.m */; };
 		D79FCE561D4273E100BE99BB /* DinnerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D79FCE551D4273E100BE99BB /* DinnerViewController.m */; };
 		D79FCE5A1D4274BA00BE99BB /* CarsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D79FCE591D4274BA00BE99BB /* CarsTableViewController.m */; };
 		D79FCE5E1D42754F00BE99BB /* AddressListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D79FCE5D1D42754F00BE99BB /* AddressListTableViewController.m */; };
@@ -75,6 +76,8 @@
 		D721E80A1D4CBEAA00A73D9D /* ModifyPassTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPassTableViewController.m; sourceTree = "<group>"; };
 		D721E80C1D4CC84B00A73D9D /* Staff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Staff.h; sourceTree = "<group>"; };
 		D721E80D1D4CC84B00A73D9D /* Staff.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Staff.m; sourceTree = "<group>"; };
+		D75D13DA1D4E36AC00E082CF /* PersonDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonDetailTableViewController.h; sourceTree = "<group>"; };
+		D75D13DB1D4E36AD00E082CF /* PersonDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonDetailTableViewController.m; sourceTree = "<group>"; };
 		D79FCE541D4273E100BE99BB /* DinnerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DinnerViewController.h; sourceTree = "<group>"; };
 		D79FCE551D4273E100BE99BB /* DinnerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DinnerViewController.m; sourceTree = "<group>"; };
 		D79FCE581D4274BA00BE99BB /* CarsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarsTableViewController.h; sourceTree = "<group>"; };
@@ -214,6 +217,8 @@
 			children = (
 				D79FCE5C1D42754F00BE99BB /* AddressListTableViewController.h */,
 				D79FCE5D1D42754F00BE99BB /* AddressListTableViewController.m */,
+				D75D13DA1D4E36AC00E082CF /* PersonDetailTableViewController.h */,
+				D75D13DB1D4E36AD00E082CF /* PersonDetailTableViewController.m */,
 			);
 			name = address_list;
 			sourceTree = "<group>";
@@ -377,6 +382,7 @@
 				D721E80B1D4CBEAA00A73D9D /* ModifyPassTableViewController.m in Sources */,
 				19E5BBF51D3F331600C1A1A9 /* main.m in Sources */,
 				D7AF7A0A1D436942005EA6DE /* ASDayPicker.m in Sources */,
+				D75D13DC1D4E36AD00E082CF /* PersonDetailTableViewController.m in Sources */,
 				19E5BC281D3F344500C1A1A9 /* LoginViewController.m in Sources */,
 				194D0F101D48B56100827F3C /* MenuView.m in Sources */,
 				D721E80E1D4CC84B00A73D9D /* Staff.m in Sources */,
