@@ -19,6 +19,7 @@
 		19E5BC2B1D3F391C00C1A1A9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E5BC2A1D3F391C00C1A1A9 /* MainViewController.m */; };
 		19E8D6671D4C9132005A6DB4 /* CarDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E8D6661D4C9132005A6DB4 /* CarDetailCell.m */; };
 		19E8D66A1D4C9C22005A6DB4 /* ModifyPerInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E8D6691D4C9C22005A6DB4 /* ModifyPerInfoTableViewController.m */; };
+		8D93C6931D4FA73E000465D1 /* DepartmentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D93C6921D4FA73E000465D1 /* DepartmentTableViewController.m */; };
 		D721E80B1D4CBEAA00A73D9D /* ModifyPassTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D721E80A1D4CBEAA00A73D9D /* ModifyPassTableViewController.m */; };
 		D721E80E1D4CC84B00A73D9D /* Staff.m in Sources */ = {isa = PBXBuildFile; fileRef = D721E80D1D4CC84B00A73D9D /* Staff.m */; };
 		D75D13DC1D4E36AD00E082CF /* PersonDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D75D13DB1D4E36AD00E082CF /* PersonDetailTableViewController.m */; };
@@ -72,6 +73,8 @@
 		19E8D6661D4C9132005A6DB4 /* CarDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarDetailCell.m; sourceTree = "<group>"; };
 		19E8D6681D4C9C22005A6DB4 /* ModifyPerInfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPerInfoTableViewController.h; sourceTree = "<group>"; };
 		19E8D6691D4C9C22005A6DB4 /* ModifyPerInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPerInfoTableViewController.m; sourceTree = "<group>"; };
+		8D93C6911D4FA73E000465D1 /* DepartmentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepartmentTableViewController.h; sourceTree = "<group>"; };
+		8D93C6921D4FA73E000465D1 /* DepartmentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepartmentTableViewController.m; sourceTree = "<group>"; };
 		D721E8091D4CBEAA00A73D9D /* ModifyPassTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPassTableViewController.h; sourceTree = "<group>"; };
 		D721E80A1D4CBEAA00A73D9D /* ModifyPassTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPassTableViewController.m; sourceTree = "<group>"; };
 		D721E80C1D4CC84B00A73D9D /* Staff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Staff.h; sourceTree = "<group>"; };
@@ -219,6 +222,8 @@
 				D79FCE5D1D42754F00BE99BB /* AddressListTableViewController.m */,
 				D75D13DA1D4E36AC00E082CF /* PersonDetailTableViewController.h */,
 				D75D13DB1D4E36AD00E082CF /* PersonDetailTableViewController.m */,
+				8D93C6911D4FA73E000465D1 /* DepartmentTableViewController.h */,
+				8D93C6921D4FA73E000465D1 /* DepartmentTableViewController.m */,
 			);
 			name = address_list;
 			sourceTree = "<group>";
@@ -390,6 +395,7 @@
 				D79FCE561D4273E100BE99BB /* DinnerViewController.m in Sources */,
 				19E5BC2B1D3F391C00C1A1A9 /* MainViewController.m in Sources */,
 				D79FCE621D42757400BE99BB /* PersonalTableViewController.m in Sources */,
+				8D93C6931D4FA73E000465D1 /* DepartmentTableViewController.m in Sources */,
 				19E8D66A1D4C9C22005A6DB4 /* ModifyPerInfoTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
