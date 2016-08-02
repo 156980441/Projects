@@ -32,6 +32,7 @@
         temp.name = [NSString stringWithFormat:@"张%d",i];
         temp.phone = @"123456";
         temp.wechat =  @"88888";
+        temp.qq =  @"666666";
         [self.staffDataSources addObject:temp];
     }
     for (int i = 0; i < 5; i++) {
@@ -39,6 +40,7 @@
         temp.name = [NSString stringWithFormat:@"王%d",i];
         temp.phone = @"123456";
         temp.wechat =  @"88888";
+        temp.qq =  @"666666";
         [self.staffDataSources addObject:temp];
     }
 }
@@ -160,20 +162,25 @@
 #pragma mark - Segue
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
-    PersonDetailTableViewController *detail = [segue destinationViewController];
-    Staff *staff = nil;
-    // 我们需要知道哪个是现在正显示的列表视图，这样才能从相应的数组中提取正确的信息，显示在详细视图中。
-    if(sender == self.searchDisplayController.searchResultsTableView)
-    {
-        NSIndexPath *indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
-       staff = [self.filteredStaffArray objectAtIndex:[indexPath row]];
+    if ([sender isKindOfClass:[UITableViewCell class]]) {
+        PersonDetailTableViewController *detail = [segue destinationViewController];
+        Staff *staff = nil;
+        // 我们需要知道哪个是现在正显示的列表视图，这样才能从相应的数组中提取正确的信息，显示在详细视图中。
+        if(sender == self.searchDisplayController.searchResultsTableView)
+        {
+            NSIndexPath *indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+            staff = [self.filteredStaffArray objectAtIndex:[indexPath row]];
+        }
+        else
+        {
+            NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+            staff = [self.staffDataSources objectAtIndex:[indexPath row]];
+        }
+        detail.staff = staff;
     }
-    else
+    else if ([sender isKindOfClass:[UITabBarItem class]])
     {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        staff = [self.staffDataSources objectAtIndex:[indexPath row]];
+        
     }
-    detail.staff = staff;
 }
 @end

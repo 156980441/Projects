@@ -7,7 +7,8 @@
 //
 
 #import "DepartmentTableViewController.h"
-
+#import "PersonDetailTableViewController.h"
+#import "Staff.h"
 @interface DepartmentTableViewController ()
 
 @end
@@ -23,31 +24,43 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    self.dataSource = [[NSMutableArray alloc] initWithCapacity : 2];
+    self.dataSource = [[NSMutableArray alloc] initWithCapacity: 2];
     
-    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity : 2];
+    NSMutableDictionary *dict;
+    NSMutableArray *arr ;
+    dict = [NSMutableDictionary dictionary];
     [dict setObject:@"综合科" forKey:@"groupname"];
+    arr = [NSMutableArray array];
     
-    //利用数组来填充数据
-    NSMutableArray *arr = [[NSMutableArray alloc] initWithCapacity : 2];
-    [arr addObject: @"张三1"];
-    [arr addObject: @"李四"];
-    [arr addObject: @"张三0"];
     
+    
+    for (int i = 0; i < 3; i++) {
+        Staff* temp = [[Staff alloc] init];
+        temp.name = [NSString stringWithFormat:@"张%d",i];
+        temp.phone = @"123456";
+        temp.wechat =  @"88888";
+        temp.qq =  @"666666";
+        [arr addObject:temp];
+    }
     
     [dict setObject:arr forKey:@"users"];
     
     [self.dataSource addObject: dict];
     
     
-    dict = [[NSMutableDictionary alloc]initWithCapacity : 2];
+    dict = [NSMutableDictionary dictionary];
     [dict setObject:@"工程科" forKey:@"groupname"];
-    
-    arr = [[NSMutableArray alloc] initWithCapacity : 2];
-    [arr addObject: @"曹操"];
-    [arr addObject: @"司马懿"];
-    [arr addObject: @"张辽"];
+    arr = [NSMutableArray array];
+    for (int i = 0; i < 5; i++) {
+        Staff* temp = [[Staff alloc] init];
+        temp.name = [NSString stringWithFormat:@"王%d",i];
+        temp.phone = @"123456";
+        temp.wechat =  @"88888";
+        temp.qq =  @"666666";
+        [arr addObject:temp];
+    }
     [dict setObject:arr forKey:@"users"];
+    
     [self.dataSource addObject: dict];
 }
 
@@ -66,24 +79,24 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section;
 {
-    
-    
     UIView *hView;
+    CGFloat width = tableView.frame.size.width;
     if (UIInterfaceOrientationLandscapeRight == [[UIDevice currentDevice] orientation] ||
         UIInterfaceOrientationLandscapeLeft == [[UIDevice currentDevice] orientation])
     {
-        hView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 480, 40)];
+        hView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, width, 40)];
     }
     else
     {
-        hView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 40)];
+        hView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, width, 40)];
     }
     
     UIButton* eButton = [[UIButton alloc] init];
     
     //按钮填充整个视图
     eButton.frame = hView.frame;
-    [eButton addTarget:self action:@selector(expandButtonClicked:)
+    [eButton addTarget:self
+                action:@selector(expandButtonClicked:)
       forControlEvents:UIControlEventTouchUpInside];
     eButton.tag = section;//把节号保存到按钮tag，以便传递到expandButtonClicked方法
     
@@ -115,19 +128,7 @@
     return hView;
 }
 
-//对指定的节进行“展开/折叠”操作
--(void)collapseOrExpand:(NSInteger)section{
-    Boolean expanded = NO;
-    //Boolean searched = NO;
-    NSMutableDictionary* d=[self.dataSource objectAtIndex:section];
-    
-    //若本节model中的“expanded”属性不为空，则取出来
-    if([d objectForKey:@"expanded"]!=nil)
-        expanded=[[d objectForKey:@"expanded"]intValue];
-    
-    //若原来是折叠的则展开，若原来是展开的则折叠
-    [d setObject:[NSNumber numberWithBool:!expanded] forKey:@"expanded"];
-}
+
 
 //返回指定节的“expanded”值
 -(Boolean)isExpanded:(NSInteger)section{
@@ -155,6 +156,19 @@
     
 }
 
+//对指定的节进行“展开/折叠”操作
+-(void)collapseOrExpand:(NSInteger)section{
+    Boolean expanded = NO;
+    //Boolean searched = NO;
+    NSMutableDictionary* d=[self.dataSource objectAtIndex:section];
+    
+    //若本节model中的“expanded”属性不为空，则取出来
+    if([d objectForKey:@"expanded"]!=nil)
+        expanded=[[d objectForKey:@"expanded"]intValue];
+    
+    //若原来是折叠的则展开，若原来是展开的则折叠
+    [d setObject:[NSNumber numberWithBool:!expanded] forKey:@"expanded"];
+}
 
 
 
@@ -183,23 +197,18 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"departmentCell"];
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] ;
-    }
-    
-    NSDictionary* m= (NSDictionary*)[self.dataSource objectAtIndex: indexPath.section];
+    NSDictionary* m= (NSDictionary*)[self.dataSource objectAtIndex:indexPath.section];
     NSArray *d = (NSArray*)[m objectForKey:@"users"];
     
     if (d == nil) {
         return cell;
     }
     
+    Staff* staff = [d objectAtIndex: indexPath.row];
     //显示联系人名称
-    cell.textLabel.text = [d objectAtIndex: indexPath.row];
-    cell.textLabel.backgroundColor = [UIColor clearColor];
+    cell.textLabel.text = staff.name;
     
     //UIColor *newColor = [[UIColor alloc] initWithRed:(float) green:(float) blue:(float) alpha:(float)];
     cell.backgroundColor =  [UIColor colorWithPatternImage:[UIImage imageNamed:@"btn_listbg.png"]];
@@ -210,16 +219,6 @@
     [cell setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
     return cell;
 }
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
 
 /*
 // Override to support conditional editing of the table view.
@@ -255,14 +254,23 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    if ([sender isKindOfClass:[UITableViewCell class]]) {
+        PersonDetailTableViewController *detail = [segue destinationViewController];
+        Staff *staff = nil;
+            NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+            NSDictionary* m= (NSDictionary*)[self.dataSource objectAtIndex:indexPath.section];
+            NSArray *d = (NSArray*)[m objectForKey:@"users"];
+            staff = [d objectAtIndex: indexPath.row];
+        detail.staff = staff;
+    }
 }
-*/
 
 @end
