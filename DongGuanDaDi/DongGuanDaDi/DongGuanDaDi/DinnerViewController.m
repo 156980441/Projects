@@ -33,7 +33,7 @@
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    NSDate *day = change[NSKeyValueChangeNewKey];
+//    NSDate *day = change[NSKeyValueChangeNewKey];
     
 }
 
