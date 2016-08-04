@@ -9,6 +9,9 @@
 #import "DepartmentTableViewController.h"
 #import "PersonDetailTableViewController.h"
 #import "Staff.h"
+
+#define HeaderHeight 40
+
 @interface DepartmentTableViewController ()
 
 @end
@@ -73,7 +76,7 @@
 
 // 设置header的高度
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 40;
+    return HeaderHeight;
 }
 
 
@@ -84,11 +87,11 @@
     if (UIInterfaceOrientationLandscapeRight == [[UIDevice currentDevice] orientation] ||
         UIInterfaceOrientationLandscapeLeft == [[UIDevice currentDevice] orientation])
     {
-        hView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, width, 40)];
+        hView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, width, HeaderHeight)];
     }
     else
     {
-        hView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, width, 40)];
+        hView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, width, HeaderHeight)];
     }
     
     UIButton* eButton = [[UIButton alloc] init];

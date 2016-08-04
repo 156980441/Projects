@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		194D0F101D48B56100827F3C /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 194D0F0F1D48B56100827F3C /* MenuView.m */; };
+		194F69EE1D52DB6900EC55EA /* MemuDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 194F69ED1D52DB6900EC55EA /* MemuDetailViewController.m */; };
 		19E5BBF51D3F331600C1A1A9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E5BBF41D3F331600C1A1A9 /* main.m */; };
 		19E5BBF81D3F331600C1A1A9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E5BBF71D3F331600C1A1A9 /* AppDelegate.m */; };
 		19E5BBFE1D3F331600C1A1A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19E5BBFC1D3F331600C1A1A9 /* Main.storyboard */; };
@@ -51,6 +52,8 @@
 /* Begin PBXFileReference section */
 		194D0F0E1D48B56100827F3C /* MenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuView.h; sourceTree = "<group>"; };
 		194D0F0F1D48B56100827F3C /* MenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuView.m; sourceTree = "<group>"; };
+		194F69EC1D52DB6900EC55EA /* MemuDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemuDetailViewController.h; sourceTree = "<group>"; };
+		194F69ED1D52DB6900EC55EA /* MemuDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemuDetailViewController.m; sourceTree = "<group>"; };
 		19E5BBF01D3F331600C1A1A9 /* DongGuanDaDi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DongGuanDaDi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19E5BBF41D3F331600C1A1A9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		19E5BBF61D3F331600C1A1A9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -200,6 +203,8 @@
 				D79FCE551D4273E100BE99BB /* DinnerViewController.m */,
 				194D0F0E1D48B56100827F3C /* MenuView.h */,
 				194D0F0F1D48B56100827F3C /* MenuView.m */,
+				194F69EC1D52DB6900EC55EA /* MemuDetailViewController.h */,
+				194F69ED1D52DB6900EC55EA /* MemuDetailViewController.m */,
 			);
 			name = dinner;
 			sourceTree = "<group>";
@@ -387,6 +392,7 @@
 				D721E80B1D4CBEAA00A73D9D /* ModifyPassTableViewController.m in Sources */,
 				19E5BBF51D3F331600C1A1A9 /* main.m in Sources */,
 				D7AF7A0A1D436942005EA6DE /* ASDayPicker.m in Sources */,
+				194F69EE1D52DB6900EC55EA /* MemuDetailViewController.m in Sources */,
 				D75D13DC1D4E36AD00E082CF /* PersonDetailTableViewController.m in Sources */,
 				19E5BC281D3F344500C1A1A9 /* LoginViewController.m in Sources */,
 				194D0F101D48B56100827F3C /* MenuView.m in Sources */,
