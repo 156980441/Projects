@@ -47,4 +47,8 @@
 }
 */
 
+- (IBAction)moreBtnClick:(id)sender {
+    self.voteBtn.hidden = !self.voteBtn.hidden;
+    self.recordBtn.hidden = !self.recordBtn.hidden;
+}
 @end

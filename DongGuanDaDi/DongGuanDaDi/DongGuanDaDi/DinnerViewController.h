@@ -13,5 +13,8 @@
 @interface DinnerViewController : UIViewController
 @property (strong, nonatomic) IBOutlet ASDayPicker *dayPicker;
 @property (strong, nonatomic) IBOutlet MenuView *menu;
+- (IBAction)moreBtnClick:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *recordBtn;
+@property (strong, nonatomic) IBOutlet UIButton *voteBtn;
 
 @end

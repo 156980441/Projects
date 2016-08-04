@@ -194,6 +194,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ClC-AT-YBM">
                                 <rect key="frame" x="490" y="520" width="60" height="30"/>
                                 <state key="normal" title="其他按钮"/>
+                                <connections>
+                                    <action selector="moreBtnClick:" destination="0Za-b9-rwA" eventType="touchUpInside" id="ukS-2W-6m4"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c7K-bz-iGR" customClass="MenuView">
                                 <rect key="frame" x="0.0" y="165" width="600" height="120"/>
@@ -283,6 +286,14 @@
                                     <constraint firstItem="elH-Ss-mgD" firstAttribute="centerX" secondItem="Uyl-5O-eys" secondAttribute="centerX" id="xUI-Pf-nfr"/>
                                 </constraints>
                             </view>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KAx-ms-YXu">
+                                <rect key="frame" x="490" y="470" width="60" height="30"/>
+                                <state key="normal" title="饭菜投票"/>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PcV-tk-7ne">
+                                <rect key="frame" x="490" y="420" width="60" height="30"/>
+                                <state key="normal" title="用餐记录"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -293,13 +304,17 @@
                             <constraint firstAttribute="trailing" secondItem="X2Z-xS-l4v" secondAttribute="trailing" id="AxP-Ic-W3z"/>
                             <constraint firstItem="jvP-pl-ufS" firstAttribute="top" secondItem="Fei-GF-gtY" secondAttribute="bottom" id="SjS-Td-1p2"/>
                             <constraint firstItem="Uyl-5O-eys" firstAttribute="top" secondItem="c7K-bz-iGR" secondAttribute="bottom" id="ThO-JZ-6ap"/>
+                            <constraint firstItem="ClC-AT-YBM" firstAttribute="top" secondItem="KAx-ms-YXu" secondAttribute="bottom" constant="20" id="Tr6-hU-Xxk"/>
                             <constraint firstItem="X2Z-xS-l4v" firstAttribute="top" secondItem="Uyl-5O-eys" secondAttribute="bottom" constant="8" id="UnS-bC-Q4L"/>
+                            <constraint firstItem="KAx-ms-YXu" firstAttribute="top" secondItem="PcV-tk-7ne" secondAttribute="bottom" constant="20" id="W1i-g8-xF4"/>
                             <constraint firstItem="X2Z-xS-l4v" firstAttribute="leading" secondItem="YhH-gF-iJI" secondAttribute="leading" id="Xm1-IY-Skq"/>
                             <constraint firstAttribute="trailing" secondItem="Uyl-5O-eys" secondAttribute="trailing" id="Yxp-Vo-OH0"/>
                             <constraint firstItem="X2Z-xS-l4v" firstAttribute="centerX" secondItem="YhH-gF-iJI" secondAttribute="centerX" id="ZEZ-I1-jct"/>
                             <constraint firstAttribute="trailing" secondItem="c7K-bz-iGR" secondAttribute="trailing" id="ZbC-Zz-Oae"/>
+                            <constraint firstAttribute="trailing" secondItem="KAx-ms-YXu" secondAttribute="trailing" constant="50" id="eOh-wg-DhH"/>
                             <constraint firstItem="c7K-bz-iGR" firstAttribute="centerX" secondItem="YhH-gF-iJI" secondAttribute="centerX" id="lCp-Va-dc7"/>
                             <constraint firstAttribute="trailing" secondItem="ClC-AT-YBM" secondAttribute="trailing" constant="50" id="laU-7O-lY4"/>
+                            <constraint firstAttribute="trailing" secondItem="PcV-tk-7ne" secondAttribute="trailing" constant="50" id="liE-JV-oml"/>
                             <constraint firstItem="jvP-pl-ufS" firstAttribute="leading" secondItem="YhH-gF-iJI" secondAttribute="leading" id="nac-8T-oIZ"/>
                             <constraint firstItem="27R-Uc-Luc" firstAttribute="top" secondItem="ClC-AT-YBM" secondAttribute="bottom" constant="50" id="njM-5I-dFd"/>
                             <constraint firstItem="Uyl-5O-eys" firstAttribute="centerX" secondItem="YhH-gF-iJI" secondAttribute="centerX" id="qp5-jr-Xhv"/>
@@ -310,6 +325,8 @@
                     <connections>
                         <outlet property="dayPicker" destination="jvP-pl-ufS" id="VCA-Py-2xy"/>
                         <outlet property="menu" destination="c7K-bz-iGR" id="OKx-au-MMn"/>
+                        <outlet property="recordBtn" destination="PcV-tk-7ne" id="Qx7-3K-AeF"/>
+                        <outlet property="voteBtn" destination="KAx-ms-YXu" id="ZNK-3Y-DER"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gxf-Xw-NIg" userLabel="First Responder" sceneMemberID="firstResponder"/>
