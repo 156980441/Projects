@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface DinerRecordViewController : UITableViewController
+@property (strong, nonatomic) IBOutlet UIView *TableViewHeader;
+- (IBAction)selectDate:(id)sender;
+- (IBAction)queryRecord:(id)sender;
 
 @end

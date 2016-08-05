@@ -10,4 +10,9 @@
 
 @implementation DinerRecordViewController
 
+- (IBAction)selectDate:(id)sender {
+}
+
+- (IBAction)queryRecord:(id)sender {
+}
 @end
