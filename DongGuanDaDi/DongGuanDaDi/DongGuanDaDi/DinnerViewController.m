@@ -2,7 +2,7 @@
 //  DinnerViewController.m
 //  DongGuanDaDi
 //
-//  Created by 赵雪莹 on 16/7/22.
+//  Created by fanyl on 16/7/22.
 //  Copyright © 2016年 fanyl. All rights reserved.
 //
 
@@ -25,6 +25,12 @@
     [self.dayPicker addObserver:self forKeyPath:@"selectedDate" options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew context:nil];
     
     
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [self.dayPicker removeObserver:self forKeyPath:@"selectedDate"];
 }
 
 - (void)didReceiveMemoryWarning {
