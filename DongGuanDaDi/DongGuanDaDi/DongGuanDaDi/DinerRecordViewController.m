@@ -8,9 +8,12 @@
 
 #import "DinerRecordViewController.h"
 
+
 @implementation DinerRecordViewController
 
 - (IBAction)selectDate:(id)sender {
+    self.datePikerAlert = [[DatePikerAlert alloc] initWithTitle:@"设置时间" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
+    [self.datePikerAlert show];
 }
 
 - (IBAction)queryRecord:(id)sender {

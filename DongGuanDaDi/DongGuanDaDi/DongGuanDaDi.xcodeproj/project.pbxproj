@@ -24,6 +24,7 @@
 		19E8D6671D4C9132005A6DB4 /* CarDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E8D6661D4C9132005A6DB4 /* CarDetailCell.m */; };
 		19E8D66A1D4C9C22005A6DB4 /* ModifyPerInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E8D6691D4C9C22005A6DB4 /* ModifyPerInfoTableViewController.m */; };
 		8D93C6931D4FA73E000465D1 /* DepartmentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D93C6921D4FA73E000465D1 /* DepartmentTableViewController.m */; };
+		8DA008351D558567007C55B9 /* DatePikerAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA008341D558567007C55B9 /* DatePikerAlert.m */; };
 		D721E80B1D4CBEAA00A73D9D /* ModifyPassTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D721E80A1D4CBEAA00A73D9D /* ModifyPassTableViewController.m */; };
 		D721E80E1D4CC84B00A73D9D /* Staff.m in Sources */ = {isa = PBXBuildFile; fileRef = D721E80D1D4CC84B00A73D9D /* Staff.m */; };
 		D75D13DC1D4E36AD00E082CF /* PersonDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D75D13DB1D4E36AD00E082CF /* PersonDetailTableViewController.m */; };
@@ -87,6 +88,8 @@
 		19E8D6691D4C9C22005A6DB4 /* ModifyPerInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPerInfoTableViewController.m; sourceTree = "<group>"; };
 		8D93C6911D4FA73E000465D1 /* DepartmentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepartmentTableViewController.h; sourceTree = "<group>"; };
 		8D93C6921D4FA73E000465D1 /* DepartmentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepartmentTableViewController.m; sourceTree = "<group>"; };
+		8DA008331D558567007C55B9 /* DatePikerAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePikerAlert.h; sourceTree = "<group>"; };
+		8DA008341D558567007C55B9 /* DatePikerAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePikerAlert.m; sourceTree = "<group>"; };
 		D721E8091D4CBEAA00A73D9D /* ModifyPassTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPassTableViewController.h; sourceTree = "<group>"; };
 		D721E80A1D4CBEAA00A73D9D /* ModifyPassTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPassTableViewController.m; sourceTree = "<group>"; };
 		D721E80C1D4CC84B00A73D9D /* Staff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Staff.h; sourceTree = "<group>"; };
@@ -208,18 +211,20 @@
 			children = (
 				D7AF7A081D436942005EA6DE /* ASDayPicker.h */,
 				D7AF7A091D436942005EA6DE /* ASDayPicker.m */,
-				D79FCE541D4273E100BE99BB /* DinnerViewController.h */,
-				D79FCE551D4273E100BE99BB /* DinnerViewController.m */,
-				194D0F0E1D48B56100827F3C /* MenuView.h */,
-				194D0F0F1D48B56100827F3C /* MenuView.m */,
-				194F69EC1D52DB6900EC55EA /* MemuDetailViewController.h */,
-				194F69ED1D52DB6900EC55EA /* MemuDetailViewController.m */,
-				194F69EF1D52E26B00EC55EA /* Food.h */,
-				194F69F01D52E26B00EC55EA /* Food.m */,
 				194F69F21D52F1CC00EC55EA /* DinerRecordViewController.h */,
 				194F69F31D52F1CC00EC55EA /* DinerRecordViewController.m */,
+				D79FCE541D4273E100BE99BB /* DinnerViewController.h */,
+				D79FCE551D4273E100BE99BB /* DinnerViewController.m */,
 				194F69F51D52F1F800EC55EA /* DinnerVoteViewController.h */,
 				194F69F61D52F1F800EC55EA /* DinnerVoteViewController.m */,
+				194F69EF1D52E26B00EC55EA /* Food.h */,
+				194F69F01D52E26B00EC55EA /* Food.m */,
+				194F69EC1D52DB6900EC55EA /* MemuDetailViewController.h */,
+				194F69ED1D52DB6900EC55EA /* MemuDetailViewController.m */,
+				194D0F0E1D48B56100827F3C /* MenuView.h */,
+				194D0F0F1D48B56100827F3C /* MenuView.m */,
+				8DA008331D558567007C55B9 /* DatePikerAlert.h */,
+				8DA008341D558567007C55B9 /* DatePikerAlert.m */,
 			);
 			name = dinner;
 			sourceTree = "<group>";
@@ -404,6 +409,7 @@
 				19E5BBF81D3F331600C1A1A9 /* AppDelegate.m in Sources */,
 				194F69F41D52F1CC00EC55EA /* DinerRecordViewController.m in Sources */,
 				194F69F71D52F1F800EC55EA /* DinnerVoteViewController.m in Sources */,
+				8DA008351D558567007C55B9 /* DatePikerAlert.m in Sources */,
 				D79FCE5A1D4274BA00BE99BB /* CarsTableViewController.m in Sources */,
 				19E8D6671D4C9132005A6DB4 /* CarDetailCell.m in Sources */,
 				D721E80B1D4CBEAA00A73D9D /* ModifyPassTableViewController.m in Sources */,
