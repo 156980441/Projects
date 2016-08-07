@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DatePikerAlert.h"
+#import "YLDatePicker.h"
 
-@interface DinerRecordViewController : UITableViewController
+@interface DinerRecordViewController : UITableViewController <YLDatePickerDelegate>
 @property (strong, nonatomic) IBOutlet UIView *TableViewHeader;
-@property (nonatomic, strong) DatePikerAlert* datePikerAlert;
+@property (nonatomic, strong) YLDatePicker* datePiker;
 - (IBAction)selectDate:(id)sender;
 - (IBAction)queryRecord:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *startBtn;
+@property (weak, nonatomic) IBOutlet UIButton *endBtn;
 
 @end
