@@ -21,9 +21,9 @@
     
     self.picker.datePickerMode = mode;
     
-    [self.picker addTarget:self
-                    action:@selector(valueChanged:)
-          forControlEvents:UIControlEventValueChanged];
+//    [self.picker addTarget:self
+//                    action:@selector(valueChanged:)
+//          forControlEvents:UIControlEventValueChanged];
     
     [self addSubview:self.picker];
     
@@ -70,7 +70,7 @@
 
 - (void)valueChanged:(UIDatePicker *)picker{
     if([self.delegate respondsToSelector:@selector(picker:valueChanged:)]){
-        [self.delegate picker:picker valueChanged:picker.date];
+//        [self.delegate picker:picker valueChanged:picker.date];
     }
 }
 /*
