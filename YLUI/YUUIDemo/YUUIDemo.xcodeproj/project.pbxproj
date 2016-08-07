@@ -9,25 +9,43 @@
 /* Begin PBXBuildFile section */
 		8D629C071D55A5A900140B7D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D629C061D55A5A900140B7D /* main.m */; };
 		8D629C0A1D55A5A900140B7D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D629C091D55A5A900140B7D /* AppDelegate.m */; };
-		8D629C0D1D55A5A900140B7D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D629C0C1D55A5A900140B7D /* ViewController.m */; };
 		8D629C101D55A5A900140B7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D629C0E1D55A5A900140B7D /* Main.storyboard */; };
 		8D629C121D55A5A900140B7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D629C111D55A5A900140B7D /* Assets.xcassets */; };
 		8D629C151D55A5A900140B7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D629C131D55A5A900140B7D /* LaunchScreen.storyboard */; };
-		8D629C281D55B32800140B7D /* YLUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D629C271D55B32800140B7D /* YLUI.framework */; };
+		8D9851591D56E0E60030D314 /* MainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D9851581D56E0E60030D314 /* MainCell.m */; };
+		8DAEC4F31D56D05700BEC91C /* YLUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DAEC4F21D56D05700BEC91C /* YLUI.framework */; };
+		8DAEC4F41D56D05700BEC91C /* YLUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8DAEC4F21D56D05700BEC91C /* YLUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8DAEC4F71D56DEE700BEC91C /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DAEC4F61D56DEE700BEC91C /* MainViewController.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8DAEC4F11D56D04200BEC91C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8DAEC4F41D56D05700BEC91C /* YLUI.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		8D629C021D55A5A900140B7D /* YUUIDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YUUIDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D629C061D55A5A900140B7D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8D629C081D55A5A900140B7D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8D629C091D55A5A900140B7D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		8D629C0B1D55A5A900140B7D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		8D629C0C1D55A5A900140B7D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		8D629C0F1D55A5A900140B7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8D629C111D55A5A900140B7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D629C141D55A5A900140B7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8D629C161D55A5A900140B7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8D629C271D55B32800140B7D /* YLUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YLUI.framework; path = "../../../../Library/Developer/Xcode/DerivedData/YLUITest-etwggwhfdsmfugdcpmmmmmstodfo/Build/Products/Debug-iphonesimulator/YLUI.framework"; sourceTree = "<group>"; };
+		8D9851571D56E0E60030D314 /* MainCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCell.h; sourceTree = "<group>"; };
+		8D9851581D56E0E60030D314 /* MainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCell.m; sourceTree = "<group>"; };
+		8DAEC4F21D56D05700BEC91C /* YLUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = YLUI.framework; path = "/Users/fanyl/Library/Developer/Xcode/DerivedData/YLUITest-etwggwhfdsmfugdcpmmmmmstodfo/Build/Products/Debug-iphonesimulator/YLUI.framework"; sourceTree = "<absolute>"; };
+		8DAEC4F51D56DEE700BEC91C /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		8DAEC4F61D56DEE700BEC91C /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,7 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D629C281D55B32800140B7D /* YLUI.framework in Frameworks */,
+				8DAEC4F31D56D05700BEC91C /* YLUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,7 +63,7 @@
 		8D629BF91D55A5A900140B7D = {
 			isa = PBXGroup;
 			children = (
-				8D629C271D55B32800140B7D /* YLUI.framework */,
+				8DAEC4F21D56D05700BEC91C /* YLUI.framework */,
 				8D629C041D55A5A900140B7D /* YUUIDemo */,
 				8D629C031D55A5A900140B7D /* Products */,
 			);
@@ -64,8 +82,10 @@
 			children = (
 				8D629C081D55A5A900140B7D /* AppDelegate.h */,
 				8D629C091D55A5A900140B7D /* AppDelegate.m */,
-				8D629C0B1D55A5A900140B7D /* ViewController.h */,
-				8D629C0C1D55A5A900140B7D /* ViewController.m */,
+				8DAEC4F51D56DEE700BEC91C /* MainViewController.h */,
+				8DAEC4F61D56DEE700BEC91C /* MainViewController.m */,
+				8D9851571D56E0E60030D314 /* MainCell.h */,
+				8D9851581D56E0E60030D314 /* MainCell.m */,
 				8D629C0E1D55A5A900140B7D /* Main.storyboard */,
 				8D629C111D55A5A900140B7D /* Assets.xcassets */,
 				8D629C131D55A5A900140B7D /* LaunchScreen.storyboard */,
@@ -93,6 +113,7 @@
 				8D629BFE1D55A5A900140B7D /* Sources */,
 				8D629BFF1D55A5A900140B7D /* Frameworks */,
 				8D629C001D55A5A900140B7D /* Resources */,
+				8DAEC4F11D56D04200BEC91C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -153,9 +174,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D629C0D1D55A5A900140B7D /* ViewController.m in Sources */,
+				8D9851591D56E0E60030D314 /* MainCell.m in Sources */,
 				8D629C0A1D55A5A900140B7D /* AppDelegate.m in Sources */,
 				8D629C071D55A5A900140B7D /* main.m in Sources */,
+				8DAEC4F71D56DEE700BEC91C /* MainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

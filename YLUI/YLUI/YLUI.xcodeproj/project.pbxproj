@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		8D629BF21D55A55700140B7D /* YLUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D629BF11D55A55700140B7D /* YLUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8D629C1E1D55A64700140B7D /* YLDatePicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D629C1C1D55A64700140B7D /* YLDatePicker.h */; };
+		8D629C1E1D55A64700140B7D /* YLDatePicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D629C1C1D55A64700140B7D /* YLDatePicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8D629C1F1D55A64700140B7D /* YLDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D629C1D1D55A64700140B7D /* YLDatePicker.m */; };
-		8D629C231D55AB6300140B7D /* YLToast.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D629C211D55AB6300140B7D /* YLToast.h */; };
+		8D629C231D55AB6300140B7D /* YLToast.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D629C211D55AB6300140B7D /* YLToast.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8D629C241D55AB6300140B7D /* YLToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D629C221D55AB6300140B7D /* YLToast.m */; };
 /* End PBXBuildFile section */
 
@@ -74,8 +74,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D629BF21D55A55700140B7D /* YLUI.h in Headers */,
-				8D629C1E1D55A64700140B7D /* YLDatePicker.h in Headers */,
 				8D629C231D55AB6300140B7D /* YLToast.h in Headers */,
+				8D629C1E1D55A64700140B7D /* YLDatePicker.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

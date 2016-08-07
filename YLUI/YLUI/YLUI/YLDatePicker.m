@@ -30,28 +30,39 @@
     UIButton *confirm = [UIButton buttonWithType:UIButtonTypeSystem];
     confirm.frame = CGRectMake(self.picker.frame.origin.x, self.picker.frame.size.height, self.picker.frame.size.width / 2, CommonHeght);
     [confirm setTitle:@"确认" forState:UIControlStateNormal];
-    [confirm addTarget:self action:@selector(pickDone) forControlEvents:UIControlEventTouchUpInside];
+    [confirm addTarget:self action:@selector(confirmDone) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:confirm];
+    
+    UIButton *cancel = [UIButton buttonWithType:UIButtonTypeSystem];
+    cancel.frame = CGRectMake(confirm.frame.origin.x + confirm.frame.size.width, confirm.frame.origin.y, confirm.frame.size.width, CommonHeght);
+    [cancel setTitle:@"取消" forState:UIControlStateNormal];
+    [cancel addTarget:self action:@selector(cancelDone) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:cancel];
     
     [view addSubview:self];
     
-    self.frame = CGRectMake(0, SCREENHEIGHT, SCREENWIDTH, 0);
+    // pop from bottom
+    self.frame = CGRectMake(view.center.x - frame.size.width / 2, view.center.y, 0, 0);
     
     [UIView animateWithDuration:0.3 animations:^{
         self.frame = frame;
     }];
 }
 
-- (void)pickDone{
+- (void)confirmDone{
     if (![self.picker respondsToSelector:@selector(valueChanged:)]) {
         [self.delegate picker:self.picker ValueChanged:self.picker.date];
     }
     [self dismiss];
 }
 
+- (void)cancelDone{
+    [self dismiss];
+}
+
 - (void)dismiss{
     [UIView animateWithDuration:0.3 animations:^{
-        self.frame = CGRectMake(0, SCREENHEIGHT, SCREENWIDTH, 0);
+        self.frame = CGRectMake(self.superview.center.x - self.frame.size.width / 2, SCREENHEIGHT, 0, 0);
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
     }];
