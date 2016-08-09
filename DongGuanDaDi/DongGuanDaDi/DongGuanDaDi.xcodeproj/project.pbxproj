@@ -162,6 +162,7 @@
 		19E5BBF21D3F331600C1A1A9 /* DongGuanDaDi */ = {
 			isa = PBXGroup;
 			children = (
+				D75EDDBF1D5A2AB900D34DC0 /* vendor */,
 				D79FCE631D42775000BE99BB /* utils */,
 				D79FCE5F1D42755E00BE99BB /* personal */,
 				D79FCE5B1D42753000BE99BB /* address_list */,
@@ -208,6 +209,13 @@
 				19E5BC1A1D3F331600C1A1A9 /* Info.plist */,
 			);
 			path = DongGuanDaDiUITests;
+			sourceTree = "<group>";
+		};
+		D75EDDBF1D5A2AB900D34DC0 /* vendor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = vendor;
 			sourceTree = "<group>";
 		};
 		D79FCE4D1D4271CF00BE99BB /* dinner */ = {
