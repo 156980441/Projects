@@ -26,6 +26,7 @@
 		8D93C6931D4FA73E000465D1 /* DepartmentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D93C6921D4FA73E000465D1 /* DepartmentTableViewController.m */; };
 		8D98515C1D56FD980030D314 /* YLDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D98515B1D56FD980030D314 /* YLDatePicker.m */; };
 		8D9851601D56FFCA0030D314 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D98515F1D56FFCA0030D314 /* Common.m */; };
+		945BCE4777191345375D8239 /* libPods-DongGuanDaDi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E72E02FACBABE54F3E897144 /* libPods-DongGuanDaDi.a */; };
 		D721E80B1D4CBEAA00A73D9D /* ModifyPassTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D721E80A1D4CBEAA00A73D9D /* ModifyPassTableViewController.m */; };
 		D721E80E1D4CC84B00A73D9D /* Staff.m in Sources */ = {isa = PBXBuildFile; fileRef = D721E80D1D4CC84B00A73D9D /* Staff.m */; };
 		D75D13DC1D4E36AD00E082CF /* PersonDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D75D13DB1D4E36AD00E082CF /* PersonDetailTableViewController.m */; };
@@ -99,6 +100,7 @@
 		19E8D6661D4C9132005A6DB4 /* CarDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarDetailCell.m; sourceTree = "<group>"; };
 		19E8D6681D4C9C22005A6DB4 /* ModifyPerInfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPerInfoTableViewController.h; sourceTree = "<group>"; };
 		19E8D6691D4C9C22005A6DB4 /* ModifyPerInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPerInfoTableViewController.m; sourceTree = "<group>"; };
+		7C6C8F20CA08950738227191 /* Pods-DongGuanDaDi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DongGuanDaDi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DongGuanDaDi/Pods-DongGuanDaDi.debug.xcconfig"; sourceTree = "<group>"; };
 		8D93C6911D4FA73E000465D1 /* DepartmentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepartmentTableViewController.h; sourceTree = "<group>"; };
 		8D93C6921D4FA73E000465D1 /* DepartmentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepartmentTableViewController.m; sourceTree = "<group>"; };
 		8D98515A1D56FD980030D314 /* YLDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLDatePicker.h; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 		8D98515D1D56FDD60030D314 /* YLUI_stdfax.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLUI_stdfax.h; sourceTree = "<group>"; };
 		8D98515E1D56FFCA0030D314 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		8D98515F1D56FFCA0030D314 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
+		B36727BE6DEBF3748E9E51EA /* Pods-DongGuanDaDi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DongGuanDaDi.release.xcconfig"; path = "Pods/Target Support Files/Pods-DongGuanDaDi/Pods-DongGuanDaDi.release.xcconfig"; sourceTree = "<group>"; };
 		D721E8091D4CBEAA00A73D9D /* ModifyPassTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPassTableViewController.h; sourceTree = "<group>"; };
 		D721E80A1D4CBEAA00A73D9D /* ModifyPassTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPassTableViewController.m; sourceTree = "<group>"; };
 		D721E80C1D4CC84B00A73D9D /* Staff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Staff.h; sourceTree = "<group>"; };
@@ -148,6 +151,7 @@
 		D7AF7A091D436942005EA6DE /* ASDayPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASDayPicker.m; sourceTree = "<group>"; };
 		D7D4F50C1D410B16005A7729 /* MainViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewCell.h; sourceTree = "<group>"; };
 		D7D4F50D1D410B16005A7729 /* MainViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewCell.m; sourceTree = "<group>"; };
+		E72E02FACBABE54F3E897144 /* libPods-DongGuanDaDi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DongGuanDaDi.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +159,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				945BCE4777191345375D8239 /* libPods-DongGuanDaDi.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +180,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A9CC0819230119838014D67 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E72E02FACBABE54F3E897144 /* libPods-DongGuanDaDi.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		19E5BBE71D3F331600C1A1A9 = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +195,8 @@
 				19E5BC0C1D3F331600C1A1A9 /* DongGuanDaDiTests */,
 				19E5BC171D3F331600C1A1A9 /* DongGuanDaDiUITests */,
 				19E5BBF11D3F331600C1A1A9 /* Products */,
+				8B3A13BFB3838DBBABA263FC /* Pods */,
+				0A9CC0819230119838014D67 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -245,6 +260,15 @@
 				19E5BC1A1D3F331600C1A1A9 /* Info.plist */,
 			);
 			path = DongGuanDaDiUITests;
+			sourceTree = "<group>";
+		};
+		8B3A13BFB3838DBBABA263FC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7C6C8F20CA08950738227191 /* Pods-DongGuanDaDi.debug.xcconfig */,
+				B36727BE6DEBF3748E9E51EA /* Pods-DongGuanDaDi.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		D75EDDBF1D5A2AB900D34DC0 /* vendor */ = {
@@ -365,9 +389,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 19E5BC1D1D3F331600C1A1A9 /* Build configuration list for PBXNativeTarget "DongGuanDaDi" */;
 			buildPhases = (
+				F6200BEF433211E0457DE0DF /* [CP] Check Pods Manifest.lock */,
 				19E5BBEC1D3F331600C1A1A9 /* Sources */,
 				19E5BBED1D3F331600C1A1A9 /* Frameworks */,
 				19E5BBEE1D3F331600C1A1A9 /* Resources */,
+				77B8A3BF84FAE80DA7889888 /* [CP] Embed Pods Frameworks */,
+				E6BB4BAE191080621E50068C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -482,6 +509,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		77B8A3BF84FAE80DA7889888 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DongGuanDaDi/Pods-DongGuanDaDi-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E6BB4BAE191080621E50068C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DongGuanDaDi/Pods-DongGuanDaDi-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6200BEF433211E0457DE0DF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		19E5BBEC1D3F331600C1A1A9 /* Sources */ = {
@@ -663,6 +738,7 @@
 		};
 		19E5BC1E1D3F331600C1A1A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C6C8F20CA08950738227191 /* Pods-DongGuanDaDi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DongGuanDaDi/Info.plist;
@@ -675,6 +751,7 @@
 		};
 		19E5BC1F1D3F331600C1A1A9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B36727BE6DEBF3748E9E51EA /* Pods-DongGuanDaDi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DongGuanDaDi/Info.plist;
