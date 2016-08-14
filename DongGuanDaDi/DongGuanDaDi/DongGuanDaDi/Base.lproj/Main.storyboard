@@ -59,6 +59,7 @@
                                     <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="login:" destination="Sig-jZ-7fq" eventType="touchUpInside" id="Jce-AK-iRe"/>
                                     <segue destination="Qwp-Ve-hoz" kind="show" id="1SQ-rU-obo"/>
                                 </connections>
                             </button>
@@ -86,6 +87,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="foT-EF-2r4"/>
+                    <connections>
+                        <outlet property="loginBtn" destination="AxY-wI-CTg" id="QjH-vd-KuQ"/>
+                        <outlet property="nameTxt" destination="RP2-Yh-AGh" id="dX3-uA-abW"/>
+                        <outlet property="passTxt" destination="ohW-fI-Kdm" id="ohT-4f-XRh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x3Q-O0-aHM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

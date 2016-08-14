@@ -48,6 +48,7 @@
 		D79FCE621D42757400BE99BB /* PersonalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D79FCE611D42757400BE99BB /* PersonalTableViewController.m */; };
 		D7AF7A0A1D436942005EA6DE /* ASDayPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = D7AF7A091D436942005EA6DE /* ASDayPicker.m */; };
 		D7D4F50E1D410B16005A7729 /* MainViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D4F50D1D410B16005A7729 /* MainViewCell.m */; };
+		D7E676F61D60CBC8006A226B /* YLToast.m in Sources */ = {isa = PBXBuildFile; fileRef = D7E676F51D60CBC8006A226B /* YLToast.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +152,8 @@
 		D7AF7A091D436942005EA6DE /* ASDayPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASDayPicker.m; sourceTree = "<group>"; };
 		D7D4F50C1D410B16005A7729 /* MainViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewCell.h; sourceTree = "<group>"; };
 		D7D4F50D1D410B16005A7729 /* MainViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewCell.m; sourceTree = "<group>"; };
+		D7E676F41D60CBC8006A226B /* YLToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLToast.h; sourceTree = "<group>"; };
+		D7E676F51D60CBC8006A226B /* YLToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLToast.m; sourceTree = "<group>"; };
 		E72E02FACBABE54F3E897144 /* libPods-DongGuanDaDi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DongGuanDaDi.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -376,6 +379,8 @@
 		D79FCE631D42775000BE99BB /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				D7E676F41D60CBC8006A226B /* YLToast.h */,
+				D7E676F51D60CBC8006A226B /* YLToast.m */,
 				8D98515E1D56FFCA0030D314 /* Common.h */,
 				8D98515F1D56FFCA0030D314 /* Common.m */,
 			);
@@ -595,6 +600,7 @@
 				D75EDE051D5A2B4300D34DC0 /* ELineChartDataModel.m in Sources */,
 				D79FCE621D42757400BE99BB /* PersonalTableViewController.m in Sources */,
 				8D93C6931D4FA73E000465D1 /* DepartmentTableViewController.m in Sources */,
+				D7E676F61D60CBC8006A226B /* YLToast.m in Sources */,
 				D75EDE031D5A2B4300D34DC0 /* ELine.m in Sources */,
 				19E8D66A1D4C9C22005A6DB4 /* ModifyPerInfoTableViewController.m in Sources */,
 				D75EDDFD1D5A2B4300D34DC0 /* EColor.m in Sources */,
