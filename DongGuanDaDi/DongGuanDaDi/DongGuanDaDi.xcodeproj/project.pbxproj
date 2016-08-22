@@ -79,6 +79,7 @@
 		194F69F31D52F1CC00EC55EA /* DinerRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DinerRecordViewController.m; sourceTree = "<group>"; };
 		194F69F51D52F1F800EC55EA /* DinnerVoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DinnerVoteViewController.h; sourceTree = "<group>"; };
 		194F69F61D52F1F800EC55EA /* DinnerVoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DinnerVoteViewController.m; sourceTree = "<group>"; };
+		19D0D6151D6AA53C009E7444 /* stdafx_DongGuanDaDi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stdafx_DongGuanDaDi.h; sourceTree = "<group>"; };
 		19E5BBF01D3F331600C1A1A9 /* DongGuanDaDi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DongGuanDaDi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19E5BBF41D3F331600C1A1A9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		19E5BBF61D3F331600C1A1A9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -235,6 +236,7 @@
 				19E5BC011D3F331600C1A1A9 /* LaunchScreen.storyboard */,
 				19E5BC041D3F331600C1A1A9 /* Info.plist */,
 				19E5BBF31D3F331600C1A1A9 /* Supporting Files */,
+				19D0D6151D6AA53C009E7444 /* stdafx_DongGuanDaDi.h */,
 			);
 			path = DongGuanDaDi;
 			sourceTree = "<group>";

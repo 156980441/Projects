@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+#import "Staff.h"
+
 @interface LoginViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UITextField *nameTxt;
 @property (strong, nonatomic) IBOutlet UITextField *passTxt;
 @property (strong, nonatomic) IBOutlet UIButton *loginBtn;
 - (IBAction)login:(id)sender;
+
+@property (nonatomic, strong) Staff *staff;
 
 @end
