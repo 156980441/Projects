@@ -40,9 +40,9 @@
     for (int i = 0; i < 3; i++) {
         Staff* temp = [[Staff alloc] init];
         temp.name = [NSString stringWithFormat:@"张%d",i];
-        temp.phone = @"123456";
+        temp.phone = 123456;
         temp.wechat =  @"88888";
-        temp.qq =  @"666666";
+        temp.qq =  666666;
         [arr addObject:temp];
     }
     
@@ -57,9 +57,9 @@
     for (int i = 0; i < 5; i++) {
         Staff* temp = [[Staff alloc] init];
         temp.name = [NSString stringWithFormat:@"王%d",i];
-        temp.phone = @"123456";
+        temp.phone = 123456;
         temp.wechat =  @"88888";
-        temp.qq =  @"666666";
+        temp.qq =  666666;
         [arr addObject:temp];
     }
     [dict setObject:arr forKey:@"users"];

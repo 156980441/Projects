@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PersonalTableViewController : UITableViewController
+@class Staff;
 
+@interface PersonalTableViewController : UITableViewController
+@property (nonatomic, strong) Staff *staff;
 @end

@@ -7,6 +7,10 @@
 //
 
 #import "PersonalTableViewController.h"
+#import "Staff.h"
+
+#import "stdafx_DongGuanDaDi.h"
+#import "AFHTTPSessionManager.h"
 
 @interface PersonalTableViewController ()
 
@@ -22,6 +26,27 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.staff = [[Staff alloc] init];
+    NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:@"/DongGuan/",@"referer", nil];
+    [[AFHTTPSessionManager manager] GET:URL_PERSONAL_INFO parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        if([responseObject isKindOfClass:[NSDictionary class]]) {
+            NSDictionary* dic = (NSDictionary*)responseObject;
+            self.staff.identifier = (NSString*)[dic objectForKey:@"id"];
+            self.staff.phone = ((NSNumber*)[dic objectForKey:@"phone"]).longLongValue;
+            self.staff.qq = ((NSNumber*)[dic objectForKey:@"qq"]).longLongValue;
+            self.staff.sex = (NSString*)[dic objectForKey:@"sex"];
+            self.staff.wechat = (NSString*)[dic objectForKey:@"wechatId"];
+            NSDictionary* dic_user = (NSDictionary*)[dic objectForKey:@"user"];
+            self.staff.name = (NSString*)[dic_user objectForKey:@"name"];
+            self.staff.pass = (NSString*)[dic_user objectForKey:@"password"];
+            NSDictionary* dic_office = (NSDictionary*)[dic objectForKey:@"office"];
+            self.staff.department = (NSString*)[dic_office objectForKey:@"officeName"];
+        }
+        [self.tableView reloadData];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"Login failed, %@",error);
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,25 +56,36 @@
 
 #pragma mark - Table view data source
 
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//#warning Incomplete implementation, return the number of sections
-//    return 0;
-//}
-//
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//#warning Incomplete implementation, return the number of rows
-//    return 0;
-//}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
 
-/*
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 6;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"personal" forIndexPath:indexPath];
     
     // Configure the cell...
     
+    if (0 == indexPath.row) {
+        cell.textLabel.text = self.staff.name;
+    } else if (1 == indexPath.row) {
+        cell.textLabel.text = [NSString stringWithFormat:@"电话：%lld",self.staff.phone];
+    } else if (2 == indexPath.row) {
+        cell.textLabel.text = [NSString stringWithFormat:@"微信：%@",self.staff.wechat];
+    } else if (3 == indexPath.row) {
+        cell.textLabel.text = [NSString stringWithFormat:@"QQ：%lld",self.staff.qq];
+    } else if (4 == indexPath.row) {
+        cell.textLabel.text = @"信息编辑";
+    } else if (5 == indexPath.row) {
+        cell.textLabel.text = @"修改密码";
+    }
+    
+    
     return cell;
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.
