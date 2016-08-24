@@ -220,7 +220,7 @@
 				D75EDDBF1D5A2AB900D34DC0 /* vendor */,
 				D79FCE631D42775000BE99BB /* utils */,
 				D79FCE5F1D42755E00BE99BB /* personal */,
-				D79FCE5B1D42753000BE99BB /* address_list */,
+				D79FCE5B1D42753000BE99BB /* contact */,
 				D79FCE571D4274A800BE99BB /* cars */,
 				D79FCE4D1D4271CF00BE99BB /* dinner */,
 				19E5BBF61D3F331600C1A1A9 /* AppDelegate.h */,
@@ -350,7 +350,7 @@
 			name = cars;
 			sourceTree = "<group>";
 		};
-		D79FCE5B1D42753000BE99BB /* address_list */ = {
+		D79FCE5B1D42753000BE99BB /* contact */ = {
 			isa = PBXGroup;
 			children = (
 				D79FCE5C1D42754F00BE99BB /* AddressListTableViewController.h */,
@@ -360,7 +360,7 @@
 				8D93C6911D4FA73E000465D1 /* DepartmentTableViewController.h */,
 				8D93C6921D4FA73E000465D1 /* DepartmentTableViewController.m */,
 			);
-			name = address_list;
+			name = contact;
 			sourceTree = "<group>";
 		};
 		D79FCE5F1D42755E00BE99BB /* personal */ = {

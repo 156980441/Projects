@@ -10,6 +10,9 @@
 #import "Staff.h"
 #import "PersonDetailTableViewController.h"
 
+#import "stdafx_DongGuanDaDi.h"
+#import "AFHTTPSessionManager.h"
+
 @interface AddressListTableViewController ()
 
 @end
@@ -43,6 +46,16 @@
         temp.qq =  666666;
         [self.staffDataSources addObject:temp];
     }
+    
+    NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:@"/DongGuan/",@"referer", nil];
+    [[AFHTTPSessionManager manager] GET:URL_CONTACT parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        if([responseObject isKindOfClass:[NSDictionary class]]) {
+            NSLog(@"responseObject, %@",responseObject);
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"Login failed, %@",error);
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning {
