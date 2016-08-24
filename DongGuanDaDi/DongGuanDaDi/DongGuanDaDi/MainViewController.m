@@ -13,6 +13,9 @@
 #import "AddressListTableViewController.h"
 #import "PersonalTableViewController.h"
 
+#import "stdafx_DongGuanDaDi.h"
+#import "AFHTTPSessionManager.h"
+
 @interface MainViewController ()
 
 @property (nonatomic, strong) NSArray* dataSources;
@@ -129,6 +132,15 @@
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"是否注销" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        
+        NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:@"/DongGuan/",@"referer", nil];
+        [[AFHTTPSessionManager manager] GET:URL_LOGOUT parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+            NSLog(@"Logout success");
+            NSLog(@"Logout failed, %@",responseObject);
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            NSLog(@"Logout failed, %@",error);
+        }];
+        
         [self.navigationController popViewControllerAnimated:YES];
     }];
     [alertController addAction:cancelAction];
