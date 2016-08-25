@@ -30,28 +30,43 @@
     
     self.filteredStaffArray = [NSMutableArray arrayWithCapacity:self.staffDataSources.count];
     self.staffDataSources = [NSMutableArray arrayWithCapacity:0];
-    for (int i = 0; i < 3; i++) {
-        Staff* temp = [[Staff alloc] init];
-        temp.name = [NSString stringWithFormat:@"张%d",i];
-        temp.phone = 123456;
-        temp.wechat =  @"88888";
-        temp.qq =  666666;
-        [self.staffDataSources addObject:temp];
-    }
-    for (int i = 0; i < 5; i++) {
-        Staff* temp = [[Staff alloc] init];
-        temp.name = [NSString stringWithFormat:@"王%d",i];
-        temp.phone = 123456;
-        temp.wechat =  @"88888";
-        temp.qq =  666666;
-        [self.staffDataSources addObject:temp];
-    }
+    
+////////////////////////////    test data     ////////////////////////////
+    
+//    for (int i = 0; i < 3; i++) {
+//        Staff* temp = [[Staff alloc] init];
+//        temp.name = [NSString stringWithFormat:@"张%d",i];
+//        temp.phone = 123456;
+//        temp.wechat =  @"88888";
+//        temp.qq =  666666;
+//        [self.staffDataSources addObject:temp];
+//    }
+//    for (int i = 0; i < 5; i++) {
+//        Staff* temp = [[Staff alloc] init];
+//        temp.name = [NSString stringWithFormat:@"王%d",i];
+//        temp.phone = 123456;
+//        temp.wechat =  @"88888";
+//        temp.qq =  666666;
+//        [self.staffDataSources addObject:temp];
+//    }
+    
+////////////////////////////    test data end    ////////////////////////////
     
     NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:@"/DongGuan/",@"referer", nil];
     [[AFHTTPSessionManager manager] GET:URL_CONTACT parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
-        if([responseObject isKindOfClass:[NSDictionary class]]) {
-            NSLog(@"responseObject, %@",responseObject);
+        NSArray* staffs = (NSArray*)responseObject;
+        for (NSDictionary* dic in staffs) {
+            NSDictionary* dic_staff = [dic objectForKey:@"user"];
+            Staff* staff = [[Staff alloc] init];
+            staff.name = [dic_staff objectForKey:@"name"];
+            staff.department = [dic_staff objectForKey:@"officeName"];
+            staff.wechat = [dic_staff objectForKey:@"wechatId"];
+            staff.qq = ((NSNumber*)[dic objectForKey:@"qq"]).longLongValue;
+            staff.phone = ((NSNumber*)[dic objectForKey:@"phone"]).longLongValue;
+            [self.staffDataSources addObject:staff];
         }
+        [self.tableView reloadData];
+//        NSLog(@"responseObject, %@",responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"Login failed, %@",error);
     }];
