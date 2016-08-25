@@ -10,6 +10,9 @@
 #import "PersonDetailTableViewController.h"
 #import "Staff.h"
 
+#import "stdafx_DongGuanDaDi.h"
+#import "AFHTTPSessionManager.h"
+
 #define HeaderHeight 40
 
 @interface DepartmentTableViewController ()
@@ -27,44 +30,41 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    self.dataSource = [[NSMutableArray alloc] initWithCapacity: 2];
+    self.dataSource = [[NSMutableArray alloc] initWithCapacity: 0];
     
-    NSMutableDictionary *dict;
-    NSMutableArray *arr ;
-    dict = [NSMutableDictionary dictionary];
-    [dict setObject:@"综合科" forKey:@"groupname"];
-    arr = [NSMutableArray array];
+    NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:@"/DongGuan/",@"referer", nil];
+    [[AFHTTPSessionManager manager] GET:URL_OFFICE_NAME parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSArray* offices = (NSArray*)responseObject;
+        for (NSDictionary* dic in offices) {
+            NSString* office = [dic objectForKey:@"officeName"];
+            
+            NSMutableDictionary *dict;
+            NSMutableArray *arr ;
+            dict = [NSMutableDictionary dictionary];
+            
+            [dict setObject:office forKey:@"groupname"];
+            arr = [NSMutableArray array];
+            for (int i = 0; i < 3; i++) {
+                Staff* temp = [[Staff alloc] init];
+                temp.name = [NSString stringWithFormat:@"张%d",i];
+                temp.phone = 123456;
+                temp.wechat =  @"88888";
+                temp.qq =  666666;
+                [arr addObject:temp];
+                [dict setObject:arr forKey:@"users"];
+                
+            }
+            
+            [self.dataSource addObject: dict];
+            [self.tableView reloadData];
+        }
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"Login failed, %@",error);
+    }];
     
     
     
-    for (int i = 0; i < 3; i++) {
-        Staff* temp = [[Staff alloc] init];
-        temp.name = [NSString stringWithFormat:@"张%d",i];
-        temp.phone = 123456;
-        temp.wechat =  @"88888";
-        temp.qq =  666666;
-        [arr addObject:temp];
-    }
-    
-    [dict setObject:arr forKey:@"users"];
-    
-    [self.dataSource addObject: dict];
-    
-    
-    dict = [NSMutableDictionary dictionary];
-    [dict setObject:@"工程科" forKey:@"groupname"];
-    arr = [NSMutableArray array];
-    for (int i = 0; i < 5; i++) {
-        Staff* temp = [[Staff alloc] init];
-        temp.name = [NSString stringWithFormat:@"王%d",i];
-        temp.phone = 123456;
-        temp.wechat =  @"88888";
-        temp.qq =  666666;
-        [arr addObject:temp];
-    }
-    [dict setObject:arr forKey:@"users"];
-    
-    [self.dataSource addObject: dict];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -224,38 +224,38 @@
 }
 
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
 
 /*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }
+ }
+ */
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
 
 #pragma mark - Navigation
@@ -268,10 +268,10 @@
     if ([sender isKindOfClass:[UITableViewCell class]]) {
         PersonDetailTableViewController *detail = [segue destinationViewController];
         Staff *staff = nil;
-            NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-            NSDictionary* m= (NSDictionary*)[self.dataSource objectAtIndex:indexPath.section];
-            NSArray *d = (NSArray*)[m objectForKey:@"users"];
-            staff = [d objectAtIndex: indexPath.row];
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        NSDictionary* m= (NSDictionary*)[self.dataSource objectAtIndex:indexPath.section];
+        NSArray *d = (NSArray*)[m objectForKey:@"users"];
+        staff = [d objectAtIndex: indexPath.row];
         detail.staff = staff;
     }
 }
