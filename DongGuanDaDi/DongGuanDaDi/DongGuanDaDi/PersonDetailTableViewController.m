@@ -26,7 +26,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.keys = @[@"姓名",@"电话",@"微信",@"QQ"];
     Staff* staff = self.staff;
-    self.values = [NSArray arrayWithObjects:staff.name,staff.phone,staff.wechat,staff.qq, nil];
+    self.values = [NSArray arrayWithObjects:staff.name,[[NSNumber alloc] initWithLongLong: staff.phone],staff.wechat,[[NSNumber alloc] initWithLongLong:staff.qq], nil];
     
 }
 
