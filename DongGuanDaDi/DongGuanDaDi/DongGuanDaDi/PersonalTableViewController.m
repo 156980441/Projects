@@ -83,10 +83,17 @@
         cell.textLabel.text = @"修改密码";
     }
     
-    
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (4 == indexPath.row) {
+        [self performSegueWithIdentifier:@"modifyInfo" sender:self];
+    } else if (5 == indexPath.row) {
+        [self performSegueWithIdentifier:@"modifyPass" sender:self];
+    }
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
