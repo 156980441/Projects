@@ -9,15 +9,18 @@
 #import "CarsTableViewController.h"
 #import "Car.h"
 #import "CarDetailCell.h"
+#import "CarAppointmentTableViewController.h"
 
 #import "stdafx_DongGuanDaDi.h"
 #import "AFHTTPSessionManager.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface CarsTableViewController ()
 @property (nonatomic, strong) NSMutableArray *carsNotAppointed;
 @property (nonatomic, strong) NSMutableArray *carsAppointed;
 @property (nonatomic, strong) NSMutableArray *carsDepart;
 @property (nonatomic, strong) NSMutableArray *dataSource;
+@property (nonatomic, strong) Car* selectedCar;
 @end
 
 @implementation CarsTableViewController
@@ -98,6 +101,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    self.selectedCar = (Car*)[self.dataSource objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:@"carAppointment" sender:self];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -117,6 +126,8 @@
     cell.number.text = car.number;
     cell.seats.text = [NSString stringWithFormat:@"%d",car.seating];
     cell.weight.text = car.weight;
+    NSString* url = [NSString stringWithFormat:@"%@%@",HOST,car.url];
+    [cell.thumbnail setImageWithURL:[NSURL URLWithString:url]];
     
     return cell;
 }
@@ -156,14 +167,16 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    CarAppointmentTableViewController* carAppointVc = (CarAppointmentTableViewController*)[segue destinationViewController];
+    carAppointVc.car = self.selectedCar;
 }
-*/
+
 
 @end
