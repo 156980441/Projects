@@ -7,6 +7,7 @@
 //
 
 #import "ModifyPassTableViewController.h"
+#import "ModifyPassCell.h"
 
 @interface ModifyPassTableViewController ()
 
@@ -41,7 +42,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"modifyPass" forIndexPath:indexPath];
-    
     // Configure the cell...
     
     return cell;

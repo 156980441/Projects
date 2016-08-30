@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class Staff;
 @interface ModifyPerInfoTableViewController : UITableViewController
-
+@property (nonatomic, strong) Staff *staff;
 @end

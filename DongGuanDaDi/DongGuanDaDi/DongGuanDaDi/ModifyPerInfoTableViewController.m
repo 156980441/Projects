@@ -7,6 +7,8 @@
 //
 
 #import "ModifyPerInfoTableViewController.h"
+#import "ModifyPerInfoCell.h"
+#import "Staff.h"
 
 @implementation ModifyPerInfoTableViewController
 
@@ -36,8 +38,12 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"modifyPersonal" forIndexPath:indexPath];
-    
+    ModifyPerInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"modifyPersonal" forIndexPath:indexPath];
+    cell.nameLabel.text = self.staff.name;
+    cell.jobTitle.text = self.staff.officeName;
+    cell.phoneTxtField.text = [NSString stringWithFormat:@"%lld", self.staff.phone];
+    cell.weChatTxtField.text = self.staff.wechat;
+    cell.qqTxtField.text = [NSString stringWithFormat:@"%lld", self.staff.qq];
     // Configure the cell...
     
     return cell;

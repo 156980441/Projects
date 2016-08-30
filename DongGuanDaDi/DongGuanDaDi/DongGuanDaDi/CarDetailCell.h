@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface CarDetailCell : UITableViewCell
+@property (strong, nonatomic) IBOutlet UILabel *state;
 @property (nonatomic, strong) IBOutlet UIImageView* thumbnail;
 @property (nonatomic, strong) IBOutlet UILabel* brand;
 @property (nonatomic, strong) IBOutlet UILabel* number;

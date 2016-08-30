@@ -50,11 +50,29 @@
             car.brand = [dic objectForKey:@"brand"];
             car.number = [dic objectForKey:@"carNumber"];
             car.color = [dic objectForKey:@"color"];
-            car.carId = ((NSNumber*)[dic objectForKey:@"id"]).intValue;
+            car.carId = ((NSNumber*)[dic objectForKey:@"id"]).integerValue;
             car.purpose = [dic objectForKey:@"purpose"];
-            car.seating = ((NSNumber*)[dic objectForKey:@"seating"]).intValue;
+            car.seating = ((NSNumber*)[dic objectForKey:@"seating"]).integerValue;
             car.type = [dic objectForKey:@"type"];
             car.url = [dic objectForKey:@"url"];
+            car.weight = ((NSNumber*)[dic objectForKey:@"loading"]).integerValue;
+            car.type = [dic objectForKey:@"type"];
+            
+            car.driver = [temp objectForKey:@"driver"];
+            car.endtime = [temp objectForKey:@"endTime"];
+            car.infoId = ((NSNumber*)[temp objectForKey:@"id"]).integerValue;
+            car.lat = [temp objectForKey:@"lat"];
+            car.lng = [temp objectForKey:@"lng"];
+            car.peopleNum = ((NSNumber*)[temp objectForKey:@"peopleNumber"]).integerValue;
+            car.realStartTime = [temp objectForKey:@"realStartTime"];
+            car.reason = [temp objectForKey:@"reason"];
+            car.startTime = [temp objectForKey:@"startTime"];
+            
+            NSDictionary* dic_car_user = [temp objectForKey:@"user"];
+            car.userId = ((NSNumber*)[dic_car_user objectForKey:@"id"]).integerValue;
+            car.userName = [temp objectForKey:@"name"];
+            
+            car.state = DGCarDepart;
             [self.carsDepart addObject:car];
             [self.dataSource addObject:car];
         }
@@ -65,11 +83,15 @@
             car.brand = [dic objectForKey:@"brand"];
             car.number = [dic objectForKey:@"carNumber"];
             car.color = [dic objectForKey:@"color"];
-            car.carId = ((NSNumber*)[dic objectForKey:@"id"]).intValue;
+            car.carId = ((NSNumber*)[dic objectForKey:@"id"]).integerValue;
             car.purpose = [dic objectForKey:@"purpose"];
-            car.seating = ((NSNumber*)[dic objectForKey:@"seating"]).intValue;
+            car.seating = ((NSNumber*)[dic objectForKey:@"seating"]).integerValue;
             car.type = [dic objectForKey:@"type"];
             car.url = [dic objectForKey:@"url"];
+            car.weight = ((NSNumber*)[dic objectForKey:@"loading"]).integerValue;
+            
+            car.state = DGCarNotAppointment;
+            
             [self.carsNotAppointed addObject:car];
             [self.dataSource addObject:car];
         }
@@ -80,12 +102,15 @@
             car.brand = [dic objectForKey:@"brand"];
             car.number = [dic objectForKey:@"carNumber"];
             car.color = [dic objectForKey:@"color"];
-            car.carId = ((NSNumber*)[dic objectForKey:@"id"]).intValue;
+            car.carId = ((NSNumber*)[dic objectForKey:@"id"]).integerValue;
             car.purpose = [dic objectForKey:@"purpose"];
-            car.seating = ((NSNumber*)[dic objectForKey:@"seating"]).intValue;
+            car.seating = ((NSNumber*)[dic objectForKey:@"seating"]).integerValue;
             car.type = [dic objectForKey:@"type"];
             car.url = [dic objectForKey:@"url"];
-            car.weight = [dic objectForKey:@"loading"];
+            car.weight = ((NSNumber*)[dic objectForKey:@"loading"]).integerValue;
+            
+            car.state = DGCarAppointment;
+            
             [self.carsAppointed addObject:car];
             [self.dataSource addObject:car];
         }
@@ -122,13 +147,25 @@
     
     // Configure the cell...
     Car* car = (Car*)[self.dataSource objectAtIndex:indexPath.row];
-    cell.brand.text = car.brand;
-    cell.number.text = car.number;
-    cell.seats.text = [NSString stringWithFormat:@"%d",car.seating];
-    cell.weight.text = car.weight;
+    cell.brand.text = [NSString stringWithFormat:@"车辆品牌：%@",car.brand];
+    cell.number.text = [NSString stringWithFormat:@"车牌号：%@",car.number];
+    cell.seats.text = [NSString stringWithFormat:@"座位数：%ld",car.seating];
+    cell.weight.text = [NSString stringWithFormat:@"车辆载重：%ld",car.weight];
     NSString* url = [NSString stringWithFormat:@"%@%@",HOST,car.url];
     [cell.thumbnail setImageWithURL:[NSURL URLWithString:url]];
-    
+    if (car.state == DGCarDepart) {
+        cell.state.text = @"已出行车辆";
+        cell.state.backgroundColor = [UIColor redColor];
+    }
+    else if (car.state == DGCarNotAppointment)
+    {
+        cell.state.text = @"未预约车辆";
+        cell.state.backgroundColor = [UIColor greenColor];
+    }
+    else if (car.state == DGCarAppointment)
+    {
+        cell.state.text = @"已预约车辆";
+    }
     return cell;
 }
 

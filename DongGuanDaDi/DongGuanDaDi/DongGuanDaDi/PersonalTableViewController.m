@@ -8,6 +8,7 @@
 
 #import "PersonalTableViewController.h"
 #import "Staff.h"
+#import "ModifyPerInfoTableViewController.h"
 
 #import "stdafx_DongGuanDaDi.h"
 #import "AFHTTPSessionManager.h"
@@ -39,8 +40,8 @@
             NSDictionary* dic_user = (NSDictionary*)[dic objectForKey:@"user"];
             self.staff.name = (NSString*)[dic_user objectForKey:@"name"];
             self.staff.pass = (NSString*)[dic_user objectForKey:@"password"];
-            NSDictionary* dic_office = (NSDictionary*)[dic objectForKey:@"office"];
-            self.staff.department = (NSString*)[dic_office objectForKey:@"officeName"];
+            NSDictionary* dic_office = (NSDictionary*)[dic_user objectForKey:@"office"];
+            self.staff.officeName = (NSString*)[dic_office objectForKey:@"officeName"];
         }
         [self.tableView reloadData];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -128,14 +129,20 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    UIViewController* vc = [segue destinationViewController];
+    if ([vc isKindOfClass:[ModifyPerInfoTableViewController class]]) {
+        ModifyPerInfoTableViewController* modifyPerInfo = (ModifyPerInfoTableViewController*)vc;
+        modifyPerInfo.staff = self.staff;
+    }
+    
 }
-*/
+
 
 @end

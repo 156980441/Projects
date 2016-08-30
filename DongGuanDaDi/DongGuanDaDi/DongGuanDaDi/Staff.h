@@ -14,9 +14,8 @@
 @property(nonatomic,assign) long long  phone;
 @property (nonatomic, strong) NSString* wechat;
 @property(nonatomic,assign) long long qq;
-@property (nonatomic, strong) NSString *department;
+@property (nonatomic, strong) NSString *officeName;
 @property (nonatomic, strong) NSString *pass;
 @property (nonatomic, strong) NSString *sex;
-@property (nonatomic, strong) NSString *jobTitle;
 @property (nonatomic, strong) NSArray *authList;
 @end

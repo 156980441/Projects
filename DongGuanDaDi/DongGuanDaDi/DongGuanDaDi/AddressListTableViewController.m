@@ -59,7 +59,7 @@
             NSDictionary* dic_staff = [dic objectForKey:@"user"];
             Staff* staff = [[Staff alloc] init];
             staff.name = [dic_staff objectForKey:@"name"];
-            staff.department = [dic_staff objectForKey:@"officeName"];
+            staff.officeName = [dic_staff objectForKey:@"officeName"];
             staff.wechat = [dic_staff objectForKey:@"wechatId"];
             staff.qq = ((NSNumber*)[dic objectForKey:@"qq"]).longLongValue;
             staff.phone = ((NSNumber*)[dic objectForKey:@"phone"]).longLongValue;
