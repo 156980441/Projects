@@ -17,5 +17,6 @@
 @property (nonatomic, strong) NSString *department;
 @property (nonatomic, strong) NSString *pass;
 @property (nonatomic, strong) NSString *sex;
+@property (nonatomic, strong) NSString *jobTitle;
 @property (nonatomic, strong) NSArray *authList;
 @end

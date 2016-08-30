@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		192D0E231D75750000216D92 /* ModifyPassCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 192D0E221D75750000216D92 /* ModifyPassCell.m */; };
+		192D0E261D75751500216D92 /* ModifyPerInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 192D0E251D75751500216D92 /* ModifyPerInfoCell.m */; };
 		194D0F101D48B56100827F3C /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 194D0F0F1D48B56100827F3C /* MenuView.m */; };
 		194F69EE1D52DB6900EC55EA /* MemuDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 194F69ED1D52DB6900EC55EA /* MemuDetailViewController.m */; };
 		194F69F11D52E26B00EC55EA /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = 194F69F01D52E26B00EC55EA /* Food.m */; };
@@ -71,6 +73,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		192D0E211D75750000216D92 /* ModifyPassCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPassCell.h; sourceTree = "<group>"; };
+		192D0E221D75750000216D92 /* ModifyPassCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPassCell.m; sourceTree = "<group>"; };
+		192D0E241D75751500216D92 /* ModifyPerInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPerInfoCell.h; sourceTree = "<group>"; };
+		192D0E251D75751500216D92 /* ModifyPerInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPerInfoCell.m; sourceTree = "<group>"; };
 		194D0F0E1D48B56100827F3C /* MenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuView.h; sourceTree = "<group>"; };
 		194D0F0F1D48B56100827F3C /* MenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuView.m; sourceTree = "<group>"; };
 		194F69EC1D52DB6900EC55EA /* MemuDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemuDetailViewController.h; sourceTree = "<group>"; };
@@ -380,6 +386,10 @@
 				D721E80A1D4CBEAA00A73D9D /* ModifyPassTableViewController.m */,
 				19E8D6681D4C9C22005A6DB4 /* ModifyPerInfoTableViewController.h */,
 				19E8D6691D4C9C22005A6DB4 /* ModifyPerInfoTableViewController.m */,
+				192D0E211D75750000216D92 /* ModifyPassCell.h */,
+				192D0E221D75750000216D92 /* ModifyPassCell.m */,
+				192D0E241D75751500216D92 /* ModifyPerInfoCell.h */,
+				192D0E251D75751500216D92 /* ModifyPerInfoCell.m */,
 				D79FCE601D42757400BE99BB /* PersonalTableViewController.h */,
 				D79FCE611D42757400BE99BB /* PersonalTableViewController.m */,
 				D721E80C1D4CC84B00A73D9D /* Staff.h */,
@@ -581,6 +591,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D79FCE5E1D42754F00BE99BB /* AddressListTableViewController.m in Sources */,
+				192D0E261D75751500216D92 /* ModifyPerInfoCell.m in Sources */,
 				19E5BBF81D3F331600C1A1A9 /* AppDelegate.m in Sources */,
 				194F69F41D52F1CC00EC55EA /* DinerRecordViewController.m in Sources */,
 				194F69F71D52F1F800EC55EA /* DinnerVoteViewController.m in Sources */,
@@ -595,6 +606,7 @@
 				D75EDE001D5A2B4300D34DC0 /* EColumnChartLabel.m in Sources */,
 				8D9851601D56FFCA0030D314 /* Common.m in Sources */,
 				D75D13DC1D4E36AD00E082CF /* PersonDetailTableViewController.m in Sources */,
+				192D0E231D75750000216D92 /* ModifyPassCell.m in Sources */,
 				19E5BC281D3F344500C1A1A9 /* LoginViewController.m in Sources */,
 				194D0F101D48B56100827F3C /* MenuView.m in Sources */,
 				D75EDE081D5A2B4300D34DC0 /* UICountingLabel.m in Sources */,

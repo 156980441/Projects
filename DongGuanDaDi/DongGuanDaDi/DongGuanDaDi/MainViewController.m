@@ -135,8 +135,7 @@
         
         NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:@"/DongGuan/",@"referer", nil];
         [[AFHTTPSessionManager manager] GET:URL_LOGOUT parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
-            NSLog(@"Logout success");
-            NSLog(@"Logout failed, %@",responseObject);
+            NSLog(@"Logout success, %@",responseObject);
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             NSLog(@"Logout failed, %@",error);
         }];

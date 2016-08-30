@@ -783,7 +783,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="modifyPersonal" rowHeight="359" id="Uvo-J3-HWb">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="modifyPersonal" rowHeight="359" id="Uvo-J3-HWb" customClass="ModifyPerInfoCell">
                                 <rect key="frame" x="0.0" y="92" width="600" height="359"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Uvo-J3-HWb" id="mrf-9I-pgU">
@@ -877,6 +877,9 @@
                                             <state key="normal" title="提交">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="modifyPeronalInfo:" destination="Uvo-J3-HWb" eventType="touchUpInside" id="ssp-hR-jjq"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ecv-F6-vLN">
                                             <rect key="frame" x="200" y="269" width="200" height="30"/>
@@ -888,6 +891,9 @@
                                             <state key="normal" title="取消">
                                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="cancelModifyPersonalInfo:" destination="Uvo-J3-HWb" eventType="touchUpInside" id="AfA-rr-DBK"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -923,6 +929,15 @@
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="cancelBtn" destination="Ecv-F6-vLN" id="GRf-TK-L39"/>
+                                    <outlet property="jobTitle" destination="cjP-cO-Zsq" id="56g-4m-V17"/>
+                                    <outlet property="nameLabel" destination="KM9-4b-fga" id="CV5-UG-fOV"/>
+                                    <outlet property="phoneTxtField" destination="oJ5-FL-gkO" id="i0h-Z9-jTq"/>
+                                    <outlet property="qqTxtField" destination="w5F-kd-JV4" id="7Nm-P3-fUJ"/>
+                                    <outlet property="submitBtn" destination="kBT-It-9Vo" id="QLt-lc-GsN"/>
+                                    <outlet property="weChatTxtField" destination="b7C-HK-KjQ" id="iR6-Wa-kHY"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -945,7 +960,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="modifyPass" rowHeight="281" id="sLn-GK-Bv1">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="modifyPass" rowHeight="281" id="sLn-GK-Bv1" customClass="ModifyPassCell">
                                 <rect key="frame" x="0.0" y="92" width="600" height="281"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sLn-GK-Bv1" id="HXM-wu-9gz">
@@ -1008,6 +1023,9 @@
                                             </constraints>
                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <state key="normal" title="提交"/>
+                                            <connections>
+                                                <action selector="modfiyPassPress:" destination="sLn-GK-Bv1" eventType="touchUpInside" id="w3J-P5-VJP"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新的密码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yg4-ae-x20">
                                             <rect key="frame" x="24" y="62" width="68" height="21"/>
@@ -1037,6 +1055,12 @@
                                         <constraint firstItem="Yg4-ae-x20" firstAttribute="leading" secondItem="HXM-wu-9gz" secondAttribute="leadingMargin" constant="16" id="xu0-d0-yBb"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="confirmPassTxtField" destination="UFU-xc-xp9" id="qa2-70-gZj"/>
+                                    <outlet property="nowPassTxtField" destination="f2L-JX-d77" id="VHD-gj-vx9"/>
+                                    <outlet property="oldPassTxtField" destination="e2l-6h-exB" id="jiD-3l-jRQ"/>
+                                    <outlet property="submitBtn" destination="5xS-Wa-OQe" id="Ft4-Xr-zT2"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
