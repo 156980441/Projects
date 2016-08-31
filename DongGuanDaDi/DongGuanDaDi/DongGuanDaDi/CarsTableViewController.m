@@ -10,6 +10,8 @@
 #import "Car.h"
 #import "CarDetailCell.h"
 #import "CarNotAppointmentTableViewController.h"
+#import "CarDepartTableViewController.h"
+#import "ShowCarsTypesView.h"
 
 #import "stdafx_DongGuanDaDi.h"
 #import "AFHTTPSessionManager.h"
@@ -20,7 +22,10 @@
 @property (nonatomic, strong) NSMutableArray *carsAppointed;
 @property (nonatomic, strong) NSMutableArray *carsDepart;
 @property (nonatomic, strong) NSMutableArray *dataSource;
+@property (nonatomic, strong) NSMutableArray *orderDataSource;
+@property (nonatomic, strong) NSMutableArray *myOrderDataSource;
 @property (nonatomic, strong) Car* selectedCar;
+@property (nonatomic, strong) UIButton* sectionHeaderView;
 @end
 
 @implementation CarsTableViewController
@@ -37,7 +42,14 @@
     self.carsDepart = [NSMutableArray array];
     self.carsAppointed = [NSMutableArray array];
     self.carsNotAppointed = [NSMutableArray array];
-    self.dataSource = [NSMutableArray array];
+    self.orderDataSource = [NSMutableArray array];
+    self.myOrderDataSource = [NSMutableArray array];
+    self.dataSource = self.orderDataSource;
+    
+    self.sectionHeaderView = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.sectionHeaderView.frame = CGRectMake(0, 0, self.tableView.frame.size.width, 30);
+    [self.sectionHeaderView setTitle:@"未出行车辆" forState:UIControlStateNormal];
+    [self.sectionHeaderView addTarget:self action:@selector(selecteShowCarTypes) forControlEvents:UIControlEventTouchDown];
     
     NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:@"/DongGuan/",@"referer", nil];
     [[AFHTTPSessionManager manager] GET:URL_CAR_STATTE parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -74,7 +86,7 @@
             
             car.state = DGCarDepart;
             [self.carsDepart addObject:car];
-            [self.dataSource addObject:car];
+            [self.orderDataSource addObject:car];
         }
         
         NSArray* carsNotAppointed = [jsonData objectForKey:@"carsNotAppointed"];
@@ -93,7 +105,7 @@
             car.state = DGCarNotAppointment;
             
             [self.carsNotAppointed addObject:car];
-            [self.dataSource addObject:car];
+            [self.orderDataSource addObject:car];
         }
         
         NSArray* carsAppointed = [jsonData objectForKey:@"carsAppointed"];
@@ -112,10 +124,10 @@
             car.state = DGCarAppointment;
             
             [self.carsAppointed addObject:car];
-            [self.dataSource addObject:car];
+            [self.orderDataSource addObject:car];
         }
         [self.tableView reloadData];
-        NSLog(@"responseObject, %@",responseObject);
+//        NSLog(@"responseObject, %@",responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"Login failed, %@",error);
     }];
@@ -228,27 +240,60 @@
         CarNotAppointmentTableViewController* carAppointVc = (CarNotAppointmentTableViewController*)vc;
         carAppointVc.car = self.selectedCar;
     }
+    if ([vc isKindOfClass:[CarDepartTableViewController class]]) {
+        CarDepartTableViewController* carAppointVc = (CarDepartTableViewController*)vc;
+        carAppointVc.car = self.selectedCar;
+    }
 }
 
 
 - (IBAction)selectedChange:(id)sender {
-    [self.dataSource removeAllObjects];
+    if (self.orderAndMyOrderSeg.selectedSegmentIndex == 1) {
+        self.dataSource = nil;
+    }
+    if (self.orderAndMyOrderSeg.selectedSegmentIndex == 0) {
+        self.dataSource = self.orderDataSource;
+    }
     [self.tableView reloadData];
+    
 }
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     if (self.orderAndMyOrderSeg.selectedSegmentIndex == 1) {
-        UIButton* button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        button.frame = CGRectMake(0, 0, tableView.frame.size.width, 30);
-        [button setTitle:@"未出行车辆" forState:UIControlStateNormal];
-        [button addTarget:self action:@selector(selecteShowCarTypes) forControlEvents:UIControlEventTouchDown];
-        return button;
+        return self.sectionHeaderView;
     }
     return nil;
 }
 -(void)selecteShowCarTypes
 {
-    
+    ShowCarsTypesView* view;
+    NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ShowCarsTypesView" owner:self options:nil];
+    if ([nib count]>0)
+    {
+        view = [nib objectAtIndex:0];
+    }
+    view.frame = CGRectMake(0, 0, self.tableView.frame.size.width, 90);
+    __weak ShowCarsTypesView* weak_view = view;
+    view.showCarsTypeBlock = ^(NSInteger index){
+        if (0 == index) {
+            [self.sectionHeaderView setTitle:weak_view.notAppointmentBtn.titleLabel.text forState:UIControlStateNormal];
+            [weak_view removeFromSuperview];
+            [self.tableView reloadData];
+        }
+        else if (1 == index)
+        {
+            [self.sectionHeaderView setTitle:weak_view.departBtn.titleLabel.text forState:UIControlStateNormal];
+            [weak_view removeFromSuperview];
+            [self.tableView reloadData];
+        }
+        else if (2 == index)
+        {
+            [self.sectionHeaderView setTitle:weak_view.hasBackBtn.titleLabel.text forState:UIControlStateNormal];
+            [weak_view removeFromSuperview];
+            [self.tableView reloadData];
+        }
+    };
+    [self.tableView addSubview:view];
 }
 @end

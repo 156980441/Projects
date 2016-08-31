@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CarDepartTableViewController : UITableViewController
+@class Car;
 
+@interface CarDepartTableViewController : UITableViewController
+@property (nonatomic, strong) Car *car;
 @end

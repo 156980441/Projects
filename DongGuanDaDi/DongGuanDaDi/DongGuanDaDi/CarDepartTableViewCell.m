@@ -14,10 +14,6 @@
     [super awakeFromNib];
     // Initialization code
     NSLog(@"awake from nib");
-//    NSArray* views = [[NSBundle mainBundle] loadNibNamed:@"CarDepartTableViewCell" owner:self options:nil];
-//    for (UIView* view in views) {
-//        [self.contentView addSubview:view];
-//    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

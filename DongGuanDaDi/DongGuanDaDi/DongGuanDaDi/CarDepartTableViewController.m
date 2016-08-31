@@ -41,7 +41,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 //    [self.tableView registerClass:[CarDepartTableViewCell class] forCellReuseIdentifier:@"carDepart"];
     CarDepartTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"carDepart" forIndexPath:indexPath];
-    
+    NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CarDepartTableViewCell" owner:self options:nil];
+    if ([nib count]>0)
+    {
+        cell = [nib objectAtIndex:0];
+    }
     // Configure the cell...
     
     return cell;
