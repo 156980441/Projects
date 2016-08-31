@@ -9,7 +9,7 @@
 #import "CarsTableViewController.h"
 #import "Car.h"
 #import "CarDetailCell.h"
-#import "CarAppointmentTableViewController.h"
+#import "CarNotAppointmentTableViewController.h"
 
 #import "stdafx_DongGuanDaDi.h"
 #import "AFHTTPSessionManager.h"
@@ -129,7 +129,19 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     self.selectedCar = (Car*)[self.dataSource objectAtIndex:indexPath.row];
-    [self performSegueWithIdentifier:@"carAppointment" sender:self];
+    DGCarState state = self.selectedCar.state;
+    if (state == DGCarNotAppointment)
+    {
+        [self performSegueWithIdentifier:@"carNotAppointment" sender:self];
+    }
+    else if (state == DGCarDepart)
+    {
+        [self performSegueWithIdentifier:@"carDepart" sender:self];
+    }
+    else if (state == DGCarAppointment)
+    {
+        [self performSegueWithIdentifier:@"carAppointment" sender:self];
+    }
 }
 
 #pragma mark - Table view data source
@@ -211,7 +223,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    CarAppointmentTableViewController* carAppointVc = (CarAppointmentTableViewController*)[segue destinationViewController];
+    CarNotAppointmentTableViewController* carAppointVc = (CarNotAppointmentTableViewController*)[segue destinationViewController];
     carAppointVc.car = self.selectedCar;
 }
 

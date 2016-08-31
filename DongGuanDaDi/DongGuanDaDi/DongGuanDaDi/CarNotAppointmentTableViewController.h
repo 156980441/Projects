@@ -10,6 +10,6 @@
 
 @class Car;
 
-@interface CarAppointmentTableViewController : UITableViewController
+@interface CarNotAppointmentTableViewController : UITableViewController
 @property (nonatomic, strong) Car *car;
 @end

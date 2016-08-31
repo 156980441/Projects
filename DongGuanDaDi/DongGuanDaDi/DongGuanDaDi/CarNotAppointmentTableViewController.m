@@ -6,14 +6,18 @@
 //  Copyright © 2016年 fanyl. All rights reserved.
 //
 
-#import "CarAppointmentTableViewController.h"
+#import "CarNotAppointmentTableViewController.h"
+#import "CarNotAppointmentCell.h"
 #import "Car.h"
 
-@interface CarAppointmentTableViewController ()
+#import "stdafx_DongGuanDaDi.h"
+#import "UIImageView+AFNetworking.h"
+
+@interface CarNotAppointmentTableViewController ()
 
 @end
 
-@implementation CarAppointmentTableViewController
+@implementation CarNotAppointmentTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -23,6 +27,10 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    NSString* url = [NSString stringWithFormat:@"%@%@",HOST,self.car.url];
+    UIImageView* imageView = [[UIImageView alloc] init];
+    [imageView setImageWithURL:[NSURL URLWithString:url]];
+    self.tableView.tableHeaderView = imageView;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,7 +51,9 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"carAppoint" forIndexPath:indexPath];
+    CarNotAppointmentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"carNotAppoint" forIndexPath:indexPath];
+    cell.brandTxtField.text = self.car.brand;
+    cell.seatintTxtField.text = [NSString stringWithFormat:@"%ld",self.car.seating];
     
     // Configure the cell...
     
