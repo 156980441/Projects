@@ -521,7 +521,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Z42-z3-Zb4">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="dinnerRecord" id="Z42-z3-Zb4" customClass="DinnerRecordTableViewCell">
                                 <rect key="frame" x="0.0" y="222" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z42-z3-Zb4" id="hfX-7V-H8V">
@@ -572,6 +572,12 @@
                                         <constraint firstItem="NJ4-1B-KNt" firstAttribute="leading" secondItem="hfX-7V-H8V" secondAttribute="leading" constant="8" id="xZx-cO-PHv"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dateLabel" destination="NJ4-1B-KNt" id="d6h-QR-jVN"/>
+                                    <outlet property="hasEatedLabel" destination="ce4-sA-HJn" id="lXP-mb-A6j"/>
+                                    <outlet property="isOrderedLabel" destination="IV8-sy-qAm" id="fvD-am-62A"/>
+                                    <outlet property="typeLabel" destination="gLV-wR-jHV" id="ccR-Af-i9L"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -671,7 +677,7 @@
                     <navigationItem key="navigationItem" id="6eW-9V-Pt5">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="xPx-0J-MnE">
-                            <rect key="frame" x="234" y="7" width="133" height="30"/>
+                            <rect key="frame" x="233.5" y="7" width="133" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="车辆预约"/>

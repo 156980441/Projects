@@ -9,6 +9,9 @@
 #import "DinerRecordViewController.h"
 #import "Common.h"
 
+#import "stdafx_DongGuanDaDi.h"
+#import "AFHTTPSessionManager.h"
+
 @implementation DinerRecordViewController
 
 - (IBAction)selectDate:(id)sender {
@@ -32,6 +35,16 @@
 
 - (IBAction)queryRecord:(id)sender {
     // hide some buttons in storyboard. Such as date button. When query come back result appear them.
+    NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:@"/DongGuan/",@"referer",self.startBtn.titleLabel.text,@"begin",self.endBtn.titleLabel.text,@"end", nil];
+    [[AFHTTPSessionManager manager] POST:URL_RECORD parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"%@",responseObject);
+        if([responseObject isKindOfClass:[NSDictionary class]]) {
+    
+                
+            }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"%@",error);
+    }];
 }
 
 - (void)picker:(UIDatePicker *)picker valueChanged:(NSDate *)date

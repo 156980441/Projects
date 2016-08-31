@@ -58,6 +58,7 @@
 		D7AF7A0A1D436942005EA6DE /* ASDayPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = D7AF7A091D436942005EA6DE /* ASDayPicker.m */; };
 		D7D4F50E1D410B16005A7729 /* MainViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D4F50D1D410B16005A7729 /* MainViewCell.m */; };
 		D7DFF50A1D773FCE0012C5AE /* ShowCarsTypesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7DFF5091D773FCE0012C5AE /* ShowCarsTypesView.xib */; };
+		D7DFF50D1D777A860012C5AE /* DinnerRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DFF50C1D777A860012C5AE /* DinnerRecordTableViewCell.m */; };
 		D7E676F61D60CBC8006A226B /* YLToast.m in Sources */ = {isa = PBXBuildFile; fileRef = D7E676F51D60CBC8006A226B /* YLToast.m */; };
 /* End PBXBuildFile section */
 
@@ -181,6 +182,8 @@
 		D7D4F50C1D410B16005A7729 /* MainViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewCell.h; sourceTree = "<group>"; };
 		D7D4F50D1D410B16005A7729 /* MainViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewCell.m; sourceTree = "<group>"; };
 		D7DFF5091D773FCE0012C5AE /* ShowCarsTypesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowCarsTypesView.xib; sourceTree = "<group>"; };
+		D7DFF50B1D777A860012C5AE /* DinnerRecordTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DinnerRecordTableViewCell.h; sourceTree = "<group>"; };
+		D7DFF50C1D777A860012C5AE /* DinnerRecordTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DinnerRecordTableViewCell.m; sourceTree = "<group>"; };
 		D7E676F41D60CBC8006A226B /* YLToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLToast.h; sourceTree = "<group>"; };
 		D7E676F51D60CBC8006A226B /* YLToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLToast.m; sourceTree = "<group>"; };
 		E72E02FACBABE54F3E897144 /* libPods-DongGuanDaDi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DongGuanDaDi.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -353,6 +356,8 @@
 				D7AF7A091D436942005EA6DE /* ASDayPicker.m */,
 				194F69F21D52F1CC00EC55EA /* DinerRecordViewController.h */,
 				194F69F31D52F1CC00EC55EA /* DinerRecordViewController.m */,
+				D7DFF50B1D777A860012C5AE /* DinnerRecordTableViewCell.h */,
+				D7DFF50C1D777A860012C5AE /* DinnerRecordTableViewCell.m */,
 				D79FCE541D4273E100BE99BB /* DinnerViewController.h */,
 				D79FCE551D4273E100BE99BB /* DinnerViewController.m */,
 				194F69F51D52F1F800EC55EA /* DinnerVoteViewController.h */,
@@ -634,6 +639,7 @@
 				D75EDE001D5A2B4300D34DC0 /* EColumnChartLabel.m in Sources */,
 				8D9851601D56FFCA0030D314 /* Common.m in Sources */,
 				D75D13DC1D4E36AD00E082CF /* PersonDetailTableViewController.m in Sources */,
+				D7DFF50D1D777A860012C5AE /* DinnerRecordTableViewCell.m in Sources */,
 				192D0E231D75750000216D92 /* ModifyPassCell.m in Sources */,
 				19E5BC281D3F344500C1A1A9 /* LoginViewController.m in Sources */,
 				194D0F101D48B56100827F3C /* MenuView.m in Sources */,

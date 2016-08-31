@@ -250,6 +250,37 @@
 - (IBAction)selectedChange:(id)sender {
     if (self.orderAndMyOrderSeg.selectedSegmentIndex == 1) {
         self.dataSource = nil;
+        
+        NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:@"/DongGuan/",@"referer", nil];
+        [[AFHTTPSessionManager manager] GET:URL_CAR_MY_APPOINTMENT parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+            
+            NSDictionary* jsonData = (NSDictionary*)responseObject;
+            
+            NSArray* carsDepart = [jsonData objectForKey:@"carManages"];
+            for (NSDictionary* temp in carsDepart) {
+                NSDictionary* dic = [temp objectForKey:@"car"];
+                Car* car = [[Car alloc] init];
+                car.number = [dic objectForKey:@"carNumber"];
+                car.carId = ((NSNumber*)[dic objectForKey:@"id"]).integerValue;
+                car.url = [dic objectForKey:@"url"];
+                car.driver = [temp objectForKey:@"driver"];
+                car.endtime = [temp objectForKey:@"endTime"];
+                car.infoId = ((NSNumber*)[temp objectForKey:@"id"]).integerValue;
+                car.peopleNum = ((NSNumber*)[temp objectForKey:@"peopleNumber"]).integerValue;
+                car.realStartTime = [temp objectForKey:@"realStartTime"];
+                car.realEndTime = [temp objectForKey:@"realEndTime"];
+                car.reason = [temp objectForKey:@"reason"];
+                car.startTime = [temp objectForKey:@"startTime"];
+                
+                [self.myOrderDataSource addObject:car];
+            }
+            self.dataSource = self.myOrderDataSource;
+            [self.tableView reloadData];
+            //        NSLog(@"responseObject, %@",responseObject);
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            NSLog(@"Login failed, %@",error);
+        }];
+        
     }
     if (self.orderAndMyOrderSeg.selectedSegmentIndex == 0) {
         self.dataSource = self.orderDataSource;

@@ -33,6 +33,7 @@ typedef enum DGCarState
 @property (nonatomic, strong) NSString *lng;
 @property (nonatomic, assign) NSInteger peopleNum;
 @property (nonatomic, strong) NSString *realStartTime;
+@property (nonatomic, strong) NSString *realEndTime;
 @property (nonatomic, strong) NSString *reason;
 @property (nonatomic, strong) NSString *startTime;
 @property (nonatomic, assign) NSInteger userId;
