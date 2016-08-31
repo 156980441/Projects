@@ -223,9 +223,32 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    CarNotAppointmentTableViewController* carAppointVc = (CarNotAppointmentTableViewController*)[segue destinationViewController];
-    carAppointVc.car = self.selectedCar;
+    UIViewController* vc = [segue destinationViewController];
+    if ([vc isKindOfClass:[CarNotAppointmentTableViewController class]]) {
+        CarNotAppointmentTableViewController* carAppointVc = (CarNotAppointmentTableViewController*)vc;
+        carAppointVc.car = self.selectedCar;
+    }
 }
 
 
+- (IBAction)selectedChange:(id)sender {
+    [self.dataSource removeAllObjects];
+    [self.tableView reloadData];
+}
+
+- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    if (self.orderAndMyOrderSeg.selectedSegmentIndex == 1) {
+        UIButton* button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        button.frame = CGRectMake(0, 0, tableView.frame.size.width, 30);
+        [button setTitle:@"未出行车辆" forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(selecteShowCarTypes) forControlEvents:UIControlEventTouchDown];
+        return button;
+    }
+    return nil;
+}
+-(void)selecteShowCarTypes
+{
+    
+}
 @end

@@ -10,6 +10,10 @@
 		192D0E231D75750000216D92 /* ModifyPassCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 192D0E221D75750000216D92 /* ModifyPassCell.m */; };
 		192D0E261D75751500216D92 /* ModifyPerInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 192D0E251D75751500216D92 /* ModifyPerInfoCell.m */; };
 		192D0E291D76A8C500216D92 /* CarNotAppointmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 192D0E281D76A8C500216D92 /* CarNotAppointmentCell.m */; };
+		192D0E2C1D76BAD200216D92 /* CarDepartTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 192D0E2B1D76BAD200216D92 /* CarDepartTableViewController.m */; };
+		192D0E301D76BB0E00216D92 /* CarDepartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 192D0E2E1D76BB0E00216D92 /* CarDepartTableViewCell.m */; };
+		192D0E311D76BB0E00216D92 /* CarDepartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 192D0E2F1D76BB0E00216D92 /* CarDepartTableViewCell.xib */; };
+		192D0E331D76D0D500216D92 /* ShowCarsTypes.xib in Resources */ = {isa = PBXBuildFile; fileRef = 192D0E321D76D0D500216D92 /* ShowCarsTypes.xib */; };
 		194D0F101D48B56100827F3C /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 194D0F0F1D48B56100827F3C /* MenuView.m */; };
 		194F69EE1D52DB6900EC55EA /* MemuDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 194F69ED1D52DB6900EC55EA /* MemuDetailViewController.m */; };
 		194F69F11D52E26B00EC55EA /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = 194F69F01D52E26B00EC55EA /* Food.m */; };
@@ -80,6 +84,12 @@
 		192D0E251D75751500216D92 /* ModifyPerInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPerInfoCell.m; sourceTree = "<group>"; };
 		192D0E271D76A8C500216D92 /* CarNotAppointmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarNotAppointmentCell.h; sourceTree = "<group>"; };
 		192D0E281D76A8C500216D92 /* CarNotAppointmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarNotAppointmentCell.m; sourceTree = "<group>"; };
+		192D0E2A1D76BAD200216D92 /* CarDepartTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarDepartTableViewController.h; sourceTree = "<group>"; };
+		192D0E2B1D76BAD200216D92 /* CarDepartTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarDepartTableViewController.m; sourceTree = "<group>"; };
+		192D0E2D1D76BB0E00216D92 /* CarDepartTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarDepartTableViewCell.h; sourceTree = "<group>"; };
+		192D0E2E1D76BB0E00216D92 /* CarDepartTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarDepartTableViewCell.m; sourceTree = "<group>"; };
+		192D0E2F1D76BB0E00216D92 /* CarDepartTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarDepartTableViewCell.xib; sourceTree = "<group>"; };
+		192D0E321D76D0D500216D92 /* ShowCarsTypes.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowCarsTypes.xib; sourceTree = "<group>"; };
 		194D0F0E1D48B56100827F3C /* MenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuView.h; sourceTree = "<group>"; };
 		194D0F0F1D48B56100827F3C /* MenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuView.m; sourceTree = "<group>"; };
 		194F69EC1D52DB6900EC55EA /* MemuDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemuDetailViewController.h; sourceTree = "<group>"; };
@@ -359,8 +369,14 @@
 			children = (
 				D79FCE581D4274BA00BE99BB /* CarsTableViewController.h */,
 				D79FCE591D4274BA00BE99BB /* CarsTableViewController.m */,
+				192D0E321D76D0D500216D92 /* ShowCarsTypes.xib */,
 				D778F72B1D74719700350BBE /* CarNotAppointmentTableViewController.h */,
 				D778F72C1D74719700350BBE /* CarNotAppointmentTableViewController.m */,
+				192D0E2A1D76BAD200216D92 /* CarDepartTableViewController.h */,
+				192D0E2B1D76BAD200216D92 /* CarDepartTableViewController.m */,
+				192D0E2D1D76BB0E00216D92 /* CarDepartTableViewCell.h */,
+				192D0E2E1D76BB0E00216D92 /* CarDepartTableViewCell.m */,
+				192D0E2F1D76BB0E00216D92 /* CarDepartTableViewCell.xib */,
 				192D0E271D76A8C500216D92 /* CarNotAppointmentCell.h */,
 				192D0E281D76A8C500216D92 /* CarNotAppointmentCell.m */,
 				19E8D6651D4C9132005A6DB4 /* CarDetailCell.h */,
@@ -520,9 +536,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				192D0E311D76BB0E00216D92 /* CarDepartTableViewCell.xib in Resources */,
 				19E5BC031D3F331600C1A1A9 /* LaunchScreen.storyboard in Resources */,
 				19E5BC001D3F331600C1A1A9 /* Assets.xcassets in Resources */,
 				19E5BBFE1D3F331600C1A1A9 /* Main.storyboard in Resources */,
+				192D0E331D76D0D500216D92 /* ShowCarsTypes.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,6 +636,7 @@
 				D721E80E1D4CC84B00A73D9D /* Staff.m in Sources */,
 				D75EDDFE1D5A2B4300D34DC0 /* EColumn.m in Sources */,
 				D778F72D1D74719700350BBE /* CarNotAppointmentTableViewController.m in Sources */,
+				192D0E301D76BB0E00216D92 /* CarDepartTableViewCell.m in Sources */,
 				D75EDE061D5A2B4300D34DC0 /* EPieChart.m in Sources */,
 				D7D4F50E1D410B16005A7729 /* MainViewCell.m in Sources */,
 				195D34441D73E48800D6D6D2 /* Car.m in Sources */,
@@ -633,6 +652,7 @@
 				8D93C6931D4FA73E000465D1 /* DepartmentTableViewController.m in Sources */,
 				D7E676F61D60CBC8006A226B /* YLToast.m in Sources */,
 				192D0E291D76A8C500216D92 /* CarNotAppointmentCell.m in Sources */,
+				192D0E2C1D76BAD200216D92 /* CarDepartTableViewController.m in Sources */,
 				D75EDE031D5A2B4300D34DC0 /* ELine.m in Sources */,
 				19E8D66A1D4C9C22005A6DB4 /* ModifyPerInfoTableViewController.m in Sources */,
 				D75EDDFD1D5A2B4300D34DC0 /* EColor.m in Sources */,
