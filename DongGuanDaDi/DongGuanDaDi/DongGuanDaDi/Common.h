@@ -11,4 +11,5 @@
 @interface Common : NSObject
 +(NSString*)date2String:(NSDate*)date;
 +(NSDate*)string2Date:(NSString*)string;
++(NSArray *)getFirstAndLastDayOfThisWeek;
 @end

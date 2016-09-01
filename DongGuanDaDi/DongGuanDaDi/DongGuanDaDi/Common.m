@@ -23,4 +23,26 @@
     NSDate *date=[formatter dateFromString:string];
     return date;
 }
++(NSArray *)getFirstAndLastDayOfThisWeek
+{
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *dateComponents = [calendar components:NSWeekdayCalendarUnit | NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:[NSDate date]];
+    NSInteger weekday = [dateComponents weekday];
+    //第几天(从sunday开始)
+    NSInteger firstDiff,lastDiff;
+    if (weekday == 1) {
+        firstDiff = -6;
+        lastDiff = 0;
+    } else {
+        firstDiff =  - weekday + 2;
+        lastDiff = 8 - weekday;
+    }
+    NSInteger day = [dateComponents day];
+    NSDateComponents *firstComponents = [calendar components:NSWeekdayCalendarUnit | NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:[NSDate date]];
+    [firstComponents setDay:day+firstDiff];
+    NSDate *firstDay = [calendar dateFromComponents:firstComponents];
+    NSDateComponents *lastComponents = [calendar components:NSWeekdayCalendarUnit | NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:[NSDate date]];
+    [lastComponents setDay:day+lastDiff];NSDate *lastDay = [calendar dateFromComponents:lastComponents];
+    return [NSArray arrayWithObjects:firstDay,lastDay, nil];
+}
 @end

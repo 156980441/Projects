@@ -7,6 +7,11 @@
 //
 
 #import "DinnerViewController.h"
+#import "Common.h"
+#import "YLToast.h"
+
+#import "stdafx_DongGuanDaDi.h"
+#import "AFHTTPSessionManager.h"
 
 @interface DinnerViewController ()
 
@@ -26,6 +31,24 @@
     NSDate *endDate = [[NSCalendar currentCalendar] dateByAddingComponents:weeks toDate:[NSDate date] options:0];
     [self.dayPicker setStartDate:[NSDate date] endDate:endDate];
     [self.dayPicker addObserver:self forKeyPath:@"selectedDate" options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew context:nil];
+    
+    NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:@"/DongGuan/",@"referer", nil];
+    NSArray* dates = [Common getFirstAndLastDayOfThisWeek];
+    NSString* url = [NSString stringWithFormat:@"%@beginDateString=%@&endDateString=%@",URL_GET_CUISINE,[Common date2String:[dates objectAtIndex:0]],[Common date2String:[dates objectAtIndex:1]]];
+    [[AFHTTPSessionManager manager] GET:url parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSArray* arr = (NSArray*)responseObject;
+        if (arr.count != 0) {
+            
+        }
+        else
+        {
+            [YLToast showWithText:@"暂无该周菜式数据"];
+        }
+        NSLog(@"%@",responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"Login failed, %@",error);
+    }];
+    
 }
 - (void)viewDidDisappear:(BOOL)animated
 {
