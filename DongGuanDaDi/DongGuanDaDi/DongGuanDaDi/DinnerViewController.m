@@ -7,7 +7,7 @@
 //
 
 #import "DinnerViewController.h"
-#import "Common.h"
+#import "YLCommon.h"
 #import "YLToast.h"
 
 #import "stdafx_DongGuanDaDi.h"
@@ -33,8 +33,8 @@
     [self.dayPicker addObserver:self forKeyPath:@"selectedDate" options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew context:nil];
     
     NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:@"/DongGuan/",@"referer", nil];
-    NSArray* dates = [Common getFirstAndLastDayOfThisWeek];
-    NSString* url = [NSString stringWithFormat:@"%@beginDateString=%@&endDateString=%@",URL_GET_CUISINE,[Common date2String:[dates objectAtIndex:0]],[Common date2String:[dates objectAtIndex:1]]];
+    NSArray* dates = [YLCommon getFirstAndLastDayOfThisWeek];
+    NSString* url = [NSString stringWithFormat:@"%@beginDateString=%@&endDateString=%@",URL_GET_CUISINE,[YLCommon date2String:[dates objectAtIndex:0]],[YLCommon date2String:[dates objectAtIndex:1]]];
     [[AFHTTPSessionManager manager] GET:url parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
         NSArray* arr = (NSArray*)responseObject;
         if (arr.count != 0) {

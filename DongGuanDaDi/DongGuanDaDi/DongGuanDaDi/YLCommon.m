@@ -6,9 +6,9 @@
 //  Copyright © 2016年 fanyl. All rights reserved.
 //
 
-#import "Common.h"
+#import "YLCommon.h"
 
-@implementation Common
+@implementation YLCommon
 +(NSString*)date2String:(NSDate*)date
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -20,6 +20,20 @@
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init] ;
     [formatter setDateFormat:@"yyyy-MM-dd"];
+    NSDate *date=[formatter dateFromString:string];
+    return date;
+}
++(NSString*)time2String:(NSDate*)date
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"HH:mm"];
+    NSString *destDateString = [dateFormatter stringFromDate:date];
+    return destDateString;
+}
++(NSDate*)string2time:(NSString*)string
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init] ;
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSDate *date=[formatter dateFromString:string];
     return date;
 }

@@ -677,7 +677,7 @@
                     <navigationItem key="navigationItem" id="6eW-9V-Pt5">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="xPx-0J-MnE">
-                            <rect key="frame" x="233.5" y="7" width="133" height="30"/>
+                            <rect key="frame" x="234" y="7" width="133" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="车辆预约"/>
@@ -1108,13 +1108,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="wWY-3u-kaO">
-                            <rect key="frame" x="0.0" y="64" width="600" height="146"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="carNotAppoint" rowHeight="357" id="ch4-VK-Jdk" customClass="CarNotAppointmentCell">
-                                <rect key="frame" x="0.0" y="238" width="600" height="357"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="357"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ch4-VK-Jdk" id="uAo-Pr-k2b">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="356"/>
@@ -1198,15 +1194,6 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="请输入还车时间" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OQE-k9-IjT">
-                                            <rect key="frame" x="132" y="60" width="150" height="30"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="30" id="2De-pD-35l"/>
-                                                <constraint firstAttribute="width" constant="150" id="x9e-1F-vYJ"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="请输入随车人数" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g4D-Kk-bKG">
                                             <rect key="frame" x="132" y="90" width="150" height="30"/>
                                             <constraints>
@@ -1285,6 +1272,15 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="请输入还车时间" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OQE-k9-IjT">
+                                            <rect key="frame" x="132" y="60" width="150" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="2De-pD-35l"/>
+                                                <constraint firstAttribute="width" constant="150" id="x9e-1F-vYJ"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="JNv-1m-CCa" firstAttribute="leading" secondItem="uAo-Pr-k2b" secondAttribute="leading" constant="20" id="10u-xm-lN8"/>
@@ -1329,10 +1325,12 @@
                                     <outlet property="appointmentPeopleTxtField" destination="iVR-4L-p4b" id="kK4-t2-NfI"/>
                                     <outlet property="brandTxtField" destination="IW6-yf-1jK" id="3Uu-K1-0Xz"/>
                                     <outlet property="confirmBtn" destination="guH-T4-9nP" id="TKo-LJ-vmO"/>
-                                    <outlet property="endTimeTxtField" destination="OQE-k9-IjT" id="Uzv-CH-qgQ"/>
+                                    <outlet property="endDateTxtField" destination="OQE-k9-IjT" id="LJ9-Gf-nTl"/>
+                                    <outlet property="endTimeTxtField" destination="cQQ-eb-Vp4" id="Zxl-Aq-gas"/>
                                     <outlet property="passengerTxtField" destination="g4D-Kk-bKG" id="ir9-gM-66u"/>
                                     <outlet property="seatintTxtField" destination="7w3-Q7-E3h" id="IQi-Vy-afT"/>
-                                    <outlet property="startTimeTxtField" destination="tXa-Ye-uOC" id="IEU-xD-mBY"/>
+                                    <outlet property="startDateTxtField" destination="tXa-Ye-uOC" id="tMJ-KI-HOq"/>
+                                    <outlet property="startTimeTxtField" destination="TZR-I0-E4k" id="98t-W8-EZP"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

@@ -27,10 +27,6 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    NSString* url = [NSString stringWithFormat:@"%@%@",HOST,self.car.url];
-    UIImageView* imageView = [[UIImageView alloc] init];
-    [imageView setImageWithURL:[NSURL URLWithString:url]];
-    self.tableView.tableHeaderView = imageView;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,7 +34,20 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - UITableViewDelegate
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 300;
+}
+
+- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    NSString* url = [NSString stringWithFormat:@"%@%@",HOST,self.car.url];
+    UIImageView* imageView = [[UIImageView alloc] init];
+    [imageView setImageWithURL:[NSURL URLWithString:url]];
+    return imageView;
+}
 
 #pragma mark - Table view data source
 
@@ -103,5 +112,4 @@
     // Pass the selected object to the new view controller.
 }
 */
-
 @end

@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface CarNotAppointmentCell : UITableViewCell
+@class YLDatePicker;
+@interface CarNotAppointmentCell : UITableViewCell <UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *brandTxtField;
+@property (strong, nonatomic) IBOutlet UITextField *startDateTxtField;
+@property (strong, nonatomic) IBOutlet UITextField *endDateTxtField;
 @property (strong, nonatomic) IBOutlet UITextField *startTimeTxtField;
 @property (strong, nonatomic) IBOutlet UITextField *endTimeTxtField;
 @property (strong, nonatomic) IBOutlet UITextField *passengerTxtField;
@@ -17,6 +19,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *appointmentPeopleTxtField;
 @property (strong, nonatomic) IBOutlet UITextView *appointReasonTxtView;
 @property (strong, nonatomic) IBOutlet UIButton *confirmBtn;
+@property (strong, nonatomic) YLDatePicker* picker;
 - (IBAction)appointmentBtnClick:(id)sender;
 
 @end

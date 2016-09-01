@@ -9,7 +9,7 @@
 #import "DinerRecordViewController.h"
 #import "DinnerRecordTableViewCell.h"
 #import "DinnerRecord.h"
-#import "Common.h"
+#import "YLCommon.h"
 
 #import "stdafx_DongGuanDaDi.h"
 #import "AFHTTPSessionManager.h"
@@ -120,13 +120,13 @@
 {
     if (picker.tag == 0) {
         if (date) {
-            [self.startBtn setTitle:[Common date2String:date] forState:UIControlStateNormal];
+            [self.startBtn setTitle:[YLCommon date2String:date] forState:UIControlStateNormal];
         }
     }
     else if (picker.tag == 1)
     {
         if (date) {
-            [self.endBtn setTitle:[Common date2String:date] forState:UIControlStateNormal];
+            [self.endBtn setTitle:[YLCommon date2String:date] forState:UIControlStateNormal];
         }
     }
 }

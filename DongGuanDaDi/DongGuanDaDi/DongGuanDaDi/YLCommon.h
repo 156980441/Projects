@@ -8,8 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Common : NSObject
+@interface YLCommon : NSObject
+
+// yyyy-MM-dd
 +(NSString*)date2String:(NSDate*)date;
 +(NSDate*)string2Date:(NSString*)string;
+
++(NSString*)time2String:(NSDate*)date;
++(NSDate*)string2time:(NSString*)string;
+
 +(NSArray *)getFirstAndLastDayOfThisWeek;
+
 @end
