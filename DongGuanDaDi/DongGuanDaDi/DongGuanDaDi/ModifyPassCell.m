@@ -12,11 +12,17 @@
 #import "stdafx_DongGuanDaDi.h"
 #import "AFHTTPSessionManager.h"
 
+@interface ModifyPassCell ()
+@property (nonatomic, strong) AFHTTPSessionManager *manager;
+@end
+
 @implementation ModifyPassCell
 
 - (IBAction)modfiyPassPress:(id)sender {
-    NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:@"/DongGuan/",@"referer",self.nowPassTxtField.text,@"password",self.confirmPassTxtField.text,@"confirmedPassword", nil];
-    [[AFHTTPSessionManager manager] POST:URL_PSW_EDIT parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+    self.manager = [AFHTTPSessionManager manager];
+    [self.manager.requestSerializer setValue:@"/DongGuan/" forHTTPHeaderField:@"referer"];
+    NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:self.nowPassTxtField.text,@"password",self.confirmPassTxtField.text,@"confirmedPassword", nil];
+    [self.manager POST:URL_PSW_EDIT parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"Modify Pass succ,%@",responseObject);
         if([responseObject isKindOfClass:[NSDictionary class]]) {
             NSString* result = [(NSDictionary*)responseObject objectForKey:@"result"];

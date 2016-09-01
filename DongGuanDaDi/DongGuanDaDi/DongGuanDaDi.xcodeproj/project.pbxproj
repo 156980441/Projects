@@ -19,6 +19,7 @@
 		194F69F41D52F1CC00EC55EA /* DinerRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 194F69F31D52F1CC00EC55EA /* DinerRecordViewController.m */; };
 		194F69F71D52F1F800EC55EA /* DinnerVoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 194F69F61D52F1F800EC55EA /* DinnerVoteViewController.m */; };
 		195D34441D73E48800D6D6D2 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = 195D34431D73E48800D6D6D2 /* Car.m */; };
+		1977886F1D78230600C9BA7E /* DinnerRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 1977886E1D78230600C9BA7E /* DinnerRecord.m */; };
 		19E5BBF51D3F331600C1A1A9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E5BBF41D3F331600C1A1A9 /* main.m */; };
 		19E5BBF81D3F331600C1A1A9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E5BBF71D3F331600C1A1A9 /* AppDelegate.m */; };
 		19E5BBFE1D3F331600C1A1A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19E5BBFC1D3F331600C1A1A9 /* Main.storyboard */; };
@@ -103,6 +104,8 @@
 		194F69F61D52F1F800EC55EA /* DinnerVoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DinnerVoteViewController.m; sourceTree = "<group>"; };
 		195D34421D73E48800D6D6D2 /* Car.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
 		195D34431D73E48800D6D6D2 /* Car.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Car.m; sourceTree = "<group>"; };
+		1977886D1D78230600C9BA7E /* DinnerRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DinnerRecord.h; sourceTree = "<group>"; };
+		1977886E1D78230600C9BA7E /* DinnerRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DinnerRecord.m; sourceTree = "<group>"; };
 		19D0D6151D6AA53C009E7444 /* stdafx_DongGuanDaDi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stdafx_DongGuanDaDi.h; sourceTree = "<group>"; };
 		19E5BBF01D3F331600C1A1A9 /* DongGuanDaDi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DongGuanDaDi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19E5BBF41D3F331600C1A1A9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -358,6 +361,8 @@
 				194F69F31D52F1CC00EC55EA /* DinerRecordViewController.m */,
 				D7DFF50B1D777A860012C5AE /* DinnerRecordTableViewCell.h */,
 				D7DFF50C1D777A860012C5AE /* DinnerRecordTableViewCell.m */,
+				1977886D1D78230600C9BA7E /* DinnerRecord.h */,
+				1977886E1D78230600C9BA7E /* DinnerRecord.m */,
 				D79FCE541D4273E100BE99BB /* DinnerViewController.h */,
 				D79FCE551D4273E100BE99BB /* DinnerViewController.m */,
 				194F69F51D52F1F800EC55EA /* DinnerVoteViewController.h */,
@@ -664,6 +669,7 @@
 				8D93C6931D4FA73E000465D1 /* DepartmentTableViewController.m in Sources */,
 				D7E676F61D60CBC8006A226B /* YLToast.m in Sources */,
 				192D0E291D76A8C500216D92 /* CarNotAppointmentCell.m in Sources */,
+				1977886F1D78230600C9BA7E /* DinnerRecord.m in Sources */,
 				192D0E2C1D76BAD200216D92 /* CarDepartTableViewController.m in Sources */,
 				D75EDE031D5A2B4300D34DC0 /* ELine.m in Sources */,
 				19E8D66A1D4C9C22005A6DB4 /* ModifyPerInfoTableViewController.m in Sources */,
