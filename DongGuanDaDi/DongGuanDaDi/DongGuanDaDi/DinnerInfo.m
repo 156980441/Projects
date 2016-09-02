@@ -6,8 +6,8 @@
 //  Copyright © 2016 fanyl. All rights reserved.
 //
 
-#import "Food.h"
+#import "DinnerInfo.h"
 
-@implementation Food
+@implementation DinnerInfo
 
 @end

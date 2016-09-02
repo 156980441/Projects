@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MemuDetailViewController : UITableViewController
-
+@property (nonatomic, strong) NSArray *dataSource;
 @end

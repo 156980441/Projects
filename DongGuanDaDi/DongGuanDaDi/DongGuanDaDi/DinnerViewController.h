@@ -16,5 +16,8 @@
 - (IBAction)moreBtnClick:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *recordBtn;
 @property (strong, nonatomic) IBOutlet UIButton *voteBtn;
+@property (strong, nonatomic) IBOutlet UILabel *breakfastLabel;
+@property (strong, nonatomic) IBOutlet UILabel *lunchLabel;
+@property (strong, nonatomic) IBOutlet UILabel *dinnerLabel;
 
 @end

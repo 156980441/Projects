@@ -15,7 +15,7 @@
 		192D0E311D76BB0E00216D92 /* CarDepartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 192D0E2F1D76BB0E00216D92 /* CarDepartTableViewCell.xib */; };
 		194D0F101D48B56100827F3C /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 194D0F0F1D48B56100827F3C /* MenuView.m */; };
 		194F69EE1D52DB6900EC55EA /* MemuDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 194F69ED1D52DB6900EC55EA /* MemuDetailViewController.m */; };
-		194F69F11D52E26B00EC55EA /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = 194F69F01D52E26B00EC55EA /* Food.m */; };
+		194F69F11D52E26B00EC55EA /* DinnerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 194F69F01D52E26B00EC55EA /* DinnerInfo.m */; };
 		194F69F41D52F1CC00EC55EA /* DinerRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 194F69F31D52F1CC00EC55EA /* DinerRecordViewController.m */; };
 		194F69F71D52F1F800EC55EA /* DinnerVoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 194F69F61D52F1F800EC55EA /* DinnerVoteViewController.m */; };
 		195D34441D73E48800D6D6D2 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = 195D34431D73E48800D6D6D2 /* Car.m */; };
@@ -96,8 +96,8 @@
 		194D0F0F1D48B56100827F3C /* MenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuView.m; sourceTree = "<group>"; };
 		194F69EC1D52DB6900EC55EA /* MemuDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemuDetailViewController.h; sourceTree = "<group>"; };
 		194F69ED1D52DB6900EC55EA /* MemuDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemuDetailViewController.m; sourceTree = "<group>"; };
-		194F69EF1D52E26B00EC55EA /* Food.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Food.h; sourceTree = "<group>"; };
-		194F69F01D52E26B00EC55EA /* Food.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Food.m; sourceTree = "<group>"; };
+		194F69EF1D52E26B00EC55EA /* DinnerInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DinnerInfo.h; sourceTree = "<group>"; };
+		194F69F01D52E26B00EC55EA /* DinnerInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DinnerInfo.m; sourceTree = "<group>"; };
 		194F69F21D52F1CC00EC55EA /* DinerRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DinerRecordViewController.h; sourceTree = "<group>"; };
 		194F69F31D52F1CC00EC55EA /* DinerRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DinerRecordViewController.m; sourceTree = "<group>"; };
 		194F69F51D52F1F800EC55EA /* DinnerVoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DinnerVoteViewController.h; sourceTree = "<group>"; };
@@ -356,16 +356,16 @@
 				D7AF7A091D436942005EA6DE /* ASDayPicker.m */,
 				194F69F21D52F1CC00EC55EA /* DinerRecordViewController.h */,
 				194F69F31D52F1CC00EC55EA /* DinerRecordViewController.m */,
-				D7DFF50B1D777A860012C5AE /* DinnerRecordTableViewCell.h */,
-				D7DFF50C1D777A860012C5AE /* DinnerRecordTableViewCell.m */,
+				194F69EF1D52E26B00EC55EA /* DinnerInfo.h */,
+				194F69F01D52E26B00EC55EA /* DinnerInfo.m */,
 				1977886D1D78230600C9BA7E /* DinnerRecord.h */,
 				1977886E1D78230600C9BA7E /* DinnerRecord.m */,
+				D7DFF50B1D777A860012C5AE /* DinnerRecordTableViewCell.h */,
+				D7DFF50C1D777A860012C5AE /* DinnerRecordTableViewCell.m */,
 				D79FCE541D4273E100BE99BB /* DinnerViewController.h */,
 				D79FCE551D4273E100BE99BB /* DinnerViewController.m */,
 				194F69F51D52F1F800EC55EA /* DinnerVoteViewController.h */,
 				194F69F61D52F1F800EC55EA /* DinnerVoteViewController.m */,
-				194F69EF1D52E26B00EC55EA /* Food.h */,
-				194F69F01D52E26B00EC55EA /* Food.m */,
 				194F69EC1D52DB6900EC55EA /* MemuDetailViewController.h */,
 				194F69ED1D52DB6900EC55EA /* MemuDetailViewController.m */,
 				194D0F0E1D48B56100827F3C /* MenuView.h */,
@@ -660,7 +660,7 @@
 				8D98515C1D56FD980030D314 /* YLDatePicker.m in Sources */,
 				D75EDE041D5A2B4300D34DC0 /* ELineChart.m in Sources */,
 				19E5BC2B1D3F391C00C1A1A9 /* MainViewController.m in Sources */,
-				194F69F11D52E26B00EC55EA /* Food.m in Sources */,
+				194F69F11D52E26B00EC55EA /* DinnerInfo.m in Sources */,
 				D7680EA91D772FE8003A772F /* ShowCarsTypesView.m in Sources */,
 				D75EDE011D5A2B4300D34DC0 /* EColumnDataModel.m in Sources */,
 				D75EDE071D5A2B4300D34DC0 /* EViewSwitcher.m in Sources */,
