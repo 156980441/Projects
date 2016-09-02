@@ -19,5 +19,15 @@
 @property (strong, nonatomic) IBOutlet UILabel *breakfastLabel;
 @property (strong, nonatomic) IBOutlet UILabel *lunchLabel;
 @property (strong, nonatomic) IBOutlet UILabel *dinnerLabel;
+@property (strong, nonatomic) IBOutlet UILabel *selectedDateLabel;
+
+- (IBAction)orderBtnClick:(id)sender;
+- (IBAction)breakfastBtnClick:(id)sender;
+- (IBAction)lunchBtnClick:(id)sender;
+- (IBAction)dinnerBtnClick:(id)sender;
+
+@property (strong, nonatomic) IBOutlet UIButton *dinnerBtn;
+@property (strong, nonatomic) IBOutlet UIButton *lunchBtn;
+@property (strong, nonatomic) IBOutlet UIButton *breakfastBtn;
 
 @end

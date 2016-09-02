@@ -135,8 +135,12 @@
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    
     self.selecetedDate = change[NSKeyValueChangeNewKey];
-    NSArray* arr = [self.dateAndDinners objectForKey:[YLCommon date2String:self.selecetedDate]];
+    
+    self.selectedDateLabel.text = [NSString stringWithFormat:@"选定日期：%@",[YLCommon date2String:self.selecetedDate]];
+    
+    NSArray* arr = [self.dateAndDinners objectForKey:self.selectedDateLabel.text];
     NSDictionary* dic = [arr objectAtIndex:0];
     NSArray* breakfast_arr = [dic objectForKey:@"早餐"];
     NSMutableString* breakfast_str = [NSMutableString string];
@@ -176,5 +180,25 @@
 - (IBAction)moreBtnClick:(id)sender {
     self.voteBtn.hidden = !self.voteBtn.hidden;
     self.recordBtn.hidden = !self.recordBtn.hidden;
+}
+- (IBAction)orderBtnClick:(id)sender {
+    UIColor* color = nil;
+    if (self.recordBtn.isSelected) {
+        color = [UIColor blueColor];
+    }
+    else {
+        color = [UIColor whiteColor];
+    }
+    self.dinnerBtn.backgroundColor = self.lunchBtn.backgroundColor = self.breakfastBtn.backgroundColor = color;
+    self.recordBtn.selected = !self.recordBtn.selected;
+}
+
+- (IBAction)breakfastBtnClick:(id)sender {
+}
+
+- (IBAction)lunchBtnClick:(id)sender {
+}
+
+- (IBAction)dinnerBtnClick:(id)sender {
 }
 @end
