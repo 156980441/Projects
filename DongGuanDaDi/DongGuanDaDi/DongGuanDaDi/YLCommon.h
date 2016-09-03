@@ -19,4 +19,5 @@
 
 +(NSArray *)getFirstAndLastDayOfThisWeek;
 
++(NSString*)docPath:(NSString*)filename;
 @end

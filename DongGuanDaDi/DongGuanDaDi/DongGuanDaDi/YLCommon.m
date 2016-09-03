@@ -59,4 +59,11 @@
     [lastComponents setDay:day+lastDiff];NSDate *lastDay = [calendar dateFromComponents:lastComponents];
     return [NSArray arrayWithObjects:firstDay,lastDay, nil];
 }
+
++(NSString*)docPath:(NSString*)filename {
+    NSArray* myPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString* myDocPath = [myPaths objectAtIndex:0];
+    NSString* filePath = [myDocPath stringByAppendingPathComponent:filename];
+    return filePath;
+}
 @end

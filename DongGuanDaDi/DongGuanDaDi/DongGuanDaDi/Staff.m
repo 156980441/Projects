@@ -10,4 +10,31 @@
 
 @implementation Staff
 
+- (void) encodeWithCoder:(NSCoder *)encoder
+{
+    [encoder encodeObject:self.name forKey:@"name"];
+    [encoder encodeObject:self.pass forKey:@"pass"];
+}
+-(id)initWithCoder:(NSCoder *)encoder
+{
+    self.pass = [encoder decodeObjectForKey:@"pass"];
+    self.name = [encoder decodeObjectForKey:@"name"];
+    return self;
+}
+
+-(id)copyWithZone:(NSZone *)zone
+{
+    Staff* copy = [[[self class] allocWithZone:zone]init];
+    copy.pass = [self.pass copyWithZone:zone];
+    copy.name = [self.name copyWithZone:zone];
+    copy.identifier = [self.identifier copyWithZone:zone];
+//    copy.phone = [self.phone copyWithZone:zone];//怎么弄？
+//    copy.qq = [self.qq copyWithZone:zone];//怎么弄？
+//    copy.authList = [self.authList copyWithZone:zone];//怎么弄？
+    copy.wechat = [self.wechat copyWithZone:zone];
+    copy.officeName = [self.officeName copyWithZone:zone];
+    copy.sex = [self.sex copyWithZone:zone];
+    return copy;
+}
+
 @end
