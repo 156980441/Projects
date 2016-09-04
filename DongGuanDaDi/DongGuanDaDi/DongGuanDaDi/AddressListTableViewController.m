@@ -33,27 +33,6 @@
     self.orginDataSource = [NSMutableArray array];
     self.staffDataSources = [NSMutableDictionary dictionary];
     
-////////////////////////////    test data     ////////////////////////////
-    
-//    for (int i = 0; i < 3; i++) {
-//        Staff* temp = [[Staff alloc] init];
-//        temp.name = [NSString stringWithFormat:@"张%d",i];
-//        temp.phone = 123456;
-//        temp.wechat =  @"88888";
-//        temp.qq =  666666;
-//        [self.staffDataSources addObject:temp];
-//    }
-//    for (int i = 0; i < 5; i++) {
-//        Staff* temp = [[Staff alloc] init];
-//        temp.name = [NSString stringWithFormat:@"王%d",i];
-//        temp.phone = 123456;
-//        temp.wechat =  @"88888";
-//        temp.qq =  666666;
-//        [self.staffDataSources addObject:temp];
-//    }
-    
-////////////////////////////    test data end    ////////////////////////////
-    
     AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
     [manager.requestSerializer setValue:@"/DongGuan/" forHTTPHeaderField:@"referer"];
     [manager GET:URL_CONTACT parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -76,15 +55,6 @@
             [self.orginDataSource addObject:staff];
             [values addObject:staff];
             
-//            CFMutableStringRef pinyin_string = CFStringCreateMutableCopy(NULL, 0, (__bridge CFStringRef)staff.name);
-//            CFRange range = CFRangeMake(0, 1);
-//            CFStringTransform(pinyin_string, &range, kCFStringTransformMandarinLatin, NO);
-//            CFStringTransform(pinyin_string, &range,kCFStringTransformStripDiacritics, NO);
-//            NSMutableString* pinyin_oc_string = (__bridge NSMutableString*)pinyin_string;
-//            NSString* pinyin = [pinyin_oc_string substringToIndex:1];
-//            if (![indexes containsObject:pinyin]) {
-//                [indexes addObject:pinyin];
-//            }
             NSString* temp = [staff.name substringToIndex:1];
             if (![indexes containsObject:temp]) {
                 [indexes addObject:temp];
@@ -127,22 +97,24 @@
 }
 - (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    if (self.staffDataSources.allKeys.count != 0) {
+    if (self.staffDataSources.allKeys.count != 0 && tableView != self.searchDisplayController.searchResultsTableView) {
         return [self.staffDataSources.allKeys objectAtIndex:section];
     }
     else {
-        return 0;
+        return @"搜索结果";
     }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    NSInteger count = self.staffDataSources.allKeys.count;
-    if (count != 0) {
-        return count;
+    if (tableView != self.searchDisplayController.searchResultsTableView)
+    {
+        NSInteger count = self.staffDataSources.allKeys.count;
+        if (count != 0) {
+            return count;
+        }
     }
-    else {
-        return 0;
-    }
+    
+        return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -169,7 +141,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     // 这里要用 self.tableView 来解决 Assertion failure when using UISearchDisplayController in UITableViewController
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"staff" forIndexPath:indexPath];
+//    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"staff" forIndexPath:indexPath];
+    UITableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier:@"staff"];
     Staff* staff = nil;
     // 检查现在应该显示普通列表还是过滤后的列表
     if (tableView == self.searchDisplayController.searchResultsTableView)
@@ -239,7 +212,7 @@
     
     // 用NSPredicate来过滤数组。
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name contains[c] %@",searchText];
-    self.filteredStaffArray = [NSMutableArray arrayWithArray:[self.staffDataSources.allValues filteredArrayUsingPredicate:predicate]];
+    self.filteredStaffArray = [NSMutableArray arrayWithArray:[self.orginDataSource filteredArrayUsingPredicate:predicate]];
 }
 
 #pragma mark - UISearchDisplayController Delegate Methods
