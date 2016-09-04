@@ -72,6 +72,9 @@
     
     if (0 == indexPath.row) {
         cell.textLabel.text = self.staff.name;
+        cell.detailTextLabel.text = self.staff.officeName;
+        cell.detailTextLabel.backgroundColor = [UIColor blueColor];
+        cell.detailTextLabel.textColor = [UIColor whiteColor];
     } else if (1 == indexPath.row) {
         cell.textLabel.text = [NSString stringWithFormat:@"电话：%lld",self.staff.phone];
     } else if (2 == indexPath.row) {
@@ -80,8 +83,14 @@
         cell.textLabel.text = [NSString stringWithFormat:@"QQ：%lld",self.staff.qq];
     } else if (4 == indexPath.row) {
         cell.textLabel.text = @"信息编辑";
+        cell.textLabel.textColor = [UIColor blueColor];
+        CGFloat width = cell.textLabel.frame.size.width / 2;
+        cell.separatorInset = UIEdgeInsetsMake(0, cell.center.x - width, 0, cell.center.x - width);
     } else if (5 == indexPath.row) {
         cell.textLabel.text = @"修改密码";
+        cell.textLabel.textColor = [UIColor blueColor];
+        CGFloat width = cell.textLabel.frame.size.width / 2;
+        cell.separatorInset = UIEdgeInsetsMake(0, cell.center.x - width, 0, cell.center.x - width);
     }
     
     return cell;
