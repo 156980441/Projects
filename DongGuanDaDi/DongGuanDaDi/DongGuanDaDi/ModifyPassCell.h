@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ModifyPassCell : UITableViewCell
+@interface ModifyPassCell : UITableViewCell <UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *oldPassTxtField;
 @property (strong, nonatomic) IBOutlet UITextField *nowPassTxtField;
 @property (strong, nonatomic) IBOutlet UITextField *confirmPassTxtField;

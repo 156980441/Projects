@@ -766,6 +766,7 @@
                         <outlet property="orderAndMyOrderSeg" destination="xPx-0J-MnE" id="Sii-VR-L4c"/>
                         <segue destination="qga-hT-8HS" kind="show" identifier="carNotAppointment" id="AOc-im-Cxj"/>
                         <segue destination="YGf-RI-8zQ" kind="show" identifier="carDepart" id="Bgh-kV-UDp"/>
+                        <segue destination="xXF-W9-tCe" kind="show" identifier="carAppointment" id="4tR-HP-BL1"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="afT-H2-hcs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -848,7 +849,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nyx-l4-TyE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2442" y="1183"/>
+            <point key="canvasLocation" x="1482" y="1423"/>
         </scene>
         <!--Department Table View Controller-->
         <scene sceneID="aKP-a1-T9p">
@@ -1453,7 +1454,35 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8TR-Tj-vM7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2982" y="275"/>
+            <point key="canvasLocation" x="3182" y="379"/>
+        </scene>
+        <!--Car Appointment Table View Controller-->
+        <scene sceneID="5at-7v-htG">
+            <objects>
+                <tableViewController id="xXF-W9-tCe" customClass="CarAppointmentTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="OJU-2V-7nL">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="car_appointment_identifier" id="FEn-Lc-Tgd">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FEn-Lc-Tgd" id="UK2-Md-dMW">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="xXF-W9-tCe" id="Sbv-Ko-Q7A"/>
+                            <outlet property="delegate" destination="xXF-W9-tCe" id="bfs-VU-ooA"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rfU-iU-v9Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2718" y="1179"/>
         </scene>
         <!--Address List Table View Controller-->
         <scene sceneID="NbE-IL-4rW">

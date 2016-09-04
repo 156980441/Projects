@@ -9,6 +9,7 @@
 #import "CarNotAppointmentCell.h"
 #import "YLDatePicker.h"
 #import "YLCommon.h"
+#import "YLToast.h"
 
 #import "stdafx_DongGuanDaDi.h"
 #import "AFHTTPSessionManager.h"
@@ -38,11 +39,23 @@
                          [NSString stringWithFormat:@"%@ %@",self.endDateTxtField.text,self.endTimeTxtField.text], @"end",
                          [NSString stringWithFormat:@"%@ %@",self.startDateTxtField.text,self.startTimeTxtField.text], @"start",
                          nil];
+    NSDictionary* dic2 = [NSDictionary dictionaryWithObjectsAndKeys:
+                         @"2",@"peopleNumber",
+                         @"何少毅",@"driver",
+                         @"测试",@"reason",
+                         @"粤WQS25",@"carNumber",
+                         @"",@"officeId",
+                         @"2016-09-05", @"end",
+                         @"2016-09-04", @"start",
+                         nil];
     self.manager = [AFHTTPSessionManager manager];
     [self.manager.requestSerializer setValue:@"/DongGuan/" forHTTPHeaderField:@"referer"];
-    [self.manager POST:URL_CAR_APPOINTMENT_SUBMIT_TABLE parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+    self.manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [self.manager POST:URL_CAR_APPOINTMENT_SUBMIT_TABLE parameters:dic2 success:^(NSURLSessionDataTask *task, id responseObject) {
+        [YLToast showWithText:@"预约成功"];
         NSLog(@"%@",responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [YLToast showWithText:@"预约失败"];
         NSLog(@"%@",error.description);
     }];
 }

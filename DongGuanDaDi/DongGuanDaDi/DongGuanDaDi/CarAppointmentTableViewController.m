@@ -2,22 +2,21 @@
 //  CarAppointmentTableViewController.m
 //  DongGuanDaDi
 //
-//  Created by 赵雪莹 on 16/8/29.
+//  Created by 赵雪莹 on 16/9/4.
 //  Copyright © 2016年 fanyl. All rights reserved.
 //
 
-#import "CarNotAppointmentTableViewController.h"
-#import "CarNotAppointmentCell.h"
+#import "CarAppointmentTableViewController.h"
 #import "Car.h"
 
 #import "stdafx_DongGuanDaDi.h"
 #import "UIImageView+AFNetworking.h"
 
-@interface CarNotAppointmentTableViewController ()
-
+@interface CarAppointmentTableViewController ()
+@property (nonatomic, strong) NSArray *dataSource;
 @end
 
-@implementation CarNotAppointmentTableViewController
+@implementation CarAppointmentTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,6 +26,13 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    NSString* startStr = [NSString stringWithFormat:@"预约出车时间：%@",self.car.startTime];
+    NSString* endStr = [NSString stringWithFormat:@"预约出车时间：%@",self.car.endtime];
+    NSString* driver = [NSString stringWithFormat:@"预约人：%@",self.car.driver];
+    NSString* passengers = [NSString stringWithFormat:@"随车人数：%zd", self.car.peopleNum];
+    NSString* reason = [NSString stringWithFormat:@"出车事由：%@",self.car.reason];
+    self.dataSource =@[startStr,endStr,driver,passengers,reason];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,15 +62,12 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return self.dataSource.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CarNotAppointmentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"carNotAppoint" forIndexPath:indexPath];
-    cell.brandTxtField.text = self.car.brand;
-    cell.seatintTxtField.text = [NSString stringWithFormat:@"%ld",self.car.seating];
-    
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"car_appointment_identifier" forIndexPath:indexPath];
+    cell.textLabel.text = [self.dataSource objectAtIndex:indexPath.row];
     
     // Configure the cell...
     
@@ -114,4 +117,5 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 @end

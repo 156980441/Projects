@@ -11,6 +11,7 @@
 #import "CarDetailCell.h"
 #import "CarNotAppointmentTableViewController.h"
 #import "CarDepartTableViewController.h"
+#import "CarAppointmentTableViewController.h"
 #import "ShowCarsTypesView.h"
 
 #import "stdafx_DongGuanDaDi.h"
@@ -127,7 +128,6 @@
             [self.orderDataSource addObject:car];
         }
         [self.tableView reloadData];
-//        NSLog(@"responseObject, %@",responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"Login failed, %@",error);
     }];
@@ -189,6 +189,7 @@
     else if (car.state == DGCarAppointment)
     {
         cell.state.text = @"已预约车辆";
+        cell.state.backgroundColor = [UIColor yellowColor];
     }
     return cell;
 }
@@ -237,11 +238,15 @@
     // Pass the selected object to the new view controller.
     UIViewController* vc = [segue destinationViewController];
     if ([vc isKindOfClass:[CarNotAppointmentTableViewController class]]) {
-        CarNotAppointmentTableViewController* carAppointVc = (CarNotAppointmentTableViewController*)vc;
-        carAppointVc.car = self.selectedCar;
+        CarNotAppointmentTableViewController* carNotAppointVc = (CarNotAppointmentTableViewController*)vc;
+        carNotAppointVc.car = self.selectedCar;
     }
     if ([vc isKindOfClass:[CarDepartTableViewController class]]) {
-        CarDepartTableViewController* carAppointVc = (CarDepartTableViewController*)vc;
+        CarDepartTableViewController* carDepartVc = (CarDepartTableViewController*)vc;
+        carDepartVc.car = self.selectedCar;
+    }
+    if ([vc isKindOfClass:[CarAppointmentTableViewController class]]) {
+        CarAppointmentTableViewController* carAppointVc = (CarAppointmentTableViewController*)vc;
         carAppointVc.car = self.selectedCar;
     }
 }

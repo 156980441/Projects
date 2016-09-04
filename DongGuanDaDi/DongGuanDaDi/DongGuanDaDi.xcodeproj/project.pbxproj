@@ -51,6 +51,7 @@
 		D75EDE071D5A2B4300D34DC0 /* EViewSwitcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D75EDDFA1D5A2B4300D34DC0 /* EViewSwitcher.m */; };
 		D75EDE081D5A2B4300D34DC0 /* UICountingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D75EDDFC1D5A2B4300D34DC0 /* UICountingLabel.m */; };
 		D7680EA91D772FE8003A772F /* ShowCarsTypesView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7680EA81D772FE8003A772F /* ShowCarsTypesView.m */; };
+		D773D55E1D7C597C009F61B5 /* CarAppointmentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D773D55D1D7C597C009F61B5 /* CarAppointmentTableViewController.m */; };
 		D778F72D1D74719700350BBE /* CarNotAppointmentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D778F72C1D74719700350BBE /* CarNotAppointmentTableViewController.m */; };
 		D79FCE561D4273E100BE99BB /* DinnerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D79FCE551D4273E100BE99BB /* DinnerViewController.m */; };
 		D79FCE5A1D4274BA00BE99BB /* CarsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D79FCE591D4274BA00BE99BB /* CarsTableViewController.m */; };
@@ -170,6 +171,8 @@
 		D75EDDFC1D5A2B4300D34DC0 /* UICountingLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICountingLabel.m; sourceTree = "<group>"; };
 		D7680EA71D772FE8003A772F /* ShowCarsTypesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowCarsTypesView.h; sourceTree = "<group>"; };
 		D7680EA81D772FE8003A772F /* ShowCarsTypesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowCarsTypesView.m; sourceTree = "<group>"; };
+		D773D55C1D7C597C009F61B5 /* CarAppointmentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarAppointmentTableViewController.h; sourceTree = "<group>"; };
+		D773D55D1D7C597C009F61B5 /* CarAppointmentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarAppointmentTableViewController.m; sourceTree = "<group>"; };
 		D778F72B1D74719700350BBE /* CarNotAppointmentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarNotAppointmentTableViewController.h; sourceTree = "<group>"; };
 		D778F72C1D74719700350BBE /* CarNotAppointmentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarNotAppointmentTableViewController.m; sourceTree = "<group>"; };
 		D79FCE541D4273E100BE99BB /* DinnerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DinnerViewController.h; sourceTree = "<group>"; };
@@ -379,6 +382,8 @@
 			children = (
 				195D34421D73E48800D6D6D2 /* Car.h */,
 				195D34431D73E48800D6D6D2 /* Car.m */,
+				D773D55C1D7C597C009F61B5 /* CarAppointmentTableViewController.h */,
+				D773D55D1D7C597C009F61B5 /* CarAppointmentTableViewController.m */,
 				192D0E2D1D76BB0E00216D92 /* CarDepartTableViewCell.h */,
 				192D0E2E1D76BB0E00216D92 /* CarDepartTableViewCell.m */,
 				192D0E2F1D76BB0E00216D92 /* CarDepartTableViewCell.xib */,
@@ -674,6 +679,7 @@
 				D75EDE031D5A2B4300D34DC0 /* ELine.m in Sources */,
 				19E8D66A1D4C9C22005A6DB4 /* ModifyPerInfoTableViewController.m in Sources */,
 				D75EDDFD1D5A2B4300D34DC0 /* EColor.m in Sources */,
+				D773D55E1D7C597C009F61B5 /* CarAppointmentTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

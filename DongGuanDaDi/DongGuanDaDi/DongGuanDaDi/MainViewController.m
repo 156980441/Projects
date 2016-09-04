@@ -133,8 +133,10 @@
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
         
-        NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:@"/DongGuan/",@"referer", nil];
-        [[AFHTTPSessionManager manager] GET:URL_LOGOUT parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
+        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+        [manager.requestSerializer setValue:@"/DongGuan/" forHTTPHeaderField:@"referer"];
+        [manager GET:URL_LOGOUT parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
             NSLog(@"Logout success, %@",responseObject);
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             NSLog(@"Logout failed, %@",error);
