@@ -92,7 +92,7 @@
         CGFloat width = cell.textLabel.frame.size.width / 2;
         cell.separatorInset = UIEdgeInsetsMake(0, cell.center.x - width, 0, cell.center.x - width);
     }
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 

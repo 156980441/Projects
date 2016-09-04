@@ -44,6 +44,8 @@
     cell.phoneTxtField.text = [NSString stringWithFormat:@"%lld", self.staff.phone];
     cell.weChatTxtField.text = self.staff.wechat;
     cell.qqTxtField.text = [NSString stringWithFormat:@"%lld", self.staff.qq];
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     // Configure the cell...
     
     return cell;
