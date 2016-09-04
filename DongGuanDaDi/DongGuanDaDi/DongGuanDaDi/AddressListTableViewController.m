@@ -29,8 +29,9 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    self.filteredStaffArray = [NSMutableArray arrayWithCapacity:self.staffDataSources.count];
-    self.staffDataSources = [NSMutableArray arrayWithCapacity:0];
+    self.filteredStaffArray = [NSMutableArray array];
+    self.orginDataSource = [NSMutableArray array];
+    self.staffDataSources = [NSMutableDictionary dictionary];
     
 ////////////////////////////    test data     ////////////////////////////
     
@@ -56,7 +57,11 @@
     AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
     [manager.requestSerializer setValue:@"/DongGuan/" forHTTPHeaderField:@"referer"];
     [manager GET:URL_CONTACT parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        
         NSArray* staffs = (NSArray*)responseObject;
+        NSMutableArray* indexes = [NSMutableArray array];
+        NSMutableArray* values = [NSMutableArray array];
+        
         for (NSDictionary* dic in staffs) {
             Staff* staff = [[Staff alloc] init];
             staff.staffId = [dic objectForKey:@"id"];
@@ -68,8 +73,41 @@
             NSDictionary* office_staff = [dic_user objectForKey:@"office"];
             staff.officeName = [office_staff objectForKey:@"officeName"];
             staff.wechat = [dic_user objectForKey:@"wechatId"];
-            [self.staffDataSources addObject:staff];
+            [self.orginDataSource addObject:staff];
+            [values addObject:staff];
+            
+//            CFMutableStringRef pinyin_string = CFStringCreateMutableCopy(NULL, 0, (__bridge CFStringRef)staff.name);
+//            CFRange range = CFRangeMake(0, 1);
+//            CFStringTransform(pinyin_string, &range, kCFStringTransformMandarinLatin, NO);
+//            CFStringTransform(pinyin_string, &range,kCFStringTransformStripDiacritics, NO);
+//            NSMutableString* pinyin_oc_string = (__bridge NSMutableString*)pinyin_string;
+//            NSString* pinyin = [pinyin_oc_string substringToIndex:1];
+//            if (![indexes containsObject:pinyin]) {
+//                [indexes addObject:pinyin];
+//            }
+            NSString* temp = [staff.name substringToIndex:1];
+            if (![indexes containsObject:temp]) {
+                [indexes addObject:temp];
+            }
+            
         }
+        
+        for (NSString* s in indexes) {
+            NSMutableArray* values2 = [NSMutableArray array];
+            for (Staff* user in values) {
+                if ([[user.name substringToIndex:1] isEqualToString:s]) {
+                    [values2 addObject:user];
+                }
+            }
+            CFMutableStringRef pinyin_string = CFStringCreateMutableCopy(NULL, 0, (__bridge CFStringRef)s);
+            CFRange range = CFRangeMake(0, 1);
+            CFStringTransform(pinyin_string, &range, kCFStringTransformMandarinLatin, NO);
+            CFStringTransform(pinyin_string, &range,kCFStringTransformStripDiacritics, NO);
+            NSMutableString* pinyin_oc_string = (__bridge NSMutableString*)pinyin_string;
+            NSString* pinyin = [pinyin_oc_string substringToIndex:1];
+            [self.staffDataSources setObject:values2 forKey:pinyin];
+        }
+        
         [self.tableView reloadData];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"Login failed, %@",error);
@@ -83,9 +121,28 @@
 }
 
 #pragma mark - Table view data source
+- (nullable NSArray<NSString *> *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    return self.staffDataSources.allKeys;
+}
+- (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (self.staffDataSources.allKeys.count != 0) {
+        return [self.staffDataSources.allKeys objectAtIndex:section];
+    }
+    else {
+        return 0;
+    }
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    NSInteger count = self.staffDataSources.allKeys.count;
+    if (count != 0) {
+        return count;
+    }
+    else {
+        return 0;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -96,7 +153,15 @@
     }
     else
     {
-        return self.staffDataSources.count;
+        NSInteger count = self.staffDataSources.allKeys.count;
+        if (count != 0) {
+            NSString* pinyin_key = [self.staffDataSources.allKeys objectAtIndex:section];
+            NSArray* values = [self.staffDataSources objectForKey:pinyin_key];
+            return values.count;
+        }
+        else {
+            return 0;
+        }
     }
     
 }
@@ -113,7 +178,9 @@
     }
     else
     {
-        staff = [self.staffDataSources objectAtIndex:indexPath.row];
+        NSString* pinyin_key = [self.staffDataSources.allKeys objectAtIndex:indexPath.section];
+        NSArray* values = [self.staffDataSources objectForKey:pinyin_key];
+        staff = [values objectAtIndex:indexPath.row];
     }
     cell.textLabel.text = staff.name;
     return cell;
@@ -172,7 +239,7 @@
     
     // 用NSPredicate来过滤数组。
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name contains[c] %@",searchText];
-    self.filteredStaffArray = [NSMutableArray arrayWithArray:[self.staffDataSources filteredArrayUsingPredicate:predicate]];
+    self.filteredStaffArray = [NSMutableArray arrayWithArray:[self.staffDataSources.allValues filteredArrayUsingPredicate:predicate]];
 }
 
 #pragma mark - UISearchDisplayController Delegate Methods
@@ -206,14 +273,16 @@
         else
         {
             NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-            staff = [self.staffDataSources objectAtIndex:[indexPath row]];
+            NSString* pinyin_key = [self.staffDataSources.allKeys objectAtIndex:indexPath.section];
+            NSArray* values = [self.staffDataSources objectForKey:pinyin_key];
+            staff = [values objectAtIndex:[indexPath row]];
         }
         detail.staff = staff;
     }
     UIViewController* vc = [segue destinationViewController];
     if ([vc isKindOfClass:[DepartmentTableViewController class]]) {
         DepartmentTableViewController* departmentVc = (DepartmentTableViewController*)vc;
-        departmentVc.orginDataSource = [self.staffDataSources copy];
+        departmentVc.orginDataSource = [self.orginDataSource copy];
     }
 }
 @end
