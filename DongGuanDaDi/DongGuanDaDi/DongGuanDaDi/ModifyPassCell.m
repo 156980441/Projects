@@ -13,28 +13,21 @@
 #import "AFHTTPSessionManager.h"
 
 @interface ModifyPassCell ()
-@property (nonatomic, strong) AFHTTPSessionManager *manager;
 @end
 
 @implementation ModifyPassCell
 
 - (IBAction)modfiyPassPress:(id)sender {
-    self.manager = [AFHTTPSessionManager manager];
-    [self.manager.requestSerializer setValue:@"/DongGuan/" forHTTPHeaderField:@"referer"];
+    AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [manager.requestSerializer setValue:@"/DongGuan/" forHTTPHeaderField:@"referer"];
+    
     NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:self.nowPassTxtField.text,@"password",self.confirmPassTxtField.text,@"confirmedPassword", nil];
-    [self.manager POST:URL_PSW_EDIT parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"Modify Pass succ,%@",responseObject);
-        if([responseObject isKindOfClass:[NSDictionary class]]) {
-            NSString* result = [(NSDictionary*)responseObject objectForKey:@"result"];
-            [YLToast showWithText:result];
-            if ([result isEqualToString:@"success"]) {
-                
-            }
-            else {
-                [YLToast showWithText:result];
-            }
-        }
+    [manager POST:URL_PSW_EDIT parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"Modify Pass succ,%@",responseObject);//这里后台可能存在返回值的编码问题
+        [YLToast showWithText:@"修改成功"];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [YLToast showWithText:@"修改失败"];
         NSLog(@"Modify Pass failed, %@",error);
     }];
 }

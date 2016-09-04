@@ -1058,13 +1058,13 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tpc-r2-jRs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-885" y="3315"/>
+            <point key="canvasLocation" x="-2189" y="3843"/>
         </scene>
         <!--Modify Pass Table View Controller-->
         <scene sceneID="tDM-EK-xzC">
             <objects>
                 <tableViewController id="8Cw-yp-DMF" customClass="ModifyPassTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="281" sectionHeaderHeight="28" sectionFooterHeight="28" id="QXw-qO-f4h">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="281" sectionHeaderHeight="28" sectionFooterHeight="28" id="QXw-qO-f4h">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1073,7 +1073,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="281"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sLn-GK-Bv1" id="HXM-wu-9gz">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="280.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="281"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e2l-6h-exB">
