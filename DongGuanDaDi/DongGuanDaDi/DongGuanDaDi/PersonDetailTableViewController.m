@@ -27,7 +27,6 @@
     self.keys = @[@"姓名",@"电话",@"微信",@"QQ"];
     Staff* staff = self.staff;
     self.values = [NSArray arrayWithObjects:staff.name,[[NSNumber alloc] initWithLongLong: staff.phone],staff.wechat,[[NSNumber alloc] initWithLongLong:staff.qq], nil];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,6 +49,9 @@
     
     // Configure the cell...
     NSInteger row = indexPath.row;
+    if (0 == row) {
+        cell.detailTextLabel.text = self.staff.officeName;
+    }
     cell.textLabel.text = [NSString stringWithFormat:@"%@：%@",[self.keys objectAtIndex:row], [self.values objectAtIndex:row]];
     return cell;
 }

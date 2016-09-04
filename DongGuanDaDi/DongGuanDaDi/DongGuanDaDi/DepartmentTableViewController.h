@@ -10,4 +10,5 @@
 
 @interface DepartmentTableViewController : UITableViewController
 @property(nonatomic,strong)NSMutableArray* dataSource;
+@property(nonatomic,strong)NSArray* orginDataSource;
 @end

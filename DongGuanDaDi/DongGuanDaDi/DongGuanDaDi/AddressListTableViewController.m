@@ -9,6 +9,7 @@
 #import "AddressListTableViewController.h"
 #import "Staff.h"
 #import "PersonDetailTableViewController.h"
+#import "DepartmentTableViewController.h"
 
 #import "stdafx_DongGuanDaDi.h"
 #import "AFHTTPSessionManager.h"
@@ -52,21 +53,24 @@
     
 ////////////////////////////    test data end    ////////////////////////////
     
-    NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:@"/DongGuan/",@"referer", nil];
-    [[AFHTTPSessionManager manager] GET:URL_CONTACT parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+    AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
+    [manager.requestSerializer setValue:@"/DongGuan/" forHTTPHeaderField:@"referer"];
+    [manager GET:URL_CONTACT parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSArray* staffs = (NSArray*)responseObject;
         for (NSDictionary* dic in staffs) {
-            NSDictionary* dic_staff = [dic objectForKey:@"user"];
             Staff* staff = [[Staff alloc] init];
-            staff.name = [dic_staff objectForKey:@"name"];
-            staff.officeName = [dic_staff objectForKey:@"officeName"];
-            staff.wechat = [dic_staff objectForKey:@"wechatId"];
-            staff.qq = ((NSNumber*)[dic objectForKey:@"qq"]).longLongValue;
+            staff.staffId = [dic objectForKey:@"id"];
             staff.phone = ((NSNumber*)[dic objectForKey:@"phone"]).longLongValue;
+            staff.qq = ((NSNumber*)[dic objectForKey:@"qq"]).longLongValue;
+            staff.sex = [dic objectForKey:@"sex"];
+            NSDictionary* dic_user = [dic objectForKey:@"user"];
+            staff.name = [dic_user objectForKey:@"name"];
+            NSDictionary* office_staff = [dic_user objectForKey:@"office"];
+            staff.officeName = [office_staff objectForKey:@"officeName"];
+            staff.wechat = [dic_user objectForKey:@"wechatId"];
             [self.staffDataSources addObject:staff];
         }
         [self.tableView reloadData];
-//        NSLog(@"responseObject, %@",responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"Login failed, %@",error);
     }];
@@ -206,9 +210,10 @@
         }
         detail.staff = staff;
     }
-    else if ([sender isKindOfClass:[UITabBarItem class]])
-    {
-        
+    UIViewController* vc = [segue destinationViewController];
+    if ([vc isKindOfClass:[DepartmentTableViewController class]]) {
+        DepartmentTableViewController* departmentVc = (DepartmentTableViewController*)vc;
+        departmentVc.orginDataSource = [self.staffDataSources copy];
     }
 }
 @end

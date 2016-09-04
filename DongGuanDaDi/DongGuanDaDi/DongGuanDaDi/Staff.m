@@ -27,7 +27,7 @@
     Staff* copy = [[[self class] allocWithZone:zone]init];
     copy.pass = [self.pass copyWithZone:zone];
     copy.name = [self.name copyWithZone:zone];
-    copy.identifier = [self.identifier copyWithZone:zone];
+    copy.staffId = [self.staffId copyWithZone:zone];
 //    copy.phone = [self.phone copyWithZone:zone];//怎么弄？
 //    copy.qq = [self.qq copyWithZone:zone];//怎么弄？
 //    copy.authList = [self.authList copyWithZone:zone];//怎么弄？

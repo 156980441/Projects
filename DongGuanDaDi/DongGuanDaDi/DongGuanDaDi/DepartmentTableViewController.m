@@ -32,8 +32,9 @@
     
     self.dataSource = [[NSMutableArray alloc] initWithCapacity: 0];
     
-    NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:@"/DongGuan/",@"referer", nil];
-    [[AFHTTPSessionManager manager] GET:URL_OFFICE_NAME parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+    AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
+    [manager.requestSerializer setValue:@"/DongGuan/" forHTTPHeaderField:@"referer"];
+    [manager GET:URL_OFFICE_NAME parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSArray* offices = (NSArray*)responseObject;
         for (NSDictionary* dic in offices) {
             NSString* office = [dic objectForKey:@"officeName"];
@@ -44,15 +45,11 @@
             
             [dict setObject:office forKey:@"groupname"];
             arr = [NSMutableArray array];
-            for (int i = 0; i < 3; i++) {
-                Staff* temp = [[Staff alloc] init];
-                temp.name = [NSString stringWithFormat:@"张%d",i];
-                temp.phone = 123456;
-                temp.wechat =  @"88888";
-                temp.qq =  666666;
-                [arr addObject:temp];
-                [dict setObject:arr forKey:@"users"];
-                
+            for (Staff* staff in self.orginDataSource) {
+                if ([staff.officeName isEqualToString:office]) {
+                    [arr addObject:staff];
+                    [dict setObject:arr forKey:@"users"];
+                }
             }
             
             [self.dataSource addObject: dict];

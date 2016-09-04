@@ -12,7 +12,7 @@
  *  用户登录保存信息
  */
 @interface Staff : NSObject <NSCopying,NSCoding>
-@property(nonatomic,strong) NSString* identifier;
+@property(nonatomic,strong) NSString* staffId;
 @property(nonatomic,strong) NSString* name;
 @property(nonatomic,assign) long long  phone;
 @property (nonatomic, strong) NSString* wechat;

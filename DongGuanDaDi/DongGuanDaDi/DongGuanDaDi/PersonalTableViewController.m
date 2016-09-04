@@ -32,7 +32,7 @@
     [[AFHTTPSessionManager manager] GET:URL_PERSONAL_INFO parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
         if([responseObject isKindOfClass:[NSDictionary class]]) {
             NSDictionary* dic = (NSDictionary*)responseObject;
-            self.staff.identifier = (NSString*)[dic objectForKey:@"id"];
+            self.staff.staffId = (NSString*)[dic objectForKey:@"id"];
             self.staff.phone = ((NSNumber*)[dic objectForKey:@"phone"]).longLongValue;
             self.staff.qq = ((NSNumber*)[dic objectForKey:@"qq"]).longLongValue;
             self.staff.sex = (NSString*)[dic objectForKey:@"sex"];
