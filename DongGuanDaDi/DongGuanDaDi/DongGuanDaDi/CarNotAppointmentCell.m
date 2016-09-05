@@ -15,7 +15,7 @@
 #import "AFHTTPSessionManager.h"
 
 @interface CarNotAppointmentCell () <YLDatePickerDelegate>
-@property (nonatomic, strong) AFHTTPSessionManager* manager;
+
 @end
 
 @implementation CarNotAppointmentCell
@@ -48,10 +48,10 @@
                          @"2016-09-05", @"end",
                          @"2016-09-04", @"start",
                          nil];
-    self.manager = [AFHTTPSessionManager manager];
-    [self.manager.requestSerializer setValue:@"/DongGuan/" forHTTPHeaderField:@"referer"];
-    self.manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    [self.manager POST:URL_CAR_APPOINTMENT_SUBMIT_TABLE parameters:dic2 success:^(NSURLSessionDataTask *task, id responseObject) {
+    AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
+    [manager.requestSerializer setValue:@"/DongGuan/" forHTTPHeaderField:@"referer"];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [manager POST:URL_CAR_APPOINTMENT_SUBMIT_TABLE parameters:dic2 success:^(NSURLSessionDataTask *task, id responseObject) {
         [YLToast showWithText:@"预约成功"];
         NSLog(@"%@",responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {

@@ -8,6 +8,10 @@
 
 #import "CarDepartTableViewController.h"
 #import "CarDepartTableViewCell.h"
+#import "Car.h"
+
+#import "stdafx_DongGuanDaDi.h"
+#import "UIImageView+AFNetworking.h"
 
 @implementation CarDepartTableViewController
 - (void)viewDidLoad {
@@ -39,14 +43,22 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    [self.tableView registerClass:[CarDepartTableViewCell class] forCellReuseIdentifier:@"carDepart"];
-    CarDepartTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"carDepart" forIndexPath:indexPath];
+    CarDepartTableViewCell *cell;
     NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CarDepartTableViewCell" owner:self options:nil];
     if ([nib count]>0)
     {
         cell = [nib objectAtIndex:0];
     }
     // Configure the cell...
+    cell.startDateTxtField.text = self.car.startTime;
+    cell.endDateTxtField.text = self.car.endtime;
+    cell.realStartDateTxtField.text = self.car.realStartTime;
+    cell.passengersTxtField.text = [NSString stringWithFormat:@"%zd", self.car.peopleNum];
+    cell.seatingTxtField.text = [NSString stringWithFormat:@"%zd", self.car.seating];
+    cell.driverTxtField.text = self.car.driver;
+    cell.reasonTxtField.text = self.car.reason;
+    NSString* url = [NSString stringWithFormat:@"%@%@",HOST,self.car.url];
+    [cell.carImageView setImageWithURL:[NSURL URLWithString:url]];
     
     return cell;
 }
