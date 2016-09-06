@@ -11,8 +11,90 @@
 
 @implementation YLDatePicker
 
-- (void)showInView:(UIView *)view withFrame:(CGRect)frame andDatePickerMode:(UIDatePickerMode)mode{
+- (instancetype)initWithMode:(UIDatePickerMode)mode
+{
+    self = [self init];
+    self.picker.datePickerMode = mode;
+    return self;
+}
+
+- (instancetype) init
+{
+    self = [super init];
     
+    if (self) {
+        self.picker = [[UIDatePicker alloc] initWithFrame:CGRectZero];
+        
+        self.submit = [UIButton buttonWithType:UIButtonTypeSystem];
+        
+        [self.submit setTitle:@"确认" forState:UIControlStateNormal];
+        [self.submit addTarget:self action:@selector(confirmDone) forControlEvents:UIControlEventTouchUpInside];
+        
+        self.cancel = [UIButton buttonWithType:UIButtonTypeSystem];
+        [self.cancel setTitle:@"取消" forState:UIControlStateNormal];
+        [self.cancel addTarget:self action:@selector(cancelDone) forControlEvents:UIControlEventTouchUpInside];
+        
+        [self addSubview:self.cancel];
+        [self addSubview:self.submit];
+        [self addSubview:self.picker];
+    }
+    
+    return self;
+}
+
+- (void) layoutSubviews
+{
+    CGRect frame = self.frame;
+    self.picker.frame = CGRectMake(0,
+                                   0,
+                                   CGRectGetWidth(frame),
+                                   CGRectGetHeight(frame) - CommonHeght);
+    
+    CGRect picker_frame = self.picker.frame;
+    self.submit.frame = CGRectMake(picker_frame.origin.x,
+                                   CGRectGetHeight(picker_frame),
+                                   CGRectGetWidth(picker_frame) / 2,
+                                   CommonHeght);
+    
+    CGRect submit_frame = self.submit.frame;
+    self.cancel.frame = CGRectMake(submit_frame.origin.x + CGRectGetWidth(submit_frame),
+                                   submit_frame.origin.y,
+                                   CGRectGetWidth(submit_frame),
+                                   CommonHeght);
+    
+    [super layoutSubviews];
+}
+
+- (void)showInView:(UIView*)view
+{
+    [view addSubview:self];
+    
+    CGRect frame = self.frame;
+    
+    // pop from bottom
+    self.frame = CGRectMake(self.window.center.x - self.frame.size.width / 2, self.window.center.y, frame.size.width, frame.size.height);
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        self.center = self.window.center;
+    }];
+}
+
+- (void)confirmDone{
+    if (![self.picker respondsToSelector:@selector(valueChanged:)]) {
+        [self.delegate picker:self.picker valueChanged:self.picker.date];
+    }
+    [self dismiss];
+}
+
+- (void)cancelDone{
+    [self dismiss];
+}
+
+- (void)showInView:(UIView *)view withFrame:(CGRect)frame andDatePickerMode:(UIDatePickerMode)mode{
+    self.picker.datePickerMode = mode;
+    [self showInView:view];
+    
+    /**
     self.frame = frame;
     
     if(!self.picker){
@@ -47,18 +129,10 @@
     [UIView animateWithDuration:0.3 animations:^{
         self.frame = frame;
     }];
+    **/
 }
 
-- (void)confirmDone{
-    if (![self.picker respondsToSelector:@selector(valueChanged:)]) {
-        [self.delegate picker:self.picker valueChanged:self.picker.date];
-    }
-    [self dismiss];
-}
 
-- (void)cancelDone{
-    [self dismiss];
-}
 
 - (void)dismiss{
     [UIView animateWithDuration:0.3 animations:^{

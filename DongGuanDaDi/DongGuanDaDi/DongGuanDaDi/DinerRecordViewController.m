@@ -80,6 +80,7 @@
         self.datePiker = [[YLDatePicker alloc] init];
         self.datePiker.delegate = self;
         CGRect rect = CGRectMake(0, 0, 300, 250);
+        self.datePiker.frame = rect;
         CGPoint origin = CGPointMake(self.view.center.x - rect.size.width / 2, self.view.center.y - rect.size.height / 2);
         [self.datePiker showInView:self.view
                          withFrame:CGRectMake(origin.x, origin.y, rect.size.width, rect.size.height)

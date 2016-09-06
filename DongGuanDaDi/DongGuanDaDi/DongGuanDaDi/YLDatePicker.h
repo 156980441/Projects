@@ -18,9 +18,15 @@
 
 @interface YLDatePicker : UIView
 
+- (instancetype)initWithMode:(UIDatePickerMode)mode;
+
 @property (weak, nonatomic) id<YLDatePickerDelegate> delegate;
 
 @property (strong, nonatomic) UIDatePicker *picker;
+@property (strong, nonatomic) UIButton *submit;
+@property (strong, nonatomic) UIButton *cancel;
+
+- (void)showInView:(UIView*)view;
 
 - (void)showInView:(UIView *)view withFrame:(CGRect)frame andDatePickerMode:(UIDatePickerMode)mode;
 

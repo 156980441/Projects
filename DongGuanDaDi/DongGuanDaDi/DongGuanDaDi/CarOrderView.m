@@ -56,6 +56,7 @@ enum BtnTagTypes
     }
     else {
         CGRect rect = CGRectMake(0, 0, 300, 300);
+        self.datePiker.frame = rect;
         CGPoint origin = CGPointMake(self.window.center.x - rect.size.width / 2, self.window.center.y - rect.size.height / 2);
         [self.datePiker showInView:self.window
                          withFrame:CGRectMake(origin.x, origin.y, rect.size.width, rect.size.height)

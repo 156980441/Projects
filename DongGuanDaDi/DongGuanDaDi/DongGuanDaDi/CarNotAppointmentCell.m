@@ -65,6 +65,7 @@
     self.picker = [[YLDatePicker alloc] init];
     self.picker.delegate = self;
     CGRect date_rect = CGRectMake(0, 0, 300, 250);
+    self.picker.frame = date_rect;
     CGPoint date_origin = CGPointMake(self.superview.center.x - date_rect.size.width / 2, self.superview.center.y - date_rect.size.height / 2);
     if (self.startDateTxtField == textField) {
         [self.picker showInView:self.superview
