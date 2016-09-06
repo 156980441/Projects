@@ -52,9 +52,17 @@
         cell = [nib objectAtIndex:0];
     }
     // Configure the cell...
-    cell.startDateTxtField.text = self.car.startTime;
-    cell.endDateTxtField.text = self.car.endtime;
-    cell.realStartDateTxtField.text = self.car.realStartTime;
+    
+    NSArray * array = [self.car.startTime componentsSeparatedByString:@" "];
+    cell.startDateTxtField.text = [array objectAtIndex:0];
+    cell.startTimeTxtField.text = [array objectAtIndex:1];
+    array = [self.car.endtime componentsSeparatedByString:@" "];
+    cell.endDateTxtField.text = [array objectAtIndex:0];
+    cell.endTimeTxtField.text = [array objectAtIndex:1];
+    array = [self.car.realStartTime componentsSeparatedByString:@" "];
+    cell.realStartDateTxtField.text = [array objectAtIndex:0];
+    cell.realStartTimeTxtField.text = [array objectAtIndex:1];
+    
     cell.passengersTxtField.text = [NSString stringWithFormat:@"%zd", self.car.peopleNum];
     cell.seatingTxtField.text = [NSString stringWithFormat:@"%zd", self.car.seating];
     cell.driverTxtField.text = self.car.driver;

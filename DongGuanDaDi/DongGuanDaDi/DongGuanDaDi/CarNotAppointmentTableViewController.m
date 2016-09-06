@@ -27,26 +27,17 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    UIImageView* imageView = [[UIImageView alloc] init];
+    NSString* imageURL = [NSString stringWithFormat:@"%@%@",HOST,self.car.url];
+    [imageView setImageWithURL:[NSURL URLWithString:imageURL]];
+    imageView.frame = CGRectMake(0, 0, self.tableView.frame.size.width, 200);//为什么必须设置？
+    self.tableView.tableHeaderView = imageView;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - UITableViewDelegate
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 300;
-}
-
-- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    NSString* url = [NSString stringWithFormat:@"%@%@",HOST,self.car.url];
-    UIImageView* imageView = [[UIImageView alloc] init];
-    [imageView setImageWithURL:[NSURL URLWithString:url]];
-    return imageView;
 }
 
 #pragma mark - Table view data source
@@ -63,6 +54,7 @@
     CarNotAppointmentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"carNotAppoint" forIndexPath:indexPath];
     cell.brandTxtField.text = self.car.brand;
     cell.seatintTxtField.text = [NSString stringWithFormat:@"%ld",self.car.seating];
+    cell.appointmentPeopleTxtField.text = self.car.driver;
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     

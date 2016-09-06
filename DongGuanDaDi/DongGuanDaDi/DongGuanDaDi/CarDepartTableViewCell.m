@@ -74,8 +74,8 @@
     }];
 }
 
-
--(void)textFieldDidBeginEditing:(UITextField *)textField
+// 写在这里防止弹出键盘
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
     self.picker.backgroundColor = [UIColor whiteColor];
     [self.picker show];
@@ -91,7 +91,14 @@
         self.picker.mode = UIDatePickerModeTime;
         self.picker.picker.tag = 3;
     }
+    return NO;
 }
+
+// 写在这里会弹出键盘，布局就不好看了。
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+}
+
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
     [self.picker dismiss];

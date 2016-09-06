@@ -144,11 +144,17 @@
     **/
 }
 
+- (void)dismiss
+{
+    [self removeFromSuperview];
+}
 
-
-- (void)dismiss{
+- (void)dismissWithAnamition{
+    
+    CGRect frame = self.frame;
+    
     [UIView animateWithDuration:0.3 animations:^{
-        self.frame = CGRectMake(self.superview.center.x - self.frame.size.width / 2, SCREENHEIGHT, 0, 0);
+        self.frame = CGRectMake(self.superview.center.x - self.frame.size.width / 2, SCREENHEIGHT, frame.size.width, frame.size.height);
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
     }];

@@ -85,7 +85,7 @@
         cell.textLabel.text = @"信息编辑";
         cell.textLabel.textColor = [UIColor blueColor];
         CGFloat width = cell.textLabel.frame.size.width / 2;
-        cell.separatorInset = UIEdgeInsetsMake(0, cell.center.x - width, 0, cell.center.x - width);
+        cell.separatorInset = UIEdgeInsetsMake(0, cell.center.x - width, 0, cell.center.x - width);// 字缩进到中间
     } else if (5 == indexPath.row) {
         cell.textLabel.text = @"修改密码";
         cell.textLabel.textColor = [UIColor blueColor];

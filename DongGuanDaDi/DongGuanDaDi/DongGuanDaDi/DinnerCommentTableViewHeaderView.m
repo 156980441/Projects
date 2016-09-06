@@ -12,7 +12,8 @@
 #import "YLDatePicker.h"
 
 @interface DinnerCommentTableViewHeaderView () <YLDatePickerDelegate,CommentViewDelegate>
-
+@property (nonatomic, strong) CommentView *commentView;
+@property (nonatomic, strong) YLDatePicker *picker;
 @end
 
 @implementation DinnerCommentTableViewHeaderView
@@ -26,17 +27,17 @@
 */
 
 - (IBAction)commentBtnClick:(id)sender {
-    CommentView *commentView = [[[NSBundle mainBundle] loadNibNamed:@"CommentView" owner:nil options:nil] lastObject];
-    commentView.delegate = self;
-    [commentView show];
+    self.commentView = [[[NSBundle mainBundle] loadNibNamed:@"CommentView" owner:nil options:nil] lastObject];
+    self.commentView.delegate = self;
+    [self.commentView show];
 }
 
 - (IBAction)dateBtnClick:(id)sender {
-    YLDatePicker* picker = [[YLDatePicker alloc] initWithMode:UIDatePickerModeDate];
-    picker.frame = CGRectMake(0, 0, 300, 250);
-    picker.delegate = self;
-    picker.backgroundColor = [UIColor whiteColor];
-    [picker show];
+    self.picker = [[YLDatePicker alloc] initWithMode:UIDatePickerModeDate];
+    self.picker.frame = CGRectMake(0, 0, 300, 250);
+    self.picker.delegate = self;
+    self.picker.backgroundColor = [UIColor whiteColor];
+    [self.picker show];
 }
 
 - (void)picker:(UIDatePicker *)picker valueChanged:(NSDate *)date
@@ -44,11 +45,13 @@
     if (self.dateBtnClick) {
         self.dateBtnClick(date);
     }
+    [self.picker dismiss];
 }
 -(void)commentView:(CommentView *)view stars:(NSInteger)stars contents:(NSString*)contents
 {
     if (self.commentBtnClick) {
         self.commentBtnClick(stars,contents);
     }
+    [self.commentView dismiss];
 }
 @end

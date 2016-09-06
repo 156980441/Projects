@@ -34,6 +34,7 @@
 - (void)showInView:(UIView *)view withFrame:(CGRect)frame andDatePickerMode:(UIDatePickerMode)mode;
 
 - (void)dismiss;
+- (void)dismissWithAnamition;
 
 - (void)valueChanged:(UIDatePicker *)picker;
 

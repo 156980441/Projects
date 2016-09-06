@@ -32,6 +32,15 @@
     self.breakfasts_arr = [NSMutableArray array];
     self.lunch_arr = [NSMutableArray array];
     self.dinner_arr = [NSMutableArray array];
+    
+    [self.breakfastBtn.layer setBorderWidth:1.0];
+    [self.breakfastBtn.layer setBorderColor:[[UIColor grayColor] CGColor]];
+    [self.dinnerBtn.layer setBorderWidth:1.0];
+    [self.dinnerBtn.layer setBorderColor:[[UIColor grayColor] CGColor]];
+    [self.lunchBtn.layer setBorderWidth:1.0];
+    [self.lunchBtn.layer setBorderColor:[[UIColor grayColor] CGColor]];
+    
+    self.title = @"用餐预约";
 }
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -134,13 +143,52 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)updateSingleDinnerBtnsState:(UIButton*) button {
+    UIColor* color = nil;
+    
+    button.selected = !button.selected;
+    if (button.isSelected) {
+        color = [UIColor blueColor];
+        button.selected = YES;
+    }
+    else {
+        color = [UIColor whiteColor];
+        button.selected = NO;
+        UIColor* color = [UIColor blackColor];
+        [button setTitleColor:color forState:UIControlStateNormal];
+    }
+    button.backgroundColor = color;
+}
+
+
+-(void)updateAllDinnerBtnsState {
+    NSDate* today = [NSDate date];
+    if ([self.selecetedDate compare:today] == NSOrderedDescending) {
+        self.breakfastBtn.backgroundColor = self.lunchBtn.backgroundColor = self.dinnerBtn.backgroundColor = [UIColor whiteColor];
+        UIColor* color = [UIColor blackColor];
+        [self.breakfastBtn setTitleColor:color forState:UIControlStateNormal];
+        [self.lunchBtn setTitleColor:color forState:UIControlStateNormal];
+        [self.dinnerBtn setTitleColor:color forState:UIControlStateNormal];
+    } else if ([self.selecetedDate compare:today] == NSOrderedAscending) {
+        self.breakfastBtn.backgroundColor = self.lunchBtn.backgroundColor = self.dinnerBtn.backgroundColor = [UIColor grayColor];
+        self.breakfastBtn.enabled = self.lunchBtn.enabled = self.dinnerBtn.enabled = NO;
+        UIColor* color = [UIColor whiteColor];
+        [self.breakfastBtn setTitleColor:color forState:UIControlStateNormal];
+        [self.lunchBtn setTitleColor:color forState:UIControlStateNormal];
+        [self.dinnerBtn setTitleColor:color forState:UIControlStateNormal];
+    }
+}
+
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    
+    [self updateAllDinnerBtnsState];
     
     self.selecetedDate = change[NSKeyValueChangeNewKey];
     
-    self.selectedDateLabel.text = [NSString stringWithFormat:@"选定日期：%@",[YLCommon date2String:self.selecetedDate]];
+    NSString* date_str = [YLCommon date2String:self.selecetedDate];
+    self.selectedDateLabel.text = [NSString stringWithFormat:@"选定日期：%@",date_str];
     
-    NSArray* arr = [self.dateAndDinners objectForKey:self.selectedDateLabel.text];
+    NSArray* arr = [self.dateAndDinners objectForKey:date_str];
     NSDictionary* dic = [arr objectAtIndex:0];
     NSArray* breakfast_arr = [dic objectForKey:@"早餐"];
     NSMutableString* breakfast_str = [NSMutableString string];
@@ -181,24 +229,33 @@
     self.voteBtn.hidden = !self.voteBtn.hidden;
     self.recordBtn.hidden = !self.recordBtn.hidden;
 }
+
+// 全部预约
 - (IBAction)orderBtnClick:(id)sender {
     UIColor* color = nil;
-    if (self.recordBtn.isSelected) {
+    
+    self.orderAllBtn.selected = !self.orderAllBtn.selected;
+    if (self.orderAllBtn.isSelected) {
         color = [UIColor blueColor];
+        self.dinnerBtn.selected = self.lunchBtn.selected = self.breakfastBtn.selected = YES;
     }
     else {
         color = [UIColor whiteColor];
+        self.dinnerBtn.selected = self.lunchBtn.selected = self.breakfastBtn.selected = NO;
     }
     self.dinnerBtn.backgroundColor = self.lunchBtn.backgroundColor = self.breakfastBtn.backgroundColor = color;
-    self.recordBtn.selected = !self.recordBtn.selected;
+    
 }
 
 - (IBAction)breakfastBtnClick:(id)sender {
+    [self updateSingleDinnerBtnsState:sender];
 }
 
 - (IBAction)lunchBtnClick:(id)sender {
+    [self updateSingleDinnerBtnsState:sender];
 }
 
 - (IBAction)dinnerBtnClick:(id)sender {
+    [self updateSingleDinnerBtnsState:sender];
 }
 @end

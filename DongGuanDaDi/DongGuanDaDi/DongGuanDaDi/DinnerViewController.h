@@ -20,6 +20,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *lunchLabel;
 @property (strong, nonatomic) IBOutlet UILabel *dinnerLabel;
 @property (strong, nonatomic) IBOutlet UILabel *selectedDateLabel;
+@property (strong, nonatomic) IBOutlet UIButton *orderAllBtn;
 
 - (IBAction)orderBtnClick:(id)sender;
 - (IBAction)breakfastBtnClick:(id)sender;

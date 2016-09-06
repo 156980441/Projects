@@ -407,6 +407,7 @@
                         <outlet property="lunchBtn" destination="elH-Ss-mgD" id="Ko8-MG-z3d"/>
                         <outlet property="lunchLabel" destination="HRY-cY-CjA" id="nMu-hY-aNH"/>
                         <outlet property="menu" destination="c7K-bz-iGR" id="OKx-au-MMn"/>
+                        <outlet property="orderAllBtn" destination="39s-9R-zkF" id="Gps-jU-VpE"/>
                         <outlet property="recordBtn" destination="PcV-tk-7ne" id="Qx7-3K-AeF"/>
                         <outlet property="selectedDateLabel" destination="IC2-vC-gZz" id="x68-pc-td5"/>
                         <outlet property="voteBtn" destination="KAx-ms-YXu" id="ZNK-3Y-DER"/>

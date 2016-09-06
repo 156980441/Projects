@@ -30,6 +30,10 @@
     
     self.appointReasonTxtView.layer.borderColor = [UIColor grayColor].CGColor;
     self.appointReasonTxtView.layer.borderWidth = 1.0;
+    
+    self.picker = [[YLDatePicker alloc] init];
+    self.picker.delegate = self;
+    self.picker.frame = CGRectMake(0, 0, 300, 250);
 }
 
 - (IBAction)appointmentBtnClick:(id)sender {
@@ -63,37 +67,35 @@
     }];
 }
 
+// 写在这里防止弹出键盘
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    self.picker.backgroundColor = [UIColor whiteColor];
+    self.picker.mode = UIDatePickerModeDate;
+    if (self.startDateTxtField == textField) {
+        self.picker.picker.tag = 0;
+        [self.picker show];
+    } else if (self.endDateTxtField == textField) {
+        self.picker.picker.tag = 1;
+        [self.picker show];
+    } else if (self.startTimeTxtField == textField) {
+        self.picker.mode = UIDatePickerModeTime;
+        self.picker.picker.tag = 2;
+        [self.picker show];
+    } else if (self.endTimeTxtField == textField) {
+        self.picker.mode = UIDatePickerModeTime;
+        self.picker.picker.tag = 3;
+        [self.picker show];
+    } else
+    {
+        return YES;
+    }
+    return NO;
+}
+
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    self.picker = [[YLDatePicker alloc] init];
-    self.picker.delegate = self;
-    CGRect date_rect = CGRectMake(0, 0, 300, 250);
-    self.picker.frame = date_rect;
-    CGPoint date_origin = CGPointMake(self.superview.center.x - date_rect.size.width / 2, self.superview.center.y - date_rect.size.height / 2);
-    if (self.startDateTxtField == textField) {
-        [self.picker showInView:self.superview
-                    withFrame:CGRectMake(date_origin.x, date_origin.y, date_rect.size.width, date_rect.size.height)
-            andDatePickerMode:UIDatePickerModeDate];
-        self.picker.picker.tag = 0;
-    } else if (self.endDateTxtField == textField) {
-        
-        [self.picker showInView:self.superview
-                    withFrame:CGRectMake(date_origin.x, date_origin.y, date_rect.size.width, date_rect.size.height)
-            andDatePickerMode:UIDatePickerModeDate];
-        self.picker.picker.tag = 1;
-    } else if (self.startTimeTxtField == textField) {
-        
-        [self.picker showInView:self.superview
-                    withFrame:CGRectMake(date_origin.x, date_origin.y, date_rect.size.width, date_rect.size.height)
-            andDatePickerMode:UIDatePickerModeTime];
-        self.picker.picker.tag = 2;
-    } else if (self.endTimeTxtField == textField) {
-        
-        [self.picker showInView:self.superview
-                    withFrame:CGRectMake(date_origin.x, date_origin.y, date_rect.size.width, date_rect.size.height)
-            andDatePickerMode:UIDatePickerModeTime];
-        self.picker.picker.tag = 3;//这里封装的不好。需要show之后才能设置tag
-    }
+    
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
