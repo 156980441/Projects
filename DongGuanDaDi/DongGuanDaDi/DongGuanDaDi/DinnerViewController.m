@@ -39,6 +39,7 @@
     [self.dinnerBtn.layer setBorderColor:[[UIColor grayColor] CGColor]];
     [self.lunchBtn.layer setBorderWidth:1.0];
     [self.lunchBtn.layer setBorderColor:[[UIColor grayColor] CGColor]];
+    self.breakfastBtn.tintColor = self.dinnerBtn.tintColor = self.lunchBtn.tintColor = [UIColor blueColor];
     
     self.title = @"用餐预约";
 }

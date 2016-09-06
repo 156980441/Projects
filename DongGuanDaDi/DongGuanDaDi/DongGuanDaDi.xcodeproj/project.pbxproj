@@ -16,7 +16,7 @@
 		194D0F101D48B56100827F3C /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 194D0F0F1D48B56100827F3C /* MenuView.m */; };
 		194F69EE1D52DB6900EC55EA /* MemuDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 194F69ED1D52DB6900EC55EA /* MemuDetailViewController.m */; };
 		194F69F11D52E26B00EC55EA /* DinnerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 194F69F01D52E26B00EC55EA /* DinnerInfo.m */; };
-		194F69F41D52F1CC00EC55EA /* DinerRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 194F69F31D52F1CC00EC55EA /* DinerRecordViewController.m */; };
+		194F69F41D52F1CC00EC55EA /* DinnerRecordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 194F69F31D52F1CC00EC55EA /* DinnerRecordTableViewController.m */; };
 		194F69F71D52F1F800EC55EA /* DinnerVoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 194F69F61D52F1F800EC55EA /* DinnerVoteViewController.m */; };
 		19575B561D7EB4C300F907D0 /* CarOrderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19575B551D7EB4C300F907D0 /* CarOrderView.m */; };
 		19575B581D7EB4D900F907D0 /* CarOrderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19575B571D7EB4D900F907D0 /* CarOrderView.xib */; };
@@ -108,8 +108,8 @@
 		194F69ED1D52DB6900EC55EA /* MemuDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemuDetailViewController.m; sourceTree = "<group>"; };
 		194F69EF1D52E26B00EC55EA /* DinnerInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DinnerInfo.h; sourceTree = "<group>"; };
 		194F69F01D52E26B00EC55EA /* DinnerInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DinnerInfo.m; sourceTree = "<group>"; };
-		194F69F21D52F1CC00EC55EA /* DinerRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DinerRecordViewController.h; sourceTree = "<group>"; };
-		194F69F31D52F1CC00EC55EA /* DinerRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DinerRecordViewController.m; sourceTree = "<group>"; };
+		194F69F21D52F1CC00EC55EA /* DinnerRecordTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DinnerRecordTableViewController.h; sourceTree = "<group>"; };
+		194F69F31D52F1CC00EC55EA /* DinnerRecordTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DinnerRecordTableViewController.m; sourceTree = "<group>"; };
 		194F69F51D52F1F800EC55EA /* DinnerVoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DinnerVoteViewController.h; sourceTree = "<group>"; };
 		194F69F61D52F1F800EC55EA /* DinnerVoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DinnerVoteViewController.m; sourceTree = "<group>"; };
 		19575B541D7EB4C300F907D0 /* CarOrderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarOrderView.h; sourceTree = "<group>"; };
@@ -381,8 +381,9 @@
 			children = (
 				D7AF7A081D436942005EA6DE /* ASDayPicker.h */,
 				D7AF7A091D436942005EA6DE /* ASDayPicker.m */,
-				194F69F21D52F1CC00EC55EA /* DinerRecordViewController.h */,
-				194F69F31D52F1CC00EC55EA /* DinerRecordViewController.m */,
+				19575BB01D7F3F5800F907D0 /* CommentView.h */,
+				19575BB11D7F3F5800F907D0 /* CommentView.m */,
+				19575BB31D7F3F6B00F907D0 /* CommentView.xib */,
 				19575BA51D7F268100F907D0 /* DinnerCommentInfo.h */,
 				19575BA61D7F268100F907D0 /* DinnerCommentInfo.m */,
 				19575BA81D7F286100F907D0 /* DinnerCommentTableViewCell.h */,
@@ -392,15 +393,14 @@
 				19575BAB1D7F3CCC00F907D0 /* DinnerCommentTableViewHeaderView.h */,
 				19575BAC1D7F3CCC00F907D0 /* DinnerCommentTableViewHeaderView.m */,
 				19575BAE1D7F3CF500F907D0 /* DinnerCommentTableViewHeaderView.xib */,
-				19575BB01D7F3F5800F907D0 /* CommentView.h */,
-				19575BB11D7F3F5800F907D0 /* CommentView.m */,
-				19575BB31D7F3F6B00F907D0 /* CommentView.xib */,
 				194F69EF1D52E26B00EC55EA /* DinnerInfo.h */,
 				194F69F01D52E26B00EC55EA /* DinnerInfo.m */,
 				1977886D1D78230600C9BA7E /* DinnerRecord.h */,
 				1977886E1D78230600C9BA7E /* DinnerRecord.m */,
 				D7DFF50B1D777A860012C5AE /* DinnerRecordTableViewCell.h */,
 				D7DFF50C1D777A860012C5AE /* DinnerRecordTableViewCell.m */,
+				194F69F21D52F1CC00EC55EA /* DinnerRecordTableViewController.h */,
+				194F69F31D52F1CC00EC55EA /* DinnerRecordTableViewController.m */,
 				D79FCE541D4273E100BE99BB /* DinnerViewController.h */,
 				D79FCE551D4273E100BE99BB /* DinnerViewController.m */,
 				194F69F51D52F1F800EC55EA /* DinnerVoteViewController.h */,
@@ -678,7 +678,7 @@
 				D79FCE5E1D42754F00BE99BB /* AddressListTableViewController.m in Sources */,
 				192D0E261D75751500216D92 /* ModifyPerInfoCell.m in Sources */,
 				19E5BBF81D3F331600C1A1A9 /* AppDelegate.m in Sources */,
-				194F69F41D52F1CC00EC55EA /* DinerRecordViewController.m in Sources */,
+				194F69F41D52F1CC00EC55EA /* DinnerRecordTableViewController.m in Sources */,
 				194F69F71D52F1F800EC55EA /* DinnerVoteViewController.m in Sources */,
 				D79FCE5A1D4274BA00BE99BB /* CarsTableViewController.m in Sources */,
 				19E8D6671D4C9132005A6DB4 /* CarDetailCell.m in Sources */,

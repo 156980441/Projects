@@ -9,12 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "YLDatePicker.h"
 
-@interface DinerRecordViewController : UITableViewController <YLDatePickerDelegate>
+@interface DinnerRecordTableViewController : UITableViewController <YLDatePickerDelegate>
 @property (strong, nonatomic) IBOutlet UIView *TableViewHeader;
 @property (nonatomic, strong) YLDatePicker* datePiker;
 - (IBAction)selectDate:(id)sender;
 - (IBAction)queryRecord:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *startBtn;
 @property (weak, nonatomic) IBOutlet UIButton *endBtn;
+
+@property (strong, nonatomic) IBOutlet UILabel *typeLabel;
+@property (strong, nonatomic) IBOutlet UILabel *eatedLabel;
+@property (strong, nonatomic) IBOutlet UILabel *recordTotalLabel;
+@property (strong, nonatomic) IBOutlet UILabel *dinnerTimesLabel;
+@property (strong, nonatomic) IBOutlet UILabel *orderTimesLabel;
+@property (strong, nonatomic) IBOutlet UILabel *isOrderLabel;
 
 @end

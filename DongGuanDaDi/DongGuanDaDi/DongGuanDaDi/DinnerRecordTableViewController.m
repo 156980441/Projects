@@ -6,7 +6,7 @@
 //  Copyright © 2016 fanyl. All rights reserved.
 //
 
-#import "DinerRecordViewController.h"
+#import "DinnerRecordTableViewController.h"
 #import "DinnerRecordTableViewCell.h"
 #import "DinnerRecord.h"
 #import "YLCommon.h"
@@ -14,12 +14,12 @@
 #import "stdafx_DongGuanDaDi.h"
 #import "AFHTTPSessionManager.h"
 
-@interface DinerRecordViewController ()
+@interface DinnerRecordTableViewController ()
 @property (nonatomic, strong) AFHTTPSessionManager *manager;
 @property (nonatomic, strong) NSMutableArray *dataSource;
 @end
 
-@implementation DinerRecordViewController
+@implementation DinnerRecordTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,6 +31,8 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.dataSource = [NSMutableArray array];
+    self.recordTotalLabel.backgroundColor = self.orderTimesLabel.backgroundColor = self.dinnerTimesLabel.backgroundColor = [UIColor blueColor];
+    self.title = @"用餐记录";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,13 +81,10 @@
         UIButton* btn = (UIButton*)sender;
         self.datePiker = [[YLDatePicker alloc] init];
         self.datePiker.delegate = self;
-        CGRect rect = CGRectMake(0, 0, 300, 250);
-        self.datePiker.frame = rect;
-        CGPoint origin = CGPointMake(self.view.center.x - rect.size.width / 2, self.view.center.y - rect.size.height / 2);
-        [self.datePiker showInView:self.view
-                         withFrame:CGRectMake(origin.x, origin.y, rect.size.width, rect.size.height)
-                 andDatePickerMode:UIDatePickerModeDate];
+        self.datePiker.frame = CGRectMake(0, 0, 300, 250);
+        self.datePiker.mode = UIDatePickerModeDate;
         self.datePiker.picker.tag = btn.tag;// storyboard set StartBtn tag is 0, EndBtn tag is 1;
+        [self.datePiker show];
     }
     else
     {
@@ -112,6 +111,7 @@
             [self.dataSource addObject:record];
         }
         [self.tableView reloadData];
+        self.recordTotalLabel.hidden = self.orderTimesLabel.hidden = self.dinnerTimesLabel.hidden = self.typeLabel.hidden = self.eatedLabel.hidden = self.isOrderLabel.hidden = NO;
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"%@",error.description);
     }];
