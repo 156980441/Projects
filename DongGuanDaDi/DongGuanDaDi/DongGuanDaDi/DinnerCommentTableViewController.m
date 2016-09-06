@@ -11,6 +11,8 @@
 #import "DinnerCommentInfo.h"
 #import "DinnerCommentTableViewCell.h"
 #import "DinnerCommentTableViewHeaderView.h"
+#import "YLToast.h"
+#import "YLCommon.h"
 
 #import "stdafx_DongGuanDaDi.h"
 #import "AFHTTPSessionManager.h"
@@ -38,20 +40,56 @@
     NSString* imageURL = [NSString stringWithFormat:@"%@%@",HOST,self.dinnerInfo.url];
     [headerView.imageView setImageWithURL:[NSURL URLWithString:@"http://120.24.234.67/DongGuan/car_image/9.jpg"]];
     headerView.frame = CGRectMake(0, 0, self.tableView.frame.size.width, 215);//为什么必须设置？
+    headerView.commentBtnClick = ^(NSInteger stars, NSString* contents)
+    {
+        NSInteger menuId = 0;
+        NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:contents,STR_CONTENT,[NSNumber numberWithInteger:stars],STR_SCORE,[NSNumber numberWithInteger:self.dinnerInfo.foodId],STR_DISH_ID,[NSNumber numberWithInteger:menuId], STR_MENU_ID, nil];
+        
+        AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
+        [manager.requestSerializer setValue:@"/DongGuan/" forHTTPHeaderField:@"referer"];
+        [manager POST:URL_NEW_COMMENT
+           parameters:dic
+              success:^(NSURLSessionDataTask *task, id responseObject) {
+                  NSDictionary* result = (NSDictionary*)responseObject;
+                  if ([[result objectForKey:@"result"] isEqualToString:@"success"])
+                  {
+                      [YLToast showWithText:@"评论成功"];
+                  }
+                  else
+                  {
+                      [YLToast showWithText:@"评论失败"];
+                  }
+                  
+              }
+              failure:^(NSURLSessionDataTask *task, NSError *error) {
+                  [YLToast showWithText:@"联网失败导致评论失败，请链接网络重试。"];
+                  NSLog(@"%@",error.description);
+              }];
+    };
+    headerView.dateBtnClick = ^(NSDate* date){
+        [self getCommentFromInternetByDate:[YLCommon date2String:date]];
+    };
     self.tableView.tableHeaderView = headerView;
     
+    [self getCommentFromInternetByDate:self.dinnerInfo.date];
+    
+}
+
+- (void)getCommentFromInternetByDate:(NSString*)date
+{
     NSInteger pageNum = 1;
     NSInteger pageSize = 10;
     
     NSString* url = [NSString stringWithFormat:@"%@%@=%@&%@=%@&%@=%@&%@=%@",URL_GET_DISH_COMMENT,
                      STR_DISH_ID,[NSString stringWithFormat:@"%ld", self.dinnerInfo.foodId],
-                     STR_DATESTRING,self.dinnerInfo.date,
+                     STR_DATESTRING,date,
                      STR_PAGENUMBER,[NSString stringWithFormat:@"%ld", pageNum],
                      STR_PAGESIZE,[NSString stringWithFormat:@"%ld", pageSize]];
     
     AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
     [manager.requestSerializer setValue:@"/DongGuan/" forHTTPHeaderField:@"referer"];
     [manager GET:url parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        [self.dataSource removeAllObjects];
         NSArray* comments = (NSArray*)responseObject;
         for (NSDictionary* dic in comments) {
             DinnerCommentInfo* info = [[DinnerCommentInfo alloc] init];
@@ -68,7 +106,6 @@
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"%@",error.description);
     }];
-    
 }
 
 - (void)didReceiveMemoryWarning {

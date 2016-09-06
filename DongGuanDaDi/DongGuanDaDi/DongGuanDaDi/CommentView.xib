@@ -136,6 +136,9 @@
                 <constraint firstItem="VN8-dA-GiB" firstAttribute="leading" secondItem="8ik-Vw-rJ6" secondAttribute="trailing" constant="10" id="z2w-uQ-32v"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="contentsTxtView" destination="yOc-3p-6xF" id="lp1-k9-W6O"/>
+            </connections>
             <point key="canvasLocation" x="351" y="326"/>
         </view>
     </objects>

@@ -13,4 +13,7 @@
 - (IBAction)commentBtnClick:(id)sender;
 - (IBAction)dateBtnClick:(id)sender;
 
+@property (copy, nonatomic) void (^commentBtnClick)(NSInteger stars, NSString* content);
+@property (copy, nonatomic) void (^dateBtnClick)(NSDate* date);
+
 @end

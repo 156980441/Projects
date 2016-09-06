@@ -26,6 +26,8 @@
 @property (strong, nonatomic) UIButton *submit;
 @property (strong, nonatomic) UIButton *cancel;
 
+- (void)show;
+
 - (void)showInView:(UIView*)view;
 
 - (void)showInView:(UIView *)view withFrame:(CGRect)frame andDatePickerMode:(UIDatePickerMode)mode;

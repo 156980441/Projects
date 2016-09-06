@@ -13,9 +13,9 @@
 
 - (instancetype)initWithMode:(UIDatePickerMode)mode
 {
-    self = [self init];
-    self.picker.datePickerMode = mode;
-    return self;
+    YLDatePicker* pick = [self init];
+    pick.picker.datePickerMode = mode;
+    return pick;
 }
 
 - (instancetype) init
@@ -63,6 +63,13 @@
                                    CommonHeght);
     
     [super layoutSubviews];
+}
+
+- (void)show
+{
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    self.center = window.center;
+    [window addSubview:self];
 }
 
 - (void)showInView:(UIView*)view

@@ -22,12 +22,17 @@
 
 - (IBAction)starBtnClick:(id)sender {
     UIButton* btn = (UIButton*)sender;
+    self.score = btn.tag;
     if (btn.tag == 4) {
         
     }
 }
 
 - (IBAction)submitBtnClick:(id)sender {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(commentView:stars:contents:)]) {
+        [self.delegate commentView:self stars:self.score contents:self.contentsTxtView.text];
+    }
+    
     [self dismiss];
 }
 -(void)show
