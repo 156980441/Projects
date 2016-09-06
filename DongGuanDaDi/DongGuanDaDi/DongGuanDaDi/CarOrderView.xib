@@ -21,6 +21,9 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <state key="normal" title="请选择出车时间"/>
+                    <connections>
+                        <action selector="startDateBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="x9c-Z7-goO"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rpn-Cn-Jgn">
                     <rect key="frame" x="0.0" y="100" width="160" height="100"/>
@@ -31,15 +34,9 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <state key="normal" title="请选择还车时间"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="32n-Id-cOa">
-                    <rect key="frame" x="160" y="50" width="160" height="50"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="50" id="5lf-yA-uEd"/>
-                        <constraint firstAttribute="width" constant="160" id="FJg-En-mml"/>
-                        <constraint firstAttribute="width" secondItem="32n-Id-cOa" secondAttribute="height" multiplier="16:5" id="nbC-ap-pB2"/>
-                    </constraints>
-                    <state key="normal" title="12：00"/>
+                    <connections>
+                        <action selector="endDateBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="7sy-xz-Jah"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mQn-YO-VwH">
                     <rect key="frame" x="160" y="150" width="160" height="50"/>
@@ -49,8 +46,11 @@
                         <constraint firstAttribute="height" constant="50" id="vcO-sY-pL9"/>
                     </constraints>
                     <state key="normal" title="12：00"/>
+                    <connections>
+                        <action selector="endTimeBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="tV5-K3-Kvl"/>
+                    </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请选择出车时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUG-QA-eDT">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请选择出车时间" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUG-QA-eDT">
                     <rect key="frame" x="160" y="0.0" width="160" height="50"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="160" id="EM7-qk-GcN"/>
@@ -61,7 +61,7 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请选择还车时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncc-Mm-PjW">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请选择还车时间" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncc-Mm-PjW">
                     <rect key="frame" x="160" y="100" width="160" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="N9l-XU-NzR"/>
@@ -83,24 +83,6 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HQG-N9-7FC">
-                    <rect key="frame" x="0.0" y="250" width="160" height="50"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="160" id="5zm-7S-FQS"/>
-                        <constraint firstAttribute="height" constant="50" id="hCP-vS-zj2"/>
-                        <constraint firstAttribute="width" secondItem="HQG-N9-7FC" secondAttribute="height" multiplier="16:5" id="mSd-rN-srS"/>
-                    </constraints>
-                    <state key="normal" title="取消"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caP-N6-n4e">
-                    <rect key="frame" x="160" y="250" width="160" height="50"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="160" id="7Tc-EZ-XYZ"/>
-                        <constraint firstAttribute="height" constant="50" id="CbI-hM-vDF"/>
-                        <constraint firstAttribute="width" secondItem="caP-N6-n4e" secondAttribute="height" multiplier="16:5" id="i29-QT-GgW"/>
-                    </constraints>
-                    <state key="normal" title="确定"/>
-                </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OTW-Yb-ZmH">
                     <rect key="frame" x="160" y="210" width="120" height="30"/>
                     <constraints>
@@ -111,6 +93,42 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HQG-N9-7FC">
+                    <rect key="frame" x="0.0" y="250" width="160" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="160" id="5zm-7S-FQS"/>
+                        <constraint firstAttribute="height" constant="50" id="hCP-vS-zj2"/>
+                        <constraint firstAttribute="width" secondItem="HQG-N9-7FC" secondAttribute="height" multiplier="16:5" id="mSd-rN-srS"/>
+                    </constraints>
+                    <state key="normal" title="取消"/>
+                    <connections>
+                        <action selector="cancelBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="ecb-db-saV"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caP-N6-n4e">
+                    <rect key="frame" x="160" y="250" width="160" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="160" id="7Tc-EZ-XYZ"/>
+                        <constraint firstAttribute="height" constant="50" id="CbI-hM-vDF"/>
+                        <constraint firstAttribute="width" secondItem="caP-N6-n4e" secondAttribute="height" multiplier="16:5" id="i29-QT-GgW"/>
+                    </constraints>
+                    <state key="normal" title="确定"/>
+                    <connections>
+                        <action selector="submitBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="5rS-dX-iwG"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="32n-Id-cOa">
+                    <rect key="frame" x="160" y="50" width="160" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="5lf-yA-uEd"/>
+                        <constraint firstAttribute="width" constant="160" id="FJg-En-mml"/>
+                        <constraint firstAttribute="width" secondItem="32n-Id-cOa" secondAttribute="height" multiplier="16:5" id="nbC-ap-pB2"/>
+                    </constraints>
+                    <state key="normal" title="12：00"/>
+                    <connections>
+                        <action selector="startTimeBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="nzx-fj-Fci"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -136,6 +154,13 @@
                 <constraint firstItem="caP-N6-n4e" firstAttribute="leading" secondItem="HQG-N9-7FC" secondAttribute="trailing" id="sRf-I8-bRo"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="endDateBtn" destination="Rpn-Cn-Jgn" id="Fr0-Wq-vug"/>
+                <outlet property="endTimeBtn" destination="mQn-YO-VwH" id="saz-tG-uuO"/>
+                <outlet property="passenagersNunTxtField" destination="OTW-Yb-ZmH" id="0kA-tO-or4"/>
+                <outlet property="startDateBtn" destination="7Bg-bz-4rv" id="Gps-2q-Vq2"/>
+                <outlet property="startTimeBtn" destination="32n-Id-cOa" id="ZFg-eU-ypm"/>
+            </connections>
             <point key="canvasLocation" x="348" y="185"/>
         </view>
     </objects>
