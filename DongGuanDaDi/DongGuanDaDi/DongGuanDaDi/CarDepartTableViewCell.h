@@ -29,6 +29,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *orderEndTimeTxtField;
 @property (strong, nonatomic) IBOutlet UITextField *orderReasonTxtField;
 
+@property (strong, nonatomic) UITextField *carNumberTxtField;//for order request, not showing
+
 
 @property (strong, nonatomic) IBOutlet UITextView *orderReasonTxtView;
 

@@ -463,10 +463,10 @@
             </objects>
             <point key="canvasLocation" x="1251" y="-2880"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Dinner Comment Table View Controller-->
         <scene sceneID="Bsk-q2-IqH">
             <objects>
-                <tableViewController id="aco-qZ-VO9" sceneMemberID="viewController">
+                <tableViewController id="aco-qZ-VO9" customClass="DinnerCommentTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="t77-1J-Xq0">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -489,7 +489,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dFL-hw-gmI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2735" y="-2888"/>
+            <point key="canvasLocation" x="2753" y="-2868"/>
         </scene>
         <!--Diner Record View Controller-->
         <scene sceneID="dOa-k2-R8p">

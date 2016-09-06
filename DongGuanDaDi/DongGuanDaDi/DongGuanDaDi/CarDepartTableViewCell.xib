@@ -168,6 +168,9 @@
                         <state key="normal" title="确认提交">
                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
+                        <connections>
+                            <action selector="submitClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="xmh-5k-SJk"/>
+                        </connections>
                     </button>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="89O-16-UoO">
                         <rect key="frame" x="136" y="229" width="173" height="30"/>

@@ -7,10 +7,11 @@
 //
 
 #import "MemuDetailViewController.h"
+#import "DinnerCommentTableViewController.h"
 #import "DinnerInfo.h"
 
 @interface MemuDetailViewController ()
-
+@property (nonatomic, strong) DinnerInfo *selecetedDinner;
 @end
 
 @implementation MemuDetailViewController
@@ -42,5 +43,15 @@
     cell.textLabel.text = dinner.name;
     cell.detailTextLabel.text = dinner.desc;
     return cell;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary* dic = [self.dataSource objectAtIndex:indexPath.section];
+    NSArray* dinners = [dic.allValues objectAtIndex:0];
+    self.selecetedDinner = [dinners objectAtIndex:indexPath.row];
+}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    DinnerCommentTableViewController* dinnerComment = [segue destinationViewController];
+    dinnerComment.dinnerInfo = self.selecetedDinner;
 }
 @end
