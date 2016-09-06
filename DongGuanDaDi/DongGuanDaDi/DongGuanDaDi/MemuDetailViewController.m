@@ -49,6 +49,7 @@
     NSDictionary* dic = [self.dataSource objectAtIndex:indexPath.section];
     NSArray* dinners = [dic.allValues objectAtIndex:0];
     self.selecetedDinner = [dinners objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:@"dinnerComment" sender:nil];
 }
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     DinnerCommentTableViewController* dinnerComment = [segue destinationViewController];

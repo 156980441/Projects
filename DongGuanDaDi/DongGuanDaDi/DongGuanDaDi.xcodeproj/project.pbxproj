@@ -21,6 +21,8 @@
 		19575B561D7EB4C300F907D0 /* CarOrderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19575B551D7EB4C300F907D0 /* CarOrderView.m */; };
 		19575B581D7EB4D900F907D0 /* CarOrderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19575B571D7EB4D900F907D0 /* CarOrderView.xib */; };
 		19575B811D7EF90F00F907D0 /* DinnerCommentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19575B801D7EF90F00F907D0 /* DinnerCommentTableViewController.m */; };
+		19575BA71D7F268100F907D0 /* DinnerCommentInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 19575BA61D7F268100F907D0 /* DinnerCommentInfo.m */; };
+		19575BAA1D7F286100F907D0 /* DinnerCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19575BA91D7F286100F907D0 /* DinnerCommentTableViewCell.m */; };
 		195D34441D73E48800D6D6D2 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = 195D34431D73E48800D6D6D2 /* Car.m */; };
 		1977886F1D78230600C9BA7E /* DinnerRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 1977886E1D78230600C9BA7E /* DinnerRecord.m */; };
 		19E5BBF51D3F331600C1A1A9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E5BBF41D3F331600C1A1A9 /* main.m */; };
@@ -111,6 +113,10 @@
 		19575B571D7EB4D900F907D0 /* CarOrderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarOrderView.xib; sourceTree = "<group>"; };
 		19575B7F1D7EF90F00F907D0 /* DinnerCommentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DinnerCommentTableViewController.h; sourceTree = "<group>"; };
 		19575B801D7EF90F00F907D0 /* DinnerCommentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DinnerCommentTableViewController.m; sourceTree = "<group>"; };
+		19575BA51D7F268100F907D0 /* DinnerCommentInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DinnerCommentInfo.h; sourceTree = "<group>"; };
+		19575BA61D7F268100F907D0 /* DinnerCommentInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DinnerCommentInfo.m; sourceTree = "<group>"; };
+		19575BA81D7F286100F907D0 /* DinnerCommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DinnerCommentTableViewCell.h; sourceTree = "<group>"; };
+		19575BA91D7F286100F907D0 /* DinnerCommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DinnerCommentTableViewCell.m; sourceTree = "<group>"; };
 		195D34421D73E48800D6D6D2 /* Car.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
 		195D34431D73E48800D6D6D2 /* Car.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Car.m; sourceTree = "<group>"; };
 		1977886D1D78230600C9BA7E /* DinnerRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DinnerRecord.h; sourceTree = "<group>"; };
@@ -367,14 +373,18 @@
 				D7AF7A091D436942005EA6DE /* ASDayPicker.m */,
 				194F69F21D52F1CC00EC55EA /* DinerRecordViewController.h */,
 				194F69F31D52F1CC00EC55EA /* DinerRecordViewController.m */,
+				19575B7F1D7EF90F00F907D0 /* DinnerCommentTableViewController.h */,
+				19575B801D7EF90F00F907D0 /* DinnerCommentTableViewController.m */,
+				19575BA81D7F286100F907D0 /* DinnerCommentTableViewCell.h */,
+				19575BA91D7F286100F907D0 /* DinnerCommentTableViewCell.m */,
+				19575BA51D7F268100F907D0 /* DinnerCommentInfo.h */,
+				19575BA61D7F268100F907D0 /* DinnerCommentInfo.m */,
 				194F69EF1D52E26B00EC55EA /* DinnerInfo.h */,
 				194F69F01D52E26B00EC55EA /* DinnerInfo.m */,
 				1977886D1D78230600C9BA7E /* DinnerRecord.h */,
 				1977886E1D78230600C9BA7E /* DinnerRecord.m */,
 				D7DFF50B1D777A860012C5AE /* DinnerRecordTableViewCell.h */,
 				D7DFF50C1D777A860012C5AE /* DinnerRecordTableViewCell.m */,
-				19575B7F1D7EF90F00F907D0 /* DinnerCommentTableViewController.h */,
-				19575B801D7EF90F00F907D0 /* DinnerCommentTableViewController.m */,
 				D79FCE541D4273E100BE99BB /* DinnerViewController.h */,
 				D79FCE551D4273E100BE99BB /* DinnerViewController.m */,
 				194F69F51D52F1F800EC55EA /* DinnerVoteViewController.h */,
@@ -673,6 +683,7 @@
 				D75EDDFE1D5A2B4300D34DC0 /* EColumn.m in Sources */,
 				D778F72D1D74719700350BBE /* CarNotAppointmentTableViewController.m in Sources */,
 				192D0E301D76BB0E00216D92 /* CarDepartTableViewCell.m in Sources */,
+				19575BAA1D7F286100F907D0 /* DinnerCommentTableViewCell.m in Sources */,
 				D75EDE061D5A2B4300D34DC0 /* EPieChart.m in Sources */,
 				D7D4F50E1D410B16005A7729 /* MainViewCell.m in Sources */,
 				195D34441D73E48800D6D6D2 /* Car.m in Sources */,
@@ -696,6 +707,7 @@
 				19E8D66A1D4C9C22005A6DB4 /* ModifyPerInfoTableViewController.m in Sources */,
 				D75EDDFD1D5A2B4300D34DC0 /* EColor.m in Sources */,
 				D773D55E1D7C597C009F61B5 /* CarAppointmentTableViewController.m in Sources */,
+				19575BA71D7F268100F907D0 /* DinnerCommentInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
