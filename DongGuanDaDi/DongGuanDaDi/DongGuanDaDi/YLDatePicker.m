@@ -97,6 +97,11 @@
     [self dismiss];
 }
 
+-(void)setMode:(UIDatePickerMode)mode
+{
+    self.picker.datePickerMode = mode;
+}
+
 - (void)showInView:(UIView *)view withFrame:(CGRect)frame andDatePickerMode:(UIDatePickerMode)mode{
     self.picker.datePickerMode = mode;
     [self showInView:view];

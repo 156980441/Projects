@@ -23,6 +23,7 @@
 @property (weak, nonatomic) id<YLDatePickerDelegate> delegate;
 
 @property (strong, nonatomic) UIDatePicker *picker;
+@property (assign, nonatomic) UIDatePickerMode mode;
 @property (strong, nonatomic) UIButton *submit;
 @property (strong, nonatomic) UIButton *cancel;
 

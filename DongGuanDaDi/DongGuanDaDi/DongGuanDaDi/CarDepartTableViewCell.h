@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ *  在 Xib 中 selection 设置成了 None
+ *
+ *  @since 1.0.x
+ */
 @interface CarDepartTableViewCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UIImageView *carImageView;
 @property (strong, nonatomic) IBOutlet UITextField *startDateTxtField;
@@ -27,7 +32,7 @@
 
 @property (strong, nonatomic) IBOutlet UITextField *orderStartTimeTxtField;
 @property (strong, nonatomic) IBOutlet UITextField *orderEndTimeTxtField;
-@property (strong, nonatomic) IBOutlet UITextField *orderReasonTxtField;
+@property (strong, nonatomic) IBOutlet UITextField *orderPassengersTxtField;
 
 @property (strong, nonatomic) UITextField *carNumberTxtField;//for order request, not showing
 
