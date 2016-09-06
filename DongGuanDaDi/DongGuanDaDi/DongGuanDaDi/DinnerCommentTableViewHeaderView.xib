@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DinnerCommentTableViewHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="215"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UeL-Sm-pXB">
+                    <rect key="frame" x="0.0" y="0.0" width="400" height="200"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="TJz-Gi-vi5"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RSt-7I-UMy">
+                    <rect key="frame" x="332" y="185" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="oUi-b9-nMR"/>
+                    </constraints>
+                    <state key="normal" title="评论"/>
+                    <connections>
+                        <action selector="commentBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="Qu4-ab-W8n"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5yD-IU-Vca">
+                    <rect key="frame" x="266" y="185" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="RqV-RB-WM0"/>
+                    </constraints>
+                    <state key="normal" title="日期"/>
+                    <connections>
+                        <action selector="dateBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="QTy-RU-VyU"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="UeL-Sm-pXB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="7Tv-n2-EGQ"/>
+                <constraint firstItem="RSt-7I-UMy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="185" id="9gB-DL-aYR"/>
+                <constraint firstItem="5yD-IU-Vca" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="185" id="ODK-Du-1nM"/>
+                <constraint firstAttribute="trailing" secondItem="RSt-7I-UMy" secondAttribute="trailing" constant="30" id="S5C-rX-No5"/>
+                <constraint firstAttribute="trailing" secondItem="UeL-Sm-pXB" secondAttribute="trailing" id="edN-jj-TdK"/>
+                <constraint firstItem="UeL-Sm-pXB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="qlf-Ae-1aI"/>
+                <constraint firstItem="RSt-7I-UMy" firstAttribute="leading" secondItem="5yD-IU-Vca" secondAttribute="trailing" constant="20" id="zgi-HO-LHW"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="imageView" destination="UeL-Sm-pXB" id="JU5-fC-5FQ"/>
+            </connections>
+            <point key="canvasLocation" x="414" y="292"/>
+        </view>
+    </objects>
+</document>

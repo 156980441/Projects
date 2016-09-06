@@ -10,9 +10,11 @@
 #import "DinnerInfo.h"
 #import "DinnerCommentInfo.h"
 #import "DinnerCommentTableViewCell.h"
+#import "DinnerCommentTableViewHeaderView.h"
 
 #import "stdafx_DongGuanDaDi.h"
 #import "AFHTTPSessionManager.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface DinnerCommentTableViewController ()
 @property (nonatomic, strong) NSMutableArray *dataSource;
@@ -31,8 +33,16 @@
     
     self.dataSource = [NSMutableArray array];
     
+    
+    DinnerCommentTableViewHeaderView* headerView = [[[NSBundle mainBundle] loadNibNamed:@"DinnerCommentTableViewHeaderView" owner:nil options:nil] lastObject];
+    NSString* imageURL = [NSString stringWithFormat:@"%@%@",HOST,self.dinnerInfo.url];
+    [headerView.imageView setImageWithURL:[NSURL URLWithString:@"http://120.24.234.67/DongGuan/car_image/9.jpg"]];
+    headerView.frame = CGRectMake(0, 0, self.tableView.frame.size.width, 215);//为什么必须设置？
+    self.tableView.tableHeaderView = headerView;
+    
     NSInteger pageNum = 1;
     NSInteger pageSize = 10;
+    
     NSString* url = [NSString stringWithFormat:@"%@%@=%@&%@=%@&%@=%@&%@=%@",URL_GET_DISH_COMMENT,
                      STR_DISH_ID,[NSString stringWithFormat:@"%ld", self.dinnerInfo.foodId],
                      STR_DATESTRING,self.dinnerInfo.date,
@@ -113,13 +123,18 @@
         UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, labelSize.width, labelSize.height)];
         label.numberOfLines = 0;
         label.text = self.dinnerInfo.desc;
+        [label sizeToFit];
         [cell.contentView addSubview:label];
     }
     else if (1 == indexPath.section) {
         DinnerCommentInfo* info = [self.dataSource objectAtIndex:indexPath.row];
         cell.autherNameLabel.text = info.authName;
         cell.commentDateLabel.text = info.date;
+        
+        cell.contentLabel.numberOfLines = 0;
         cell.contentLabel.text = info.content;
+        [cell.contentLabel sizeToFit];
+        
     }
     // Configure the cell...
     
