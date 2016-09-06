@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CarOrderView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Bg-bz-4rv">
+                    <rect key="frame" x="0.0" y="0.0" width="160" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="7Bg-bz-4rv" secondAttribute="height" multiplier="8:5" id="5BJ-yb-OOB"/>
+                        <constraint firstAttribute="width" constant="160" id="NKk-7H-EZl"/>
+                        <constraint firstAttribute="height" constant="100" id="rob-kq-DC3"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <state key="normal" title="请选择出车时间"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rpn-Cn-Jgn">
+                    <rect key="frame" x="0.0" y="100" width="160" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="160" id="KLB-cE-6Bv"/>
+                        <constraint firstAttribute="width" secondItem="Rpn-Cn-Jgn" secondAttribute="height" multiplier="8:5" id="Y5M-Jq-oIK"/>
+                        <constraint firstAttribute="height" constant="100" id="vdU-pC-H5d"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <state key="normal" title="请选择还车时间"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="32n-Id-cOa">
+                    <rect key="frame" x="160" y="50" width="160" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="5lf-yA-uEd"/>
+                        <constraint firstAttribute="width" constant="160" id="FJg-En-mml"/>
+                        <constraint firstAttribute="width" secondItem="32n-Id-cOa" secondAttribute="height" multiplier="16:5" id="nbC-ap-pB2"/>
+                    </constraints>
+                    <state key="normal" title="12：00"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mQn-YO-VwH">
+                    <rect key="frame" x="160" y="150" width="160" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="160" id="cQi-Bo-j5L"/>
+                        <constraint firstAttribute="width" secondItem="mQn-YO-VwH" secondAttribute="height" multiplier="16:5" id="cZC-oU-QVA"/>
+                        <constraint firstAttribute="height" constant="50" id="vcO-sY-pL9"/>
+                    </constraints>
+                    <state key="normal" title="12：00"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请选择出车时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUG-QA-eDT">
+                    <rect key="frame" x="160" y="0.0" width="160" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="160" id="EM7-qk-GcN"/>
+                        <constraint firstAttribute="height" constant="50" id="dZM-Jb-iyR"/>
+                        <constraint firstAttribute="width" secondItem="rUG-QA-eDT" secondAttribute="height" multiplier="16:5" id="rRn-R0-bVP"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请选择还车时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncc-Mm-PjW">
+                    <rect key="frame" x="160" y="100" width="160" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="N9l-XU-NzR"/>
+                        <constraint firstAttribute="width" constant="160" id="kIb-nV-Ivj"/>
+                        <constraint firstAttribute="width" secondItem="ncc-Mm-PjW" secondAttribute="height" multiplier="16:5" id="vwo-OX-ifx"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="人数（1-9）" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DoB-kL-0aU">
+                    <rect key="frame" x="0.0" y="200" width="160" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="160" id="8xZ-bJ-dke"/>
+                        <constraint firstAttribute="height" constant="50" id="EMU-AU-qRr"/>
+                        <constraint firstAttribute="width" secondItem="DoB-kL-0aU" secondAttribute="height" multiplier="16:5" id="uAb-q4-T6t"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HQG-N9-7FC">
+                    <rect key="frame" x="0.0" y="250" width="160" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="160" id="5zm-7S-FQS"/>
+                        <constraint firstAttribute="height" constant="50" id="hCP-vS-zj2"/>
+                        <constraint firstAttribute="width" secondItem="HQG-N9-7FC" secondAttribute="height" multiplier="16:5" id="mSd-rN-srS"/>
+                    </constraints>
+                    <state key="normal" title="取消"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caP-N6-n4e">
+                    <rect key="frame" x="160" y="250" width="160" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="160" id="7Tc-EZ-XYZ"/>
+                        <constraint firstAttribute="height" constant="50" id="CbI-hM-vDF"/>
+                        <constraint firstAttribute="width" secondItem="caP-N6-n4e" secondAttribute="height" multiplier="16:5" id="i29-QT-GgW"/>
+                    </constraints>
+                    <state key="normal" title="确定"/>
+                </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OTW-Yb-ZmH">
+                    <rect key="frame" x="160" y="210" width="120" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="120" id="IOy-LS-mDJ"/>
+                        <constraint firstAttribute="width" secondItem="OTW-Yb-ZmH" secondAttribute="height" multiplier="4:1" id="R2d-Rx-A8n"/>
+                        <constraint firstAttribute="height" constant="30" id="e3G-H0-4V8"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ncc-Mm-PjW" firstAttribute="leading" secondItem="Rpn-Cn-Jgn" secondAttribute="trailing" id="0MB-a9-Huu"/>
+                <constraint firstItem="rUG-QA-eDT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="0Nr-8O-GwK"/>
+                <constraint firstItem="Rpn-Cn-Jgn" firstAttribute="top" secondItem="7Bg-bz-4rv" secondAttribute="bottom" id="8UN-KD-X8a"/>
+                <constraint firstItem="OTW-Yb-ZmH" firstAttribute="top" secondItem="mQn-YO-VwH" secondAttribute="bottom" constant="10" id="EB4-nw-Djk"/>
+                <constraint firstItem="mQn-YO-VwH" firstAttribute="top" secondItem="ncc-Mm-PjW" secondAttribute="bottom" id="Fls-pa-2Rb"/>
+                <constraint firstItem="7Bg-bz-4rv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="I3f-un-tPc"/>
+                <constraint firstItem="mQn-YO-VwH" firstAttribute="leading" secondItem="Rpn-Cn-Jgn" secondAttribute="trailing" id="IjE-DK-32P"/>
+                <constraint firstItem="caP-N6-n4e" firstAttribute="top" secondItem="OTW-Yb-ZmH" secondAttribute="bottom" constant="10" id="OiJ-sK-UeN"/>
+                <constraint firstItem="OTW-Yb-ZmH" firstAttribute="leading" secondItem="DoB-kL-0aU" secondAttribute="trailing" id="Ql8-ug-jhy"/>
+                <constraint firstItem="rUG-QA-eDT" firstAttribute="leading" secondItem="7Bg-bz-4rv" secondAttribute="trailing" id="Tae-S3-Lk4"/>
+                <constraint firstItem="Rpn-Cn-Jgn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Uwy-Zm-Lc2"/>
+                <constraint firstItem="32n-Id-cOa" firstAttribute="leading" secondItem="7Bg-bz-4rv" secondAttribute="trailing" id="VM7-vn-1kh"/>
+                <constraint firstItem="ncc-Mm-PjW" firstAttribute="top" secondItem="32n-Id-cOa" secondAttribute="bottom" id="XQS-hm-wK9"/>
+                <constraint firstItem="HQG-N9-7FC" firstAttribute="top" secondItem="DoB-kL-0aU" secondAttribute="bottom" id="Y2K-Xo-1hd"/>
+                <constraint firstItem="DoB-kL-0aU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ZS4-Df-Gpq"/>
+                <constraint firstItem="DoB-kL-0aU" firstAttribute="top" secondItem="Rpn-Cn-Jgn" secondAttribute="bottom" id="dWU-ug-Y78"/>
+                <constraint firstItem="32n-Id-cOa" firstAttribute="top" secondItem="rUG-QA-eDT" secondAttribute="bottom" id="e4z-8b-fg4"/>
+                <constraint firstItem="7Bg-bz-4rv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="faF-Ai-VCE"/>
+                <constraint firstItem="HQG-N9-7FC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="kfu-Rm-4pg"/>
+                <constraint firstItem="caP-N6-n4e" firstAttribute="leading" secondItem="HQG-N9-7FC" secondAttribute="trailing" id="sRf-I8-bRo"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="348" y="185"/>
+        </view>
+    </objects>
+</document>

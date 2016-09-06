@@ -681,6 +681,9 @@
                             <rect key="frame" x="0.0" y="229" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="汽车按钮"/>
+                            <connections>
+                                <action selector="showCarOrderView:" destination="OD3-IU-F9c" eventType="touchUpInside" id="urJ-kd-uKj"/>
+                            </connections>
                         </button>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="carDetail" rowHeight="137" id="9gh-pb-C7y" customClass="CarDetailCell">
@@ -751,7 +754,7 @@
                     <navigationItem key="navigationItem" id="6eW-9V-Pt5">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="xPx-0J-MnE">
-                            <rect key="frame" x="233.5" y="7" width="133" height="30"/>
+                            <rect key="frame" x="234" y="7" width="133" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="车辆预约"/>

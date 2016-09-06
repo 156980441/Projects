@@ -11,5 +11,6 @@
 @interface CarsTableViewController : UITableViewController
 @property (strong, nonatomic) IBOutlet UISegmentedControl *orderAndMyOrderSeg;
 - (IBAction)selectedChange:(id)sender;
+- (IBAction)showCarOrderView:(id)sender;
 
 @end

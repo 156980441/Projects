@@ -13,6 +13,7 @@
 #import "CarDepartTableViewController.h"
 #import "CarAppointmentTableViewController.h"
 #import "ShowCarsTypesView.h"
+#import "CarOrderView.h"
 
 #import "stdafx_DongGuanDaDi.h"
 #import "AFHTTPSessionManager.h"
@@ -292,6 +293,19 @@
     }
     [self.tableView reloadData];
     
+}
+
+- (IBAction)showCarOrderView:(id)sender {
+    CarOrderView* orderView = nil;
+    NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CarOrderView" owner:self options:nil];
+    if ([nib count]>0)
+    {
+        orderView = [nib objectAtIndex:0];
+    }
+    
+    orderView.center = self.tableView.window.center;
+    [self.tableView.window addSubview:orderView];
+    self.tableView.alpha = 0.7;
 }
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section

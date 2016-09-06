@@ -2,7 +2,7 @@
 //  DinnerRecordTableViewCell.m
 //  DongGuanDaDi
 //
-//  Created by 赵雪莹 on 16/9/1.
+//  Created by fanyl on 16/9/1.
 //  Copyright © 2016年 fanyl. All rights reserved.
 //
 
