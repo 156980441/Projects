@@ -420,6 +420,26 @@
                     <constraint firstItem="E7U-dm-SxQ" firstAttribute="top" secondItem="gsm-AQ-Rlk" secondAttribute="bottom" constant="8" id="z5G-kA-WyO"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="carImageView" destination="FU2-Cb-lsD" id="F6T-6w-zeo"/>
+                <outlet property="driverTxtField" destination="g3y-OE-3zW" id="Cdd-BM-Ovh"/>
+                <outlet property="endDateTxtField" destination="DYJ-x1-vQO" id="SLf-ZE-jFY"/>
+                <outlet property="endTimeTxtField" destination="Yl2-VI-FHL" id="f5G-AR-YPD"/>
+                <outlet property="orderConditionTxtField" destination="TUg-4N-rcK" id="x1E-6m-74T"/>
+                <outlet property="orderEndDateTxtField" destination="J6l-yP-7lC" id="u6r-U2-hhj"/>
+                <outlet property="orderEndTimeTxtField" destination="9oo-94-3Al" id="AKp-Wf-LOO"/>
+                <outlet property="orderReasonTxtField" destination="2Qa-Pm-846" id="gJM-fq-wqJ"/>
+                <outlet property="orderReasonTxtView" destination="WJi-y9-Z2a" id="OuM-dF-Al6"/>
+                <outlet property="orderStartDateTxtField" destination="6ec-oE-9s2" id="mvq-Zw-1wB"/>
+                <outlet property="orderStartTimeTxtField" destination="m3H-NQ-ryh" id="J7n-4Y-Wwu"/>
+                <outlet property="passengersTxtField" destination="5l5-ee-eD0" id="2r3-hm-2Wx"/>
+                <outlet property="realStartDateTxtField" destination="ayJ-IU-P1i" id="2In-zG-SJq"/>
+                <outlet property="realStartTimeTxtField" destination="pNf-sz-bdg" id="yRl-gS-0mZ"/>
+                <outlet property="reasonTxtField" destination="2C2-HQ-Lf3" id="KMO-Ue-7Ao"/>
+                <outlet property="seatingTxtField" destination="sM1-MD-VOr" id="mk4-0s-jrT"/>
+                <outlet property="startDateTxtField" destination="89O-16-UoO" id="9ZC-NB-aBf"/>
+                <outlet property="startTimeTxtField" destination="giY-op-aYd" id="bV1-C6-y8J"/>
+            </connections>
             <point key="canvasLocation" x="381.5" y="568"/>
         </tableViewCell>
     </objects>

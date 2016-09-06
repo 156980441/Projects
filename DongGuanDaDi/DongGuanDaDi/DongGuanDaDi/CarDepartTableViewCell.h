@@ -22,8 +22,14 @@
 @property (strong, nonatomic) IBOutlet UITextField *driverTxtField;
 @property (strong, nonatomic) IBOutlet UITextField *reasonTxtField;
 @property (strong, nonatomic) IBOutlet UITextField *orderConditionTxtField;
+@property (strong, nonatomic) IBOutlet UITextField *orderStartDateTxtField;
+@property (strong, nonatomic) IBOutlet UITextField *orderEndDateTxtField;
+
 @property (strong, nonatomic) IBOutlet UITextField *orderStartTimeTxtField;
 @property (strong, nonatomic) IBOutlet UITextField *orderEndTimeTxtField;
+@property (strong, nonatomic) IBOutlet UITextField *orderReasonTxtField;
+
+
 @property (strong, nonatomic) IBOutlet UITextView *orderReasonTxtView;
 
 
