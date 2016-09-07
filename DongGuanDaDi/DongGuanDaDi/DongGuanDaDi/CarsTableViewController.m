@@ -14,20 +14,28 @@
 #import "CarAppointmentTableViewController.h"
 #import "ShowCarsTypesView.h"
 #import "CarOrderView.h"
+#import "YLToast.h"
 
 #import "stdafx_DongGuanDaDi.h"
 #import "AFHTTPSessionManager.h"
 #import "UIImageView+AFNetworking.h"
 
 @interface CarsTableViewController ()
+
 @property (nonatomic, strong) NSMutableArray *carsNotAppointed;
 @property (nonatomic, strong) NSMutableArray *carsAppointed;
 @property (nonatomic, strong) NSMutableArray *carsDepart;
+@property (nonatomic, strong) NSMutableArray *orderDataSource;// 车辆预约的数据
+
+@property (nonatomic, strong) NSMutableArray *myCarsNotAppointed;
+@property (nonatomic, strong) NSMutableArray *myCarsAppointed;
+@property (nonatomic, strong) NSMutableArray *myCarsDepart;
+@property (nonatomic, strong) NSMutableArray *myOrderDataSource;// 我的预约的数据
+
 @property (nonatomic, strong) NSMutableArray *dataSource;
-@property (nonatomic, strong) NSMutableArray *orderDataSource;
-@property (nonatomic, strong) NSMutableArray *myOrderDataSource;
+
 @property (nonatomic, strong) Car* selectedCar;
-@property (nonatomic, strong) UIButton* sectionHeaderView;
+@property (nonatomic, strong) UIButton* sectionHeaderView;// 我的预约界面下的选择按钮，
 @end
 
 @implementation CarsTableViewController
@@ -45,7 +53,13 @@
     self.carsAppointed = [NSMutableArray array];
     self.carsNotAppointed = [NSMutableArray array];
     self.orderDataSource = [NSMutableArray array];
+    
+    self.myCarsDepart = [NSMutableArray array];
+    self.myCarsAppointed = [NSMutableArray array];
+    self.myCarsNotAppointed = [NSMutableArray array];
     self.myOrderDataSource = [NSMutableArray array];
+    
+    // 首次默认显示车辆预约的数据
     self.dataSource = self.orderDataSource;
     
     self.sectionHeaderView = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -53,8 +67,9 @@
     [self.sectionHeaderView setTitle:@"未出行车辆" forState:UIControlStateNormal];
     [self.sectionHeaderView addTarget:self action:@selector(selecteShowCarTypes) forControlEvents:UIControlEventTouchDown];
     
-    NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:@"/DongGuan/",@"referer", nil];
-    [[AFHTTPSessionManager manager] GET:URL_CAR_STATTE parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+    AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
+    [manager.requestSerializer setValue:@"/DongGuan/" forHTTPHeaderField:@"referer"];
+    [manager GET:URL_CAR_STATTE parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary* jsonData = (NSDictionary*)responseObject;
         
         NSArray* carsDepart = [jsonData objectForKey:@"carsDepart"];
@@ -127,9 +142,14 @@
             [self.carsAppointed addObject:car];
             [self.orderDataSource addObject:car];
         }
+        
         [self.tableView reloadData];
+        
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"Login failed, %@",error);
+        
+        [YLToast showWithText:@"网络出错，请检查网络。"];
+//        NSLog(@"Login failed, %@",error);
+        
     }];
 }
 
@@ -137,6 +157,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     if (self.orderAndMyOrderSeg.selectedSegmentIndex == 1) {
@@ -144,6 +165,7 @@
     }
     return 0;
 }
+
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     if (self.orderAndMyOrderSeg.selectedSegmentIndex == 1) {
@@ -181,6 +203,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     CarDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"carDetail" forIndexPath:indexPath];
     
     // Configure the cell...
@@ -189,8 +212,10 @@
     cell.number.text = [NSString stringWithFormat:@"车牌号：%@",car.number];
     cell.seats.text = [NSString stringWithFormat:@"座位数：%ld",car.seating];
     cell.weight.text = [NSString stringWithFormat:@"车辆载重：%ld",car.weight];
+    
     NSString* url = [NSString stringWithFormat:@"%@%@",HOST,car.url];
     [cell.thumbnail setImageWithURL:[NSURL URLWithString:url]];
+    
     if (car.state == DGCarDepart) {
         cell.state.text = @"已出行车辆";
         cell.state.backgroundColor = [UIColor redColor];
@@ -205,6 +230,9 @@
         cell.state.text = @"已预约车辆";
         cell.state.backgroundColor = [UIColor yellowColor];
     }
+    
+    cell.state.adjustsFontSizeToFitWidth = YES;
+    
     return cell;
 }
 
@@ -266,12 +294,28 @@
 }
 
 
+/**
+ *  车辆预约于我的预约的切换控制
+ *
+ *  @param sender UISegmentedControl
+ *
+ *  @since 1.0.x
+ */
 - (IBAction)selectedChange:(id)sender {
+    
     if (self.orderAndMyOrderSeg.selectedSegmentIndex == 1) {
+        
+        self.showCarOrderBtn.hidden = YES;
+        
+        [self.myCarsDepart removeAllObjects];
+        [self.myCarsNotAppointed removeAllObjects];
+        [self.myCarsAppointed removeAllObjects];
+        
         self.dataSource = nil;
         
-        NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:@"/DongGuan/",@"referer", nil];
-        [[AFHTTPSessionManager manager] GET:URL_CAR_MY_APPOINTMENT parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
+        [manager.requestSerializer setValue:@"/DongGuan/" forHTTPHeaderField:@"referer"];
+        [manager GET:URL_CAR_MY_APPOINTMENT parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
             
             NSDictionary* jsonData = (NSDictionary*)responseObject;
             
@@ -291,23 +335,39 @@
                 car.reason = [temp objectForKey:@"reason"];
                 car.startTime = [temp objectForKey:@"startTime"];
                 
+                [self.myCarsDepart addObject:car];
                 [self.myOrderDataSource addObject:car];
             }
-            self.dataSource = self.myOrderDataSource;
+            
+            self.dataSource = self.myCarsNotAppointed;
+            
             [self.tableView reloadData];
-            //        NSLog(@"responseObject, %@",responseObject);
+            
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
-            NSLog(@"Login failed, %@",error);
+            
+            [YLToast showWithText:@"网络出错，请检查网络。"];
+            
         }];
         
     }
-    if (self.orderAndMyOrderSeg.selectedSegmentIndex == 0) {
-        self.dataSource = self.orderDataSource;
-    }
-    [self.tableView reloadData];
     
+    if (self.orderAndMyOrderSeg.selectedSegmentIndex == 0) {
+        
+        self.showCarOrderBtn.hidden = NO;
+        
+        self.dataSource = self.orderDataSource;
+        
+        [self.tableView reloadData];
+    }
 }
 
+/**
+ *  便捷预约界面
+ *
+ *  @param sender 公车界面-车辆预约-右下方按钮
+ *
+ *  @since 1.0.x
+ */
 - (IBAction)showCarOrderView:(id)sender {
     CarOrderView* orderView = nil;
     NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CarOrderView" owner:self options:nil];
@@ -331,6 +391,11 @@
     
 }
 
+/**
+ *  我的预约界面选择不同的类型显示不同的数据
+ *
+ *  @since 1.0.x
+ */
 -(void)selecteShowCarTypes
 {
     ShowCarsTypesView* view;
@@ -345,18 +410,21 @@
         if (0 == index) {
             [self.sectionHeaderView setTitle:weak_view.notAppointmentBtn.titleLabel.text forState:UIControlStateNormal];
             [weak_view removeFromSuperview];
+            self.dataSource = self.myCarsNotAppointed;
             [self.tableView reloadData];
         }
         else if (1 == index)
         {
             [self.sectionHeaderView setTitle:weak_view.departBtn.titleLabel.text forState:UIControlStateNormal];
             [weak_view removeFromSuperview];
+            self.dataSource = self.myCarsDepart;
             [self.tableView reloadData];
         }
         else if (2 == index)
         {
             [self.sectionHeaderView setTitle:weak_view.hasBackBtn.titleLabel.text forState:UIControlStateNormal];
             [weak_view removeFromSuperview];
+            self.dataSource = self.myCarsAppointed;
             [self.tableView reloadData];
         }
     };
