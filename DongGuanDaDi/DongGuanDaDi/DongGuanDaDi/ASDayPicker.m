@@ -149,6 +149,8 @@ static const CGFloat kWeekdayLabelHeight = 20.0f;
         b.enabled = NO;
     }
     
+    b.enabled = YES;// DGDT项目需要，改成可点击
+    
     b.tag = index;
     
     //    b.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
