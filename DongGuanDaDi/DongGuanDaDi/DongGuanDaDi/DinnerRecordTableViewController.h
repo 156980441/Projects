@@ -23,5 +23,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *dinnerTimesLabel;
 @property (strong, nonatomic) IBOutlet UILabel *orderTimesLabel;
 @property (strong, nonatomic) IBOutlet UILabel *isOrderLabel;
+@property (strong, nonatomic) IBOutlet UILabel *dateLabel;
 
 @end

@@ -14,5 +14,5 @@
 @property (nonatomic, assign) BOOL eated;
 @property (nonatomic, assign) NSInteger recordId;
 @property (nonatomic, assign) NSInteger kind;
-@property (nonatomic, assign) NSInteger predetermined;
+@property (nonatomic, assign) BOOL predetermined;
 @end

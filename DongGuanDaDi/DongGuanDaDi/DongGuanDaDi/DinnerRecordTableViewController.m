@@ -100,18 +100,29 @@
     [self.manager.requestSerializer setValue:@"/DongGuan/" forHTTPHeaderField:@"referer"];
     [self.manager POST:URL_RECORD parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
         NSArray* arr = (NSArray*)responseObject;
+        NSInteger eated = 0;
+        NSInteger predetermined = 0;
         for (NSDictionary* dic in arr) {
             DinnerRecord* record = [[DinnerRecord alloc] init];
             record.date = [dic objectForKey:@"date"];
             record.eated = ((NSNumber*)[dic objectForKey:@"eated"]).boolValue;
+            if (record.eated) {
+                eated++;
+            }
             record.extendUserNum = ((NSNumber*)[dic objectForKey:@"extend_user_num"]).integerValue;
             record.recordId = ((NSNumber*)[dic objectForKey:@"id"]).integerValue;
             record.kind = ((NSNumber*)[dic objectForKey:@"kind"]).integerValue;
-            record.predetermined = ((NSNumber*)[dic objectForKey:@"predetermined"]).integerValue;
+            record.predetermined = ((NSNumber*)[dic objectForKey:@"predetermined"]).boolValue;
+            if (record.predetermined) {
+                predetermined++;
+            }
             [self.dataSource addObject:record];
         }
         [self.tableView reloadData];
-        self.recordTotalLabel.hidden = self.orderTimesLabel.hidden = self.dinnerTimesLabel.hidden = self.typeLabel.hidden = self.eatedLabel.hidden = self.isOrderLabel.hidden = NO;
+        self.recordTotalLabel.text = [NSString stringWithFormat:@"记录总数：%zd",arr.count];
+        self.dinnerTimesLabel.text = [NSString stringWithFormat:@"用餐次数：%zd",eated];
+        self.orderTimesLabel.text = [NSString stringWithFormat:@"预定次数：%zd",predetermined];
+        self.recordTotalLabel.hidden = self.orderTimesLabel.hidden = self.dinnerTimesLabel.hidden = self.typeLabel.hidden = self.eatedLabel.hidden = self.isOrderLabel.hidden = self.dateLabel.hidden = NO;
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"%@",error.description);
     }];
