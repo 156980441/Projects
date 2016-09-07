@@ -12,6 +12,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 - (IBAction)commentBtnClick:(id)sender;
 - (IBAction)dateBtnClick:(id)sender;
+@property (strong, nonatomic) IBOutlet UILabel *dinnerNameLabel;
 
 @property (copy, nonatomic) void (^commentBtnClick)(NSInteger stars, NSString* content);
 @property (copy, nonatomic) void (^dateBtnClick)(NSDate* date);

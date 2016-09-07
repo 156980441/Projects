@@ -27,6 +27,16 @@
                         <action selector="commentBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="Qu4-ab-W8n"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ug-5g-G8V">
+                    <rect key="frame" x="0.0" y="160" width="180" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="mU5-05-1d4"/>
+                        <constraint firstAttribute="width" constant="180" id="opX-GY-oTX"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5yD-IU-Vca">
                     <rect key="frame" x="290" y="185" width="30" height="30"/>
                     <constraints>
@@ -42,17 +52,20 @@
             <constraints>
                 <constraint firstItem="UeL-Sm-pXB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="7Tv-n2-EGQ"/>
                 <constraint firstItem="RSt-7I-UMy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="185" id="9gB-DL-aYR"/>
+                <constraint firstItem="5ug-5g-G8V" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="KZm-0G-zWX"/>
                 <constraint firstItem="5yD-IU-Vca" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="185" id="ODK-Du-1nM"/>
                 <constraint firstAttribute="trailing" secondItem="RSt-7I-UMy" secondAttribute="trailing" constant="30" id="S5C-rX-No5"/>
                 <constraint firstAttribute="trailing" secondItem="UeL-Sm-pXB" secondAttribute="trailing" id="edN-jj-TdK"/>
+                <constraint firstItem="5ug-5g-G8V" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="160" id="lgt-zk-vyF"/>
                 <constraint firstItem="UeL-Sm-pXB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="qlf-Ae-1aI"/>
                 <constraint firstItem="RSt-7I-UMy" firstAttribute="leading" secondItem="5yD-IU-Vca" secondAttribute="trailing" constant="20" id="zgi-HO-LHW"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="dinnerNameLabel" destination="5ug-5g-G8V" id="xf1-tk-Kcd"/>
                 <outlet property="imageView" destination="UeL-Sm-pXB" id="JU5-fC-5FQ"/>
             </connections>
-            <point key="canvasLocation" x="414" y="292"/>
+            <point key="canvasLocation" x="414" y="291.5"/>
         </view>
     </objects>
 </document>

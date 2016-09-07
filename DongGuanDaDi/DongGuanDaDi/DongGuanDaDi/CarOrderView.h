@@ -17,10 +17,11 @@
 @property (strong, nonatomic) IBOutlet UIButton *startTimeBtn;
 @property (strong, nonatomic) IBOutlet UIButton *endTimeBtn;
 @property (strong, nonatomic) IBOutlet UITextField *passenagersNunTxtField;
+
 - (IBAction)cancelBtnClick:(id)sender;
 - (IBAction)submitBtnClick:(id)sender;
-- (IBAction)startDateBtnClick:(id)sender;
 
+- (IBAction)startDateBtnClick:(id)sender;
 - (IBAction)endDateBtnClick:(id)sender;
 - (IBAction)startTimeBtnClick:(id)sender;
 - (IBAction)endTimeBtnClick:(id)sender;

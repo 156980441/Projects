@@ -147,6 +147,7 @@
 - (void)dismiss
 {
     [self removeFromSuperview];
+    NSLog(@"%zd",self.picker.tag);
 }
 
 - (void)dismissWithAnamition{

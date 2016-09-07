@@ -26,9 +26,13 @@ enum BtnTagTypes
 
 -(void)awakeFromNib
 {
-    self.alpha = 1.0;
     self.datePiker = [[YLDatePicker alloc] init];
     self.datePiker.delegate = self;
+    self.datePiker.frame = CGRectMake(0, 0, 300, 300);
+    self.datePiker.mode = UIDatePickerModeDate;
+    self.datePiker.backgroundColor = [UIColor whiteColor];
+    [self.passenagersNunTxtField.layer setBorderColor:[[UIColor grayColor] CGColor]];
+    [self.passenagersNunTxtField.layer setBorderWidth:1.0];
 }
 
 /*
@@ -42,7 +46,6 @@ enum BtnTagTypes
 - (IBAction)cancelBtnClick:(id)sender
 {
     self.datePiker.delegate = nil;
-    self.superview.alpha = 1.0;
     [self removeFromSuperview];
 }
 
@@ -55,13 +58,8 @@ enum BtnTagTypes
         [self.datePiker dismiss];
     }
     else {
-        CGRect rect = CGRectMake(0, 0, 300, 300);
-        self.datePiker.frame = rect;
-        CGPoint origin = CGPointMake(self.window.center.x - rect.size.width / 2, self.window.center.y - rect.size.height / 2);
-        [self.datePiker showInView:self.window
-                         withFrame:CGRectMake(origin.x, origin.y, rect.size.width, rect.size.height)
-                 andDatePickerMode:UIDatePickerModeDate];
-        self.datePiker.tag = StartDateTag;
+        self.datePiker.picker.tag = StartDateTag;
+        [self.datePiker show];
     }
     
 }
@@ -71,12 +69,8 @@ enum BtnTagTypes
         [self.datePiker dismiss];
     }
     else {
-        CGRect rect = CGRectMake(0, 0, 300, 250);
-        CGPoint origin = CGPointMake(self.window.center.x - rect.size.width / 2, self.window.center.y - rect.size.height / 2);
-        [self.datePiker showInView:self.window
-                         withFrame:CGRectMake(origin.x, origin.y, rect.size.width, rect.size.height)
-                 andDatePickerMode:UIDatePickerModeDate];
-        self.datePiker.tag = EndDateTag;
+        self.datePiker.picker.tag = EndDateTag;
+        [self.datePiker show];
     }
 
 }
@@ -86,12 +80,9 @@ enum BtnTagTypes
         [self.datePiker dismiss];
     }
     else {
-        CGRect rect = CGRectMake(0, 0, 300, 250);
-        CGPoint origin = CGPointMake(self.window.center.x - rect.size.width / 2, self.window.center.y - rect.size.height / 2);
-        [self.datePiker showInView:self.window
-                         withFrame:CGRectMake(origin.x, origin.y, rect.size.width, rect.size.height)
-                 andDatePickerMode:UIDatePickerModeTime];
-        self.datePiker.tag = StartTimeTag;
+        self.datePiker.mode = UIDatePickerModeTime;
+        self.datePiker.picker.tag = StartTimeTag;
+        [self.datePiker show];
     }
 }
 
@@ -100,12 +91,9 @@ enum BtnTagTypes
         [self.datePiker dismiss];
     }
     else {
-        CGRect rect = CGRectMake(0, 0, 300, 250);
-        CGPoint origin = CGPointMake(self.window.center.x - rect.size.width / 2, self.window.center.y - rect.size.height / 2);
-        [self.datePiker showInView:self.window
-                         withFrame:CGRectMake(origin.x, origin.y, rect.size.width, rect.size.height)
-                 andDatePickerMode:UIDatePickerModeTime];
-        self.datePiker.tag = endTimeTag;
+        self.datePiker.mode = UIDatePickerModeTime;
+        self.datePiker.picker.tag = endTimeTag;
+        [self.datePiker show];
     }
 }
 - (void)picker:(UIDatePicker *)picker valueChanged:(NSDate *)date

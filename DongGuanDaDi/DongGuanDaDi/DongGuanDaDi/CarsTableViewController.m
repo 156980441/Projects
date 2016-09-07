@@ -138,6 +138,20 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (self.orderAndMyOrderSeg.selectedSegmentIndex == 1) {
+        return 50;
+    }
+    return 0;
+}
+- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    if (self.orderAndMyOrderSeg.selectedSegmentIndex == 1) {
+        return self.sectionHeaderView;
+    }
+    return nil;
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -305,16 +319,8 @@
     
     orderView.center = self.tableView.window.center;
     [self.tableView.window addSubview:orderView];
-    self.tableView.alpha = 0.7;
 }
 
-- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    if (self.orderAndMyOrderSeg.selectedSegmentIndex == 1) {
-        return self.sectionHeaderView;
-    }
-    return nil;
-}
 -(void)selecteShowCarTypes
 {
     ShowCarsTypesView* view;
