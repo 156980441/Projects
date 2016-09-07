@@ -12,5 +12,6 @@
 @property (strong, nonatomic) IBOutlet UISegmentedControl *orderAndMyOrderSeg;
 - (IBAction)selectedChange:(id)sender;
 - (IBAction)showCarOrderView:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *showCarOrderBtn;
 
 @end

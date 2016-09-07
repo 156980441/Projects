@@ -865,6 +865,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="orderAndMyOrderSeg" destination="xPx-0J-MnE" id="Sii-VR-L4c"/>
+                        <outlet property="showCarOrderBtn" destination="OFT-RI-Auh" id="FK1-Bc-PnK"/>
                         <segue destination="qga-hT-8HS" kind="show" identifier="carNotAppointment" id="AOc-im-Cxj"/>
                         <segue destination="YGf-RI-8zQ" kind="show" identifier="carDepart" id="Bgh-kV-UDp"/>
                         <segue destination="xXF-W9-tCe" kind="show" identifier="carAppointment" id="4tR-HP-BL1"/>

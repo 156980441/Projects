@@ -18,6 +18,9 @@
 @property (strong, nonatomic) IBOutlet UIButton *endTimeBtn;
 @property (strong, nonatomic) IBOutlet UITextField *passenagersNunTxtField;
 
+@property (copy, nonatomic) void (^orderQuerySuccBlock)(NSArray* availableCars);
+@property (copy, nonatomic) void (^orderQueryFailedBlock)(NSError* err);
+
 - (IBAction)cancelBtnClick:(id)sender;
 - (IBAction)submitBtnClick:(id)sender;
 

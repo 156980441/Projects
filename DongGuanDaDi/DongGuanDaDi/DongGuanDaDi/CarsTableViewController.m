@@ -70,7 +70,6 @@
             car.type = [dic objectForKey:@"type"];
             car.url = [dic objectForKey:@"url"];
             car.weight = ((NSNumber*)[dic objectForKey:@"loading"]).integerValue;
-            car.type = [dic objectForKey:@"type"];
             
             car.driver = [temp objectForKey:@"driver"];
             car.endtime = [temp objectForKey:@"endTime"];
@@ -319,6 +318,17 @@
     
     orderView.center = self.tableView.window.center;
     [self.tableView.window addSubview:orderView];
+    
+    __weak CarOrderView* weak_orderView = orderView;
+    orderView.orderQuerySuccBlock = ^(NSArray* availableCars){
+        [self.dataSource removeAllObjects];
+        self.dataSource = [NSMutableArray arrayWithArray:availableCars];
+        [self.tableView reloadData];
+        self.orderAndMyOrderSeg.hidden = self.showCarOrderBtn.hidden =YES;
+        self.title = @"当前可预约的车辆信息";
+        [weak_orderView removeFromSuperview];
+    };
+    
 }
 
 -(void)selecteShowCarTypes
