@@ -9,6 +9,7 @@
 #import "DinnerViewController.h"
 #import "DinnerInfo.h"
 #import "MemuDetailViewController.h"
+#import "ThreeMeals.h"
 #import "YLCommon.h"
 #import "YLToast.h"
 
@@ -163,6 +164,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)updateSingleDinnerBtnsState:(UIButton*) button byMeal:(ThreeMeals*)meal
+{
+    button.enabled = NO;
+    if (meal.state != ThreeMealsState_booked_noChange) {
+        button.enabled = YES;
+    }
+}
+
 -(void)updateSingleDinnerBtnsState:(UIButton*) button {
     
     UIColor* color = nil;
@@ -203,7 +212,7 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     
-    [self updateAllDinnerBtnsState];
+//    [self updateAllDinnerBtnsState];
     
     self.selecetedDate = change[NSKeyValueChangeNewKey];
     
@@ -211,27 +220,73 @@
     self.selectedDateLabel.text = [NSString stringWithFormat:@"选定日期：%@",date_str];
     
     NSArray* arr = [self.dateAndDinners objectForKey:date_str];
-    NSDictionary* dic = [arr objectAtIndex:0];
-    NSArray* breakfast_arr = [dic objectForKey:@"早餐"];
-    NSMutableString* breakfast_str = [NSMutableString string];
-    for (DinnerInfo* info in breakfast_arr) {
-        [breakfast_str appendString:info.name];
+    
+    if (arr.count > 0)
+    {
+        NSDictionary* dic = [arr objectAtIndex:0];
+        NSArray* temp_arr = [dic objectForKey:@"早餐"];
+        NSMutableString* temp_str = [NSMutableString string];
+        for (DinnerInfo* info in temp_arr) {
+            [temp_str appendString:info.name];
+            if (info != [temp_arr lastObject]) {
+                [temp_str appendString:@","];
+            }
+        }
+        self.breakfastLabel.text = [NSString stringWithFormat:@"早餐：%@",temp_str];
+        
+        dic = [arr objectAtIndex:1];
+        temp_arr = [dic objectForKey:@"午餐"];
+        temp_str = [NSMutableString string];
+        for (DinnerInfo* info in temp_arr) {
+            [temp_str appendString:info.name];
+            if (info != [temp_arr lastObject]) {
+                [temp_str appendString:@","];
+            }
+        }
+        self.lunchLabel.text = [NSString stringWithFormat:@"午餐：%@",temp_str];
+        
+        dic = [arr objectAtIndex:2];
+        temp_arr = [dic objectForKey:@"晚餐"];
+        temp_str = [NSMutableString string];
+        for (DinnerInfo* info in temp_arr) {
+            [temp_str appendString:info.name];
+            if (info != [temp_arr lastObject]) {
+                [temp_str appendString:@","];
+            }
+        }
+        self.dinnerLabel.text = [NSString stringWithFormat:@"晚餐：%@",temp_str];
     }
-    self.breakfastLabel.text = [NSString stringWithFormat:@"早餐：%@",breakfast_str];
-    dic = [arr objectAtIndex:1];
-    breakfast_arr = [dic objectForKey:@"午餐"];
-    breakfast_str = [NSMutableString string];
-    for (DinnerInfo* info in breakfast_arr) {
-        [breakfast_str appendString:info.name];
+    else
+    {
+        AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
+        [manager.requestSerializer setValue:@"/DongGuan/" forHTTPHeaderField:@"referer"];
+        NSString* url = [NSString stringWithFormat:@"%@%@",URL_RESERVE_INFO,date_str];
+        [manager GET:url parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+            NSArray* result = (NSArray*)responseObject;
+            for (NSDictionary* dic in result) {
+                ThreeMeals *meals = [[ThreeMeals alloc] init];
+                meals.date = [dic objectForKey:@"date"];
+                meals.mealsId = ((NSNumber*)[dic objectForKey:@"id"]).integerValue;
+                meals.kind = (ThreeMealsType)((NSNumber*)[dic objectForKey:@"kind"]).integerValue;
+                meals.state = (ThreeMealsState)((NSNumber*)[dic objectForKey:@"state"]).integerValue;
+                if (meals.kind == ThreeMealsType_breakfast) {
+                    [self updateSingleDinnerBtnsState:self.breakfastBtn byMeal:meals];
+                }
+                if (meals.kind == ThreeMealsType_lunch) {
+                    [self updateSingleDinnerBtnsState:self.lunchBtn byMeal:meals];
+                }
+                if (meals.kind == ThreeMealsType_dinner) {
+                    [self updateSingleDinnerBtnsState:self.dinnerBtn byMeal:meals];
+                }
+                
+            }
+            
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            
+            [YLToast showWithText:@"网络出错，请检查网络。"];
+            
+        }];
     }
-    self.lunchLabel.text = [NSString stringWithFormat:@"午餐：%@",breakfast_str];
-    dic = [arr objectAtIndex:2];
-    breakfast_arr = [dic objectForKey:@"晚餐"];
-    breakfast_str = [NSMutableString string];
-    for (DinnerInfo* info in breakfast_arr) {
-        [breakfast_str appendString:info.name];
-    }
-    self.dinnerLabel.text = [NSString stringWithFormat:@"晚餐：%@",breakfast_str];
 }
 
 #pragma mark - Navigation
