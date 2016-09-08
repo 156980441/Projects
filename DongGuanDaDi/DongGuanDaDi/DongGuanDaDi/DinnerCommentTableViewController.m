@@ -38,7 +38,7 @@
     DinnerCommentTableViewHeaderView* headerView = [[[NSBundle mainBundle] loadNibNamed:@"DinnerCommentTableViewHeaderView" owner:nil options:nil] lastObject];
     NSString* imageURL = [NSString stringWithFormat:@"%@%@",HOST,self.dinnerInfo.url];
     headerView.dinnerNameLabel.text = self.dinnerInfo.name;
-    [headerView.imageView setImageWithURL:[NSURL URLWithString:@"http://120.24.234.67/DongGuan/car_image/9.jpg"]];
+    [headerView.imageView setImageWithURL:[NSURL URLWithString:imageURL]];
     headerView.frame = CGRectMake(0, 0, self.tableView.frame.size.width, 215);//为什么必须设置？
     headerView.commentBtnClick = ^(NSInteger stars, NSString* contents)
     {

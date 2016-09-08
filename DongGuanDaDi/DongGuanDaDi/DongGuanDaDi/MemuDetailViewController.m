@@ -40,6 +40,7 @@
     NSDictionary* dic = [self.dataSource objectAtIndex:indexPath.section];
     NSArray* dinners = [dic.allValues objectAtIndex:0];
     DinnerInfo* dinner = [dinners objectAtIndex:indexPath.row];
+    cell.imageView.image = [UIImage imageNamed:@"error_outline"];//临时
     cell.textLabel.text = dinner.name;
     cell.detailTextLabel.text = dinner.desc;
     return cell;

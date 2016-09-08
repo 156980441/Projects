@@ -11,18 +11,18 @@
             <rect key="frame" x="0.0" y="0.0" width="400" height="215"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UeL-Sm-pXB">
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="error_outline" translatesAutoresizingMaskIntoConstraints="NO" id="UeL-Sm-pXB">
                     <rect key="frame" x="0.0" y="0.0" width="400" height="200"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="TJz-Gi-vi5"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RSt-7I-UMy">
-                    <rect key="frame" x="316" y="185" width="54" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RSt-7I-UMy">
+                    <rect key="frame" x="316" y="173" width="54" height="54"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="oUi-b9-nMR"/>
                     </constraints>
-                    <state key="normal" image="ic_comment"/>
+                    <state key="normal" image="dinner_comment"/>
                     <connections>
                         <action selector="commentBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="Qu4-ab-W8n"/>
                     </connections>
@@ -37,12 +37,12 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5yD-IU-Vca">
-                    <rect key="frame" x="266" y="185" width="30" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5yD-IU-Vca">
+                    <rect key="frame" x="245" y="182" width="72" height="36"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="RqV-RB-WM0"/>
                     </constraints>
-                    <state key="normal" title="日期"/>
+                    <state key="normal" image="date_range_grey"/>
                     <connections>
                         <action selector="dateBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="QTy-RU-VyU"/>
                     </connections>
@@ -69,6 +69,8 @@
         </view>
     </objects>
     <resources>
-        <image name="ic_comment" width="54" height="54"/>
+        <image name="date_range_grey" width="36" height="36"/>
+        <image name="dinner_comment" width="54" height="54"/>
+        <image name="error_outline" width="72" height="72"/>
     </resources>
 </document>
