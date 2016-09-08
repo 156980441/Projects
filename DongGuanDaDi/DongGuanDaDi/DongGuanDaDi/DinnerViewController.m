@@ -221,72 +221,68 @@
     
     NSArray* arr = [self.dateAndDinners objectForKey:date_str];
     
-    if (arr.count > 0)
-    {
-        NSDictionary* dic = [arr objectAtIndex:0];
-        NSArray* temp_arr = [dic objectForKey:@"早餐"];
-        NSMutableString* temp_str = [NSMutableString string];
-        for (DinnerInfo* info in temp_arr) {
-            [temp_str appendString:info.name];
-            if (info != [temp_arr lastObject]) {
-                [temp_str appendString:@","];
-            }
+    
+    NSDictionary* dic = [arr objectAtIndex:0];
+    NSArray* temp_arr = [dic objectForKey:@"早餐"];
+    NSMutableString* temp_str = [NSMutableString string];
+    for (DinnerInfo* info in temp_arr) {
+        [temp_str appendString:info.name];
+        if (info != [temp_arr lastObject]) {
+            [temp_str appendString:@","];
         }
-        self.breakfastLabel.text = [NSString stringWithFormat:@"早餐：%@",temp_str];
-        
-        dic = [arr objectAtIndex:1];
-        temp_arr = [dic objectForKey:@"午餐"];
-        temp_str = [NSMutableString string];
-        for (DinnerInfo* info in temp_arr) {
-            [temp_str appendString:info.name];
-            if (info != [temp_arr lastObject]) {
-                [temp_str appendString:@","];
-            }
-        }
-        self.lunchLabel.text = [NSString stringWithFormat:@"午餐：%@",temp_str];
-        
-        dic = [arr objectAtIndex:2];
-        temp_arr = [dic objectForKey:@"晚餐"];
-        temp_str = [NSMutableString string];
-        for (DinnerInfo* info in temp_arr) {
-            [temp_str appendString:info.name];
-            if (info != [temp_arr lastObject]) {
-                [temp_str appendString:@","];
-            }
-        }
-        self.dinnerLabel.text = [NSString stringWithFormat:@"晚餐：%@",temp_str];
     }
-    else
-    {
-        AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
-        [manager.requestSerializer setValue:@"/DongGuan/" forHTTPHeaderField:@"referer"];
-        NSString* url = [NSString stringWithFormat:@"%@%@",URL_RESERVE_INFO,date_str];
-        [manager GET:url parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-            NSArray* result = (NSArray*)responseObject;
-            for (NSDictionary* dic in result) {
-                ThreeMeals *meals = [[ThreeMeals alloc] init];
-                meals.date = [dic objectForKey:@"date"];
-                meals.mealsId = ((NSNumber*)[dic objectForKey:@"id"]).integerValue;
-                meals.kind = (ThreeMealsType)((NSNumber*)[dic objectForKey:@"kind"]).integerValue;
-                meals.state = (ThreeMealsState)((NSNumber*)[dic objectForKey:@"state"]).integerValue;
-                if (meals.kind == ThreeMealsType_breakfast) {
-                    [self updateSingleDinnerBtnsState:self.breakfastBtn byMeal:meals];
-                }
-                if (meals.kind == ThreeMealsType_lunch) {
-                    [self updateSingleDinnerBtnsState:self.lunchBtn byMeal:meals];
-                }
-                if (meals.kind == ThreeMealsType_dinner) {
-                    [self updateSingleDinnerBtnsState:self.dinnerBtn byMeal:meals];
-                }
-                
+    self.breakfastLabel.text = [NSString stringWithFormat:@"早餐：%@",temp_str];
+    
+    dic = [arr objectAtIndex:1];
+    temp_arr = [dic objectForKey:@"午餐"];
+    temp_str = [NSMutableString string];
+    for (DinnerInfo* info in temp_arr) {
+        [temp_str appendString:info.name];
+        if (info != [temp_arr lastObject]) {
+            [temp_str appendString:@","];
+        }
+    }
+    self.lunchLabel.text = [NSString stringWithFormat:@"午餐：%@",temp_str];
+    
+    dic = [arr objectAtIndex:2];
+    temp_arr = [dic objectForKey:@"晚餐"];
+    temp_str = [NSMutableString string];
+    for (DinnerInfo* info in temp_arr) {
+        [temp_str appendString:info.name];
+        if (info != [temp_arr lastObject]) {
+            [temp_str appendString:@","];
+        }
+    }
+    self.dinnerLabel.text = [NSString stringWithFormat:@"晚餐：%@",temp_str];
+    
+    AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
+    [manager.requestSerializer setValue:@"/DongGuan/" forHTTPHeaderField:@"referer"];
+    NSString* url = [NSString stringWithFormat:@"%@%@",URL_RESERVE_INFO,date_str];
+    [manager GET:url parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSArray* result = (NSArray*)responseObject;
+        for (NSDictionary* dic in result) {
+            ThreeMeals *meals = [[ThreeMeals alloc] init];
+            meals.date = [dic objectForKey:@"date"];
+            meals.mealsId = ((NSNumber*)[dic objectForKey:@"id"]).integerValue;
+            meals.kind = (ThreeMealsType)((NSNumber*)[dic objectForKey:@"kind"]).integerValue;
+            meals.state = (ThreeMealsState)((NSNumber*)[dic objectForKey:@"state"]).integerValue;
+            if (meals.kind == ThreeMealsType_breakfast) {
+                [self updateSingleDinnerBtnsState:self.breakfastBtn byMeal:meals];
+            }
+            if (meals.kind == ThreeMealsType_lunch) {
+                [self updateSingleDinnerBtnsState:self.lunchBtn byMeal:meals];
+            }
+            if (meals.kind == ThreeMealsType_dinner) {
+                [self updateSingleDinnerBtnsState:self.dinnerBtn byMeal:meals];
             }
             
-        } failure:^(NSURLSessionDataTask *task, NSError *error) {
-            
-            [YLToast showWithText:@"网络出错，请检查网络。"];
-            
-        }];
-    }
+        }
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+        [YLToast showWithText:@"网络出错，请检查网络。"];
+        
+    }];
 }
 
 #pragma mark - Navigation
