@@ -16,6 +16,13 @@
 
 @implementation MemuDetailViewController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    
+    self.title = [NSString stringWithFormat:@"菜式详情 (%@)",self.selectedDate];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

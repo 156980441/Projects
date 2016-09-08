@@ -777,10 +777,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OFT-RI-Auh">
-                            <rect key="frame" x="0.0" y="229" width="600" height="44"/>
+                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="OFT-RI-Auh">
+                            <rect key="frame" x="0.0" y="229" width="600" height="36"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="汽车按钮"/>
+                            <state key="normal" image="directions_car_black"/>
                             <connections>
                                 <action selector="showCarOrderView:" destination="OD3-IU-F9c" eventType="touchUpInside" id="urJ-kd-uKj"/>
                             </connections>
@@ -793,7 +793,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="136"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rjo-ug-7gw">
+                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="error_outline" translatesAutoresizingMaskIntoConstraints="NO" id="rjo-ug-7gw">
                                             <rect key="frame" x="8" y="4" width="170" height="119"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MbZ-Hz-9SU">
@@ -1679,6 +1679,8 @@
         <image name="dinner_more_horiz_white" width="36" height="36"/>
         <image name="dinner_record" width="42" height="42"/>
         <image name="dinner_vote" width="42" height="42"/>
+        <image name="directions_car_black" width="36" height="36"/>
+        <image name="error_outline" width="72" height="72"/>
         <image name="main_logout" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>

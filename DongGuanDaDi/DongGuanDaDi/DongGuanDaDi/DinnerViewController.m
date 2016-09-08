@@ -293,8 +293,10 @@
     // Pass the selected object to the new view controller.
     UIViewController* vc = [segue destinationViewController];
     if ([vc isKindOfClass:[MemuDetailViewController class]]) {
-        MemuDetailViewController* carAppointVc = (MemuDetailViewController*)vc;
-        carAppointVc.dataSource = [self.dateAndDinners objectForKey:[YLCommon date2String:self.selecetedDate]];
+        MemuDetailViewController* menuDetailVc = (MemuDetailViewController*)vc;
+        NSString* date = [YLCommon date2String:self.selecetedDate];
+        menuDetailVc.dataSource = [self.dateAndDinners objectForKey:date];
+        menuDetailVc.selectedDate = date;
     }
 }
 

@@ -30,6 +30,8 @@
     [super viewDidLoad];
     
     self.navigationController.navigationBar.hidden = NO;
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    
     self.dataSources = @[@"用餐",@"公车",@"通讯录",@"任务",@"监控",@"个人"];
     self.imageDataSources = @[@"main_car",@"main_dinner",@"main_contact",@"main_office",@"main_map",@"main_person"];
 }

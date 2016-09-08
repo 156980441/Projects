@@ -10,4 +10,5 @@
 
 @interface MemuDetailViewController : UITableViewController
 @property (nonatomic, strong) NSArray *dataSource;
+@property (nonatomic, strong) NSString* selectedDate;
 @end
