@@ -43,17 +43,21 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nEL-zL-K32">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="请输入出车时间" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m3h-MB-Wje">
+                    <rect key="frame" x="108" y="64" width="160" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="160" id="JgP-P2-T7g"/>
+                        <constraint firstAttribute="height" constant="30" id="PtG-f5-FaB"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="请输入还车时间" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nEL-zL-K32">
                     <rect key="frame" x="108" y="107" width="160" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZYO-Kz-uXY">
-                    <rect key="frame" x="108" y="149" width="160" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rx8-7W-x5i">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="12:00" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rx8-7W-x5i">
                     <rect key="frame" x="298" y="64" width="85" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="9le-bz-GSk"/>
@@ -62,7 +66,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HRL-gL-dk0">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="12:00" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HRL-gL-dk0">
                     <rect key="frame" x="298" y="107" width="85" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="4JN-tt-nUu"/>
@@ -84,7 +88,6 @@
                         <constraint firstAttribute="height" constant="128" id="cWK-lV-BWB"/>
                         <constraint firstAttribute="width" constant="278" id="cYa-t7-ehq"/>
                     </constraints>
-                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
@@ -95,16 +98,15 @@
                         <constraint firstAttribute="height" constant="30" id="c2s-NC-Ess"/>
                         <constraint firstAttribute="width" constant="397" id="qgK-P1-iMh"/>
                     </constraints>
-                    <state key="normal" title="Button">
+                    <state key="normal" title="确认提交">
                         <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </state>
+                    <connections>
+                        <action selector="submitBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="0ma-8u-Efl"/>
+                    </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m3h-MB-Wje">
-                    <rect key="frame" x="108" y="64" width="160" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="160" id="JgP-P2-T7g"/>
-                        <constraint firstAttribute="height" constant="30" id="PtG-f5-FaB"/>
-                    </constraints>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="请输入随车人数" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZYO-Kz-uXY">
+                    <rect key="frame" x="108" y="150" width="160" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>

@@ -16,5 +16,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *passengerTxtField;
 @property (strong, nonatomic) IBOutlet UITextView *reasonTxtView;
 @property (strong, nonatomic) IBOutlet UIButton *submitBtn;
+- (IBAction)submitBtnClick:(id)sender;
 
 @end

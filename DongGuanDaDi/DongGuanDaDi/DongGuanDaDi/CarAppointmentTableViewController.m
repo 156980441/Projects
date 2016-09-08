@@ -28,6 +28,8 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    self.title = [NSString stringWithFormat:@"%@预约情况",self.car.number];
+    
     UIImageView* imageView = [[UIImageView alloc] init];
     NSString* imageURL = [NSString stringWithFormat:@"%@%@",HOST,self.car.url];
     [imageView setImageWithURL:[NSURL URLWithString:imageURL]];
