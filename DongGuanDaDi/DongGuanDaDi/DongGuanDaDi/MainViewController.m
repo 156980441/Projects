@@ -19,6 +19,7 @@
 @interface MainViewController ()
 
 @property (nonatomic, strong) NSArray* dataSources;
+@property (nonatomic, strong) NSArray* imageDataSources;
 
 @end
 
@@ -30,6 +31,7 @@
     
     self.navigationController.navigationBar.hidden = NO;
     self.dataSources = @[@"用餐",@"公车",@"通讯录",@"任务",@"监控",@"个人"];
+    self.imageDataSources = @[@"main_car",@"main_dinner",@"main_contact",@"main_office",@"main_map",@"main_person"];
 }
 
 
@@ -60,15 +62,18 @@
     MainViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MainViewCell" forIndexPath:indexPath];
     NSInteger section = indexPath.section;
     if (0 == section) {
-        cell.backgroundColor = [UIColor redColor];
         cell.title.text = @"Welcome";
+        cell.imageView.image = [UIImage imageNamed:@"main_front"];
     }
     else if (1 == section)
     {
         cell.title.text = [self.dataSources objectAtIndex:indexPath.row];
-        cell.backgroundColor = [UIColor greenColor];
+        cell.backgroundColor = [UIColor blueColor];
+        cell.imageView.image = [UIImage imageNamed:[self.imageDataSources objectAtIndex:indexPath.row]];
     }
-    cell.title.backgroundColor = [UIColor blueColor];
+    cell.imageView.contentMode = UIViewContentModeCenter;
+    cell.title.backgroundColor = [UIColor yellowColor];
+    
     return cell;
 }
 
