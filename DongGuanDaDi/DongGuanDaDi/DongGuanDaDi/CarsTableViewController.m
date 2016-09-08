@@ -9,6 +9,7 @@
 #import "CarsTableViewController.h"
 #import "Car.h"
 #import "CarDetailCell.h"
+#import "CarDetailOfMyOrderTableViewCell.h"
 #import "CarNotAppointmentTableViewController.h"
 #import "CarDepartTableViewController.h"
 #import "CarAppointmentTableViewController.h"
@@ -206,36 +207,58 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    CarDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"carDetail" forIndexPath:indexPath];
+    UITableViewCell* returnCell = nil;
     
-    // Configure the cell...
-    Car* car = (Car*)[self.dataSource objectAtIndex:indexPath.row];
-    cell.brand.text = [NSString stringWithFormat:@"车辆品牌：%@",car.brand];
-    cell.number.text = [NSString stringWithFormat:@"车牌号：%@",car.number];
-    cell.seats.text = [NSString stringWithFormat:@"座位数：%ld",car.seating];
-    cell.weight.text = [NSString stringWithFormat:@"车辆载重：%ld",car.weight];
-    
-    NSString* url = [NSString stringWithFormat:@"%@%@",HOST,car.url];
-    [cell.thumbnail setImageWithURL:[NSURL URLWithString:url]];
-    
-    if (car.state == DGCarDepart) {
-        cell.state.text = @"已出行车辆";
-        cell.state.backgroundColor = [UIColor redColor];
+    if (self.orderAndMyOrderSeg.selectedSegmentIndex == 0) {
+        CarDetailCell *cell = (CarDetailCell*)[tableView dequeueReusableCellWithIdentifier:@"carDetail" forIndexPath:indexPath];
+        
+        // Configure the cell...
+        Car* car = (Car*)[self.dataSource objectAtIndex:indexPath.row];
+        cell.brand.text = [NSString stringWithFormat:@"车辆品牌：%@",car.brand];
+        cell.number.text = [NSString stringWithFormat:@"车牌号：%@",car.number];
+        cell.seats.text = [NSString stringWithFormat:@"座位数：%ld",car.seating];
+        cell.weight.text = [NSString stringWithFormat:@"车辆载重：%ld",car.weight];
+        NSString* url = [NSString stringWithFormat:@"%@%@",HOST,car.url];
+        [cell.thumbnail setImageWithURL:[NSURL URLWithString:url]];
+        
+        if (car.state == DGCarDepart) {
+            cell.state.text = @"已出行车辆";
+            cell.state.backgroundColor = [UIColor redColor];
+        }
+        else if (car.state == DGCarNotAppointment)
+        {
+            cell.state.text = @"未预约车辆";
+            cell.state.backgroundColor = [UIColor greenColor];
+        }
+        else if (car.state == DGCarAppointment)
+        {
+            cell.state.text = @"已预约车辆";
+            cell.state.backgroundColor = [UIColor yellowColor];
+        }
+        
+        cell.state.adjustsFontSizeToFitWidth = YES;
+        
+        returnCell = cell;
+        
     }
-    else if (car.state == DGCarNotAppointment)
+    else
     {
-        cell.state.text = @"未预约车辆";
-        cell.state.backgroundColor = [UIColor greenColor];
-    }
-    else if (car.state == DGCarAppointment)
-    {
-        cell.state.text = @"已预约车辆";
-        cell.state.backgroundColor = [UIColor yellowColor];
+        CarDetailOfMyOrderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"carDetailOfMyOrder" forIndexPath:indexPath];
+        
+        // Configure the cell...
+        Car* car = (Car*)[self.dataSource objectAtIndex:indexPath.row];
+        cell.carNumber.text = [NSString stringWithFormat:@"车牌号：%@",car.number];
+        cell.passengers.text = [NSString stringWithFormat:@"随车人数：%ld",car.peopleNum];
+        cell.startDate.text = car.startTime;
+        cell.endDate.text = car.endtime;
+        NSString* url = [NSString stringWithFormat:@"%@%@",HOST,car.url];
+        [cell.thumbnail setImageWithURL:[NSURL URLWithString:url]];
+        
+        returnCell = cell;
     }
     
-    cell.state.adjustsFontSizeToFitWidth = YES;
     
-    return cell;
+    return returnCell;
 }
 
 

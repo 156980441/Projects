@@ -43,6 +43,7 @@
 		8D93C6931D4FA73E000465D1 /* DepartmentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D93C6921D4FA73E000465D1 /* DepartmentTableViewController.m */; };
 		8D98515C1D56FD980030D314 /* YLDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D98515B1D56FD980030D314 /* YLDatePicker.m */; };
 		8D9851601D56FFCA0030D314 /* YLCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D98515F1D56FFCA0030D314 /* YLCommon.m */; };
+		8DDBE0751D81AEFC008BC513 /* CarDetailOfMyOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DDBE0741D81AEFC008BC513 /* CarDetailOfMyOrderTableViewCell.m */; };
 		945BCE4777191345375D8239 /* libPods-DongGuanDaDi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E72E02FACBABE54F3E897144 /* libPods-DongGuanDaDi.a */; };
 		D721E80B1D4CBEAA00A73D9D /* ModifyPassTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D721E80A1D4CBEAA00A73D9D /* ModifyPassTableViewController.m */; };
 		D721E80E1D4CC84B00A73D9D /* Staff.m in Sources */ = {isa = PBXBuildFile; fileRef = D721E80D1D4CC84B00A73D9D /* Staff.m */; };
@@ -163,6 +164,8 @@
 		8D98515D1D56FDD60030D314 /* YLUI_stdfax.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLUI_stdfax.h; sourceTree = "<group>"; };
 		8D98515E1D56FFCA0030D314 /* YLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLCommon.h; sourceTree = "<group>"; };
 		8D98515F1D56FFCA0030D314 /* YLCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLCommon.m; sourceTree = "<group>"; };
+		8DDBE0731D81AEFB008BC513 /* CarDetailOfMyOrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarDetailOfMyOrderTableViewCell.h; sourceTree = "<group>"; };
+		8DDBE0741D81AEFC008BC513 /* CarDetailOfMyOrderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarDetailOfMyOrderTableViewCell.m; sourceTree = "<group>"; };
 		B36727BE6DEBF3748E9E51EA /* Pods-DongGuanDaDi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DongGuanDaDi.release.xcconfig"; path = "Pods/Target Support Files/Pods-DongGuanDaDi/Pods-DongGuanDaDi.release.xcconfig"; sourceTree = "<group>"; };
 		D721E8091D4CBEAA00A73D9D /* ModifyPassTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPassTableViewController.h; sourceTree = "<group>"; };
 		D721E80A1D4CBEAA00A73D9D /* ModifyPassTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPassTableViewController.m; sourceTree = "<group>"; };
@@ -432,6 +435,8 @@
 				192D0E2B1D76BAD200216D92 /* CarDepartTableViewController.m */,
 				19E8D6651D4C9132005A6DB4 /* CarDetailCell.h */,
 				19E8D6661D4C9132005A6DB4 /* CarDetailCell.m */,
+				8DDBE0731D81AEFB008BC513 /* CarDetailOfMyOrderTableViewCell.h */,
+				8DDBE0741D81AEFC008BC513 /* CarDetailOfMyOrderTableViewCell.m */,
 				192D0E271D76A8C500216D92 /* CarNotAppointmentCell.h */,
 				192D0E281D76A8C500216D92 /* CarNotAppointmentCell.m */,
 				D778F72B1D74719700350BBE /* CarNotAppointmentTableViewController.h */,
@@ -719,6 +724,7 @@
 				194F69F11D52E26B00EC55EA /* DinnerInfo.m in Sources */,
 				19575BAD1D7F3CCC00F907D0 /* DinnerCommentTableViewHeaderView.m in Sources */,
 				D7680EA91D772FE8003A772F /* ShowCarsTypesView.m in Sources */,
+				8DDBE0751D81AEFC008BC513 /* CarDetailOfMyOrderTableViewCell.m in Sources */,
 				D75EDE011D5A2B4300D34DC0 /* EColumnDataModel.m in Sources */,
 				D75EDE071D5A2B4300D34DC0 /* EViewSwitcher.m in Sources */,
 				D75EDE051D5A2B4300D34DC0 /* ELineChartDataModel.m in Sources */,
