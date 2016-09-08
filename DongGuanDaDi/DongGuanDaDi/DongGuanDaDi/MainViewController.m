@@ -13,6 +13,8 @@
 #import "AddressListTableViewController.h"
 #import "PersonalTableViewController.h"
 
+#import "YLToast.h"
+
 #import "stdafx_DongGuanDaDi.h"
 #import "AFHTTPSessionManager.h"
 
@@ -146,7 +148,7 @@
         [manager GET:URL_LOGOUT parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
             NSLog(@"Logout success, %@",responseObject);
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
-            NSLog(@"Logout failed, %@",error);
+            [YLToast showWithText:@"网络连接失败，请检查网络配置"];
         }];
         
         [self.navigationController popViewControllerAnimated:YES];

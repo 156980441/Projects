@@ -26,7 +26,7 @@
         NSLog(@"Modify PerInfo succ,%@",responseObject);
         [YLToast showWithText:@"修改成功"];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        [YLToast showWithText:error.description];
+        [YLToast showWithText:@"网络连接失败，请检查网络配置"];
         NSLog(@"Modify PerInfo failed, %@",error);
     }];
 }

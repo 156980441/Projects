@@ -9,6 +9,7 @@
 #import "CarOrderView.h"
 #import "YLDatePicker.h"
 #import "YLCommon.h"
+#import "YLToast.h"
 #import "Car.h"
 
 #import "stdafx_DongGuanDaDi.h"
@@ -94,7 +95,7 @@ enum BtnTagTypes
         }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"err %@",error.description);
+        [YLToast showWithText:@"网络连接失败，请检查网络配置"];
     }];
     
 }

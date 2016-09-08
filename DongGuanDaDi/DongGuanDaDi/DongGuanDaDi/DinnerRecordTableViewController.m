@@ -9,7 +9,9 @@
 #import "DinnerRecordTableViewController.h"
 #import "DinnerRecordTableViewCell.h"
 #import "DinnerRecord.h"
+
 #import "YLCommon.h"
+#import "YLToast.h"
 
 #import "stdafx_DongGuanDaDi.h"
 #import "AFHTTPSessionManager.h"
@@ -124,7 +126,7 @@
         self.orderTimesLabel.text = [NSString stringWithFormat:@"预定次数：%zd",predetermined];
         self.recordTotalLabel.hidden = self.orderTimesLabel.hidden = self.dinnerTimesLabel.hidden = self.typeLabel.hidden = self.eatedLabel.hidden = self.isOrderLabel.hidden = self.dateLabel.hidden = NO;
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"%@",error.description);
+        [YLToast showWithText:@"网络连接失败，请检查网络配置"];
     }];
 }
 

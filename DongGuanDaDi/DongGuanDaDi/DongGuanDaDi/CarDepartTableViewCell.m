@@ -69,7 +69,7 @@
         [YLToast showWithText:@"预约成功"];
         NSLog(@"%@",responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        [YLToast showWithText:@"预约失败"];
+        [YLToast showWithText:@"网络连接失败，请检查网络配置"];
         NSLog(@"%@",error.description);
     }];
 }

@@ -82,7 +82,7 @@
             }
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"Login failed, %@",error);
+        [YLToast showWithText:@"网络连接失败，请检查网络配置"];
     }];
 }
 

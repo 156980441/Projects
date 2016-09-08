@@ -62,7 +62,7 @@
                   
               }
               failure:^(NSURLSessionDataTask *task, NSError *error) {
-                  [YLToast showWithText:@"联网失败导致评论失败，请链接网络重试。"];
+                  [YLToast showWithText:@"网络连接失败，请检查网络配置"];
                   NSLog(@"%@",error.description);
               }];
     };
@@ -104,7 +104,7 @@
         [self.tableView reloadData];
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"%@",error.description);
+        [YLToast showWithText:@"网络连接失败，请检查网络配置"];
     }];
 }
 

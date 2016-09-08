@@ -147,7 +147,7 @@
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
-        [YLToast showWithText:@"网络出错，请检查网络。"];
+        [YLToast showWithText:@"网络连接失败，请检查网络配置"];
 //        NSLog(@"Login failed, %@",error);
         
     }];
@@ -345,7 +345,7 @@
             
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             
-            [YLToast showWithText:@"网络出错，请检查网络。"];
+            [YLToast showWithText:@"网络连接失败，请检查网络配置"];
             
         }];
         
