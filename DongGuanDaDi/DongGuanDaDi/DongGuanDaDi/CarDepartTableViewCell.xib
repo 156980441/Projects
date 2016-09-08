@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="475" height="1087"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FU2-Cb-lsD">
+                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="error_outline" translatesAutoresizingMaskIntoConstraints="NO" id="FU2-Cb-lsD">
                         <rect key="frame" x="8" y="8" width="459" height="197"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="FU2-Cb-lsD" secondAttribute="height" multiplier="459:197" id="Zgc-dU-pMN"/>
@@ -445,4 +445,7 @@
             <point key="canvasLocation" x="381.5" y="568"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="error_outline" width="72" height="72"/>
+    </resources>
 </document>
