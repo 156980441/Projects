@@ -63,7 +63,9 @@
     self.dataSource = self.orderDataSource;
     
     self.sectionHeaderView = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    self.sectionHeaderView.frame = CGRectMake(0, 0, self.tableView.frame.size.width, 30);
+    self.sectionHeaderView.frame = CGRectMake(0, 10, self.tableView.frame.size.width, 50);
+    self.sectionHeaderView.titleLabel.font = [UIFont systemFontOfSize: 20.0];
+    self.sectionHeaderView.titleLabel.textAlignment = NSTextAlignmentLeft;
     [self.sectionHeaderView setTitle:@"未出行车辆" forState:UIControlStateNormal];
     [self.sectionHeaderView addTarget:self action:@selector(selecteShowCarTypes) forControlEvents:UIControlEventTouchDown];
     
@@ -369,6 +371,7 @@
  *  @since 1.0.x
  */
 - (IBAction)showCarOrderView:(id)sender {
+    
     CarOrderView* orderView = nil;
     NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CarOrderView" owner:self options:nil];
     if ([nib count]>0)
@@ -379,19 +382,70 @@
     orderView.center = self.tableView.window.center;
     [self.tableView.window addSubview:orderView];
     
-    // 注意！
+    self.tableView.alpha = 0.7;
     self.tableView.userInteractionEnabled = NO;
     
     __weak CarOrderView* weak_orderView = orderView;
-    orderView.orderQuerySuccBlock = ^(NSArray* availableCars){
-        [self.dataSource removeAllObjects];
-        self.dataSource = [NSMutableArray arrayWithArray:availableCars];
-        [self.tableView reloadData];
-        self.orderAndMyOrderSeg.hidden = self.showCarOrderBtn.hidden =YES;
-        self.title = @"当前可预约的车辆信息";
+    
+    orderView.cancelBtnClickBlock = ^(){
         [weak_orderView removeFromSuperview];
+        self.tableView.alpha = 1.0;
+        self.tableView.userInteractionEnabled = YES;
     };
     
+    orderView.submitBtnClickBlock = ^(){
+        
+        NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:
+                             weak_orderView.passenagersNunTxtField.text,@"peopleNumber",
+                             [NSString stringWithFormat:@"%@ %@",weak_orderView.endDateBtn.titleLabel.text,weak_orderView.endTimeBtn.titleLabel.text], @"end",
+                             [NSString stringWithFormat:@"%@ %@",weak_orderView.startDateBtn.titleLabel.text,weak_orderView.startTimeBtn.titleLabel.text], @"start",
+                             nil];
+        NSDictionary* dic2 = [NSDictionary dictionaryWithObjectsAndKeys:
+                              @"2",@"peopleNumber",
+                              @"2016-09-08 12:10", @"end",
+                              @"2016-09-07 12:10", @"start",
+                              nil];
+        AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
+        [manager.requestSerializer setValue:@"/DongGuan/" forHTTPHeaderField:@"referer"];
+        [manager POST:URL_CAR_APPOINTMENT_SUBMIT parameters:dic2 success:^(NSURLSessionDataTask *task, id responseObject) {
+            
+            NSDictionary* dic = (NSDictionary*)responseObject;
+            NSArray* carManage_dic = [dic objectForKey:@"carManage"];
+            NSArray* cars_arr = [dic objectForKey:@"cars"];
+            
+            [self.dataSource removeAllObjects];
+            
+            for (NSDictionary* car_dic in cars_arr) {
+                Car* car = [[Car alloc] init];
+                car.brand = [car_dic objectForKey:@"brand"];
+                car.number = [car_dic objectForKey:@"carNumber"];
+                car.color = [car_dic objectForKey:@"color"];
+                car.carId = ((NSNumber*)[car_dic objectForKey:@"id"]).integerValue;
+                car.purpose = [car_dic objectForKey:@"purpose"];
+                car.seating = ((NSNumber*)[car_dic objectForKey:@"seating"]).integerValue;
+                car.type = [car_dic objectForKey:@"type"];
+                car.url = [car_dic objectForKey:@"url"];
+                car.weight = ((NSNumber*)[car_dic objectForKey:@"loading"]).integerValue;
+                car.state = DGCarNotAppointment;
+                [self.dataSource addObject:car];
+            }
+            NSArray* departCarManage_dic = [dic objectForKey:@"departCarManage"];
+            
+            [self.tableView reloadData];
+            
+            self.orderAndMyOrderSeg.hidden = self.showCarOrderBtn.hidden =YES;
+            self.title = @"当前可预约的车辆信息";
+            [weak_orderView removeFromSuperview];
+            self.tableView.alpha = 1.0;
+            self.tableView.userInteractionEnabled = YES;
+            
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            
+            self.tableView.alpha = 1.0;
+            self.tableView.userInteractionEnabled = YES;
+            [YLToast showWithText:@"网络连接失败，请检查网络配置"];
+        }];
+    };
 }
 
 /**
@@ -407,7 +461,7 @@
     {
         view = [nib objectAtIndex:0];
     }
-    view.frame = CGRectMake(0, 0, self.tableView.frame.size.width, 90);
+    view.frame = CGRectMake(0, 10, self.tableView.frame.size.width, 90);
     __weak ShowCarsTypesView* weak_view = view;
     view.showCarsTypeBlock = ^(NSInteger index){
         if (0 == index) {

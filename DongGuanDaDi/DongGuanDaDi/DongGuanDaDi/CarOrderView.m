@@ -52,51 +52,17 @@ enum BtnTagTypes
 
 - (IBAction)cancelBtnClick:(id)sender
 {
+    if (self.cancelBtnClickBlock) {
+        self.cancelBtnClickBlock();
+    }
     self.datePiker.delegate = nil;
-    [self removeFromSuperview];
 }
 
 - (IBAction)submitBtnClick:(id)sender {
-    
-    NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:
-                         self.passenagersNunTxtField.text,@"peopleNumber",
-                         [NSString stringWithFormat:@"%@ %@",self.endDateBtn.titleLabel.text,self.endTimeBtn.titleLabel.text], @"end",
-                         [NSString stringWithFormat:@"%@ %@",self.startDateBtn.titleLabel.text,self.startTimeBtn.titleLabel.text], @"start",
-                         nil];
-    NSDictionary* dic2 = [NSDictionary dictionaryWithObjectsAndKeys:
-                          @"2",@"peopleNumber",
-                          @"2016-09-08 12:10", @"end",
-                          @"2016-09-07 12:10", @"start",
-                          nil];
-    AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
-    [manager.requestSerializer setValue:@"/DongGuan/" forHTTPHeaderField:@"referer"];
-    [manager POST:URL_CAR_APPOINTMENT_SUBMIT parameters:dic2 success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSDictionary* dic = (NSDictionary*)responseObject;
-        NSLog(@"succ %@",dic);
-        NSArray* carManage_dic = [dic objectForKey:@"carManage"];
-        NSArray* cars_arr = [dic objectForKey:@"cars"];
-        for (NSDictionary* car_dic in cars_arr) {
-            Car* car = [[Car alloc] init];
-            car.brand = [car_dic objectForKey:@"brand"];
-            car.number = [car_dic objectForKey:@"carNumber"];
-            car.color = [car_dic objectForKey:@"color"];
-            car.carId = ((NSNumber*)[car_dic objectForKey:@"id"]).integerValue;
-            car.purpose = [car_dic objectForKey:@"purpose"];
-            car.seating = ((NSNumber*)[car_dic objectForKey:@"seating"]).integerValue;
-            car.type = [car_dic objectForKey:@"type"];
-            car.url = [car_dic objectForKey:@"url"];
-            car.weight = ((NSNumber*)[car_dic objectForKey:@"loading"]).integerValue;
-            car.state = DGCarNotAppointment;
-            [self.carArray addObject:car];
-        }
-        NSArray* departCarManage_dic = [dic objectForKey:@"departCarManage"];
-        if (self.orderQuerySuccBlock) {
-            self.orderQuerySuccBlock(self.carArray);
-        }
-        
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        [YLToast showWithText:@"网络连接失败，请检查网络配置"];
-    }];
+
+    if (self.submitBtnClickBlock) {
+        self.submitBtnClickBlock();
+    }
     
 }
 

@@ -10,24 +10,17 @@
 
 @class YLDatePicker;
 
-@interface CarOrderView : UIView 
+@interface CarOrderView : UIView
+
 @property (nonatomic, strong) YLDatePicker *datePiker;
+
 @property (strong, nonatomic) IBOutlet UIButton *endDateBtn;
 @property (strong, nonatomic) IBOutlet UIButton *startDateBtn;
 @property (strong, nonatomic) IBOutlet UIButton *startTimeBtn;
 @property (strong, nonatomic) IBOutlet UIButton *endTimeBtn;
 @property (strong, nonatomic) IBOutlet UITextField *passenagersNunTxtField;
 
-@property (copy, nonatomic) void (^orderQuerySuccBlock)(NSArray* availableCars);
-@property (copy, nonatomic) void (^orderQueryFailedBlock)(NSError* err);
-
-- (IBAction)cancelBtnClick:(id)sender;
-- (IBAction)submitBtnClick:(id)sender;
-
-- (IBAction)startDateBtnClick:(id)sender;
-- (IBAction)endDateBtnClick:(id)sender;
-- (IBAction)startTimeBtnClick:(id)sender;
-- (IBAction)endTimeBtnClick:(id)sender;
-
+@property (copy, nonatomic) void (^cancelBtnClickBlock)(void);
+@property (copy, nonatomic) void (^submitBtnClickBlock)(void);
 
 @end

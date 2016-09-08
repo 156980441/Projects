@@ -14,14 +14,18 @@
     self.notAppointmentBtn.tag = 0;
     self.departBtn.tag = 1;
     self.hasBackBtn.tag = 2;
+    
     [self.notAppointmentBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchDown];
     [self.departBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchDown];
     [self.hasBackBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchDown];
+    
+    self.notAppointmentBtn.titleLabel.font = [UIFont systemFontOfSize: 20.0];
+    self.departBtn.titleLabel.font = [UIFont systemFontOfSize: 20.0];
+    self.hasBackBtn.titleLabel.font = [UIFont systemFontOfSize: 20.0];
 }
 -(void)btnClick:(UIButton*)sender
 {
     self.showCarsTypeBlock(sender.tag);
-    
 }
 
 /*
