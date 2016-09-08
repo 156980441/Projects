@@ -15,6 +15,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"信息编辑";
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     

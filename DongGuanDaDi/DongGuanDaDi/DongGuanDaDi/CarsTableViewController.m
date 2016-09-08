@@ -379,6 +379,9 @@
     orderView.center = self.tableView.window.center;
     [self.tableView.window addSubview:orderView];
     
+    // 注意！
+    self.tableView.userInteractionEnabled = NO;
+    
     __weak CarOrderView* weak_orderView = orderView;
     orderView.orderQuerySuccBlock = ^(NSArray* availableCars){
         [self.dataSource removeAllObjects];

@@ -32,6 +32,7 @@
     [super viewDidLoad];
     
     self.navigationController.navigationBar.hidden = NO;
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor]; //backBarButtonItem 颜色/文字修改
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     
     self.dataSources = @[@"用餐",@"公车",@"通讯录",@"任务",@"监控",@"个人"];

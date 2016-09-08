@@ -24,6 +24,9 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.title = @"详细信息";
+    
     self.keys = @[@"姓名",@"电话",@"微信",@"QQ"];
     Staff* staff = self.staff;
     self.values = [NSArray arrayWithObjects:staff.name,[[NSNumber alloc] initWithLongLong: staff.phone],staff.wechat,[[NSNumber alloc] initWithLongLong:staff.qq], nil];

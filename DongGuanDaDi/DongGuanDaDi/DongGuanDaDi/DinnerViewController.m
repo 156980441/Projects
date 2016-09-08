@@ -221,39 +221,45 @@
     
     NSArray* arr = [self.dateAndDinners objectForKey:date_str];
     
-    
-    NSDictionary* dic = [arr objectAtIndex:0];
-    NSArray* temp_arr = [dic objectForKey:@"早餐"];
-    NSMutableString* temp_str = [NSMutableString string];
-    for (DinnerInfo* info in temp_arr) {
-        [temp_str appendString:info.name];
-        if (info != [temp_arr lastObject]) {
-            [temp_str appendString:@","];
+    if (arr.count > 0) {
+        NSDictionary* dic = [arr objectAtIndex:0];
+        NSArray* temp_arr = [dic objectForKey:@"早餐"];
+        NSMutableString* temp_str = [NSMutableString string];
+        for (DinnerInfo* info in temp_arr) {
+            [temp_str appendString:info.name];
+            if (info != [temp_arr lastObject]) {
+                [temp_str appendString:@","];
+            }
         }
-    }
-    self.breakfastLabel.text = [NSString stringWithFormat:@"早餐：%@",temp_str];
-    
-    dic = [arr objectAtIndex:1];
-    temp_arr = [dic objectForKey:@"午餐"];
-    temp_str = [NSMutableString string];
-    for (DinnerInfo* info in temp_arr) {
-        [temp_str appendString:info.name];
-        if (info != [temp_arr lastObject]) {
-            [temp_str appendString:@","];
+        self.breakfastLabel.text = [NSString stringWithFormat:@"早餐：%@",temp_str];
+        
+        dic = [arr objectAtIndex:1];
+        temp_arr = [dic objectForKey:@"午餐"];
+        temp_str = [NSMutableString string];
+        for (DinnerInfo* info in temp_arr) {
+            [temp_str appendString:info.name];
+            if (info != [temp_arr lastObject]) {
+                [temp_str appendString:@","];
+            }
         }
-    }
-    self.lunchLabel.text = [NSString stringWithFormat:@"午餐：%@",temp_str];
-    
-    dic = [arr objectAtIndex:2];
-    temp_arr = [dic objectForKey:@"晚餐"];
-    temp_str = [NSMutableString string];
-    for (DinnerInfo* info in temp_arr) {
-        [temp_str appendString:info.name];
-        if (info != [temp_arr lastObject]) {
-            [temp_str appendString:@","];
+        self.lunchLabel.text = [NSString stringWithFormat:@"午餐：%@",temp_str];
+        
+        dic = [arr objectAtIndex:2];
+        temp_arr = [dic objectForKey:@"晚餐"];
+        temp_str = [NSMutableString string];
+        for (DinnerInfo* info in temp_arr) {
+            [temp_str appendString:info.name];
+            if (info != [temp_arr lastObject]) {
+                [temp_str appendString:@","];
+            }
         }
+        self.dinnerLabel.text = [NSString stringWithFormat:@"晚餐：%@",temp_str];
     }
-    self.dinnerLabel.text = [NSString stringWithFormat:@"晚餐：%@",temp_str];
+    else {
+        self.lunchLabel.text = @"暂无菜式数据";
+        self.breakfastLabel.text = nil;
+        self.dinnerLabel.text = nil;
+    }
     
     AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
     [manager.requestSerializer setValue:@"/DongGuan/" forHTTPHeaderField:@"referer"];
