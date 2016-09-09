@@ -23,6 +23,14 @@
  *  @since 1.0.x
  */
 @interface CommentView : UIView
+
+@property (strong, nonatomic) IBOutlet UIButton *starBtn1;
+@property (strong, nonatomic) IBOutlet UIButton *starBtn2;
+@property (strong, nonatomic) IBOutlet UIButton *starBtn3;
+@property (strong, nonatomic) IBOutlet UIButton *starBtn4;
+@property (strong, nonatomic) IBOutlet UIButton *starBtn5;
+
+
 - (IBAction)starBtnClick:(id)sender;
 - (IBAction)submitBtnClick:(id)sender;
 - (void)show;

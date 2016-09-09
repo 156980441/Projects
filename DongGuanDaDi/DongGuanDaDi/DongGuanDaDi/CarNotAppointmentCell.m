@@ -113,4 +113,10 @@
         self.endTimeTxtField.text = [YLCommon time2String:date];
     }
 }
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
 @end

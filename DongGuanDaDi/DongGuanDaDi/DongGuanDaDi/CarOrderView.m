@@ -23,7 +23,7 @@ enum BtnTagTypes
     endTimeTag
 };
 
-@interface CarOrderView () <YLDatePickerDelegate>
+@interface CarOrderView () <YLDatePickerDelegate,UITextFieldDelegate>
 @property (nonatomic, strong) NSMutableArray *carArray;
 @end
 
@@ -38,6 +38,10 @@ enum BtnTagTypes
     self.datePiker.backgroundColor = [UIColor whiteColor];
     [self.passenagersNunTxtField.layer setBorderColor:[[UIColor grayColor] CGColor]];
     [self.passenagersNunTxtField.layer setBorderWidth:1.0];
+    
+    self.passenagersNunTxtField.delegate = self;
+    self.passenagersNunTxtField.returnKeyType = UIReturnKeyDone;
+    self.passenagersNunTxtField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
     
     self.carArray = [NSMutableArray array];
 }
@@ -136,4 +140,11 @@ enum BtnTagTypes
         }
     }
 }
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
 @end
