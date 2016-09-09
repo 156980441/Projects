@@ -9,11 +9,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CommentView">
-            <rect key="frame" x="0.0" y="0.0" width="300" height="221"/>
+            <rect key="frame" x="0.0" y="0.0" width="314" height="221"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="评价：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1NC-26-3w2">
-                    <rect key="frame" x="0.0" y="0.0" width="60" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="评价：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1NC-26-3w2">
+                    <rect key="frame" x="8" y="6" width="60" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="60" id="JVM-Fa-pMN"/>
                     </constraints>
@@ -87,7 +87,7 @@
                         <action selector="starBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="2xl-f5-frY"/>
                     </connections>
                 </button>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="填写评论" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yOc-3p-6xF">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yOc-3p-6xF">
                     <rect key="frame" x="0.0" y="31" width="300" height="150"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -97,6 +97,16 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="填写评论" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dda-93-VD6">
+                    <rect key="frame" x="8" y="35" width="150" height="27"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="4HE-su-Uw6"/>
+                        <constraint firstAttribute="height" constant="27" id="ha9-99-ZFk"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.46812080536912754" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hd-op-QP5">
                     <rect key="frame" x="0.0" y="191" width="300" height="30"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -124,32 +134,35 @@
                 <constraint firstItem="Ouh-5F-yOO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="NXP-Fj-vz4"/>
                 <constraint firstItem="8ik-Vw-rJ6" firstAttribute="height" secondItem="3yf-i2-4Cv" secondAttribute="height" id="OJk-4Z-Fz0"/>
                 <constraint firstItem="8ik-Vw-rJ6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="OgB-du-qWq"/>
-                <constraint firstItem="1NC-26-3w2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Q5r-4u-mwG"/>
+                <constraint firstItem="1NC-26-3w2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="Q5r-4u-mwG"/>
                 <constraint firstItem="Ouh-5F-yOO" firstAttribute="width" secondItem="8ik-Vw-rJ6" secondAttribute="width" id="T5P-qS-KaO"/>
                 <constraint firstItem="3yf-i2-4Cv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="56" id="XkO-p8-YIJ"/>
                 <constraint firstItem="8ik-Vw-rJ6" firstAttribute="leading" secondItem="Ouh-5F-yOO" secondAttribute="trailing" constant="10" id="azs-pm-Zve"/>
-                <constraint firstItem="1NC-26-3w2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="dKo-SM-Txa"/>
+                <constraint firstItem="1NC-26-3w2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="6" id="dKo-SM-Txa"/>
                 <constraint firstItem="3yf-i2-4Cv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ebP-wE-z21"/>
                 <constraint firstItem="Ouh-5F-yOO" firstAttribute="leading" secondItem="pni-bS-xR7" secondAttribute="trailing" constant="8" id="efw-87-Lzz"/>
-                <constraint firstItem="yOc-3p-6xF" firstAttribute="top" secondItem="1NC-26-3w2" secondAttribute="bottom" constant="10" id="fLK-LS-hsM"/>
+                <constraint firstItem="yOc-3p-6xF" firstAttribute="top" secondItem="1NC-26-3w2" secondAttribute="bottom" constant="4" id="fLK-LS-hsM"/>
                 <constraint firstItem="yOc-3p-6xF" firstAttribute="width" secondItem="7hd-op-QP5" secondAttribute="width" id="gsg-Jk-sC1"/>
                 <constraint firstItem="7hd-op-QP5" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="hw8-4x-YDU"/>
                 <constraint firstItem="yOc-3p-6xF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="l1T-sm-Y49"/>
                 <constraint firstItem="pni-bS-xR7" firstAttribute="leading" secondItem="3yf-i2-4Cv" secondAttribute="trailing" constant="10" id="lKk-Ke-iDd"/>
+                <constraint firstItem="dda-93-VD6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="mmv-Mo-ZEw"/>
                 <constraint firstItem="7hd-op-QP5" firstAttribute="top" secondItem="yOc-3p-6xF" secondAttribute="bottom" constant="10" id="o4G-aZ-CVS"/>
                 <constraint firstItem="Ouh-5F-yOO" firstAttribute="height" secondItem="3yf-i2-4Cv" secondAttribute="height" id="oG2-Zz-Gw0"/>
+                <constraint firstItem="dda-93-VD6" firstAttribute="top" secondItem="1NC-26-3w2" secondAttribute="bottom" constant="8" id="vnb-br-p00"/>
                 <constraint firstItem="VN8-dA-GiB" firstAttribute="leading" secondItem="8ik-Vw-rJ6" secondAttribute="trailing" constant="10" id="z2w-uQ-32v"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="contentsTxtView" destination="yOc-3p-6xF" id="lp1-k9-W6O"/>
+                <outlet property="placeholderLabel" destination="dda-93-VD6" id="IMY-AI-eN1"/>
                 <outlet property="starBtn1" destination="3yf-i2-4Cv" id="jxS-h7-IUc"/>
                 <outlet property="starBtn2" destination="pni-bS-xR7" id="njY-eQ-H0J"/>
                 <outlet property="starBtn3" destination="Ouh-5F-yOO" id="2Ti-4a-SgP"/>
                 <outlet property="starBtn4" destination="8ik-Vw-rJ6" id="6bv-Oq-O0L"/>
                 <outlet property="starBtn5" destination="VN8-dA-GiB" id="Hzj-5M-Yrr"/>
             </connections>
-            <point key="canvasLocation" x="351" y="326"/>
+            <point key="canvasLocation" x="356" y="334.5"/>
         </view>
     </objects>
     <resources>

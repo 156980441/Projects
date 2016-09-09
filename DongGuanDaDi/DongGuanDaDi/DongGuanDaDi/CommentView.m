@@ -91,4 +91,15 @@
 {
     [self removeFromSuperview];
 }
+-(void)textViewDidBeginEditing:(UITextView *)textView
+{
+    self.placeholderLabel.text = nil;
+}
+-(void)textViewDidEndEditing:(UITextView *)textView
+{
+    if (textView.text.length == 0) {
+        self.placeholderLabel.text = @"填写评论";
+    }
+    [textView resignFirstResponder];
+}
 @end

@@ -30,11 +30,13 @@
 @property (strong, nonatomic) IBOutlet UIButton *starBtn4;
 @property (strong, nonatomic) IBOutlet UIButton *starBtn5;
 
+@property (strong, nonatomic) IBOutlet UILabel *placeholderLabel;
+@property (strong, nonatomic) IBOutlet UITextView *contentsTxtView;
+@property (nonatomic, assign) id<CommentViewDelegate> delegate;
 
 - (IBAction)starBtnClick:(id)sender;
 - (IBAction)submitBtnClick:(id)sender;
 - (void)show;
 - (void)dismiss;
-@property (strong, nonatomic) IBOutlet UITextView *contentsTxtView;
-@property (nonatomic, assign) id<CommentViewDelegate> delegate;
+
 @end
