@@ -75,7 +75,6 @@
                 
                 NSArray* breakfasts_arr = [dic objectForKey:@"breakfasts"];
                 
-                NSMutableString* breakfast_str = [NSMutableString string];
                 for (NSDictionary* breakfasts_dic in breakfasts_arr) {
                     DinnerInfo* breakfastsInfo = [[DinnerInfo alloc] init];
                     breakfastsInfo.desc = [breakfasts_dic objectForKey:@"description"];
@@ -85,12 +84,11 @@
                     breakfastsInfo.date = [dic objectForKey:@"date"];
                     breakfastsInfo.type = DinnerInfoType_breakfasts;
                     [self.breakfasts_arr addObject:breakfastsInfo];
-                    [breakfast_str appendString:breakfastsInfo.name];
+                    
                 }
                 
                 NSArray* dinner_arr = [dic objectForKey:@"dinners"];
                 
-                NSMutableString* dinner_str = [NSMutableString string];
                 for (NSDictionary* dinner_dic in dinner_arr) {
                     DinnerInfo* dinnerInfo = [[DinnerInfo alloc] init];
                     dinnerInfo.desc = [dinner_dic objectForKey:@"description"];
@@ -100,12 +98,11 @@
                     dinnerInfo.date = [dic objectForKey:@"date"];
                     dinnerInfo.type = DinnerInfoType_dinners;
                     [self.dinner_arr addObject:dinnerInfo];
-                    [dinner_str appendString:dinnerInfo.name];
+                    
                 }
                 
                 NSArray* lunch_arr = [dic objectForKey:@"lunches"];
                 
-                NSMutableString* lunch_str = [NSMutableString string];
                 for (NSDictionary* lunch_dic in lunch_arr) {
                     DinnerInfo* lunchInfo = [[DinnerInfo alloc] init];
                     lunchInfo.desc = [lunch_dic objectForKey:@"description"];
@@ -115,7 +112,7 @@
                     lunchInfo.date = [dic objectForKey:@"date"];
                     lunchInfo.type = DinnerInfoType_lunches;
                     [self.lunch_arr addObject:lunchInfo];
-                    [lunch_str appendString:lunchInfo.name];
+                    
                 }
                 
                 NSDictionary* breakfasts_local_dic = [NSDictionary dictionaryWithObjectsAndKeys:[self.breakfasts_arr copy],@"早餐", nil];
@@ -131,17 +128,14 @@
                 [self.lunch_arr removeAllObjects];
                 [self.dinner_arr removeAllObjects];
                 
-                self.breakfastLabel.text = [NSString stringWithFormat:@"早餐：%@",breakfast_str];
-                self.lunchLabel.text = [NSString stringWithFormat:@"午餐：%@",lunch_str];
-                self.dinnerLabel.text = [NSString stringWithFormat:@"晚餐：%@",dinner_str];
+                [self updateDinnerLabel:self.dayPicker.selectedDate];
+                
             }
         }
         else
         {
             [YLToast showWithText:@"暂无该周菜式数据"];
         }
-        
-//        NSLog(@"%@",responseObject);
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
@@ -210,13 +204,9 @@
     }
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    
-//    [self updateAllDinnerBtnsState];
-    
-    self.selecetedDate = change[NSKeyValueChangeNewKey];
-    
-    NSString* date_str = [YLCommon date2String:self.selecetedDate];
+- (void)updateDinnerLabel:(NSDate*)date
+{
+    NSString* date_str = [YLCommon date2String:date];
     self.selectedDateLabel.text = [NSString stringWithFormat:@"选定日期：%@",date_str];
     
     NSArray* arr = [self.dateAndDinners objectForKey:date_str];
@@ -260,6 +250,16 @@
         self.breakfastLabel.text = nil;
         self.dinnerLabel.text = nil;
     }
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    
+//    [self updateAllDinnerBtnsState];
+    
+    self.selecetedDate = change[NSKeyValueChangeNewKey];
+    
+    [self updateDinnerLabel:self.selecetedDate];
+    NSString* date_str = [YLCommon date2String:self.selecetedDate];
     
     AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
     [manager.requestSerializer setValue:@"/DongGuan/" forHTTPHeaderField:@"referer"];
