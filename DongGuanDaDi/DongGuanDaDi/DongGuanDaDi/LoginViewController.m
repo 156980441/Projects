@@ -24,10 +24,12 @@
     // 应用启动就打开网络监控
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     
+    self.passTxt.delegate = self;
+    self.nameTxt.delegate = self;
     self.navigationController.navigationBar.hidden = YES;
-    self.staff = [[Staff alloc] init];
     self.passTxt.secureTextEntry = YES;
     
+    self.staff = [[Staff alloc] init];
     Staff* staff = [self loadFromArchiver];
     if (staff) {
         [self checkStaff:staff.name withPass:staff.pass];
@@ -103,5 +105,67 @@
 {
     MainViewController* mainVc = (MainViewController*)[segue destinationViewController];
     mainVc.staff = self.staff;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+
+{
+    
+    NSLog(@"textFieldDidBeginEditing");
+    
+    CGRect frame = textField.frame;
+    
+    CGFloat heights = self.view.frame.size.height;
+    
+    // 当前点击textfield的坐标的Y值 + 当前点击textFiled的高度 - （屏幕高度- 键盘高度 - 键盘上tabbar高度）
+    
+    // 在这一部 就是了一个 当前textfile的的最大Y值 和 键盘的最全高度的差值，用来计算整个view的偏移量
+    
+    int offset = frame.origin.y + 42- ( heights - 216.0-35.0);//键盘高度216
+    
+    NSTimeInterval animationDuration = 0.30f;
+    
+    [UIView beginAnimations:@"ResizeForKeyBoard" context:nil];
+    
+    [UIView setAnimationDuration:animationDuration];
+    
+    float width = self.view.frame.size.width;
+    
+    float height = self.view.frame.size.height;
+    
+    if(offset > 0)
+        
+    {
+        
+        CGRect rect = CGRectMake(0.0f, -offset,width,height);
+        
+        self.view.frame = rect;
+        
+    }
+    
+    [UIView commitAnimations];
+    
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+
+{
+    
+    NSLog(@"touchesBegan");
+    
+    [self.view endEditing:YES];
+    
+    NSTimeInterval animationDuration = 0.30f;
+    
+    [UIView beginAnimations:@"ResizeForKeyboard" context:nil];
+    
+    [UIView setAnimationDuration:animationDuration];
+    
+    CGRect rect = CGRectMake(0.0f, 0.0f, self.view.frame.size.width, self.view.frame.size.height);
+    
+    self.view.frame = rect;
+    
+    [UIView commitAnimations];
+    
 }
 @end

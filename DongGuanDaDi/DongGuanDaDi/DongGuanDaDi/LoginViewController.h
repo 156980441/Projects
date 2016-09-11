@@ -10,7 +10,7 @@
 
 #import "Staff.h"
 
-@interface LoginViewController : UIViewController
+@interface LoginViewController : UIViewController <UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *nameTxt;
 @property (strong, nonatomic) IBOutlet UITextField *passTxt;
 @property (strong, nonatomic) IBOutlet UIButton *loginBtn;

@@ -220,6 +220,7 @@
         cell.weight.text = [NSString stringWithFormat:@"车辆载重：%ld",car.weight];
         NSString* url = [NSString stringWithFormat:@"%@%@",HOST,car.url];
         [cell.thumbnail setImageWithURL:[NSURL URLWithString:url]];
+        cell.thumbnail.contentMode = UIViewContentModeScaleToFill;
         
         if (car.state == DGCarDepart) {
             cell.state.text = @"已出行车辆";

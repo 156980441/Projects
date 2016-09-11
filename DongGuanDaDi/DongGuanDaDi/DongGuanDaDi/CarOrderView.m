@@ -24,7 +24,11 @@ enum BtnTagTypes
 };
 
 @interface CarOrderView () <YLDatePickerDelegate,UITextFieldDelegate>
-@property (nonatomic, strong) NSMutableArray *carArray;
+@property (strong, nonatomic) IBOutlet UIButton *cancelBtn;
+
+@property (strong, nonatomic) IBOutlet UIButton *submitBtn;
+
+
 @end
 
 @implementation CarOrderView
@@ -43,7 +47,9 @@ enum BtnTagTypes
     self.passenagersNunTxtField.returnKeyType = UIReturnKeyDone;
     self.passenagersNunTxtField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
     
-    self.carArray = [NSMutableArray array];
+    self.cancelBtn.layer.borderWidth = self.submitBtn.layer.borderWidth = 0.5;
+    self.cancelBtn.layer.borderColor = self.submitBtn.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    
 }
 
 /*

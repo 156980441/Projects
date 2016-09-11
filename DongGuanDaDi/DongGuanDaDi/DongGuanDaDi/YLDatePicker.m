@@ -44,22 +44,22 @@
 
 - (void) layoutSubviews
 {
-    CGRect frame = self.frame;
+    CGRect frame = self.bounds;
     self.picker.frame = CGRectMake(0,
                                    0,
                                    CGRectGetWidth(frame),
                                    CGRectGetHeight(frame) - CommonHeght);
     
     CGRect picker_frame = self.picker.frame;
-    self.submit.frame = CGRectMake(picker_frame.origin.x,
+    self.cancel.frame = CGRectMake(picker_frame.origin.x,
                                    CGRectGetHeight(picker_frame),
                                    CGRectGetWidth(picker_frame) / 2,
                                    CommonHeght);
     
-    CGRect submit_frame = self.submit.frame;
-    self.cancel.frame = CGRectMake(submit_frame.origin.x + CGRectGetWidth(submit_frame),
-                                   submit_frame.origin.y,
-                                   CGRectGetWidth(submit_frame),
+    CGRect cancel_frame = self.cancel.frame;
+    self.submit.frame = CGRectMake(cancel_frame.origin.x + CGRectGetWidth(cancel_frame),
+                                   cancel_frame.origin.y,
+                                   CGRectGetWidth(cancel_frame),
                                    CommonHeght);
     
     [super layoutSubviews];

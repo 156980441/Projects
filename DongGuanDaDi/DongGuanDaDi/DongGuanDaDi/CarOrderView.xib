@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -20,7 +20,9 @@
                         <constraint firstAttribute="height" constant="100" id="rob-kq-DC3"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <state key="normal" title="请选择出车时间"/>
+                    <state key="normal" title="请选择出车时间">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="startDateBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="x9c-Z7-goO"/>
                     </connections>
@@ -33,7 +35,9 @@
                         <constraint firstAttribute="height" constant="100" id="vdU-pC-H5d"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <state key="normal" title="请选择还车时间"/>
+                    <state key="normal" title="请选择还车时间">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="endDateBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="7sy-xz-Jah"/>
                     </connections>
@@ -45,7 +49,9 @@
                         <constraint firstAttribute="width" secondItem="mQn-YO-VwH" secondAttribute="height" multiplier="16:5" id="cZC-oU-QVA"/>
                         <constraint firstAttribute="height" constant="50" id="vcO-sY-pL9"/>
                     </constraints>
-                    <state key="normal" title="12：00"/>
+                    <state key="normal" title="12：00">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="endTimeBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="tV5-K3-Kvl"/>
                     </connections>
@@ -72,7 +78,7 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="人数（1-9）" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DoB-kL-0aU">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="人数（1-9人）" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DoB-kL-0aU">
                     <rect key="frame" x="0.0" y="200" width="160" height="50"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="160" id="8xZ-bJ-dke"/>
@@ -103,7 +109,9 @@
                         <constraint firstAttribute="height" constant="50" id="hCP-vS-zj2"/>
                         <constraint firstAttribute="width" secondItem="HQG-N9-7FC" secondAttribute="height" multiplier="16:5" id="mSd-rN-srS"/>
                     </constraints>
-                    <state key="normal" title="取消"/>
+                    <state key="normal" title="取消">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="cancelBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="ecb-db-saV"/>
                     </connections>
@@ -115,14 +123,18 @@
                         <constraint firstAttribute="width" constant="160" id="FJg-En-mml"/>
                         <constraint firstAttribute="width" secondItem="32n-Id-cOa" secondAttribute="height" multiplier="16:5" id="nbC-ap-pB2"/>
                     </constraints>
-                    <state key="normal" title="12：00"/>
+                    <state key="normal" title="12：00">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="startTimeBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="nzx-fj-Fci"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caP-N6-n4e">
                     <rect key="frame" x="160" y="250" width="160" height="50"/>
-                    <state key="normal" title="确定"/>
+                    <state key="normal" title="确定">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="submitBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="5rS-dX-iwG"/>
                     </connections>
@@ -156,11 +168,13 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="cancelBtn" destination="HQG-N9-7FC" id="bP8-K5-aTN"/>
                 <outlet property="endDateBtn" destination="Rpn-Cn-Jgn" id="Fr0-Wq-vug"/>
                 <outlet property="endTimeBtn" destination="mQn-YO-VwH" id="saz-tG-uuO"/>
                 <outlet property="passenagersNunTxtField" destination="OTW-Yb-ZmH" id="0kA-tO-or4"/>
                 <outlet property="startDateBtn" destination="7Bg-bz-4rv" id="Gps-2q-Vq2"/>
                 <outlet property="startTimeBtn" destination="32n-Id-cOa" id="ZFg-eU-ypm"/>
+                <outlet property="submitBtn" destination="caP-N6-n4e" id="Oou-Dw-jD8"/>
             </connections>
             <point key="canvasLocation" x="348" y="185"/>
         </view>
