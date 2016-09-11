@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class Staff;
+
 @interface MainViewController : UICollectionViewController
+
+@property (nonatomic, strong) Staff *staff;
 
 - (IBAction)logout:(id)sender;
 

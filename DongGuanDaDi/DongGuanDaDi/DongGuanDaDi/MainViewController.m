@@ -12,6 +12,7 @@
 #import "CarsTableViewController.h"
 #import "AddressListTableViewController.h"
 #import "PersonalTableViewController.h"
+#import "Staff.h"
 
 #import "YLToast.h"
 
@@ -34,6 +35,8 @@
     self.navigationController.navigationBar.hidden = NO;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor]; //backBarButtonItem 颜色/文字修改
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    
+    self.collectionView.backgroundColor = [UIColor whiteColor];
     
     self.dataSources = @[@"用餐",@"公车",@"通讯录",@"任务",@"监控",@"个人"];
     self.imageDataSources = @[@"main_dinner",@"main_car",@"main_contact",@"main_office",@"main_map",@"main_person"];
@@ -67,17 +70,33 @@
     MainViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MainViewCell" forIndexPath:indexPath];
     NSInteger section = indexPath.section;
     if (0 == section) {
-        cell.title.text = @"Welcome";
-        cell.imageView.image = [UIImage imageNamed:@"main_front"];
+        cell.title.text = [NSString stringWithFormat:@"%@,欢迎登陆本应用系统!",self.staff.name];
+        cell.title.frame = CGRectMake(0, cell.frame.size.height - cell.title.frame.size.height, cell.frame.size.width, CGRectGetWidth(cell.title.frame));
+        cell.title.backgroundColor = [UIColor colorWithRed:0.137 green:0.221 blue:1.000 alpha:1.000];
+        
+        UIImageView* imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"main_front"]];
+        imageView.contentMode = UIViewContentModeCenter;
+        cell.backgroundView = imageView;
+        
+        cell.appLabel.text = @"东莞大堤";
+        cell.appLabel.font = [UIFont systemFontOfSize:45.0];// 来自Android client 数据
     }
     else if (1 == section)
     {
         cell.title.text = [self.dataSources objectAtIndex:indexPath.row];
-        cell.backgroundColor = [UIColor blueColor];
-        cell.imageView.image = [UIImage imageNamed:[self.imageDataSources objectAtIndex:indexPath.row]];
+        cell.appLabel.font = [UIFont systemFontOfSize:14.0];// 来自Android client 数据
+        
+        cell.appLabel.text = nil;
+        
+        cell.imageBtn.backgroundColor = [UIColor blueColor];
+        cell.imageBtn.layer.cornerRadius = 25;
+        [cell.imageBtn setImage:[UIImage imageNamed:[self.imageDataSources objectAtIndex:indexPath.row]] forState:UIControlStateNormal];
+        cell.imageBtn.backgroundColor = [UIColor colorWithRed:0.137 green:0.221 blue:1.000 alpha:1.000];
+        cell.imageBtn.adjustsImageWhenDisabled = NO;
     }
-    cell.imageView.contentMode = UIViewContentModeCenter;
-    cell.title.backgroundColor = [UIColor yellowColor];
+    
+    cell.imageBtn.enabled = NO;
+    
     
     return cell;
 }

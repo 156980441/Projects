@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "MainViewController.h"
 #import "YLToast.h"
 #import "YLCommon.h"
 
@@ -96,5 +97,11 @@
     else {
         [self checkStaff:self.nameTxt.text withPass:self.passTxt.text];
     }
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    MainViewController* mainVc = (MainViewController*)[segue destinationViewController];
+    mainVc.staff = self.staff;
 }
 @end
