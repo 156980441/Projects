@@ -93,6 +93,8 @@
         [cell.imageBtn setImage:[UIImage imageNamed:[self.imageDataSources objectAtIndex:indexPath.row]] forState:UIControlStateNormal];
         cell.imageBtn.backgroundColor = [UIColor colorWithRed:0.137 green:0.221 blue:1.000 alpha:1.000];
         cell.imageBtn.adjustsImageWhenDisabled = NO;
+        [cell.imageBtn.layer setBorderWidth:1.0];
+        [cell.imageBtn.layer setBorderColor:[[UIColor whiteColor] CGColor]];
     }
     
     cell.imageBtn.enabled = NO;

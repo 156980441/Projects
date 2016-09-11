@@ -209,11 +209,11 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ClC-AT-YBM" userLabel="moreBtn">
-                                <rect key="frame" x="490" y="520" width="60" height="30"/>
+                                <rect key="frame" x="520" y="520" width="30" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="9xp-My-2mR"/>
-                                    <constraint firstAttribute="width" constant="60" id="Uhe-gw-2V0"/>
+                                    <constraint firstAttribute="width" constant="30" id="Uhe-gw-2V0"/>
                                 </constraints>
                                 <state key="normal" image="dinner_more_horiz_white"/>
                                 <connections>
@@ -283,11 +283,15 @@
                             </view>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KAx-ms-YXu">
                                 <rect key="frame" x="436" y="458" width="114" height="42"/>
-                                <state key="normal" title="饭菜投票" image="dinner_vote"/>
+                                <state key="normal" title="饭菜投票" image="dinner_vote">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PcV-tk-7ne">
                                 <rect key="frame" x="436" y="396" width="114" height="42"/>
-                                <state key="normal" title="用餐记录" image="dinner_record"/>
+                                <state key="normal" title="用餐记录" image="dinner_record">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <segue destination="FYN-yo-6xv" kind="show" id="qCR-LR-i25"/>
                                 </connections>
@@ -306,8 +310,8 @@
                                 <rect key="frame" x="0.0" y="274" width="600" height="250"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="39s-9R-zkF">
-                                        <rect key="frame" x="490" y="10" width="90" height="30"/>
-                                        <state key="normal" title="全部预约按钮"/>
+                                        <rect key="frame" x="520" y="10" width="60" height="30"/>
+                                        <state key="normal" title="全部预约"/>
                                         <connections>
                                             <action selector="orderBtnClick:" destination="0Za-b9-rwA" eventType="touchUpInside" id="aMR-u2-BaE"/>
                                         </connections>
@@ -325,7 +329,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elH-Ss-mgD">
-                                        <rect key="frame" x="227.5" y="109" width="144" height="121.5"/>
+                                        <rect key="frame" x="227" y="109" width="144" height="121.5"/>
                                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="午餐">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -426,6 +430,7 @@
                         <outlet property="lunchBtn" destination="elH-Ss-mgD" id="Ko8-MG-z3d"/>
                         <outlet property="lunchLabel" destination="HRY-cY-CjA" id="nMu-hY-aNH"/>
                         <outlet property="menu" destination="c7K-bz-iGR" id="OKx-au-MMn"/>
+                        <outlet property="moreBtn" destination="ClC-AT-YBM" id="3Ne-0J-1dT"/>
                         <outlet property="orderAllBtn" destination="39s-9R-zkF" id="Gps-jU-VpE"/>
                         <outlet property="recordBtn" destination="PcV-tk-7ne" id="Qx7-3K-AeF"/>
                         <outlet property="selectedDateLabel" destination="IC2-vC-gZz" id="x68-pc-td5"/>

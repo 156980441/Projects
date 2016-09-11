@@ -41,8 +41,58 @@
     [self.lunchBtn.layer setBorderWidth:1.0];
     [self.lunchBtn.layer setBorderColor:[[UIColor grayColor] CGColor]];
     self.breakfastBtn.tintColor = self.dinnerBtn.tintColor = self.lunchBtn.tintColor = [UIColor blueColor];
+    self.moreBtn.layer.cornerRadius = 15.0;
+    
+    // 已优化，使用 UIButton 自身属性来改变 title 和 image 位置，减少内存开销
+    
+    [self changeBtnLayout:self.voteBtn];
+    [self changeBtnLayout:self.recordBtn];
     
     self.title = @"用餐预约";
+}
+-(void)changeBtnLayout:(UIButton*)btn
+{
+    CGPoint buttonBoundsCenter = CGPointMake(CGRectGetMidX(btn.bounds), CGRectGetMidY(btn.bounds));
+    
+    // 找出imageView最终的center
+    
+    CGPoint endImageViewCenter = CGPointMake(buttonBoundsCenter.x + btn.bounds.size.width/2-btn.imageView.bounds.size.width/2, buttonBoundsCenter.y);
+    
+    // 找出titleLabel最终的center
+    
+    CGPoint endTitleLabelCenter = CGPointMake(buttonBoundsCenter.x-btn.bounds.size.width/2 + btn.titleLabel.bounds.size.width/2, buttonBoundsCenter.y);
+    
+    // 取得imageView最初的center
+    
+    CGPoint startImageViewCenter = btn.imageView.center;
+    
+    // 取得titleLabel最初的center
+    
+    CGPoint startTitleLabelCenter = btn.titleLabel.center;
+    
+    // 设置imageEdgeInsets
+    
+    CGFloat imageEdgeInsetsTop = endImageViewCenter.y - startImageViewCenter.y;
+    
+    CGFloat imageEdgeInsetsLeft = endImageViewCenter.x - startImageViewCenter.x;
+    
+    CGFloat imageEdgeInsetsBottom = -imageEdgeInsetsTop;
+    
+    CGFloat imageEdgeInsetsRight = -imageEdgeInsetsLeft;
+    
+    btn.imageEdgeInsets = UIEdgeInsetsMake(imageEdgeInsetsTop, imageEdgeInsetsLeft, imageEdgeInsetsBottom, imageEdgeInsetsRight);
+    
+    // 设置titleEdgeInsets
+    
+    CGFloat titleEdgeInsetsTop = endTitleLabelCenter.y-startTitleLabelCenter.y;
+    
+    CGFloat titleEdgeInsetsLeft = endTitleLabelCenter.x - startTitleLabelCenter.x;
+    
+    CGFloat titleEdgeInsetsBottom = -titleEdgeInsetsTop;
+    
+    CGFloat titleEdgeInsetsRight = -titleEdgeInsetsLeft;
+    
+    btn.titleEdgeInsets = UIEdgeInsetsMake(titleEdgeInsetsTop, titleEdgeInsetsLeft, titleEdgeInsetsBottom, titleEdgeInsetsRight);
 }
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -309,6 +359,10 @@
 - (IBAction)moreBtnClick:(id)sender {
     self.voteBtn.hidden = !self.voteBtn.hidden;
     self.recordBtn.hidden = !self.recordBtn.hidden;
+    self.voteBtn.backgroundColor = self.recordBtn.backgroundColor = [UIColor whiteColor];
+    
+    self.view.alpha = self.view.alpha == 1.0 ? 0.7 : 1.0;
+    self.voteBtn.alpha = self.recordBtn.alpha = 1.0;
 }
 
 // 全部预约

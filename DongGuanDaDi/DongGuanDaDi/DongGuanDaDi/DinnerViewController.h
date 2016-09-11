@@ -13,7 +13,6 @@
 @interface DinnerViewController : UIViewController
 @property (strong, nonatomic) IBOutlet ASDayPicker *dayPicker;
 @property (strong, nonatomic) IBOutlet MenuView *menu;
-- (IBAction)moreBtnClick:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *recordBtn;
 @property (strong, nonatomic) IBOutlet UIButton *voteBtn;
 @property (strong, nonatomic) IBOutlet UILabel *breakfastLabel;
@@ -21,7 +20,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *dinnerLabel;
 @property (strong, nonatomic) IBOutlet UILabel *selectedDateLabel;
 @property (strong, nonatomic) IBOutlet UIButton *orderAllBtn;
+@property (strong, nonatomic) IBOutlet UIButton *moreBtn;
 
+- (IBAction)moreBtnClick:(id)sender;
 - (IBAction)orderBtnClick:(id)sender;
 - (IBAction)breakfastBtnClick:(id)sender;
 - (IBAction)lunchBtnClick:(id)sender;
