@@ -16,12 +16,20 @@
 #import "stdafx_DongGuanDaDi.h"
 #import "AFHTTPSessionManager.h"
 
+enum FoodBtnTpye
+{
+    foodBtnTpye_breakfast = 0,
+    foodBtnTpye_lunch,
+    foodBtnTpye_dinner
+};
+
 @interface DinnerViewController ()
 @property (nonatomic, strong) NSMutableDictionary *dateAndDinners;
 @property (nonatomic, strong) NSMutableArray* breakfasts_arr;
 @property (nonatomic, strong) NSMutableArray* lunch_arr;
 @property (nonatomic, strong) NSMutableArray* dinner_arr;
 @property (nonatomic, strong) NSDate* selecetedDate;
+@property (nonatomic, strong) NSMutableArray* seletedFoods;// 用于提交预约饭菜
 @end
 
 @implementation DinnerViewController
@@ -33,13 +41,20 @@
     self.breakfasts_arr = [NSMutableArray array];
     self.lunch_arr = [NSMutableArray array];
     self.dinner_arr = [NSMutableArray array];
+    self.seletedFoods = [NSMutableArray array];
     
+    self.breakfastBtn.tag = foodBtnTpye_breakfast;
     [self.breakfastBtn.layer setBorderWidth:1.0];
     [self.breakfastBtn.layer setBorderColor:[[UIColor grayColor] CGColor]];
+    self.breakfastBtn.titleLabel.backgroundColor = [UIColor clearColor];
+    self.dinnerBtn.tag = foodBtnTpye_dinner;
     [self.dinnerBtn.layer setBorderWidth:1.0];
     [self.dinnerBtn.layer setBorderColor:[[UIColor grayColor] CGColor]];
+    self.dinnerBtn.titleLabel.backgroundColor = [UIColor clearColor];
+    self.lunchBtn.tag = foodBtnTpye_lunch;
     [self.lunchBtn.layer setBorderWidth:1.0];
     [self.lunchBtn.layer setBorderColor:[[UIColor grayColor] CGColor]];
+    self.lunchBtn.titleLabel.backgroundColor = [UIColor clearColor];
     self.breakfastBtn.tintColor = self.dinnerBtn.tintColor = self.lunchBtn.tintColor = [UIColor blueColor];
     self.moreBtn.layer.cornerRadius = 15.0;
     
@@ -382,15 +397,68 @@
     
 }
 
-- (IBAction)breakfastBtnClick:(id)sender {
-    [self updateSingleDinnerBtnsState:sender];
+- (IBAction)selecteFoodBtnClick:(id)sender
+{
+    UIButton* btn = (UIButton*)sender;
+    
+    [btn setSelected:!btn.selected];
+    
+    if (btn.isSelected) {
+        [btn setBackgroundColor:[UIColor blueColor]];
+    }
+    else
+    {
+        [btn setBackgroundColor:[UIColor whiteColor]];
+        [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    }
+    
+    NSArray* foods = [self.dateAndDinners objectForKey:[YLCommon date2String:self.selecetedDate]];
+    NSDictionary* food_dic = [foods objectAtIndex:btn.tag];
+    NSArray* foodInfos = nil;
+    if (btn.tag == foodBtnTpye_breakfast) {
+        foodInfos = [food_dic objectForKey:@"早餐"];
+    } else if (btn.tag == foodBtnTpye_lunch) {
+        foodInfos = [food_dic objectForKey:@"午餐"];
+    } else if (btn.tag == foodBtnTpye_lunch) {
+        foodInfos = [food_dic objectForKey:@"晚餐"];
+    }
+    
+    for (DinnerInfo* foodInfo in foodInfos) {
+        NSString* foodId = [NSString stringWithFormat:@"%ld",foodInfo.foodId];
+        if (YES == btn.selected) {
+            [self.seletedFoods addObject:foodId];
+        }
+        else
+        {
+            [self.seletedFoods removeObject:foodId];
+        }
+    }
 }
 
-- (IBAction)lunchBtnClick:(id)sender {
-    [self updateSingleDinnerBtnsState:sender];
+- (IBAction)submitBtnClick:(id)sender {
+    __block NSInteger submitedNum = 0;
+    for (NSString* foodId in self.seletedFoods) {
+        NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:foodId,@"id", nil];
+        AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
+        [manager.requestSerializer setValue:@"/DongGuan/" forHTTPHeaderField:@"referer"];
+        [manager POST:URL_RESERVE
+           parameters:dic
+              success:^(NSURLSessionDataTask *task, id responseObject) {
+                  submitedNum ++;
+                  if (submitedNum == self.seletedFoods.count) {
+                      [YLToast showWithText:@"提交成功"];
+                      [self.seletedFoods removeAllObjects];
+                  }
+                  else
+                  {
+                      [YLToast showWithText:@"提交失败"];
+                  }
+                  
+              }
+              failure:^(NSURLSessionDataTask *task, NSError *error) {
+                  [YLToast showWithText:@"网络连接失败，请检查网络配置"];
+              }];
+    }
 }
 
-- (IBAction)dinnerBtnClick:(id)sender {
-    [self updateSingleDinnerBtnsState:sender];
-}
 @end

@@ -209,7 +209,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ClC-AT-YBM" userLabel="moreBtn">
-                                <rect key="frame" x="520" y="520" width="30" height="30"/>
+                                <rect key="frame" x="520" y="550" width="30" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="9xp-My-2mR"/>
@@ -282,13 +282,13 @@
                                 </connections>
                             </view>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KAx-ms-YXu">
-                                <rect key="frame" x="436" y="458" width="114" height="42"/>
+                                <rect key="frame" x="436" y="488" width="114" height="42"/>
                                 <state key="normal" title="饭菜投票" image="dinner_vote">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PcV-tk-7ne">
-                                <rect key="frame" x="436" y="396" width="114" height="42"/>
+                                <rect key="frame" x="436" y="426" width="114" height="42"/>
                                 <state key="normal" title="用餐记录" image="dinner_record">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -297,7 +297,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X2Z-xS-l4v">
-                                <rect key="frame" x="70" y="544" width="460" height="30"/>
+                                <rect key="frame" x="70" y="529" width="460" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="zav-Yb-XH1"/>
@@ -305,6 +305,9 @@
                                 <state key="normal" title="提交">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="submitBtnClick:" destination="0Za-b9-rwA" eventType="touchUpInside" id="yKp-f1-O6C"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uyl-5O-eys" userLabel="OrderView">
                                 <rect key="frame" x="0.0" y="274" width="600" height="250"/>
@@ -335,7 +338,7 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="lunchBtnClick:" destination="0Za-b9-rwA" eventType="touchUpInside" id="Sru-4H-6ii"/>
+                                            <action selector="selecteFoodBtnClick:" destination="0Za-b9-rwA" eventType="touchUpInside" id="wCg-bb-VCL"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K6E-Gz-ncm">
@@ -345,7 +348,7 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="dinnerBtnClick:" destination="0Za-b9-rwA" eventType="touchUpInside" id="73c-J8-Hqb"/>
+                                            <action selector="selecteFoodBtnClick:" destination="0Za-b9-rwA" eventType="touchUpInside" id="CfO-n6-pIZ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wj9-Rg-bCa">
@@ -355,7 +358,7 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="breakfastBtnClick:" destination="0Za-b9-rwA" eventType="touchUpInside" id="lDm-x0-l4P"/>
+                                            <action selector="selecteFoodBtnClick:" destination="0Za-b9-rwA" eventType="touchUpInside" id="Hb0-iH-Iv9"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -397,7 +400,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="X2Z-xS-l4v" firstAttribute="top" secondItem="Uyl-5O-eys" secondAttribute="bottom" constant="20" id="1hL-Vo-8v1"/>
+                            <constraint firstItem="X2Z-xS-l4v" firstAttribute="top" secondItem="Uyl-5O-eys" secondAttribute="bottom" constant="5" id="1hL-Vo-8v1"/>
                             <constraint firstItem="c7K-bz-iGR" firstAttribute="top" secondItem="jvP-pl-ufS" secondAttribute="bottom" id="1xq-jc-VTR"/>
                             <constraint firstAttribute="trailing" secondItem="jvP-pl-ufS" secondAttribute="trailing" id="AiJ-oC-3lm"/>
                             <constraint firstItem="jvP-pl-ufS" firstAttribute="centerX" secondItem="YhH-gF-iJI" secondAttribute="centerX" id="AvH-lG-Lvy"/>
@@ -406,7 +409,7 @@
                             <constraint firstItem="Uyl-5O-eys" firstAttribute="trailing" secondItem="c7K-bz-iGR" secondAttribute="trailing" id="GP0-v5-obz"/>
                             <constraint firstItem="ClC-AT-YBM" firstAttribute="top" secondItem="KAx-ms-YXu" secondAttribute="bottom" constant="20" id="HHa-hj-pwQ"/>
                             <constraint firstItem="X2Z-xS-l4v" firstAttribute="centerX" secondItem="YhH-gF-iJI" secondAttribute="centerX" id="KhB-Dg-owP"/>
-                            <constraint firstItem="27R-Uc-Luc" firstAttribute="top" secondItem="ClC-AT-YBM" secondAttribute="bottom" constant="50" id="RaF-8z-IPh"/>
+                            <constraint firstItem="27R-Uc-Luc" firstAttribute="top" secondItem="ClC-AT-YBM" secondAttribute="bottom" constant="20" id="RaF-8z-IPh"/>
                             <constraint firstItem="jvP-pl-ufS" firstAttribute="top" secondItem="Fei-GF-gtY" secondAttribute="bottom" constant="10" id="SjS-Td-1p2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="X2Z-xS-l4v" secondAttribute="trailing" constant="50" id="Xrp-Ig-R6J"/>
                             <constraint firstItem="KAx-ms-YXu" firstAttribute="top" secondItem="PcV-tk-7ne" secondAttribute="bottom" constant="20" id="YkT-MP-IFN"/>
@@ -434,6 +437,7 @@
                         <outlet property="orderAllBtn" destination="39s-9R-zkF" id="Gps-jU-VpE"/>
                         <outlet property="recordBtn" destination="PcV-tk-7ne" id="Qx7-3K-AeF"/>
                         <outlet property="selectedDateLabel" destination="IC2-vC-gZz" id="x68-pc-td5"/>
+                        <outlet property="submitBtnClick" destination="X2Z-xS-l4v" id="etW-L6-9px"/>
                         <outlet property="voteBtn" destination="KAx-ms-YXu" id="ZNK-3Y-DER"/>
                     </connections>
                 </viewController>

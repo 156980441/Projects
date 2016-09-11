@@ -24,9 +24,9 @@
 
 - (IBAction)moreBtnClick:(id)sender;
 - (IBAction)orderBtnClick:(id)sender;
-- (IBAction)breakfastBtnClick:(id)sender;
-- (IBAction)lunchBtnClick:(id)sender;
-- (IBAction)dinnerBtnClick:(id)sender;
+- (IBAction)selecteFoodBtnClick:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *submitBtnClick;
+- (IBAction)submitBtnClick:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UIButton *dinnerBtn;
 @property (strong, nonatomic) IBOutlet UIButton *lunchBtn;

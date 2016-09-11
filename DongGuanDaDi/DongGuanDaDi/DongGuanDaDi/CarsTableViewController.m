@@ -250,8 +250,8 @@
         Car* car = (Car*)[self.dataSource objectAtIndex:indexPath.row];
         cell.carNumber.text = [NSString stringWithFormat:@"车牌号：%@",car.number];
         cell.passengers.text = [NSString stringWithFormat:@"随车人数：%ld",car.peopleNum];
-        cell.startDate.text = car.startTime;
-        cell.endDate.text = car.endtime;
+        cell.startDate.text = [NSString stringWithFormat:@"预计出车时间：%@",car.startTime];
+        cell.endDate.text = [NSString stringWithFormat:@"预计还车时间：%@",car.endtime];
         NSString* url = [NSString stringWithFormat:@"%@%@",HOST,car.url];
         [cell.thumbnail setImageWithURL:[NSURL URLWithString:url]];
         
