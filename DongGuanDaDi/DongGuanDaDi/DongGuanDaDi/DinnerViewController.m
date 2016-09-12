@@ -234,6 +234,7 @@ enum FoodBtnTpye
         }
         case ThreeMealsState_booked_canChange: {
             button.enabled = YES;
+            [button setSelected:YES];
             [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             [button setBackgroundColor:[UIColor blueColor]];
             break;
@@ -246,6 +247,7 @@ enum FoodBtnTpye
         }
         case ThreeMealsState_booked_noChange: {
             button.enabled = NO;
+            [button setSelected:YES];
             [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             [button setBackgroundColor:[UIColor blueColor]];
             break;
@@ -400,6 +402,8 @@ enum FoodBtnTpye
     }
 }
 
+#pragma mark - UIButton Event
+
 - (IBAction)moreBtnClick:(id)sender {
     self.voteBtn.hidden = !self.voteBtn.hidden;
     self.recordBtn.hidden = !self.recordBtn.hidden;
@@ -411,27 +415,72 @@ enum FoodBtnTpye
 
 // 全部预约
 - (IBAction)orderBtnClick:(id)sender {
+    
     UIColor* color = nil;
     
-    self.orderAllBtn.selected = !self.orderAllBtn.selected;
+    [self.orderAllBtn setSelected:!self.orderAllBtn.selected];
+    
     if (self.orderAllBtn.isSelected) {
         color = [UIColor blueColor];
-        self.dinnerBtn.selected = self.lunchBtn.selected = self.breakfastBtn.selected = YES;
+        if (self.breakfastBtn.enabled) {
+            [self.breakfastBtn setSelected:YES];
+            self.breakfastBtn.backgroundColor = color;
+        }
+        if (self.dinnerBtn.enabled) {
+            [self.dinnerBtn setSelected:YES];
+            self.dinnerBtn.backgroundColor = color;
+        }
+        if (self.lunchBtn.enabled) {
+            [self.lunchBtn setSelected:YES];
+            self.lunchBtn.backgroundColor = color;
+        }
     }
     else {
         color = [UIColor whiteColor];
-        self.dinnerBtn.selected = self.lunchBtn.selected = self.breakfastBtn.selected = NO;
-        [self.dinnerBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [self.breakfastBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [self.lunchBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        if (self.breakfastBtn.enabled) {
+            [self.breakfastBtn setSelected:NO];
+            self.breakfastBtn.backgroundColor = color;
+            [self.breakfastBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        }
+        if (self.dinnerBtn.enabled) {
+            [self.dinnerBtn setSelected:NO];
+            self.dinnerBtn.backgroundColor = color;
+            [self.dinnerBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        }
+        if (self.lunchBtn.enabled) {
+            [self.lunchBtn setSelected:NO];
+            self.lunchBtn.backgroundColor = color;
+            [self.lunchBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        }
     }
-    self.dinnerBtn.backgroundColor = self.lunchBtn.backgroundColor = self.breakfastBtn.backgroundColor = color;
-    
 }
 
+/**
+ *  点击早餐，午餐，晚餐按钮响应
+ *
+ *  @param sender 对应的按钮
+ *
+ *  @since 1.0.x
+ */
 - (IBAction)selecteFoodBtnClick:(id)sender
 {
+    // 首先在点击日期消息里面处理了该按钮是否可以点击
+    // updateSingleDinnerBtnsState
+    
     UIButton* btn = (UIButton*)sender;
+    
+    if (!btn.enabled)
+    {
+        if ([self.selecetedDate compare:[NSDate date]] != NSOrderedSame) {
+            [YLToast showWithText:@"未在可预约日期内，该状态不可修改"];
+        }
+        else
+        {
+            [YLToast showWithText:@"已过修改时间，该状态不可修改"];
+        }
+        
+        return;
+    }
     
     [btn setSelected:!btn.selected];
     
