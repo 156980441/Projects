@@ -28,6 +28,8 @@
 		19575BB21D7F3F5800F907D0 /* CommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19575BB11D7F3F5800F907D0 /* CommentView.m */; };
 		19575BB41D7F3F6B00F907D0 /* CommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19575BB31D7F3F6B00F907D0 /* CommentView.xib */; };
 		195D34441D73E48800D6D6D2 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = 195D34431D73E48800D6D6D2 /* Car.m */; };
+		1977799E1D86C3B200E3CB0F /* CarDepartOfMyOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1977799C1D86C3B200E3CB0F /* CarDepartOfMyOrderTableViewCell.m */; };
+		1977799F1D86C3B200E3CB0F /* CarDepartOfMyOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1977799D1D86C3B200E3CB0F /* CarDepartOfMyOrderTableViewCell.xib */; };
 		1977886F1D78230600C9BA7E /* DinnerRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 1977886E1D78230600C9BA7E /* DinnerRecord.m */; };
 		19E5BBF51D3F331600C1A1A9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E5BBF41D3F331600C1A1A9 /* main.m */; };
 		19E5BBF81D3F331600C1A1A9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E5BBF71D3F331600C1A1A9 /* AppDelegate.m */; };
@@ -134,6 +136,9 @@
 		19575BB31D7F3F6B00F907D0 /* CommentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentView.xib; sourceTree = "<group>"; };
 		195D34421D73E48800D6D6D2 /* Car.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
 		195D34431D73E48800D6D6D2 /* Car.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Car.m; sourceTree = "<group>"; };
+		1977799B1D86C3B200E3CB0F /* CarDepartOfMyOrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarDepartOfMyOrderTableViewCell.h; sourceTree = "<group>"; };
+		1977799C1D86C3B200E3CB0F /* CarDepartOfMyOrderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarDepartOfMyOrderTableViewCell.m; sourceTree = "<group>"; };
+		1977799D1D86C3B200E3CB0F /* CarDepartOfMyOrderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarDepartOfMyOrderTableViewCell.xib; sourceTree = "<group>"; };
 		1977886D1D78230600C9BA7E /* DinnerRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DinnerRecord.h; sourceTree = "<group>"; };
 		1977886E1D78230600C9BA7E /* DinnerRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DinnerRecord.m; sourceTree = "<group>"; };
 		19D0D6151D6AA53C009E7444 /* stdafx_DongGuanDaDi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stdafx_DongGuanDaDi.h; sourceTree = "<group>"; };
@@ -447,6 +452,9 @@
 				19E8D6661D4C9132005A6DB4 /* CarDetailCell.m */,
 				8DDBE0731D81AEFB008BC513 /* CarDetailOfMyOrderTableViewCell.h */,
 				8DDBE0741D81AEFC008BC513 /* CarDetailOfMyOrderTableViewCell.m */,
+				1977799B1D86C3B200E3CB0F /* CarDepartOfMyOrderTableViewCell.h */,
+				1977799C1D86C3B200E3CB0F /* CarDepartOfMyOrderTableViewCell.m */,
+				1977799D1D86C3B200E3CB0F /* CarDepartOfMyOrderTableViewCell.xib */,
 				192D0E271D76A8C500216D92 /* CarNotAppointmentCell.h */,
 				192D0E281D76A8C500216D92 /* CarNotAppointmentCell.m */,
 				D778F72B1D74719700350BBE /* CarNotAppointmentTableViewController.h */,
@@ -626,6 +634,7 @@
 				19575BAF1D7F3CF500F907D0 /* DinnerCommentTableViewHeaderView.xib in Resources */,
 				D7DFF50A1D773FCE0012C5AE /* ShowCarsTypesView.xib in Resources */,
 				19575BB41D7F3F6B00F907D0 /* CommentView.xib in Resources */,
+				1977799F1D86C3B200E3CB0F /* CarDepartOfMyOrderTableViewCell.xib in Resources */,
 				19E5BBFE1D3F331600C1A1A9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -737,6 +746,7 @@
 				19E5BC2B1D3F391C00C1A1A9 /* MainViewController.m in Sources */,
 				194F69F11D52E26B00EC55EA /* DinnerInfo.m in Sources */,
 				19575BAD1D7F3CCC00F907D0 /* DinnerCommentTableViewHeaderView.m in Sources */,
+				1977799E1D86C3B200E3CB0F /* CarDepartOfMyOrderTableViewCell.m in Sources */,
 				D7680EA91D772FE8003A772F /* ShowCarsTypesView.m in Sources */,
 				8DDBE0751D81AEFC008BC513 /* CarDetailOfMyOrderTableViewCell.m in Sources */,
 				D75EDE011D5A2B4300D34DC0 /* EColumnDataModel.m in Sources */,

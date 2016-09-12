@@ -8,6 +8,7 @@
 
 #import "CarDepartTableViewController.h"
 #import "CarDepartTableViewCell.h"
+#import "CarDepartOfMyOrderTableViewCell.h"
 #import "Car.h"
 
 #import "stdafx_DongGuanDaDi.h"
@@ -45,33 +46,64 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CarDepartTableViewCell *cell;
-    NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CarDepartTableViewCell" owner:self options:nil];
-    if ([nib count]>0)
-    {
-        cell = [nib objectAtIndex:0];
+    if (!self.isMyOrder) {
+        CarDepartTableViewCell *cell;
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CarDepartTableViewCell" owner:self options:nil];
+        if ([nib count]>0)
+        {
+            cell = [nib objectAtIndex:0];
+        }
+        // Configure the cell...
+        
+        NSArray * array = [self.car.startTime componentsSeparatedByString:@" "];
+        cell.startDateTxtField.text = [array objectAtIndex:0];
+        cell.startTimeTxtField.text = [array objectAtIndex:1];
+        array = [self.car.endtime componentsSeparatedByString:@" "];
+        cell.endDateTxtField.text = [array objectAtIndex:0];
+        cell.endTimeTxtField.text = [array objectAtIndex:1];
+        array = [self.car.realStartTime componentsSeparatedByString:@" "];
+        cell.realStartDateTxtField.text = [array objectAtIndex:0];
+        cell.realStartTimeTxtField.text = [array objectAtIndex:1];
+        
+        cell.passengersTxtField.text = [NSString stringWithFormat:@"%zd", self.car.peopleNum];
+        cell.seatingTxtField.text = [NSString stringWithFormat:@"%zd", self.car.seating];
+        cell.driverTxtField.text = self.car.driver;
+        cell.reasonTxtField.text = self.car.reason;
+        NSString* url = [NSString stringWithFormat:@"%@%@",HOST,self.car.url];
+        [cell.carImageView setImageWithURL:[NSURL URLWithString:url]];
+        cell.carImageView.contentMode = UIViewContentModeScaleToFill;
+        //    cell.carNumberTxtField.text = self.car.number;
+        
+        return cell;
     }
-    // Configure the cell...
-    
-    NSArray * array = [self.car.startTime componentsSeparatedByString:@" "];
-    cell.startDateTxtField.text = [array objectAtIndex:0];
-    cell.startTimeTxtField.text = [array objectAtIndex:1];
-    array = [self.car.endtime componentsSeparatedByString:@" "];
-    cell.endDateTxtField.text = [array objectAtIndex:0];
-    cell.endTimeTxtField.text = [array objectAtIndex:1];
-    array = [self.car.realStartTime componentsSeparatedByString:@" "];
-    cell.realStartDateTxtField.text = [array objectAtIndex:0];
-    cell.realStartTimeTxtField.text = [array objectAtIndex:1];
-    
-    cell.passengersTxtField.text = [NSString stringWithFormat:@"%zd", self.car.peopleNum];
-    cell.seatingTxtField.text = [NSString stringWithFormat:@"%zd", self.car.seating];
-    cell.driverTxtField.text = self.car.driver;
-    cell.reasonTxtField.text = self.car.reason;
-    NSString* url = [NSString stringWithFormat:@"%@%@",HOST,self.car.url];
-    [cell.carImageView setImageWithURL:[NSURL URLWithString:url]];
-    cell.carImageView.contentMode = UIViewContentModeScaleToFill;
-//    cell.carNumberTxtField.text = self.car.number;
-    
-    return cell;
+    else
+    {
+        CarDepartOfMyOrderTableViewCell *cell;
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CarDepartOfMyOrderTableViewCell" owner:self options:nil];
+        if ([nib count]>0)
+        {
+            cell = [nib objectAtIndex:0];
+        }
+        // Configure the cell...
+        
+        NSArray * array = [self.car.startTime componentsSeparatedByString:@" "];
+        cell.startDateTxtField.text = [array objectAtIndex:0];
+        cell.startTimeTxtField.text = [array objectAtIndex:1];
+        array = [self.car.endtime componentsSeparatedByString:@" "];
+        cell.endDateTxtField.text = [array objectAtIndex:0];
+        cell.endTimeTxtField.text = [array objectAtIndex:1];
+        array = [self.car.realStartTime componentsSeparatedByString:@" "];
+        cell.realStartDateTxtField.text = [array objectAtIndex:0];
+        cell.realStartTimeTxtField.text = [array objectAtIndex:1];
+        
+        cell.passengersTxtField.text = [NSString stringWithFormat:@"%zd", self.car.peopleNum];
+        cell.reasonTxtField.text = self.car.reason;
+        NSString* url = [NSString stringWithFormat:@"%@%@",HOST,self.car.url];
+        [cell.carImage setImageWithURL:[NSURL URLWithString:url]];
+        cell.carImage.contentMode = UIViewContentModeScaleToFill;
+        cell.carNumberTxtField.text = self.car.number;
+        
+        return cell;
+    }
 }
 @end

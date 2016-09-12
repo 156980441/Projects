@@ -313,6 +313,7 @@
     if ([vc isKindOfClass:[CarDepartTableViewController class]]) {
         CarDepartTableViewController* carDepartVc = (CarDepartTableViewController*)vc;
         carDepartVc.car = self.selectedCar;
+        carDepartVc.isMyOrder = self.orderAndMyOrderSeg.selectedSegmentIndex;
     }
     if ([vc isKindOfClass:[CarAppointmentTableViewController class]]) {
         CarAppointmentTableViewController* carAppointVc = (CarAppointmentTableViewController*)vc;
