@@ -30,6 +30,8 @@
     
     self.title = [NSString stringWithFormat:@"%@预约情况",self.car.number];
     
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;// 不显示分割线，也可以在 storyboard 中控制。
+    
     UIImageView* imageView = [[UIImageView alloc] init];
     NSString* imageURL = [NSString stringWithFormat:@"%@%@",HOST,self.car.url];
     [imageView setImageWithURL:[NSURL URLWithString:imageURL]];

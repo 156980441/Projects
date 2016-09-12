@@ -225,9 +225,31 @@ enum FoodBtnTpye
 
 -(void)updateSingleDinnerBtnsState:(UIButton*) button byMeal:(ThreeMeals*)meal
 {
-    button.enabled = NO;
-    if (meal.state != ThreeMealsState_booked_noChange) {
-        button.enabled = YES;
+    switch (meal.state) {
+        case ThreeMealsState_canBook_canChange: {
+            button.enabled = YES;
+            [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            [button setBackgroundColor:[UIColor whiteColor]];
+            break;
+        }
+        case ThreeMealsState_booked_canChange: {
+            button.enabled = YES;
+            [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            [button setBackgroundColor:[UIColor blueColor]];
+            break;
+        }
+        case ThreeMealsState_noBook_noChange: {
+            button.enabled = NO;
+            [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            [button setBackgroundColor:[UIColor whiteColor]];
+            break;
+        }
+        case ThreeMealsState_booked_noChange: {
+            button.enabled = NO;
+            [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            [button setBackgroundColor:[UIColor blueColor]];
+            break;
+        }
     }
 }
 
@@ -346,6 +368,13 @@ enum FoodBtnTpye
             if (meals.kind == ThreeMealsType_dinner) {
                 [self updateSingleDinnerBtnsState:self.dinnerBtn byMeal:meals];
             }
+            if (self.dinnerBtn.backgroundColor == self.lunchBtn.backgroundColor && self.lunchBtn.backgroundColor == self.breakfastBtn.backgroundColor && self.dinnerBtn.backgroundColor == [UIColor blueColor]) {
+                self.orderAllBtn.backgroundColor = [UIColor blueColor];
+            }
+            else
+            {
+                self.orderAllBtn.backgroundColor = [UIColor whiteColor];
+            }
             
         }
         
@@ -392,6 +421,9 @@ enum FoodBtnTpye
     else {
         color = [UIColor whiteColor];
         self.dinnerBtn.selected = self.lunchBtn.selected = self.breakfastBtn.selected = NO;
+        [self.dinnerBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [self.breakfastBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [self.lunchBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     }
     self.dinnerBtn.backgroundColor = self.lunchBtn.backgroundColor = self.breakfastBtn.backgroundColor = color;
     

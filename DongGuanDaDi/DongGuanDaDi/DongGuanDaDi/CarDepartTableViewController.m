@@ -69,6 +69,7 @@
     cell.reasonTxtField.text = self.car.reason;
     NSString* url = [NSString stringWithFormat:@"%@%@",HOST,self.car.url];
     [cell.carImageView setImageWithURL:[NSURL URLWithString:url]];
+    cell.carImageView.contentMode = UIViewContentModeScaleToFill;
     cell.carNumberTxtField.text = self.car.number;
     
     return cell;

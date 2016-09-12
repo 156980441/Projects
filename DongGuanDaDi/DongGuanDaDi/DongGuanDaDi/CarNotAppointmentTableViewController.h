@@ -10,6 +10,9 @@
 
 @class Car;
 
+/**
+ *  未预约车辆界面控制器
+ */
 @interface CarNotAppointmentTableViewController : UITableViewController
 @property (nonatomic, strong) Car *car;
 @end

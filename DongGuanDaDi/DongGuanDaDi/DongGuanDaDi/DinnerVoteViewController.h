@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DinnerVoteViewController : UITableViewController
+@interface DinnerVoteViewController : UIViewController
 
 @end

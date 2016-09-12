@@ -254,6 +254,7 @@
         cell.endDate.text = [NSString stringWithFormat:@"预计还车时间：%@",car.endtime];
         NSString* url = [NSString stringWithFormat:@"%@%@",HOST,car.url];
         [cell.thumbnail setImageWithURL:[NSURL URLWithString:url]];
+        cell.thumbnail.contentMode = UIViewContentModeScaleToFill;
         
         returnCell = cell;
     }

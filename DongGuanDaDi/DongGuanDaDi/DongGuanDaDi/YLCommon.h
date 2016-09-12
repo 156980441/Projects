@@ -6,7 +6,7 @@
 //  Copyright © 2016年 fanyl. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface YLCommon : NSObject
 
@@ -20,4 +20,7 @@
 +(NSArray *)getFirstAndLastDayOfThisWeek;
 
 +(NSString*)docPath:(NSString*)filename;
+
++(UIImage *)initWithColor:(UIColor*)color rect:(CGRect)rect;
++(UIImage *)initwithRgba:(CGFloat*)rgba rect:(CGRect)rect;
 @end

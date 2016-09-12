@@ -15,6 +15,7 @@
 #import "Staff.h"
 
 #import "YLToast.h"
+#import "YLCommon.h"
 
 #import "stdafx_DongGuanDaDi.h"
 #import "AFHTTPSessionManager.h"
@@ -72,7 +73,8 @@
     if (0 == section) {
         cell.title.text = [NSString stringWithFormat:@"%@,欢迎登陆本应用系统!",self.staff.name];
         cell.title.frame = CGRectMake(0, cell.frame.size.height - cell.title.frame.size.height, cell.frame.size.width, CGRectGetWidth(cell.title.frame));
-        cell.title.backgroundColor = [UIColor colorWithRed:0.137 green:0.221 blue:1.000 alpha:1.000];
+        cell.title.backgroundColor = [UIColor colorWithRed:0.397 green:0.593 blue:1.000 alpha:1.000];
+        [cell setNeedsLayout];
         
         UIImageView* imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"main_front"]];
         imageView.contentMode = UIViewContentModeCenter;
@@ -88,7 +90,8 @@
         
         cell.appLabel.text = nil;
         
-        cell.imageBtn.backgroundColor = [UIColor blueColor];
+//        [cell.imageBtn setBackgroundImage:[YLCommon initWithColor:[UIColor colorWithRed:0.397 green:0.593 blue:1.000 alpha:1.000] rect:cell.imageBtn.frame] forState:UIControlStateNormal];
+        cell.imageBtn.backgroundColor = [UIColor colorWithRed:0.397 green:0.593 blue:1.000 alpha:1.000];
         cell.imageBtn.layer.cornerRadius = 25;
         [cell.imageBtn setImage:[UIImage imageNamed:[self.imageDataSources objectAtIndex:indexPath.row]] forState:UIControlStateNormal];
         cell.imageBtn.backgroundColor = [UIColor colorWithRed:0.137 green:0.221 blue:1.000 alpha:1.000];

@@ -66,6 +66,7 @@
 		D773D55E1D7C597C009F61B5 /* CarAppointmentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D773D55D1D7C597C009F61B5 /* CarAppointmentTableViewController.m */; };
 		D778F72D1D74719700350BBE /* CarNotAppointmentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D778F72C1D74719700350BBE /* CarNotAppointmentTableViewController.m */; };
 		D77DEEAB1D8068F6001D65FC /* ThreeMeals.m in Sources */ = {isa = PBXBuildFile; fileRef = D77DEEAA1D8068F6001D65FC /* ThreeMeals.m */; };
+		D787CE481D860EF400520A87 /* CanteenVoteInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D787CE471D860EF400520A87 /* CanteenVoteInfo.m */; };
 		D79FCE561D4273E100BE99BB /* DinnerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D79FCE551D4273E100BE99BB /* DinnerViewController.m */; };
 		D79FCE5A1D4274BA00BE99BB /* CarsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D79FCE591D4274BA00BE99BB /* CarsTableViewController.m */; };
 		D79FCE5E1D42754F00BE99BB /* AddressListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D79FCE5D1D42754F00BE99BB /* AddressListTableViewController.m */; };
@@ -210,6 +211,8 @@
 		D778F72C1D74719700350BBE /* CarNotAppointmentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarNotAppointmentTableViewController.m; sourceTree = "<group>"; };
 		D77DEEA91D8068F6001D65FC /* ThreeMeals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreeMeals.h; sourceTree = "<group>"; };
 		D77DEEAA1D8068F6001D65FC /* ThreeMeals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreeMeals.m; sourceTree = "<group>"; };
+		D787CE461D860EF400520A87 /* CanteenVoteInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanteenVoteInfo.h; sourceTree = "<group>"; };
+		D787CE471D860EF400520A87 /* CanteenVoteInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanteenVoteInfo.m; sourceTree = "<group>"; };
 		D79FCE541D4273E100BE99BB /* DinnerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DinnerViewController.h; sourceTree = "<group>"; };
 		D79FCE551D4273E100BE99BB /* DinnerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DinnerViewController.m; sourceTree = "<group>"; };
 		D79FCE581D4274BA00BE99BB /* CarsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarsTableViewController.h; sourceTree = "<group>"; };
@@ -418,6 +421,8 @@
 				D79FCE551D4273E100BE99BB /* DinnerViewController.m */,
 				194F69F51D52F1F800EC55EA /* DinnerVoteViewController.h */,
 				194F69F61D52F1F800EC55EA /* DinnerVoteViewController.m */,
+				D787CE461D860EF400520A87 /* CanteenVoteInfo.h */,
+				D787CE471D860EF400520A87 /* CanteenVoteInfo.m */,
 				194F69EC1D52DB6900EC55EA /* MemuDetailViewController.h */,
 				194F69ED1D52DB6900EC55EA /* MemuDetailViewController.m */,
 				194D0F0E1D48B56100827F3C /* MenuView.h */,
@@ -744,6 +749,7 @@
 				192D0E291D76A8C500216D92 /* CarNotAppointmentCell.m in Sources */,
 				8DDBE0781D81B59D008BC513 /* CarOrderCurrentView.m in Sources */,
 				1977886F1D78230600C9BA7E /* DinnerRecord.m in Sources */,
+				D787CE481D860EF400520A87 /* CanteenVoteInfo.m in Sources */,
 				192D0E2C1D76BAD200216D92 /* CarDepartTableViewController.m in Sources */,
 				D75EDE031D5A2B4300D34DC0 /* ELine.m in Sources */,
 				19E8D66A1D4C9C22005A6DB4 /* ModifyPerInfoTableViewController.m in Sources */,

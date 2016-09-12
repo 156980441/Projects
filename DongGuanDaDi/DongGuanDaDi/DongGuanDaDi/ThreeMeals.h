@@ -10,14 +10,15 @@
 
 typedef enum ThreeMealsState
 {
-    ThreeMealsState_canBook_canChange,//可预订且当前可修改
-    ThreeMealsState_noBook_canChange,//未预订且当前可修改
+    ThreeMealsState_canBook_canChange = 0,//可预订且当前可修改
+    ThreeMealsState_booked_canChange,//已预定且可修改
+    ThreeMealsState_noBook_noChange,//未预订且不可修改
     ThreeMealsState_booked_noChange//已经预订且当前不可修改
 }ThreeMealsState;
 
 typedef enum ThreeMealsType
 {
-    ThreeMealsType_breakfast,
+    ThreeMealsType_breakfast = 0,
     ThreeMealsType_lunch,
     ThreeMealsType_dinner
 }ThreeMealsType;
