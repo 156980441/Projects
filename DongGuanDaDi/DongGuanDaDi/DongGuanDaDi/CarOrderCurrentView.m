@@ -20,6 +20,17 @@
 
 @implementation CarOrderCurrentView
 
+// 为了 xib 的嵌套
+-(instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        UIView* view = [[[NSBundle mainBundle] loadNibNamed:@"CarOrderCurrentView" owner:self options:nil] lastObject];
+        [self addSubview:view];
+    }
+    return self;
+}
+
 -(void)awakeFromNib
 {
     self.startDateTxtField.delegate = self;

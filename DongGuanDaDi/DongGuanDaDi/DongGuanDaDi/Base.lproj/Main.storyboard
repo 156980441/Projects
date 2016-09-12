@@ -1644,16 +1644,16 @@
         <scene sceneID="5U2-qv-Iap">
             <objects>
                 <tableViewController id="YGf-RI-8zQ" customClass="CarDepartTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="1000" sectionHeaderHeight="28" sectionFooterHeight="28" id="MPQ-Gw-PsL">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="1050" sectionHeaderHeight="28" sectionFooterHeight="28" id="MPQ-Gw-PsL">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="carDepart" id="abg-Xu-DOT">
-                                <rect key="frame" x="0.0" y="92" width="600" height="1000"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="1050"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="abg-Xu-DOT" id="Ac0-wr-V9g">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="999"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="1049"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>

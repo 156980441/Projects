@@ -7,6 +7,7 @@
 //
 
 #import "CarDepartTableViewCell.h"
+#import "CarOrderCurrentView.h"
 #import "YLToast.h"
 #import "YLDatePicker.h"
 #import "YLCommon.h"
@@ -23,14 +24,6 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    self.orderEndDateTxtField.delegate = self;
-    self.orderEndTimeTxtField.delegate = self;
-    self.orderStartDateTxtField.delegate = self;
-    self.orderStartTimeTxtField.delegate = self;
-    
-    // UITextView 添加边框
-    self.orderReasonTxtView.layer.borderColor = [UIColor grayColor].CGColor;
-    self.orderReasonTxtView.layer.borderWidth =1.0;
     
     self.picker = [[YLDatePicker alloc] init];
     self.picker.frame = CGRectMake(0, 0, 300, 250);
@@ -41,37 +34,6 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
-}
-
-- (IBAction)submitClick:(id)sender {
-    NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:
-                         self.passengersTxtField.text,@"peopleNumber",
-                         self.driverTxtField.text,@"driver",
-                         self.reasonTxtField.text,@"reason",
-                         self.carNumberTxtField.text,@"carNumber",
-                         @"",@"officeId",
-                         [NSString stringWithFormat:@"%@ %@",self.endDateTxtField.text,self.endTimeTxtField.text], @"end",
-                         [NSString stringWithFormat:@"%@ %@",self.startDateTxtField.text,self.startTimeTxtField.text], @"start",
-                         nil];
-    NSDictionary* dic2 = [NSDictionary dictionaryWithObjectsAndKeys:
-                          @"2",@"peopleNumber",
-                          @"何少毅",@"driver",
-                          @"测试",@"reason",
-                          @"粤WQS25",@"carNumber",
-                          @"",@"officeId",
-                          @"2016-09-05", @"end",
-                          @"2016-09-04", @"start",
-                          nil];
-    AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
-    [manager.requestSerializer setValue:@"/DongGuan/" forHTTPHeaderField:@"referer"];
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    [manager POST:URL_CAR_APPOINTMENT_SUBMIT_TABLE parameters:dic2 success:^(NSURLSessionDataTask *task, id responseObject) {
-        [YLToast showWithText:@"预约成功"];
-        NSLog(@"%@",responseObject);
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        [YLToast showWithText:@"网络连接失败，请检查网络配置"];
-        NSLog(@"%@",error.description);
-    }];
 }
 
 // 写在这里防止弹出键盘

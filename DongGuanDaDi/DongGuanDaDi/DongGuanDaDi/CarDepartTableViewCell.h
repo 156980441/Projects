@@ -8,13 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@class CarOrderCurrentView;
+
 /**
- *  在 Xib 中 selection 设置成了 None
+ *  在 Xib 中 selection 设置成了 None，使用了 Xib 的嵌套
  *
  *  @since 1.0.x
  */
 @interface CarDepartTableViewCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UIImageView *carImageView;
+
 @property (strong, nonatomic) IBOutlet UITextField *startDateTxtField;
 @property (strong, nonatomic) IBOutlet UITextField *startTimeTxtField;
 @property (strong, nonatomic) IBOutlet UITextField *endDateTxtField;
@@ -27,18 +30,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *driverTxtField;
 @property (strong, nonatomic) IBOutlet UITextField *reasonTxtField;
 @property (strong, nonatomic) IBOutlet UITextField *orderConditionTxtField;
-@property (strong, nonatomic) IBOutlet UITextField *orderStartDateTxtField;
-@property (strong, nonatomic) IBOutlet UITextField *orderEndDateTxtField;
 
-@property (strong, nonatomic) IBOutlet UITextField *orderStartTimeTxtField;
-@property (strong, nonatomic) IBOutlet UITextField *orderEndTimeTxtField;
-@property (strong, nonatomic) IBOutlet UITextField *orderPassengersTxtField;
-
-@property (strong, nonatomic) UITextField *carNumberTxtField;//for order request, not showing
-
-
-@property (strong, nonatomic) IBOutlet UITextView *orderReasonTxtView;
-
+@property (strong, nonatomic) IBOutlet CarOrderCurrentView *carOrderCurrentView;
 
 
 
