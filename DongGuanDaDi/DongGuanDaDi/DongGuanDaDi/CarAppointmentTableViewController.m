@@ -45,9 +45,8 @@
     NSString* reason = [NSString stringWithFormat:@"出车事由：%@",self.car.reason];
     self.dataSource =@[startStr,endStr,driver,passengers,reason];
     
-    CarOrderCurrentView* orderCurrCar = [[[NSBundle mainBundle] loadNibNamed:@"CarOrderCurrentView" owner:nil options:nil] lastObject];
-    self.tableView.tableFooterView = orderCurrCar;
     
+
 }
 
 - (void)didReceiveMemoryWarning {

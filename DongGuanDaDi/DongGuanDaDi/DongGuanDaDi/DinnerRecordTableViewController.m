@@ -34,6 +34,9 @@
     
     self.dataSource = [NSMutableArray array];
     self.recordTotalLabel.backgroundColor = self.orderTimesLabel.backgroundColor = self.dinnerTimesLabel.backgroundColor = [UIColor blueColor];
+    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
     self.title = @"用餐记录";
 }
 
@@ -120,7 +123,10 @@
             }
             [self.dataSource addObject:record];
         }
+        
         [self.tableView reloadData];
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;// 有数据之后显示分割线
+        
         self.recordTotalLabel.text = [NSString stringWithFormat:@"记录总数：%zd",arr.count];
         self.dinnerTimesLabel.text = [NSString stringWithFormat:@"用餐次数：%zd",eated];
         self.orderTimesLabel.text = [NSString stringWithFormat:@"预定次数：%zd",predetermined];

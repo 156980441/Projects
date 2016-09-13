@@ -28,6 +28,11 @@ typedef enum DGCarState
 
 @property (nonatomic, strong) NSString *driver;
 @property (nonatomic, strong) NSString *endtime;
+/**
+ *  出车号
+ *
+ *  @since 1.0.x
+ */
 @property (nonatomic, assign) NSInteger infoId;
 @property (nonatomic, strong) NSString *lat;
 @property (nonatomic, strong) NSString *lng;

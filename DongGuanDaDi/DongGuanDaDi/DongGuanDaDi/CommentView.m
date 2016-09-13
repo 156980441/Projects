@@ -94,6 +94,21 @@
 -(void)textViewDidBeginEditing:(UITextView *)textView
 {
     self.placeholderLabel.text = nil;
+    
+    // 调整键盘和视图高度
+    
+    NSTimeInterval animationDuration = 0.30f;
+    
+    [UIView beginAnimations:@"ResizeForKeyBoard" context:nil];
+    
+    [UIView setAnimationDuration:animationDuration];
+    
+    
+    CGFloat textView_center = textView.center.y;
+    self.center = CGPointMake(self.center.x, self.center.y - textView_center);
+    
+    [UIView commitAnimations];
+    
 }
 -(void)textViewDidEndEditing:(UITextView *)textView
 {
@@ -101,5 +116,21 @@
         self.placeholderLabel.text = @"填写评论";
     }
     [textView resignFirstResponder];
+}
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self endEditing:YES];
+    
+    NSTimeInterval animationDuration = 0.30f;
+    
+    [UIView beginAnimations:@"ResizeForKeyboard" context:nil];
+    
+    [UIView setAnimationDuration:animationDuration];
+    
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    self.center = window.center;
+    
+    [UIView commitAnimations];
+    
 }
 @end

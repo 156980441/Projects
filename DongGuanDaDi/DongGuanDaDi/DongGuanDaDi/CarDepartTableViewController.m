@@ -95,7 +95,17 @@
         array = [self.car.realStartTime componentsSeparatedByString:@" "];
         cell.realStartDateTxtField.text = [array objectAtIndex:0];
         cell.realStartTimeTxtField.text = [array objectAtIndex:1];
-        
+        if ([self.car.realEndTime isEqualToString:@""]) {
+            cell.realEndDateTxtField.text = @"暂未还车";
+            cell.realEndTimeTxtField.text = nil;
+        }
+        else
+        {
+            array = [self.car.realEndTime componentsSeparatedByString:@" "];
+            cell.realEndDateTxtField.text = [array objectAtIndex:0];
+            cell.realEndTimeTxtField.text = [array objectAtIndex:1];
+        }
+        cell.carOrderId.text = [NSString stringWithFormat:@"%ld",self.car.infoId];
         cell.passengersTxtField.text = [NSString stringWithFormat:@"%zd", self.car.peopleNum];
         cell.reasonTxtField.text = self.car.reason;
         NSString* url = [NSString stringWithFormat:@"%@%@",HOST,self.car.url];

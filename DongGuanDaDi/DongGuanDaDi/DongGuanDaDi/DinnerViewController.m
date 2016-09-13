@@ -216,6 +216,10 @@ enum FoodBtnTpye
     [super viewDidDisappear:animated];
     
     [self.dayPicker removeObserver:self forKeyPath:@"selectedDate"];
+    
+    // 今日 MenuViewController 界面后
+    self.recordBtn.hidden = self.voteBtn.hidden = YES;
+    self.view.alpha = self.view.alpha == 1.0 ? 0.7 : 1.0;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -228,6 +232,7 @@ enum FoodBtnTpye
     switch (meal.state) {
         case ThreeMealsState_canBook_canChange: {
             button.enabled = YES;
+            [button setSelected:NO];
             [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
             [button setBackgroundColor:[UIColor whiteColor]];
             break;
@@ -241,8 +246,9 @@ enum FoodBtnTpye
         }
         case ThreeMealsState_noBook_noChange: {
             button.enabled = NO;
-            [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-            [button setBackgroundColor:[UIColor whiteColor]];
+            [button setSelected:NO];
+            [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            [button setBackgroundColor:[UIColor lightGrayColor]];
             break;
         }
         case ThreeMealsState_booked_noChange: {
@@ -254,26 +260,6 @@ enum FoodBtnTpye
         }
     }
 }
-
--(void)updateSingleDinnerBtnsState:(UIButton*) button {
-    
-    UIColor* color = nil;
-    
-    button.selected = !button.selected;
-    if (button.isSelected) {
-        color = [UIColor blueColor];
-        button.selected = YES;
-    }
-    else {
-        color = [UIColor whiteColor];
-        button.selected = NO;
-        UIColor* color = [UIColor blackColor];
-        [button setTitleColor:color forState:UIControlStateNormal];
-    }
-    
-    button.backgroundColor = color;
-}
-
 
 -(void)updateAllDinnerBtnsState {
     NSDate* today = [NSDate date];
@@ -371,7 +357,7 @@ enum FoodBtnTpye
                 [self updateSingleDinnerBtnsState:self.dinnerBtn byMeal:meals];
             }
             if (self.dinnerBtn.backgroundColor == self.lunchBtn.backgroundColor && self.lunchBtn.backgroundColor == self.breakfastBtn.backgroundColor && self.dinnerBtn.backgroundColor == [UIColor blueColor]) {
-                self.orderAllBtn.backgroundColor = [UIColor blueColor];
+                [self.orderAllBtn setSelected:YES];
             }
             else
             {
