@@ -45,7 +45,7 @@ enum BtnTagTypes
     
     self.passenagersNunTxtField.delegate = self;
     self.passenagersNunTxtField.returnKeyType = UIReturnKeyDone;
-    self.passenagersNunTxtField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+    self.passenagersNunTxtField.keyboardType = UIKeyboardTypeNumberPad;
     
     self.cancelBtn.layer.borderWidth = self.submitBtn.layer.borderWidth = 0.5;
     self.cancelBtn.layer.borderColor = self.submitBtn.layer.borderColor = [UIColor lightGrayColor].CGColor;
@@ -151,6 +151,23 @@ enum BtnTagTypes
 {
     [textField resignFirstResponder];
     return YES;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField;
+{
+    // 调整键盘和视图高度
+    
+    NSTimeInterval animationDuration = 0.30f;
+    
+    [UIView beginAnimations:@"ResizeForKeyBoard" context:nil];
+    
+    [UIView setAnimationDuration:animationDuration];
+    
+    
+    self.center = CGPointMake(self.center.x, self.center.y - 216 / 2);// 键盘高度216
+    
+    [UIView commitAnimations];
+    
 }
 
 @end

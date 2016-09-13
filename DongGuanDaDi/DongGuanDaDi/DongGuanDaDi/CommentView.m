@@ -81,6 +81,10 @@
     
     [self dismiss];
 }
+
+- (IBAction)cancleBtnClick:(id)sender {
+    [self dismiss];
+}
 -(void)show
 {
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
@@ -133,4 +137,5 @@
     [UIView commitAnimations];
     
 }
+
 @end

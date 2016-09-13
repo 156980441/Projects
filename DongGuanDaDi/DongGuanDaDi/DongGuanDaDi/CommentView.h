@@ -36,6 +36,7 @@
 
 - (IBAction)starBtnClick:(id)sender;
 - (IBAction)submitBtnClick:(id)sender;
+- (IBAction)cancleBtnClick:(id)sender;
 - (void)show;
 - (void)dismiss;
 
