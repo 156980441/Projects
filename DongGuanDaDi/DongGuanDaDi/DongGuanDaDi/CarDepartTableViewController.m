@@ -33,6 +33,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+// need optimized
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (!self.isMyOrder) {
+        return 1050;
+    }
+    else {
+        return 725;
+    }
+}
 
 
 #pragma mark - Table view data source
