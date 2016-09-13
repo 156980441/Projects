@@ -91,17 +91,22 @@
     [manager GET:url parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.dataSource removeAllObjects];
         NSArray* comments = (NSArray*)responseObject;
-        for (NSDictionary* dic in comments) {
-            DinnerCommentInfo* info = [[DinnerCommentInfo alloc] init];
-            info.commentId = ((NSNumber*)[dic objectForKey:@"id"]).integerValue;
-            info.content = [dic objectForKey:@"content"];
-            info.date = [dic objectForKey:@"createdTime"];
-            NSDictionary* dic_auth = [dic objectForKey:@"author"];
-            info.authName = [dic_auth objectForKey:@"name"];
-            info.score = ((NSNumber*)[dic objectForKey:@"score"]).integerValue;
-            [self.dataSource addObject:info];
+        if (comments.count > 0) {
+            for (NSDictionary* dic in comments) {
+                DinnerCommentInfo* info = [[DinnerCommentInfo alloc] init];
+                info.commentId = ((NSNumber*)[dic objectForKey:@"id"]).integerValue;
+                info.content = [dic objectForKey:@"content"];
+                info.date = [dic objectForKey:@"createdTime"];
+                NSDictionary* dic_auth = [dic objectForKey:@"author"];
+                info.authName = [dic_auth objectForKey:@"name"];
+                info.score = ((NSNumber*)[dic objectForKey:@"score"]).integerValue;
+                [self.dataSource addObject:info];
+            }
+            [self.tableView reloadData];
         }
-        [self.tableView reloadData];
+        else {
+            [YLToast showWithText:@"暂无评论数据"];
+        }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [YLToast showWithText:@"网络连接失败，请检查网络配置"];
@@ -171,6 +176,28 @@
         cell.contentLabel.numberOfLines = 0;
         cell.contentLabel.text = info.content;
         [cell.contentLabel sizeToFit];
+        
+        if (info.score == 1) {
+            [cell.starBtn1 setSelected:YES];
+        } else if (info.score == 2) {
+            [cell.starBtn1 setSelected:YES];
+            [cell.starBtn2 setSelected:YES];
+        } else if (info.score == 3) {
+            [cell.starBtn1 setSelected:YES];
+            [cell.starBtn2 setSelected:YES];
+            [cell.starBtn3 setSelected:YES];
+        } else if (info.score == 4) {
+            [cell.starBtn1 setSelected:YES];
+            [cell.starBtn2 setSelected:YES];
+            [cell.starBtn3 setSelected:YES];
+            [cell.starBtn4 setSelected:YES];
+        } else if (info.score == 5) {
+            [cell.starBtn1 setSelected:YES];
+            [cell.starBtn2 setSelected:YES];
+            [cell.starBtn3 setSelected:YES];
+            [cell.starBtn4 setSelected:YES];
+            [cell.starBtn5 setSelected:YES];
+        }
         
     }
     // Configure the cell...

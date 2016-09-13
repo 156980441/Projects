@@ -219,7 +219,7 @@ enum FoodBtnTpye
     
     // 今日 MenuViewController 界面后
     self.recordBtn.hidden = self.voteBtn.hidden = YES;
-    self.view.alpha = self.view.alpha == 1.0 ? 0.7 : 1.0;
+    self.view.alpha = 1.0;
 }
 
 - (void)didReceiveMemoryWarning {
