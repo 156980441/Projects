@@ -17,7 +17,13 @@
 @end
 
 @implementation DinnerCommentTableViewHeaderView
-
+-(void)awakeFromNib
+{
+    self.commentBtn.layer.cornerRadius = 20;
+    self.commentBtn.backgroundColor = [UIColor colorWithRed:0.263 green:0.570 blue:1.000 alpha:1.000];
+    self.dateBtn.backgroundColor = [UIColor colorWithWhite:0.702 alpha:1.000];
+    self.dateBtn.layer.cornerRadius = 10;
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

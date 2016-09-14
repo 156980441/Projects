@@ -10,6 +10,9 @@
 
 @interface DinnerCommentTableViewHeaderView : UIView
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet UIButton *commentBtn;
+@property (strong, nonatomic) IBOutlet UIButton *dateBtn;
+
 - (IBAction)commentBtnClick:(id)sender;
 - (IBAction)dateBtnClick:(id)sender;
 @property (strong, nonatomic) IBOutlet UILabel *dinnerNameLabel;
