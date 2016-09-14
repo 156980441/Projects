@@ -124,13 +124,20 @@
             [self.dataSource addObject:record];
         }
         
-        [self.tableView reloadData];
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;// 有数据之后显示分割线
+        if (self.dataSource.count > 0) {
+            [self.tableView reloadData];
+            self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;// 有数据之后显示分割线
+            
+            self.recordTotalLabel.text = [NSString stringWithFormat:@"记录总数：%zd",arr.count];
+            self.dinnerTimesLabel.text = [NSString stringWithFormat:@"用餐次数：%zd",eated];
+            self.orderTimesLabel.text = [NSString stringWithFormat:@"预定次数：%zd",predetermined];
+            self.recordTotalLabel.hidden = self.orderTimesLabel.hidden = self.dinnerTimesLabel.hidden = self.typeLabel.hidden = self.eatedLabel.hidden = self.isOrderLabel.hidden = self.dateLabel.hidden = NO;
+        }
+        else
+        {
+            [YLToast showWithText:@"暂无该时间段记录"];
+        }
         
-        self.recordTotalLabel.text = [NSString stringWithFormat:@"记录总数：%zd",arr.count];
-        self.dinnerTimesLabel.text = [NSString stringWithFormat:@"用餐次数：%zd",eated];
-        self.orderTimesLabel.text = [NSString stringWithFormat:@"预定次数：%zd",predetermined];
-        self.recordTotalLabel.hidden = self.orderTimesLabel.hidden = self.dinnerTimesLabel.hidden = self.typeLabel.hidden = self.eatedLabel.hidden = self.isOrderLabel.hidden = self.dateLabel.hidden = NO;
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [YLToast showWithText:@"网络连接失败，请检查网络配置"];
     }];

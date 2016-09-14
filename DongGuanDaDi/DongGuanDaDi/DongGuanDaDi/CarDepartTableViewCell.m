@@ -25,6 +25,7 @@
     [super awakeFromNib];
     // Initialization code
     
+    // 在 Xib 中关闭了 TextField enable 属性
     self.picker = [[YLDatePicker alloc] init];
     self.picker.frame = CGRectMake(0, 0, 300, 250);
     self.picker.delegate = self;

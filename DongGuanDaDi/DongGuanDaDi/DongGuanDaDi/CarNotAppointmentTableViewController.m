@@ -54,7 +54,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CarNotAppointmentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"carNotAppoint" forIndexPath:indexPath];
-    cell.brandTxtField.text = self.car.brand;
+    cell.brandTxtField.text = self.car.number;
     cell.seatintTxtField.text = [NSString stringWithFormat:@"%ld",self.car.seating];
     cell.appointmentPeopleTxtField.text = self.car.driver;
     

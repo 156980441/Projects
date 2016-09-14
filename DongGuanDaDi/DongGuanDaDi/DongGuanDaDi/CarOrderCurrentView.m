@@ -40,6 +40,7 @@
     
     self.reasonTxtView.layer.borderColor = [UIColor grayColor].CGColor;
     self.reasonTxtView.layer.borderWidth =1.0;
+    self.reasonTxtView.delegate = self;
     
     self.picker = [[YLDatePicker alloc] init];
     self.picker.delegate = self;
@@ -79,6 +80,11 @@
 // 写在这里防止弹出键盘
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
+    [self.reasonTxtView resignFirstResponder];
+    if (self.passengerTxtField != textField) {
+        [self.passengerTxtField resignFirstResponder];
+    }
+    
     self.picker.backgroundColor = [UIColor whiteColor];
     self.picker.mode = UIDatePickerModeDate;
     if (self.startDateTxtField == textField) {
@@ -127,6 +133,23 @@
 {
     [textField resignFirstResponder];
     return YES;
+}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    // 调整键盘和视图高度
+    
+    NSTimeInterval animationDuration = 0.30f;
+    
+    [UIView beginAnimations:@"ResizeForKeyBoard" context:nil];
+    
+    [UIView setAnimationDuration:animationDuration];
+    
+    
+    self.center = CGPointMake(self.center.x, self.center.y - 216 / 2);// 键盘高度216
+    
+    [UIView commitAnimations];
+    
 }
 
 @end

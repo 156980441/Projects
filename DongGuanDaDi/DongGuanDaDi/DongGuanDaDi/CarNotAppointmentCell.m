@@ -37,6 +37,12 @@
 }
 
 - (IBAction)appointmentBtnClick:(id)sender {
+    
+    if ([self.passengerTxtField.text isEqualToString:@""] || [self.appointReasonTxtView.text isEqualToString:@""] || [self.startDateTxtField.text isEqualToString:@""] || [self.endDateTxtField.text isEqualToString:@""]  || [self.startTimeTxtField.text isEqualToString:@""] || [self.endTimeTxtField.text isEqualToString:@""]) {
+        [YLToast showWithText:@"输入不能为空"];
+        return;
+    }
+    
     NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:
                          self.passengerTxtField.text,@"peopleNumber",
                          self.appointmentPeopleTxtField.text,@"driver",
@@ -70,6 +76,11 @@
 // 写在这里防止弹出键盘
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
+    [self.appointReasonTxtView resignFirstResponder];
+    if (self.passengerTxtField != textField) {
+        [self.passengerTxtField resignFirstResponder];
+    }
+    
     self.picker.backgroundColor = [UIColor whiteColor];
     self.picker.mode = UIDatePickerModeDate;
     if (self.startDateTxtField == textField) {

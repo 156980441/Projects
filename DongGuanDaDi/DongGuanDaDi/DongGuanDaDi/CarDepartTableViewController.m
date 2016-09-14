@@ -25,7 +25,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.title = [NSString stringWithFormat:@"%@ 出车详情",self.car.number];
-    
+    self.tableView.allowsSelection = NO; // 是否可以点击一行
 }
 
 - (void)didReceiveMemoryWarning {
