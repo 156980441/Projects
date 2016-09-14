@@ -20,4 +20,5 @@ typedef enum CanteenVoteState
 @property (nonatomic, assign) NSInteger voteId;
 @property (nonatomic, strong) NSString* startDate;
 @property (nonatomic, strong) NSString* endDate;
+@property (nonatomic, strong) NSArray* foodList;
 @end

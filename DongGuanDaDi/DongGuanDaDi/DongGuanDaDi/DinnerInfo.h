@@ -22,4 +22,8 @@ typedef enum DinnerInfoType
 @property (nonatomic, strong) NSString* name;
 @property (nonatomic, strong) NSString* desc;
 @property (nonatomic, strong) NSString* date;
+
+@property (nonatomic, strong) NSString* foodVote;
+@property (nonatomic, strong) NSString* profile;
+@property (nonatomic, assign) NSInteger voteNumber;
 @end
