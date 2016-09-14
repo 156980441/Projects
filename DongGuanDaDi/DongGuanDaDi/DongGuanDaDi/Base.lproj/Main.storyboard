@@ -125,13 +125,12 @@
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YrR-xU-tRw">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YrR-xU-tRw">
                                             <rect key="frame" x="275" y="125" width="50" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="50" id="6Il-6j-WzQ"/>
                                                 <constraint firstAttribute="height" constant="50" id="IlZ-5o-JGq"/>
                                             </constraints>
-                                            <state key="normal" title="Button"/>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWh-mL-PnC">
                                             <rect key="frame" x="279" y="185" width="42" height="21"/>
@@ -1513,55 +1512,55 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="请输入出车时间" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tXa-Ye-uOC">
-                                            <rect key="frame" x="132" y="48" width="150" height="30"/>
+                                            <rect key="frame" x="132" y="48" width="160" height="30"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="150" id="G0f-v0-rz9"/>
+                                                <constraint firstAttribute="width" constant="160" id="G0f-v0-rz9"/>
                                                 <constraint firstAttribute="height" constant="30" id="Qqd-JD-bOZ"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IW6-yf-1jK">
-                                            <rect key="frame" x="132" y="8" width="150" height="30"/>
+                                            <rect key="frame" x="132" y="8" width="160" height="30"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="150" id="HXr-Gj-3zK"/>
+                                                <constraint firstAttribute="width" constant="160" id="HXr-Gj-3zK"/>
                                                 <constraint firstAttribute="height" constant="30" id="xuG-zJ-Xib"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="请输入随车人数" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g4D-Kk-bKG">
-                                            <rect key="frame" x="132" y="124" width="150" height="30"/>
+                                            <rect key="frame" x="132" y="124" width="160" height="30"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="150" id="ByM-Xq-zbh"/>
+                                                <constraint firstAttribute="width" constant="160" id="ByM-Xq-zbh"/>
                                                 <constraint firstAttribute="height" constant="30" id="Yeo-dv-SQc"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iVR-4L-p4b">
-                                            <rect key="frame" x="132" y="200" width="150" height="30"/>
+                                            <rect key="frame" x="132" y="200" width="160" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="EEb-hT-vfD"/>
-                                                <constraint firstAttribute="width" constant="150" id="mfn-3O-Jup"/>
+                                                <constraint firstAttribute="width" constant="160" id="mfn-3O-Jup"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="12：00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TZR-I0-E4k">
-                                            <rect key="frame" x="311" y="48" width="100" height="30"/>
+                                            <rect key="frame" x="321" y="48" width="80" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="Vcv-oA-30m"/>
-                                                <constraint firstAttribute="width" constant="100" id="vAs-VC-pxS"/>
+                                                <constraint firstAttribute="width" constant="80" id="vAs-VC-pxS"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="12：00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cQQ-eb-Vp4">
-                                            <rect key="frame" x="311" y="86" width="100" height="30"/>
+                                            <rect key="frame" x="321" y="86" width="80" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="s8N-Aq-GrF"/>
-                                                <constraint firstAttribute="width" constant="100" id="yLf-UE-L7L"/>
+                                                <constraint firstAttribute="width" constant="80" id="yLf-UE-L7L"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
@@ -1600,19 +1599,19 @@
                                             </connections>
                                         </button>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7w3-Q7-E3h">
-                                            <rect key="frame" x="132" y="162" width="150" height="30"/>
+                                            <rect key="frame" x="132" y="162" width="160" height="30"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="150" id="3Pd-LB-7Ec"/>
+                                                <constraint firstAttribute="width" constant="160" id="3Pd-LB-7Ec"/>
                                                 <constraint firstAttribute="height" constant="30" id="YHA-dd-xWB"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="请输入还车时间" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OQE-k9-IjT">
-                                            <rect key="frame" x="132" y="86" width="150" height="30"/>
+                                            <rect key="frame" x="132" y="86" width="160" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="XcI-JG-LsO"/>
-                                                <constraint firstAttribute="width" constant="150" id="kC2-vo-exS"/>
+                                                <constraint firstAttribute="width" constant="160" id="kC2-vo-exS"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>

@@ -69,6 +69,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     MainViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MainViewCell" forIndexPath:indexPath];
+    
     NSInteger section = indexPath.section;
     if (0 == section) {
         cell.title.text = [NSString stringWithFormat:@"%@,欢迎登陆本应用系统!",self.staff.name];
@@ -86,16 +87,16 @@
     else if (1 == section)
     {
         cell.title.text = [self.dataSources objectAtIndex:indexPath.row];
+        
         cell.appLabel.font = [UIFont systemFontOfSize:14.0];// 来自Android client 数据
-        
         cell.appLabel.text = nil;
-        
-//        [cell.imageBtn setBackgroundImage:[YLCommon initWithColor:[UIColor colorWithRed:0.397 green:0.593 blue:1.000 alpha:1.000] rect:cell.imageBtn.frame] forState:UIControlStateNormal];
+
         cell.imageBtn.backgroundColor = [UIColor colorWithRed:0.397 green:0.593 blue:1.000 alpha:1.000];
-        cell.imageBtn.layer.cornerRadius = 25;
         [cell.imageBtn setImage:[UIImage imageNamed:[self.imageDataSources objectAtIndex:indexPath.row]] forState:UIControlStateNormal];
-        cell.imageBtn.backgroundColor = [UIColor colorWithRed:0.137 green:0.221 blue:1.000 alpha:1.000];
+        
         cell.imageBtn.adjustsImageWhenDisabled = NO;
+        
+        cell.imageBtn.layer.cornerRadius = 25;
         [cell.imageBtn.layer setBorderWidth:1.0];
         [cell.imageBtn.layer setBorderColor:[[UIColor whiteColor] CGColor]];
     }
