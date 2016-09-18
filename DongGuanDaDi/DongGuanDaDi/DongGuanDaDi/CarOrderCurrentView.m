@@ -15,7 +15,12 @@
 #import "AFHTTPSessionManager.h"
 
 @interface CarOrderCurrentView () <UITextFieldDelegate,YLDatePickerDelegate>
+
 @property (strong, nonatomic) YLDatePicker* picker;
+
+@property (nonatomic, strong) NSDate *startDate;
+@property (nonatomic, strong) NSDate *endDate;
+
 @end
 
 @implementation CarOrderCurrentView
@@ -49,25 +54,32 @@
 
 - (IBAction)submitBtnClick:(id)sender {
     
+    if ([self.passengerTxtField.text isEqualToString:@""] || [self.reasonTxtView.text isEqualToString:@""] || [self.startDateTxtField.text isEqualToString:@""] || [self.endDateTxtField.text isEqualToString:@""]  || [self.startTimeTxtField.text isEqualToString:@""] || [self.endTimeTxtField.text isEqualToString:@""]) {
+        [YLToast showWithText:@"输入不能为空"];
+        return;
+    }
+    
     NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:
                          self.passengerTxtField.text,@"peopleNumber",
                          self.reasonTxtView.text,@"reason",
                          [NSString stringWithFormat:@"%@ %@",self.endDateTxtField.text,self.endTimeTxtField.text], @"end",
                          [NSString stringWithFormat:@"%@ %@",self.startDateTxtField.text,self.startTimeTxtField.text], @"start",
                          nil];
-    NSDictionary* dic2 = [NSDictionary dictionaryWithObjectsAndKeys:
-                          @"2",@"peopleNumber",
-                          @"何少毅",@"driver",
-                          @"测试",@"reason",
-                          @"粤WQS25",@"carNumber",
-                          @"",@"officeId",
-                          @"2016-09-05", @"end",
-                          @"2016-09-04", @"start",
-                          nil];
+    // test
+//    NSDictionary* dic2 = [NSDictionary dictionaryWithObjectsAndKeys:
+//                          @"2",@"peopleNumber",
+//                          @"何少毅",@"driver",
+//                          @"测试",@"reason",
+//                          @"粤WQS25",@"carNumber",
+//                          @"",@"officeId",
+//                          @"2016-09-05", @"end",
+//                          @"2016-09-04", @"start",
+//                          nil];
+    
     AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
     [manager.requestSerializer setValue:@"/DongGuan/" forHTTPHeaderField:@"referer"];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    [manager POST:URL_CAR_APPOINTMENT_SUBMIT_TABLE parameters:dic2 success:^(NSURLSessionDataTask *task, id responseObject) {
+    [manager POST:URL_CAR_APPOINTMENT_SUBMIT_TABLE parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
         [YLToast showWithText:@"预约成功"];
         NSLog(@"%@",responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -119,8 +131,22 @@
 - (void)picker:(UIDatePicker *)picker valueChanged:(NSDate *)date
 {
     if (0 == picker.tag) {
+        
+        if ([date compare:[NSDate date]] == NSOrderedAscending) {
+            [YLToast showWithText:@"出车时间不能小于当前时间"];
+            return;
+        }
+        self.startDate = date;
+        
         self.startDateTxtField.text = [YLCommon date2String:date];
     } else if (1 == picker.tag) {
+        
+        if ([date compare:self.startDate] == NSOrderedAscending) {
+            [YLToast showWithText:@"还车时间应大于出车时间"];
+            return;
+        }
+        self.endDate = date;
+        
         self.endDateTxtField.text = [YLCommon date2String:date];
     } else if (2 == picker.tag) {
         self.startTimeTxtField.text = [YLCommon time2String:date];

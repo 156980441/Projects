@@ -56,17 +56,20 @@
         info.startDate = [result objectForKey:@"begin_date"];
         info.endDate = [result objectForKey:@"end_date"];
         NSArray* list = (NSArray*)[result objectForKey:@"food_list"];
-        NSMutableArray* temp = [NSMutableArray array];
-        for (NSDictionary* food in list) {
-            DinnerInfo* dinnerInfo = [[DinnerInfo alloc] init];
-            dinnerInfo.foodId = ((NSNumber*)[food objectForKey:@"id"]).integerValue;
-            dinnerInfo.voteNumber = ((NSNumber*)[food objectForKey:@"vote_number"]).integerValue;
-            dinnerInfo.foodVote = [food objectForKey:@"foodVote"];
-            dinnerInfo.name = [food objectForKey:@"food_name"];
-            dinnerInfo.profile = [food objectForKey:@"profile"];
-            [temp addObject:dinnerInfo];
+        if (![list isKindOfClass:[NSNull class]])
+        {
+            NSMutableArray* temp = [NSMutableArray array];
+            for (NSDictionary* food in list) {
+                DinnerInfo* dinnerInfo = [[DinnerInfo alloc] init];
+                dinnerInfo.foodId = ((NSNumber*)[food objectForKey:@"id"]).integerValue;
+                dinnerInfo.voteNumber = ((NSNumber*)[food objectForKey:@"vote_number"]).integerValue;
+                dinnerInfo.foodVote = [food objectForKey:@"foodVote"];
+                dinnerInfo.name = [food objectForKey:@"food_name"];
+                dinnerInfo.profile = [food objectForKey:@"profile"];
+                [temp addObject:dinnerInfo];
+            }
+            info.foodList = [temp copy];
         }
-        info.foodList = [temp copy];
         info.state = (CanteenVoteState)((NSNumber*)[result objectForKey:@"state"]).integerValue;
         info.voteId = ((NSNumber*)[result objectForKey:@"vote_id"]).integerValue;
         self.canteenVoteInfo = info;
@@ -95,8 +98,10 @@
     [_eColumnChart setNormalColumnColor:[UIColor colorWithRed:0.000 green:0.502 blue:1.000 alpha:1.000]];
     [_eColumnChart setColumnsIndexStartFromLeft:YES];
     [_eColumnChart setShowHorizontalLabelsWithInteger:YES];
-    [_eColumnChart setDelegate:self];
-    [_eColumnChart setDataSource:self];
+    if(self.data.count > 0) {
+        [_eColumnChart setDelegate:self];
+        [_eColumnChart setDataSource:self];
+    }
     
     
     [self.chatView addSubview:_eColumnChart];

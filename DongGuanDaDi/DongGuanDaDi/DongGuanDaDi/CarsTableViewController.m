@@ -426,14 +426,14 @@
                              [NSString stringWithFormat:@"%@ %@",weak_orderView.endDateBtn.titleLabel.text,weak_orderView.endTimeBtn.titleLabel.text], @"end",
                              [NSString stringWithFormat:@"%@ %@",weak_orderView.startDateBtn.titleLabel.text,weak_orderView.startTimeBtn.titleLabel.text], @"start",
                              nil];
-        NSDictionary* dic2 = [NSDictionary dictionaryWithObjectsAndKeys:
-                              @"2",@"peopleNumber",
-                              @"2016-09-08 12:10", @"end",
-                              @"2016-09-07 12:10", @"start",
-                              nil];
+//        NSDictionary* dic2 = [NSDictionary dictionaryWithObjectsAndKeys:
+//                              @"2",@"peopleNumber",
+//                              @"2016-09-08 12:10", @"end",
+//                              @"2016-09-07 12:10", @"start",
+//                              nil];
         AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
         [manager.requestSerializer setValue:@"/DongGuan/" forHTTPHeaderField:@"referer"];
-        [manager POST:URL_CAR_APPOINTMENT_SUBMIT parameters:dic2 success:^(NSURLSessionDataTask *task, id responseObject) {
+        [manager POST:URL_CAR_APPOINTMENT_SUBMIT parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
             
             NSDictionary* dic = (NSDictionary*)responseObject;
             NSArray* carManage_dic = [dic objectForKey:@"carManage"];
