@@ -28,8 +28,8 @@
 @property (nonatomic, strong) NSMutableArray *carsDepart;
 @property (nonatomic, strong) NSMutableArray *orderDataSource;// 车辆预约的数据
 
-@property (nonatomic, strong) NSMutableArray *myCarsNotAppointed;
-@property (nonatomic, strong) NSMutableArray *myCarsAppointed;
+@property (nonatomic, strong) NSMutableArray *myCarsNotDepart;
+@property (nonatomic, strong) NSMutableArray *myCarsBack;
 @property (nonatomic, strong) NSMutableArray *myCarsDepart;
 @property (nonatomic, strong) NSMutableArray *myOrderDataSource;// 我的预约的数据
 
@@ -56,8 +56,8 @@
     self.orderDataSource = [NSMutableArray array];
     
     self.myCarsDepart = [NSMutableArray array];
-    self.myCarsAppointed = [NSMutableArray array];
-    self.myCarsNotAppointed = [NSMutableArray array];
+    self.myCarsNotDepart = [NSMutableArray array];
+    self.myCarsBack = [NSMutableArray array];
     self.myOrderDataSource = [NSMutableArray array];
     
     // 首次默认显示车辆预约的数据
@@ -336,8 +336,8 @@
         self.showCarOrderBtn.hidden = YES;
         
         [self.myCarsDepart removeAllObjects];
-        [self.myCarsNotAppointed removeAllObjects];
-        [self.myCarsAppointed removeAllObjects];
+        [self.myCarsNotDepart removeAllObjects];
+        [self.myCarsBack removeAllObjects];
         
         self.dataSource = nil;
         
@@ -363,11 +363,28 @@
                 car.reason = [temp objectForKey:@"reason"];
                 car.startTime = [temp objectForKey:@"startTime"];
                 
-                [self.myCarsDepart addObject:car];
+                if ([car.realStartTime isEqualToString:@""])
+                {
+                    [self.myCarsNotDepart addObject:car];
+                    
+                }
+                else if (![car.realStartTime isEqualToString:@""])
+                {
+                    if ([car.realEndTime isEqualToString:@""]) {
+                        [self.myCarsDepart addObject:car];
+                    }
+                }
+                else if (![car.realStartTime isEqualToString:@""])
+                {
+                    if (![car.realEndTime isEqualToString:@""]) {
+                        [self.myCarsBack addObject:car];
+                    }
+                }
+                
                 [self.myOrderDataSource addObject:car];
             }
             
-            self.dataSource = self.myCarsNotAppointed;
+            self.dataSource = self.myCarsNotDepart;
             
             [self.tableView reloadData];
             
@@ -493,7 +510,7 @@
         if (0 == index) {
             [self.sectionHeaderView setTitle:weak_view.notAppointmentBtn.titleLabel.text forState:UIControlStateNormal];
             [weak_view removeFromSuperview];
-            self.dataSource = self.myCarsNotAppointed;
+            self.dataSource = self.myCarsNotDepart;
             [self.tableView reloadData];
         }
         else if (1 == index)
@@ -507,7 +524,7 @@
         {
             [self.sectionHeaderView setTitle:weak_view.hasBackBtn.titleLabel.text forState:UIControlStateNormal];
             [weak_view removeFromSuperview];
-            self.dataSource = self.myCarsAppointed;
+            self.dataSource = self.myCarsBack;
             [self.tableView reloadData];
         }
     };
