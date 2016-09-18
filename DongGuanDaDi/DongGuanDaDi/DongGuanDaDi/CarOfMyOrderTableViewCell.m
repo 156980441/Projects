@@ -6,9 +6,9 @@
 //  Copyright © 2016 fanyl. All rights reserved.
 //
 
-#import "CarDepartOfMyOrderTableViewCell.h"
+#import "CarOfMyOrderTableViewCell.h"
 
-@implementation CarDepartOfMyOrderTableViewCell
+@implementation CarOfMyOrderTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CarDepartOfMyOrderTableViewCell : UITableViewCell <UITextFieldDelegate>
+@interface CarOfMyOrderTableViewCell : UITableViewCell <UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UIImageView *carImage;
 
 @property (strong, nonatomic) IBOutlet UITextField *carNumberTxtField;

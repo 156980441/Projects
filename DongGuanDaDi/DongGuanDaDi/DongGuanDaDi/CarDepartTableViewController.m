@@ -8,7 +8,7 @@
 
 #import "CarDepartTableViewController.h"
 #import "CarDepartTableViewCell.h"
-#import "CarDepartOfMyOrderTableViewCell.h"
+#import "CarOfMyOrderTableViewCell.h"
 #import "Car.h"
 
 #import "stdafx_DongGuanDaDi.h"
@@ -88,8 +88,8 @@
     }
     else
     {
-        CarDepartOfMyOrderTableViewCell *cell;
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CarDepartOfMyOrderTableViewCell" owner:self options:nil];
+        CarOfMyOrderTableViewCell *cell;
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CarOfMyOrderTableViewCell" owner:self options:nil];
         if ([nib count]>0)
         {
             cell = [nib objectAtIndex:0];
