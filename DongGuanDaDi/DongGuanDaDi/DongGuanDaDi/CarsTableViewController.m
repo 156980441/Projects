@@ -10,9 +10,12 @@
 #import "Car.h"
 #import "CarDetailCell.h"
 #import "CarDetailOfMyOrderTableViewCell.h"
+
 #import "CarNotAppointmentTableViewController.h"
 #import "CarDepartTableViewController.h"
 #import "CarAppointmentTableViewController.h"
+#import "CarOfMyOrderTableViewController.h"
+
 #import "ShowCarsTypesView.h"
 #import "CarOrderView.h"
 #import "YLToast.h"
@@ -181,17 +184,22 @@
 {
     self.selectedCar = (Car*)[self.dataSource objectAtIndex:indexPath.row];
     DGCarState state = self.selectedCar.state;
-    if (state == DGCarNotAppointment)
-    {
-        [self performSegueWithIdentifier:@"carNotAppointment" sender:self];
+    if (self.orderAndMyOrderSeg.selectedSegmentIndex == 0) {
+        if (state == DGCarNotAppointment)
+        {
+            [self performSegueWithIdentifier:@"carNotAppointment" sender:self];
+        }
+        else if (state == DGCarDepart)
+        {
+            [self performSegueWithIdentifier:@"carDepart" sender:self];
+        }
+        else if (state == DGCarAppointment)
+        {
+            [self performSegueWithIdentifier:@"carAppointment" sender:self];
+        }
     }
-    else if (state == DGCarDepart)
-    {
-        [self performSegueWithIdentifier:@"carDepart" sender:self];
-    }
-    else if (state == DGCarAppointment)
-    {
-        [self performSegueWithIdentifier:@"carAppointment" sender:self];
+    else if (self.orderAndMyOrderSeg.selectedSegmentIndex == 1) {
+        [self performSegueWithIdentifier:@"carOfMyOrder" sender:self];
     }
 }
 
@@ -313,11 +321,14 @@
     if ([vc isKindOfClass:[CarDepartTableViewController class]]) {
         CarDepartTableViewController* carDepartVc = (CarDepartTableViewController*)vc;
         carDepartVc.car = self.selectedCar;
-        carDepartVc.isMyOrder = self.orderAndMyOrderSeg.selectedSegmentIndex;
     }
     if ([vc isKindOfClass:[CarAppointmentTableViewController class]]) {
         CarAppointmentTableViewController* carAppointVc = (CarAppointmentTableViewController*)vc;
         carAppointVc.car = self.selectedCar;
+    }
+    if ([vc isKindOfClass:[CarOfMyOrderTableViewController class]]) {
+        CarOfMyOrderTableViewController* carOfMyOrder = (CarOfMyOrderTableViewController*)vc;
+        carOfMyOrder.car = self.selectedCar;
     }
 }
 

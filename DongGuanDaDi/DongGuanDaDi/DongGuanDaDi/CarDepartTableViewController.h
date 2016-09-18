@@ -12,5 +12,4 @@
 
 @interface CarDepartTableViewController : UITableViewController
 @property (nonatomic, strong) Car *car;
-@property (nonatomic, assign) BOOL isMyOrder;
 @end
