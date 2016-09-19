@@ -30,6 +30,7 @@ enum FoodBtnTpye
 @property (nonatomic, strong) NSMutableArray* dinner_arr;
 @property (nonatomic, strong) NSDate* selecetedDate;
 @property (nonatomic, strong) NSMutableArray* seletedFoods;// 用于提交预约饭菜
+@property (nonatomic, strong) NSMutableArray* seletedThreeMeals; // 用于提交预约饭菜
 @end
 
 @implementation DinnerViewController
@@ -42,20 +43,20 @@ enum FoodBtnTpye
     self.lunch_arr = [NSMutableArray array];
     self.dinner_arr = [NSMutableArray array];
     self.seletedFoods = [NSMutableArray array];
+    self.seletedThreeMeals = [NSMutableArray array];
     
     self.breakfastBtn.tag = foodBtnTpye_breakfast;
     [self.breakfastBtn.layer setBorderWidth:1.0];
     [self.breakfastBtn.layer setBorderColor:[[UIColor grayColor] CGColor]];
-    self.breakfastBtn.titleLabel.backgroundColor = [UIColor clearColor];
+
     self.dinnerBtn.tag = foodBtnTpye_dinner;
     [self.dinnerBtn.layer setBorderWidth:1.0];
     [self.dinnerBtn.layer setBorderColor:[[UIColor grayColor] CGColor]];
-    self.dinnerBtn.titleLabel.backgroundColor = [UIColor clearColor];
+    
     self.lunchBtn.tag = foodBtnTpye_lunch;
     [self.lunchBtn.layer setBorderWidth:1.0];
     [self.lunchBtn.layer setBorderColor:[[UIColor grayColor] CGColor]];
-    self.lunchBtn.titleLabel.backgroundColor = [UIColor clearColor];
-    self.breakfastBtn.tintColor = self.dinnerBtn.tintColor = self.lunchBtn.tintColor = [UIColor blueColor];
+    
     self.moreBtn.layer.cornerRadius = 15.0;
     
     // 已优化，使用 UIButton 自身属性来改变 title 和 image 位置，减少内存开销
@@ -109,6 +110,7 @@ enum FoodBtnTpye
     
     btn.titleEdgeInsets = UIEdgeInsetsMake(titleEdgeInsetsTop, titleEdgeInsetsLeft, titleEdgeInsetsBottom, titleEdgeInsetsRight);
 }
+
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -352,6 +354,9 @@ enum FoodBtnTpye
     NSString* url = [NSString stringWithFormat:@"%@%@",URL_RESERVE_INFO,date_str];
     [manager GET:url parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSArray* result = (NSArray*)responseObject;
+        
+        [self.seletedThreeMeals removeAllObjects];
+        
         for (NSDictionary* dic in result) {
             ThreeMeals *meals = [[ThreeMeals alloc] init];
             meals.date = [dic objectForKey:@"date"];
@@ -374,7 +379,7 @@ enum FoodBtnTpye
             {
                 self.orderAllBtn.backgroundColor = [UIColor whiteColor];
             }
-            
+            [self.seletedThreeMeals addObject:meals];
         }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -499,21 +504,19 @@ enum FoodBtnTpye
     {
         [btn setBackgroundColor:[UIColor whiteColor]];
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        
+        // 只要有一个按钮不是选中，那么则关闭全选按钮的选中模式
+        [self.orderAllBtn setSelected:NO];
+        
     }
     
-    NSArray* foods = [self.dateAndDinners objectForKey:[YLCommon date2String:self.selecetedDate]];
-    NSDictionary* food_dic = [foods objectAtIndex:btn.tag];
-    NSArray* foodInfos = nil;
-    if (btn.tag == foodBtnTpye_breakfast) {
-        foodInfos = [food_dic objectForKey:@"早餐"];
-    } else if (btn.tag == foodBtnTpye_lunch) {
-        foodInfos = [food_dic objectForKey:@"午餐"];
-    } else if (btn.tag == foodBtnTpye_dinner) {
-        foodInfos = [food_dic objectForKey:@"晚餐"];
+    if (self.breakfastBtn.isSelected && self.lunchBtn.isSelected && self.dinnerBtn.isSelected) {
+        // 三个按钮全部选中，那么则打开全选按钮的选中模式
+        [self.orderAllBtn setSelected:YES];
     }
     
-    for (DinnerInfo* foodInfo in foodInfos) {
-        NSString* foodId = [NSString stringWithFormat:@"%ld",foodInfo.foodId];
+    for (ThreeMeals* meal in self.seletedThreeMeals) {
+        NSString* foodId = [NSString stringWithFormat:@"%ld",meal.mealsId];
         if (YES == btn.selected) {
             [self.seletedFoods addObject:foodId];
         }
@@ -545,7 +548,7 @@ enum FoodBtnTpye
                   
               }
               failure:^(NSURLSessionDataTask *task, NSError *error) {
-                  [YLToast showWithText:@"网络连接失败，请检查网络配置"];
+                  [YLToast showWithText:error.localizedDescription];
               }];
     }
 }

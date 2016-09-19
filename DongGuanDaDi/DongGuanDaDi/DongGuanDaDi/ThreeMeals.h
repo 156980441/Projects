@@ -23,6 +23,11 @@ typedef enum ThreeMealsType
     ThreeMealsType_dinner
 }ThreeMealsType;
 
+/**
+ *  类似 Android 平台的 AllDayDinnerInfo
+ *
+ *  @since 1.0.x
+ */
 @interface ThreeMeals : NSObject
 @property (nonatomic, strong) NSString *date;
 @property (nonatomic, assign) NSInteger mealsId;
