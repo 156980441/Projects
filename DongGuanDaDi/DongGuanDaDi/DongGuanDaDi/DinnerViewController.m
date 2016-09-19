@@ -517,12 +517,14 @@ enum FoodBtnTpye
     
     for (ThreeMeals* meal in self.seletedThreeMeals) {
         NSString* foodId = [NSString stringWithFormat:@"%ld",meal.mealsId];
-        if (YES == btn.selected) {
+        if (self.breakfastBtn.isSelected && meal.kind == ThreeMealsType_breakfast) {
             [self.seletedFoods addObject:foodId];
         }
-        else
-        {
-            [self.seletedFoods removeObject:foodId];
+        else if (self.dinnerBtn.isSelected && meal.kind == ThreeMealsType_dinner) {
+            [self.seletedFoods addObject:foodId];
+        }
+        else if (self.lunchBtn.isSelected && meal.kind == ThreeMealsType_lunch) {
+            [self.seletedFoods addObject:foodId];
         }
     }
 }
