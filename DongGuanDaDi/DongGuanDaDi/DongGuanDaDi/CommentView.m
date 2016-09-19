@@ -90,9 +90,23 @@
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     self.center = window.center;
     [window addSubview:self];
+    
+    for (UIView* view in self.window.subviews) {
+        if (![view isKindOfClass:[self class]]) {
+            view.alpha = view.alpha == 1 ? 0.7 : 1.0;
+            view.userInteractionEnabled = NO;
+        }
+    }
 }
 -(void)dismiss
 {
+    for (UIView* view in self.window.subviews) {
+        if (![view isKindOfClass:[self class]]) {
+            view.alpha = view.alpha != 1.0 ? 1.0 : 0.7;
+            view.userInteractionEnabled = YES;
+        }
+    }
+    
     [self removeFromSuperview];
 }
 -(void)textViewDidBeginEditing:(UITextView *)textView

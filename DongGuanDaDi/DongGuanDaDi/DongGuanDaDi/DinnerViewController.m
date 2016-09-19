@@ -211,15 +211,26 @@ enum FoodBtnTpye
     }];
     
 }
-- (void)viewDidDisappear:(BOOL)animated
+- (void)viewWillDisappear:(BOOL)animated
 {
-    [super viewDidDisappear:animated];
+    [super viewWillDisappear:animated];
     
+    // 在此方法中去除监听，防止手动来回拖动返回造成崩溃。
     [self.dayPicker removeObserver:self forKeyPath:@"selectedDate"];
     
     // 今日 MenuViewController 界面后
     self.recordBtn.hidden = self.voteBtn.hidden = YES;
-    self.view.alpha = 1.0;
+    
+    for (UIView* view in self.view.subviews) {
+        if (view != self.voteBtn && view != self.recordBtn && view != self.moreBtn) {
+            view.alpha = view.alpha != 1 ? 1.0 : 0.7;
+            view.userInteractionEnabled = !view.userInteractionEnabled;
+        }
+    }
+}
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -395,8 +406,12 @@ enum FoodBtnTpye
     self.recordBtn.hidden = !self.recordBtn.hidden;
     self.voteBtn.backgroundColor = self.recordBtn.backgroundColor = [UIColor whiteColor];
     
-    self.view.alpha = self.view.alpha == 1.0 ? 0.7 : 1.0;
-    self.voteBtn.alpha = self.recordBtn.alpha = 1.0;
+    for (UIView* view in self.view.subviews) {
+        if (view != self.voteBtn && view != self.recordBtn && view != self.moreBtn) {
+            view.alpha = view.alpha == 1 ? 0.7 : 1.0;
+            view.userInteractionEnabled = !view.userInteractionEnabled;
+        }
+    }
 }
 
 // 全部预约
