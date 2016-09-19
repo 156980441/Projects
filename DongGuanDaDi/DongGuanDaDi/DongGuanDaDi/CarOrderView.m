@@ -37,14 +37,13 @@ enum BtnTagTypes
 {
     self.datePiker = [[YLDatePicker alloc] init];
     self.datePiker.delegate = self;
-    self.datePiker.frame = CGRectMake(0, 0, 300, 300);
+    self.datePiker.frame = CGRectMake(0, 0, 320, 300);
     self.datePiker.mode = UIDatePickerModeDate;
     self.datePiker.backgroundColor = [UIColor whiteColor];
     [self.passenagersNunTxtField.layer setBorderColor:[[UIColor grayColor] CGColor]];
     [self.passenagersNunTxtField.layer setBorderWidth:1.0];
     
     self.passenagersNunTxtField.delegate = self;
-    self.passenagersNunTxtField.returnKeyType = UIReturnKeyDone;
     self.passenagersNunTxtField.keyboardType = UIKeyboardTypeNumberPad;
     
     self.cancelBtn.layer.borderWidth = self.submitBtn.layer.borderWidth = 0.5;

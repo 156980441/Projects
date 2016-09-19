@@ -29,6 +29,7 @@
     self.picker = [[YLDatePicker alloc] init];
     self.picker.frame = CGRectMake(0, 0, 300, 250);
     self.picker.delegate = self;
+    self.passengersTxtField.keyboardType = UIKeyboardTypeNumberPad;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

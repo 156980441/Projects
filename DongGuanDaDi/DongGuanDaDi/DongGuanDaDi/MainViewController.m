@@ -112,7 +112,6 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger section = indexPath.section;
-    UIViewController* vc;
     if (0 == section) {
         
     }
@@ -132,11 +131,11 @@
         }
         else if (3 == indexPath.row)
         {
-            [self performSegueWithIdentifier:@"cars" sender:self];
+            [YLToast showWithText:@"暂不支持"];
         }
         else if (4 == indexPath.row)
         {
-            vc = [[CarsTableViewController alloc] init];
+            [YLToast showWithText:@"暂不支持"];
         }
         else if (5 == indexPath.row)
         {

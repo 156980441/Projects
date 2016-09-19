@@ -30,6 +30,7 @@
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.allowsSelection = NO;
+    self.title = @"车辆详情";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,8 +71,9 @@
     cell.endDateTxtField.text = [array objectAtIndex:0];
     cell.endTimeTxtField.text = [array objectAtIndex:1];
     if ([self.car.realStartTime isEqualToString:@""]) {
-        cell.realStartDateTxtField.text = @"暂未发车";
-        cell.realStartDateTxtField.text = nil;
+        cell.realStartDateTxtField.text = @"暂未出车";
+        cell.realStartTimeTxtField.text = nil;
+        [cell.submitBtn setTitle:@"取消预约" forState:UIControlStateNormal];
     }
     else
     {
@@ -82,6 +84,9 @@
     if ([self.car.realEndTime isEqualToString:@""]) {
         cell.realEndDateTxtField.text = @"暂未还车";
         cell.realEndTimeTxtField.text = nil;
+        if (![self.car.realStartTime isEqualToString:@""]) {
+            [cell.submitBtn setTitle:@"查看详情" forState:UIControlStateNormal];
+        }
     }
     else
     {

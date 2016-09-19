@@ -7,6 +7,10 @@
 //
 
 #import "CarOfMyOrderTableViewCell.h"
+#import "YLToast.h"
+
+#import "stdafx_DongGuanDaDi.h"
+#import "AFHTTPSessionManager.h"
 
 @implementation CarOfMyOrderTableViewCell
 
@@ -24,6 +28,7 @@
     self.realEndDateTxtField.delegate = self;
     self.realEndTimeTxtField.delegate = self;
     self.passengersTxtField.delegate = self;
+    self.passengersTxtField.keyboardType = UIKeyboardTypeNumberPad;
     self.carOrderId.delegate = self;
     self.reasonTxtField.delegate = self;
 }
@@ -32,6 +37,25 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+- (IBAction)submitBtnClick:(id)sender {
+    if ([[self.submitBtn titleForState:UIControlStateNormal] isEqualToString:@"取消预约"]) {
+        
+        NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:
+                             self.carOrderId.text,@"id",
+                             nil];
+        
+        AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
+        [manager.requestSerializer setValue:@"/DongGuan/" forHTTPHeaderField:@"referer"];
+        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+        [manager POST:URL_CAR_APPOINTMENT_CANCLE parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+            [YLToast showWithText:@"取消成功"];
+            NSLog(@"%@",responseObject);
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            [YLToast showWithText:@"网络连接失败，请检查网络配置"];
+            NSLog(@"%@",error.description);
+        }];
+    }
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField

@@ -50,6 +50,8 @@
     self.picker = [[YLDatePicker alloc] init];
     self.picker.delegate = self;
     self.picker.frame = CGRectMake(0, 0, 300, 250);
+    
+    self.passengerTxtField.keyboardType = UIKeyboardTypeNumberPad;
 }
 
 - (IBAction)submitBtnClick:(id)sender {

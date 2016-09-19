@@ -120,7 +120,7 @@ enum FoodBtnTpye
                                                                     toDate:[NSDate date]
                                                                    options:0];
     [self.dayPicker setStartDate:[NSDate date] endDate:endDate];
-    [self.dayPicker setWeekdayTitles:[NSArray arrayWithObjects:@"日",@"一",@"二",@"三",@"四",@"五",@"六",nil]];
+    [self.dayPicker setWeekdayTitles:[NSArray arrayWithObjects:@"一",@"二",@"三",@"四",@"五",@"六",@"日",nil]];
     [self.dayPicker addObserver:self
                      forKeyPath:@"selectedDate"
                         options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew
@@ -403,22 +403,28 @@ enum FoodBtnTpye
 - (IBAction)orderBtnClick:(id)sender {
     
     UIColor* color = nil;
+    UIColor* titleColor = nil;
     
     [self.orderAllBtn setSelected:!self.orderAllBtn.selected];
     
     if (self.orderAllBtn.isSelected) {
         color = [UIColor blueColor];
+        titleColor = [UIColor whiteColor];
+        
         if (self.breakfastBtn.enabled) {
             [self.breakfastBtn setSelected:YES];
             self.breakfastBtn.backgroundColor = color;
+            [self.breakfastBtn setTitleColor:titleColor forState:UIControlStateNormal];
         }
         if (self.dinnerBtn.enabled) {
             [self.dinnerBtn setSelected:YES];
             self.dinnerBtn.backgroundColor = color;
+            [self.dinnerBtn setTitleColor:titleColor forState:UIControlStateNormal];
         }
         if (self.lunchBtn.enabled) {
             [self.lunchBtn setSelected:YES];
             self.lunchBtn.backgroundColor = color;
+            [self.lunchBtn setTitleColor:titleColor forState:UIControlStateNormal];
         }
     }
     else {
@@ -472,6 +478,7 @@ enum FoodBtnTpye
     
     if (btn.isSelected) {
         [btn setBackgroundColor:[UIColor blueColor]];
+        [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     }
     else
     {
@@ -486,7 +493,7 @@ enum FoodBtnTpye
         foodInfos = [food_dic objectForKey:@"早餐"];
     } else if (btn.tag == foodBtnTpye_lunch) {
         foodInfos = [food_dic objectForKey:@"午餐"];
-    } else if (btn.tag == foodBtnTpye_lunch) {
+    } else if (btn.tag == foodBtnTpye_dinner) {
         foodInfos = [food_dic objectForKey:@"晚餐"];
     }
     

@@ -28,6 +28,7 @@
     self.startDateTxtField.delegate = self;
     self.endDateTxtField.delegate = self;
     self.passengerTxtField.delegate = self;
+    self.passengerTxtField.keyboardType = UIKeyboardTypeNumberPad;
     
     self.appointReasonTxtView.layer.borderColor = [UIColor grayColor].CGColor;
     self.appointReasonTxtView.layer.borderWidth = 1.0;
