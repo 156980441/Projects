@@ -19,6 +19,8 @@
 @interface DinnerRecordTableViewController ()
 @property (nonatomic, strong) AFHTTPSessionManager *manager;
 @property (nonatomic, strong) NSMutableArray *dataSource;
+@property (nonatomic, strong) NSDate *startDate;
+@property (nonatomic, strong) NSDate *endDate;
 @end
 
 @implementation DinnerRecordTableViewController
@@ -100,6 +102,11 @@
 
 - (IBAction)queryRecord:(id)sender {
     // hide some buttons in storyboard. Such as date button. When query come back result appear them.
+    if (!self.startDate || !self.endDate) {
+        [YLToast showWithText:@"请填写查询时间"];
+        return;
+    }
+    
     NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:self.startBtn.titleLabel.text,@"begin",self.endBtn.titleLabel.text,@"end", nil];
     self.manager = [AFHTTPSessionManager manager];
     [self.manager.requestSerializer setValue:@"/DongGuan/" forHTTPHeaderField:@"referer"];
@@ -147,13 +154,25 @@
 {
     if (picker.tag == 0) {
         if (date) {
-            [self.startBtn setTitle:[YLCommon date2String:date] forState:UIControlStateNormal];
+            if ([self.endDate compare:date] == NSOrderedAscending) {
+                [YLToast showWithText:@"起始时间不能大于结束时间"];
+            }
+            else {
+                self.startDate = date;
+                [self.startBtn setTitle:[YLCommon date2String:date] forState:UIControlStateNormal];
+            }
         }
     }
     else if (picker.tag == 1)
     {
         if (date) {
-            [self.endBtn setTitle:[YLCommon date2String:date] forState:UIControlStateNormal];
+            if ([self.startDate compare:date] == NSOrderedDescending) {
+                [YLToast showWithText:@"结束时间不能小于起始时间"];
+            }
+            else {
+                self.endDate = date;
+                [self.endBtn setTitle:[YLCommon date2String:date] forState:UIControlStateNormal];
+            }
         }
     }
 }
