@@ -225,8 +225,8 @@ enum FoodBtnTpye
     
     for (UIView* view in self.view.subviews) {
         if (view != self.voteBtn && view != self.recordBtn && view != self.moreBtn) {
-            view.alpha = view.alpha != 1 ? 1.0 : 0.7;
-            view.userInteractionEnabled = !view.userInteractionEnabled;
+            view.alpha = 1.0;
+            view.userInteractionEnabled = YES;
         }
     }
 }
