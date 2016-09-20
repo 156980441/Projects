@@ -31,6 +31,7 @@ enum FoodBtnTpye
 @property (nonatomic, strong) NSDate* selecetedDate;
 @property (nonatomic, strong) NSMutableArray* seletedFoods;// 用于提交预约饭菜
 @property (nonatomic, strong) NSMutableArray* seletedThreeMeals; // 用于提交预约饭菜
+@property (nonatomic, strong) NSMutableArray* cancelThreeMeals; // 用于提交预约饭菜
 @end
 
 @implementation DinnerViewController
@@ -44,6 +45,7 @@ enum FoodBtnTpye
     self.dinner_arr = [NSMutableArray array];
     self.seletedFoods = [NSMutableArray array];
     self.seletedThreeMeals = [NSMutableArray array];
+    self.cancelThreeMeals = [NSMutableArray array];
     
     self.breakfastBtn.tag = foodBtnTpye_breakfast;
     [self.breakfastBtn.layer setBorderWidth:1.0];
@@ -517,15 +519,25 @@ enum FoodBtnTpye
     
     for (ThreeMeals* meal in self.seletedThreeMeals) {
         NSString* foodId = [NSString stringWithFormat:@"%ld",meal.mealsId];
-        if (self.breakfastBtn.isSelected && meal.kind == ThreeMealsType_breakfast) {
+        if (self.breakfastBtn.isSelected && meal.kind == ThreeMealsType_breakfast && meal.state <= ThreeMealsState_booked_canChange) {
             [self.seletedFoods addObject:foodId];
         }
-        else if (self.dinnerBtn.isSelected && meal.kind == ThreeMealsType_dinner) {
+        else if (self.dinnerBtn.isSelected && meal.kind == ThreeMealsType_dinner && meal.state <= ThreeMealsState_booked_canChange) {
             [self.seletedFoods addObject:foodId];
         }
-        else if (self.lunchBtn.isSelected && meal.kind == ThreeMealsType_lunch) {
+        else if (self.lunchBtn.isSelected && meal.kind == ThreeMealsType_lunch && meal.state <= ThreeMealsState_booked_canChange) {
             [self.seletedFoods addObject:foodId];
         }
+        else if (!self.breakfastBtn.isSelected && meal.state == ThreeMealsState_booked_canChange) {
+            [self.cancelThreeMeals addObject:foodId];
+        }
+        else if (!self.dinnerBtn.isSelected && meal.state == ThreeMealsState_booked_canChange) {
+            [self.cancelThreeMeals addObject:foodId];
+        }
+        else if (!self.lunchBtn.isSelected && meal.state == ThreeMealsState_booked_canChange) {
+            [self.cancelThreeMeals addObject:foodId];
+        }
+        
     }
 }
 
@@ -541,7 +553,36 @@ enum FoodBtnTpye
                   submitedNum ++;
                   if (submitedNum == self.seletedFoods.count) {
                       [YLToast showWithText:@"提交成功"];
+                      for (ThreeMeals* meal in self.seletedThreeMeals) {
+                          if (meal.state == ThreeMealsState_canBook_canChange) {
+                              meal.state = ThreeMealsState_booked_canChange;
+                          }
+                      }
                       [self.seletedFoods removeAllObjects];
+                  }
+                  else
+                  {
+                      [YLToast showWithText:@"提交失败"];
+                  }
+                  
+              }
+              failure:^(NSURLSessionDataTask *task, NSError *error) {
+                  [YLToast showWithText:error.localizedDescription];
+              }];
+    }
+    
+    __block NSInteger cancelNum = 0;
+    for (NSString* foodId in self.cancelThreeMeals) {
+        NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:foodId,@"id", nil];
+        AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
+        [manager.requestSerializer setValue:@"/DongGuan/" forHTTPHeaderField:@"referer"];
+        [manager POST:URL_CANCEL_RESERVE
+           parameters:dic
+              success:^(NSURLSessionDataTask *task, id responseObject) {
+                  cancelNum ++;
+                  if (cancelNum == self.cancelThreeMeals.count) {
+                      [YLToast showWithText:@"提交成功"];
+                      [self.cancelThreeMeals removeAllObjects];
                   }
                   else
                   {
