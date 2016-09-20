@@ -9,8 +9,10 @@
 #import "CarAppointmentTableViewController.h"
 #import "Car.h"
 #import "CarOrderCurrentView.h"
+#import "YLToast.h"
 
 #import "stdafx_DongGuanDaDi.h"
+#import "AFHTTPSessionManager.h"
 #import "UIImageView+AFNetworking.h"
 
 @interface CarAppointmentTableViewController ()
@@ -32,20 +34,43 @@
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;// 不显示分割线，也可以在 storyboard 中控制。
     
-    UIImageView* imageView = [[UIImageView alloc] init];
-    NSString* imageURL = [NSString stringWithFormat:@"%@%@",HOST,self.car.url];
-    [imageView setImageWithURL:[NSURL URLWithString:imageURL]];
-    imageView.frame = CGRectMake(0, 0, self.tableView.frame.size.width, 200);//为什么必须设置？
-    self.tableView.tableHeaderView = imageView;
+    NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:
+                         [NSString stringWithFormat:@"%ld", self.car.carId],@"id",
+                         nil];
     
-    NSString* startStr = [NSString stringWithFormat:@"预约出车时间：%@",self.car.startTime];
-    NSString* endStr = [NSString stringWithFormat:@"预约出车时间：%@",self.car.endtime];
-    NSString* driver = [NSString stringWithFormat:@"预约人：%@",self.car.driver];
-    NSString* passengers = [NSString stringWithFormat:@"随车人数：%zd", self.car.peopleNum];
-    NSString* reason = [NSString stringWithFormat:@"出车事由：%@",self.car.reason];
-    self.dataSource =@[startStr,endStr,driver,passengers,reason];
-    
-    
+    AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
+    [manager.requestSerializer setValue:@"/DongGuan/" forHTTPHeaderField:@"referer"];
+    // 这里的返回值是一个标准 json
+    [manager POST:URL_CAR_RESERVED parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSDictionary* result = (NSDictionary*)responseObject;
+        NSArray* carAppoints = [result objectForKey:@"carAppoints"];
+        for (NSDictionary* car in carAppoints) {
+            self.car.driver = [car objectForKey:@"driver"];
+            self.car.endtime = [car objectForKey:@"endTime"];
+            self.car.peopleNum = ((NSNumber*)[car objectForKey:@"followNumber"]).integerValue;
+            self.car.reason = [car objectForKey:@"reason"];
+            self.car.startTime = [car objectForKey:@"startTime"];
+        }
+        
+        UIImageView* imageView = [[UIImageView alloc] init];
+        NSString* imageURL = [NSString stringWithFormat:@"%@%@",HOST,self.car.url];
+        [imageView setImageWithURL:[NSURL URLWithString:imageURL]];
+        imageView.frame = CGRectMake(0, 0, self.tableView.frame.size.width, 200);//为什么必须设置？
+        self.tableView.tableHeaderView = imageView;
+        
+        NSString* startStr = [NSString stringWithFormat:@"预约出车时间：%@",self.car.startTime];
+        NSString* endStr = [NSString stringWithFormat:@"预约出车时间：%@",self.car.endtime];
+        NSString* driver = [NSString stringWithFormat:@"预约人：%@",self.car.driver];
+        NSString* passengers = [NSString stringWithFormat:@"随车人数：%zd", self.car.peopleNum];
+        NSString* reason = [NSString stringWithFormat:@"出车事由：%@",self.car.reason];
+        self.dataSource =@[startStr,endStr,driver,passengers,reason];
+        
+        [self.tableView reloadData];
+//        NSLog(@"%@",responseObject);
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [YLToast showWithText:error.localizedDescription];
+    }];
 
 }
 

@@ -12,9 +12,6 @@
 #import "YLDatePicker.h"
 #import "YLCommon.h"
 
-#import "stdafx_DongGuanDaDi.h"
-#import "AFHTTPSessionManager.h"
-
 @interface CarDepartTableViewCell () <UITextFieldDelegate,YLDatePickerDelegate>
 @property (nonatomic, strong) YLDatePicker *picker;
 @end
