@@ -61,9 +61,9 @@
 
 -(void)checkStaff:(NSString*)name withPass:(NSString*)pass
 {
-//    NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:name,@"username",pass,@"password", nil];
+    NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:name,@"username",pass,@"password", nil];
     // test
-    NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:@"范志辉",@"username",@"123",@"password", nil];
+//    NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:@"范志辉",@"username",@"123",@"password", nil];
     [[AFHTTPSessionManager manager] POST:URL_USER_LOGIN parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
         if([responseObject isKindOfClass:[NSDictionary class]]) {
             NSString* result = [(NSDictionary*)responseObject objectForKey:@"result"];
