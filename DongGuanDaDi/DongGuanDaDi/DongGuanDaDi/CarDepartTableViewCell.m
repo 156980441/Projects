@@ -27,6 +27,8 @@
     self.picker.frame = CGRectMake(0, 0, 300, 250);
     self.picker.delegate = self;
     self.passengersTxtField.keyboardType = UIKeyboardTypeNumberPad;
+    
+    // 这里加载进的 CarOrderCurrentView 的大小是 CarOrderCurrentView.xib 中的大小
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
