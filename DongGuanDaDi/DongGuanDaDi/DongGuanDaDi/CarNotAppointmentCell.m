@@ -125,7 +125,7 @@
 - (void)picker:(UIDatePicker *)picker valueChanged:(NSDate *)date
 {
     if (0 == picker.tag) {
-        if ([date compare:[NSDate date]] == NSOrderedAscending) {
+        if ([[date dateByAddingTimeInterval:60] compare:[NSDate date]] == NSOrderedAscending) {
             [YLToast showWithText:@"出车时间不能小于当前时间"];
             return;
         }

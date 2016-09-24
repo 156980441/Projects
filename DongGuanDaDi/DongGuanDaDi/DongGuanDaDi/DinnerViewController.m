@@ -65,6 +65,8 @@ enum FoodBtnTpye
     
     [self changeBtnLayout:self.voteBtn];
     [self changeBtnLayout:self.recordBtn];
+    self.voteBtn.hidden = YES;
+    self.recordBtn.hidden = YES;
     
     self.title = @"用餐预约";
 }
