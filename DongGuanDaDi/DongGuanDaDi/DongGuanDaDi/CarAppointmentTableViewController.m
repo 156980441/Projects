@@ -33,9 +33,19 @@
     self.title = [NSString stringWithFormat:@"%@预约情况",self.car.number];
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;// 不显示分割线，也可以在 storyboard 中控制。
+
+    // 这里类比 CarOrderCurrentView initWithCoder 方法
+    CarOrderCurrentView* carOrderView = [[CarOrderCurrentView alloc] init];
+    NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CarOrderCurrentView" owner:carOrderView options:nil];
+    UIView* innerView = [nib objectAtIndex:0];// nib[0]表示的就是除了File‘s Owner 和 File Responder后的第一个东西。这里 File's owner 是 CarOrderCurrentView，第一个就是UIView。但是既然嵌套在 storyboard 里面就不会正确显示大小。
+    [carOrderView addSubview:innerView];
+    carOrderView.reasonTxtView.layer.borderColor = [UIColor grayColor].CGColor;
+    carOrderView.reasonTxtView.layer.borderWidth =1.0;
+    innerView.frame = carOrderView.frame = CGRectMake(0, 0, self.tableView.frame.size.width, 400);//为什么必须设置？
+    self.tableView.tableFooterView = carOrderView;
     
     NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:
-                         [NSString stringWithFormat:@"%ld", self.car.carId],@"id",
+                         [NSString stringWithFormat:@"%zd", self.car.carId],@"id",
                          nil];
     
     AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
