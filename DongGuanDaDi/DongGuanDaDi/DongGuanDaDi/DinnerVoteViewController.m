@@ -85,6 +85,8 @@
     
     self.dinerInfoTableView.delegate = self;
     self.dinerInfoTableView.dataSource = self;
+    [self.dinerInfoTableView reloadData
+     ];
     
     NSMutableArray *temp = [NSMutableArray array];
     for (int i = 0; i < self.canteenVoteInfo.foodList.count; i++)
@@ -97,7 +99,7 @@
     
     
     CGRect chatViewBounds = self.chatView.bounds;
-    self.eColumnChart = [[EColumnChart alloc] initWithFrame:CGRectMake(chatViewBounds.origin.x + 50, chatViewBounds.origin.y, CGRectGetWidth(chatViewBounds) - 50, CGRectGetHeight(chatViewBounds))];
+    self.eColumnChart = [[EColumnChart alloc] initWithFrame:CGRectMake(chatViewBounds.origin.x  + 50, chatViewBounds.origin.y - 30, CGRectGetWidth(chatViewBounds) * 2, CGRectGetHeight(chatViewBounds))];// 给横纵坐标字偏移。
     [_eColumnChart setNormalColumnColor:[UIColor colorWithRed:0.000 green:0.502 blue:1.000 alpha:1.000]];
     [_eColumnChart setColumnsIndexStartFromLeft:YES];
     [_eColumnChart setShowHorizontalLabelsWithInteger:YES];
@@ -108,6 +110,7 @@
     
     
     [self.chatView addSubview:_eColumnChart];
+    self.chatView.contentSize = CGSizeMake(CGRectGetWidth(chatViewBounds) * 2 + 50, CGRectGetHeight(chatViewBounds));
     
     switch (self.canteenVoteInfo.state) {
         case CanteenVoteState_no_vote: {
