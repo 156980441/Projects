@@ -172,6 +172,13 @@
         [manager.requestSerializer setValue:@"/DongGuan/" forHTTPHeaderField:@"referer"];
         [manager GET:URL_LOGOUT parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
             NSLog(@"Logout success, %@",responseObject);
+            
+            NSString* fileName = [YLCommon docPath:@"staff.archiver"];
+            NSFileManager* mgr = [NSFileManager defaultManager];
+            if ([mgr fileExistsAtPath:fileName]) {
+                [mgr removeItemAtPath:fileName error:nil];
+            }
+            
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             [YLToast showWithText:@"网络连接失败，请检查网络配置"];
         }];

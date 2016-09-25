@@ -57,7 +57,7 @@
             [self.appointCars addObject:appointCar];
         }
         
-        self.cellHeight = self.cellHeight + self.appointCars.count * 44 * 5;
+//        self.cellHeight = self.cellHeight + self.appointCars.count * 44 * 5;
         
         [self.tableView reloadData];
         
@@ -115,8 +115,9 @@
     [cell.carImageView setImageWithURL:[NSURL URLWithString:url]];
     cell.carImageView.contentMode = UIViewContentModeScaleToFill;
     cell.appointCarsDataSource = self.appointCars;
-    CGRect frame = cell.orderConditionTableView.frame;
-    cell.orderConditionTableView.frame = CGRectMake(frame.origin.x, frame.origin.y, CGRectGetWidth(frame), self.cellHeight - 1050);
+    //需要改动
+//    CGRect frame = cell.orderConditionTableView.frame;
+//    cell.orderConditionTableView.frame = CGRectMake(frame.origin.x, frame.origin.y, CGRectGetWidth(frame), self.cellHeight - 1050);
     
     return cell;
 }

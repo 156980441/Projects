@@ -91,6 +91,7 @@
         self.datePiker.frame = CGRectMake(0, 0, 300, 250);
         self.datePiker.mode = UIDatePickerModeDate;
         self.datePiker.picker.tag = btn.tag;// storyboard set StartBtn tag is 0, EndBtn tag is 1;
+        self.datePiker.backgroundColor = [UIColor whiteColor];
         [self.datePiker show];
     }
     else
