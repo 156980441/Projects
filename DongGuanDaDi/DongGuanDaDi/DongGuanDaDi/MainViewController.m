@@ -153,11 +153,11 @@
     CGSize size = CGSizeZero;
     NSInteger section = indexPath.section;
     if (0 == section) {
-        size = CGSizeMake(collectionView.frame.size.width, collectionView.frame.size.height / 2.2);
+        size = CGSizeMake(collectionView.frame.size.width, collectionView.frame.size.height / 2.3);
     }
     else if (1 == section)
     {
-        size = CGSizeMake(collectionView.frame.size.width / 3, collectionView.frame.size.height / 2.2 / 2);
+        size = CGSizeMake(collectionView.frame.size.width / 3, collectionView.frame.size.height / 2.3 / 2);
     }
     return size;
 }

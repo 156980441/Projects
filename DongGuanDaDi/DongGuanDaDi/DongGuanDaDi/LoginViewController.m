@@ -29,11 +29,24 @@
     self.navigationController.navigationBar.hidden = YES;
     self.passTxt.secureTextEntry = YES;
     
+    self.launch = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"splash.png"]];
+    self.launch.frame = self.view.frame;
+    [self.view addSubview:self.launch];
+    
     self.staff = [[Staff alloc] init];
     Staff* staff = [self loadFromArchiver];
     if (staff) {
         [self checkStaff:staff.name withPass:staff.pass];
     }
+    else {
+        [self performSelector:@selector(removeLaunchView) withObject:nil afterDelay:2];
+        
+    }
+}
+
+-(void)removeLaunchView
+{
+    [self.launch removeFromSuperview];
 }
 
 - (BOOL)saveToArchiver:(Staff*)staff {
@@ -75,11 +88,11 @@
                 [self saveToArchiver:self.staff];
                 
                 [self performSegueWithIdentifier:@"login" sender:self];
-                
             }
             else {
                 [YLToast showWithText:result];
             }
+            [self.launch removeFromSuperview];
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [YLToast showWithText:@"网络连接失败，请检查网络配置"];
