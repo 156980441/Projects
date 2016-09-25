@@ -10,8 +10,15 @@
 #import "CarDepartTableViewCell.h"
 #import "Car.h"
 
+#import "YLToast.h"
+
 #import "stdafx_DongGuanDaDi.h"
+#import "AFHTTPSessionManager.h"
 #import "UIImageView+AFNetworking.h"
+
+@interface CarDepartTableViewController ()
+@property (nonatomic, assign) CGFloat cellHeight;
+@end
 
 @implementation CarDepartTableViewController
 - (void)viewDidLoad {
@@ -25,6 +32,38 @@
     
     self.title = [NSString stringWithFormat:@"%@ 出车详情",self.car.number];
     self.tableView.allowsSelection = NO; // 是否可以点击一行
+    
+    self.cellHeight = 1050;
+    self.appointCars = [NSMutableArray array];
+    
+    NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:
+                         [NSString stringWithFormat:@"%ld", self.car.carId],@"id",
+                         nil];
+    
+    AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
+    [manager.requestSerializer setValue:@"/DongGuan/" forHTTPHeaderField:@"referer"];
+    // 这里的返回值是一个标准 json
+    [manager POST:URL_CAR_RESERVED parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSDictionary* result = (NSDictionary*)responseObject;
+        NSArray* carAppoints = [result objectForKey:@"carAppoints"];
+        Car* appointCar = [[Car alloc] init];
+        
+        for (NSDictionary* car in carAppoints) {
+            appointCar.driver = [car objectForKey:@"driver"];
+            appointCar.endtime = [car objectForKey:@"endTime"];
+            appointCar.peopleNum = ((NSNumber*)[car objectForKey:@"followNumber"]).integerValue;
+            appointCar.reason = [car objectForKey:@"reason"];
+            appointCar.startTime = [car objectForKey:@"startTime"];
+            [self.appointCars addObject:appointCar];
+        }
+        
+        self.cellHeight = self.cellHeight + self.appointCars.count * 44 * 5;
+        
+        [self.tableView reloadData];
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [YLToast showWithText:error.localizedDescription];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,7 +74,7 @@
 // need optimized
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 1050;
+    return self.cellHeight;
 }
 
 
@@ -75,7 +114,9 @@
     NSString* url = [NSString stringWithFormat:@"%@%@",HOST,self.car.url];
     [cell.carImageView setImageWithURL:[NSURL URLWithString:url]];
     cell.carImageView.contentMode = UIViewContentModeScaleToFill;
-    //    cell.carNumberTxtField.text = self.car.number;
+    cell.appointCarsDataSource = self.appointCars;
+    CGRect frame = cell.orderConditionTableView.frame;
+    cell.orderConditionTableView.frame = CGRectMake(frame.origin.x, frame.origin.y, CGRectGetWidth(frame), self.cellHeight - 1050);
     
     return cell;
 }

@@ -12,4 +12,5 @@
 
 @interface CarDepartTableViewController : UITableViewController
 @property (nonatomic, strong) Car *car;
+@property (nonatomic, strong) NSMutableArray *appointCars; // 存放预约信息
 @end

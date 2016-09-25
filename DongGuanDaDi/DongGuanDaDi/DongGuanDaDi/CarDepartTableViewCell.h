@@ -15,7 +15,7 @@
  *
  *  @since 1.0.x
  */
-@interface CarDepartTableViewCell : UITableViewCell
+@interface CarDepartTableViewCell : UITableViewCell <UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UIImageView *carImageView;
 
 @property (strong, nonatomic) IBOutlet UITextField *startDateTxtField;
@@ -29,10 +29,10 @@
 @property (strong, nonatomic) IBOutlet UITextField *seatingTxtField;
 @property (strong, nonatomic) IBOutlet UITextField *driverTxtField;
 @property (strong, nonatomic) IBOutlet UITextField *reasonTxtField;
-@property (strong, nonatomic) IBOutlet UITextField *orderConditionTxtField;
+@property (strong, nonatomic) IBOutlet UITableView *orderConditionTableView;
 
 @property (strong, nonatomic) IBOutlet CarOrderCurrentView *carOrderCurrentView;
 
-
+@property (nonatomic, strong) NSArray *appointCarsDataSource;
 
 @end

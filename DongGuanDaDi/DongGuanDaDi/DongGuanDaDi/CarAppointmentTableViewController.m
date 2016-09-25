@@ -59,7 +59,7 @@
         self.tableView.tableHeaderView = imageView;
         
         NSString* startStr = [NSString stringWithFormat:@"预约出车时间：%@",self.car.startTime];
-        NSString* endStr = [NSString stringWithFormat:@"预约出车时间：%@",self.car.endtime];
+        NSString* endStr = [NSString stringWithFormat:@"预约还车时间：%@",self.car.endtime];
         NSString* driver = [NSString stringWithFormat:@"预约人：%@",self.car.driver];
         NSString* passengers = [NSString stringWithFormat:@"随车人数：%zd", self.car.peopleNum];
         NSString* reason = [NSString stringWithFormat:@"出车事由：%@",self.car.reason];

@@ -8,9 +8,10 @@
 
 #import "CarDepartTableViewCell.h"
 #import "CarOrderCurrentView.h"
-#import "YLToast.h"
+#import "Car.h"
 #import "YLDatePicker.h"
 #import "YLCommon.h"
+#import "YLToast.h"
 
 @interface CarDepartTableViewCell () <UITextFieldDelegate,YLDatePickerDelegate>
 @property (nonatomic, strong) YLDatePicker *picker;
@@ -28,6 +29,9 @@
     self.picker.delegate = self;
     self.passengersTxtField.keyboardType = UIKeyboardTypeNumberPad;
     
+    self.orderConditionTableView.delegate = self;
+    self.orderConditionTableView.dataSource = self;
+
     // 这里加载进的 CarOrderCurrentView 的大小是 CarOrderCurrentView.xib 中的大小
 }
 
@@ -85,4 +89,60 @@
     return YES;
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    if (self.appointCarsDataSource.count == 0)
+    {
+        return 1;
+    }
+    else
+    {
+        return self.appointCarsDataSource.count;
+    }
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (self.appointCarsDataSource.count == 0)
+    {
+        return 1;
+    }
+    else
+    {
+        return 5;
+    }
+}
+
+// Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
+// Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString* cellIdentifer = @"appointCell";
+    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellIdentifer];
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifer forIndexPath:indexPath];
+    if (self.appointCarsDataSource.count > 0)
+    {
+        Car* car = [self.appointCarsDataSource objectAtIndex:indexPath.section];
+        if (0 == indexPath.row) {
+            cell.textLabel.text = [NSString stringWithFormat:@"预约出车时间：%@",car.startTime];
+        }
+        else if (1 == indexPath.row) {
+            cell.textLabel.text = [NSString stringWithFormat:@"预约还车时间：%@",car.endtime];
+        }
+        else if (2 == indexPath.row) {
+            cell.textLabel.text = [NSString stringWithFormat:@"预约人：%@",car.driver];
+        }
+        else if (3 == indexPath.row) {
+            cell.textLabel.text = [NSString stringWithFormat:@"随车人数：%zd", car.peopleNum];
+        }
+        else if (4 == indexPath.row) {
+            cell.textLabel.text = [NSString stringWithFormat:@"出车事由：%@",car.reason];
+        }
+    }
+    else {
+        cell.textLabel.text = @"暂无预约信息";
+    }
+    return cell;
+}
 @end

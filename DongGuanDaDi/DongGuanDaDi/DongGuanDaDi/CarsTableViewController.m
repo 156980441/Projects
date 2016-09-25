@@ -40,6 +40,7 @@
 
 @property (nonatomic, strong) Car* selectedCar;
 @property (nonatomic, strong) UIButton* sectionHeaderView;// 我的预约界面下的选择按钮，
+@property (nonatomic, strong) ShowCarsTypesView* typesView;
 @end
 
 @implementation CarsTableViewController
@@ -411,6 +412,11 @@
         
         self.showCarOrderBtn.hidden = NO;
         
+        if (self.typesView.superview != NULL)
+        {
+            [self.typesView removeFromSuperview];
+        }
+        
         self.dataSource = self.orderDataSource;
         
         [self.tableView reloadData];
@@ -509,36 +515,36 @@
  */
 -(void)selecteShowCarTypes
 {
-    ShowCarsTypesView* view;
     NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ShowCarsTypesView" owner:self options:nil];
     if ([nib count]>0)
     {
-        view = [nib objectAtIndex:0];
+        self.typesView = [nib objectAtIndex:0];
     }
-    view.frame = CGRectMake(0, 10, self.tableView.frame.size.width, 90);
-    __weak ShowCarsTypesView* weak_view = view;
-    view.showCarsTypeBlock = ^(NSInteger index){
+    self.typesView.frame = CGRectMake(0, 10, self.tableView.frame.size.width, 90);
+    __weak ShowCarsTypesView* weak_view = self.typesView;
+    __weak CarsTableViewController* weak_self = self;
+    self.typesView.showCarsTypeBlock = ^(NSInteger index){
         if (0 == index) {
-            [self.sectionHeaderView setTitle:weak_view.notAppointmentBtn.titleLabel.text forState:UIControlStateNormal];
+            [weak_self.sectionHeaderView setTitle:weak_view.notAppointmentBtn.titleLabel.text forState:UIControlStateNormal];
             [weak_view removeFromSuperview];
-            self.dataSource = self.myCarsNotDepart;
-            [self.tableView reloadData];
+            weak_self.dataSource = weak_self.myCarsNotDepart;
+            [weak_self.tableView reloadData];
         }
         else if (1 == index)
         {
-            [self.sectionHeaderView setTitle:weak_view.departBtn.titleLabel.text forState:UIControlStateNormal];
+            [weak_self.sectionHeaderView setTitle:weak_view.departBtn.titleLabel.text forState:UIControlStateNormal];
             [weak_view removeFromSuperview];
-            self.dataSource = self.myCarsDepart;
-            [self.tableView reloadData];
+            weak_self.dataSource = weak_self.myCarsDepart;
+            [weak_self.tableView reloadData];
         }
         else if (2 == index)
         {
-            [self.sectionHeaderView setTitle:weak_view.hasBackBtn.titleLabel.text forState:UIControlStateNormal];
+            [weak_self.sectionHeaderView setTitle:weak_view.hasBackBtn.titleLabel.text forState:UIControlStateNormal];
             [weak_view removeFromSuperview];
-            self.dataSource = self.myCarsBack;
-            [self.tableView reloadData];
+            weak_self.dataSource = weak_self.myCarsBack;
+            [weak_self.tableView reloadData];
         }
     };
-    [self.tableView addSubview:view];
+    [self.tableView addSubview:self.typesView];
 }
 @end
