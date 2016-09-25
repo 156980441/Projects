@@ -119,19 +119,6 @@ enum FoodBtnTpye
 {
     [super viewDidAppear:animated];
     
-    // 日历控件
-    NSDateComponents *weeks = [[NSDateComponents alloc] init];
-    weeks.weekOfMonth = 4;
-    NSDate *endDate = [[NSCalendar currentCalendar] dateByAddingComponents:weeks
-                                                                    toDate:[NSDate date]
-                                                                   options:0];
-    [self.dayPicker setStartDate:[NSDate date] endDate:endDate];
-    [self.dayPicker setWeekdayTitles:[NSArray arrayWithObjects:@"一",@"二",@"三",@"四",@"五",@"六",@"日",nil]];
-    [self.dayPicker addObserver:self
-                     forKeyPath:@"selectedDate"
-                        options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew
-                        context:nil];
-    
     AFHTTPSessionManager* manger = [AFHTTPSessionManager manager];
     [manger.requestSerializer setValue:@"/DongGuan/" forHTTPHeaderField:@"referer"];
     NSArray* dates = [YLCommon getFirstAndLastDayOfThisWeek];
@@ -216,6 +203,23 @@ enum FoodBtnTpye
         
     }];
     
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    // 日历控件
+    NSDateComponents *weeks = [[NSDateComponents alloc] init];
+    weeks.weekOfMonth = 4;
+    NSDate *endDate = [[NSCalendar currentCalendar] dateByAddingComponents:weeks
+                                                                    toDate:[NSDate date]
+                                                                   options:0];
+    [self.dayPicker setStartDate:[NSDate date] endDate:endDate];
+    [self.dayPicker setWeekdayTitles:[NSArray arrayWithObjects:@"一",@"二",@"三",@"四",@"五",@"六",@"日",nil]];
+    [self.dayPicker addObserver:self
+                     forKeyPath:@"selectedDate"
+                        options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew
+                        context:nil];
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
