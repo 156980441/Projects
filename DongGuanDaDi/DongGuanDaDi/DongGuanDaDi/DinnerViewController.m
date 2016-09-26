@@ -416,10 +416,14 @@ enum FoodBtnTpye
 #pragma mark - UIButton Event
 
 - (IBAction)moreBtnClick:(id)sender {
+    
     self.voteBtn.hidden = !self.voteBtn.hidden;
     self.recordBtn.hidden = !self.recordBtn.hidden;
-    self.voteBtn.backgroundColor = self.recordBtn.backgroundColor = [UIColor whiteColor];
     
+    [self.view bringSubviewToFront:self.voteBtn];// 这里通过 storyboard 怎么调整
+    [self.view bringSubviewToFront:self.recordBtn];
+    
+    // 其他视图停止交互
     for (UIView* view in self.view.subviews) {
         if (view != self.voteBtn && view != self.recordBtn && view != self.moreBtn) {
             view.alpha = view.alpha == 1 ? 0.7 : 1.0;

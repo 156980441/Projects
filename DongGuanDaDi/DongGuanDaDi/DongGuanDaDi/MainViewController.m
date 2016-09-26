@@ -73,12 +73,12 @@
     NSInteger section = indexPath.section;
     if (0 == section) {
         cell.title.text = [NSString stringWithFormat:@"%@,欢迎登陆本应用系统!",self.staff.name];
-        cell.title.frame = CGRectMake(0, cell.frame.size.height - cell.title.frame.size.height, cell.frame.size.width, CGRectGetWidth(cell.title.frame));
-        cell.title.backgroundColor = [UIColor colorWithRed:0.397 green:0.593 blue:1.000 alpha:1.000];
-        [cell setNeedsLayout];
+        cell.title.textColor = [UIColor whiteColor];
+        cell.title.frame = CGRectMake(0, cell.frame.size.height - cell.title.frame.size.height, cell.frame.size.width, CGRectGetHeight(cell.title.frame));
+//        cell.title.backgroundColor = [UIColor colorWithRed:0.397 green:0.593 blue:1.000 alpha:1.000];
         
         UIImageView* imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"main_front"]];
-        imageView.contentMode = UIViewContentModeCenter;
+        imageView.contentMode = UIViewContentModeScaleToFill;
         cell.backgroundView = imageView;
         
         cell.appLabel.text = @"东莞大堤";

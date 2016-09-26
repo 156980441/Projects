@@ -202,6 +202,10 @@
     else if (self.orderAndMyOrderSeg.selectedSegmentIndex == 1) {
         [self performSegueWithIdentifier:@"carOfMyOrder" sender:self];
     }
+    
+    if (self.typesView.superview != nil)
+        [self.typesView removeFromSuperview];
+    
 }
 
 #pragma mark - Table view data source
@@ -526,24 +530,22 @@
     self.typesView.showCarsTypeBlock = ^(NSInteger index){
         if (0 == index) {
             [weak_self.sectionHeaderView setTitle:weak_view.notAppointmentBtn.titleLabel.text forState:UIControlStateNormal];
-            [weak_view removeFromSuperview];
             weak_self.dataSource = weak_self.myCarsNotDepart;
             [weak_self.tableView reloadData];
         }
         else if (1 == index)
         {
             [weak_self.sectionHeaderView setTitle:weak_view.departBtn.titleLabel.text forState:UIControlStateNormal];
-            [weak_view removeFromSuperview];
             weak_self.dataSource = weak_self.myCarsDepart;
             [weak_self.tableView reloadData];
         }
         else if (2 == index)
         {
             [weak_self.sectionHeaderView setTitle:weak_view.hasBackBtn.titleLabel.text forState:UIControlStateNormal];
-            [weak_view removeFromSuperview];
             weak_self.dataSource = weak_self.myCarsBack;
             [weak_self.tableView reloadData];
         }
+        [weak_view removeFromSuperview];
     };
     [self.tableView addSubview:self.typesView];
 }

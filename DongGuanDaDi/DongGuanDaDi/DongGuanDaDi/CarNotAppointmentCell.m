@@ -23,6 +23,9 @@
 
 -(void)awakeFromNib
 {
+    self.brandTxtField.enabled = NO;
+    self.seatintTxtField.enabled = NO;
+    
     self.startTimeTxtField.delegate = self;
     self.endTimeTxtField.delegate = self;
     self.startDateTxtField.delegate = self;

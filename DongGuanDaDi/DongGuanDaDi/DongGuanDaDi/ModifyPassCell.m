@@ -26,8 +26,8 @@
 
 - (IBAction)modfiyPassPress:(id)sender {
     
-    if (!self.oldPassTxtField.text || !self.nowPassTxtField.text || !self.confirmPassTxtField.text) {
-        [YLToast showWithText:@"请填写完整"];
+    if ([self.oldPassTxtField.text isEqualToString:@""]) {
+        [YLToast showWithText:@"请填写原始密码"];
         return;
     }
     
