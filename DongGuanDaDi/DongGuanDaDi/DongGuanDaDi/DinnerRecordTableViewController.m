@@ -52,15 +52,16 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.dataSource.count;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.dataSource.count;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    DinnerRecordTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"dinnerRecord" forIndexPath:indexPath];
+    static NSString* cellIdentifer = @"dinnerRecord";
+    DinnerRecordTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifer forIndexPath:indexPath];
     DinnerRecord* record = [self.dataSource objectAtIndex:indexPath.row];
     cell.dateLabel.text = record.date;
     switch (record.kind) {
@@ -107,6 +108,8 @@
         [YLToast showWithText:@"请填写查询时间"];
         return;
     }
+    
+    [self.dataSource removeAllObjects];
     
     NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:self.startBtn.titleLabel.text,@"begin",self.endBtn.titleLabel.text,@"end", nil];
     self.manager = [AFHTTPSessionManager manager];
