@@ -14,5 +14,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *voteStateLabel;
 @property (nonatomic, strong) CanteenVoteInfo *canteenVoteInfo;
 @property (strong, nonatomic) IBOutlet UITableView *dinerInfoTableView;
+@property (strong, nonatomic) IBOutlet UIButton *voteBtn;
+- (IBAction)voteBtnClick:(id)sender;
 
 @end

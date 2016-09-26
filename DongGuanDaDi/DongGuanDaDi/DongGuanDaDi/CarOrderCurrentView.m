@@ -14,9 +14,7 @@
 #import "stdafx_DongGuanDaDi.h"
 #import "AFHTTPSessionManager.h"
 
-@interface CarOrderCurrentView () <UITextFieldDelegate,YLDatePickerDelegate>
-
-@property (strong, nonatomic) YLDatePicker* picker;
+@interface CarOrderCurrentView () <YLDatePickerDelegate>
 
 @property (nonatomic, strong) NSDate *startDate;
 @property (nonatomic, strong) NSDate *endDate;
@@ -38,6 +36,7 @@
 
 -(void)awakeFromNib
 {
+    // CarAppointmentTableViewController 不调用，不经过storyboard就不调用。
     self.startDateTxtField.delegate = self;
     self.startTimeTxtField.delegate = self;
     self.endDateTxtField.delegate = self;

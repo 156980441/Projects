@@ -26,4 +26,6 @@ typedef enum DinnerInfoType
 @property (nonatomic, strong) NSString* foodVote;
 @property (nonatomic, strong) NSString* profile;
 @property (nonatomic, assign) NSInteger voteNumber;
+
+@property (nonatomic, assign) bool isSelected;// 用于投票
 @end

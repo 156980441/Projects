@@ -115,14 +115,19 @@
     switch (self.canteenVoteInfo.state) {
         case CanteenVoteState_no_vote: {
             self.voteStateLabel.text = @"投票情况：暂无进行中的投票";
+            self.dinerInfoTableView.hidden = YES;
+            self.voteBtn.hidden = YES;
             break;
         }
         case CanteenVoteState_can_vote: {
-            
+            self.dinerInfoTableView.hidden = NO;
+            self.voteBtn.hidden = NO;
             break;
         }
         case CanteenVoteState_have_voted: {
             self.voteStateLabel.text = @"投票情况：已投票";
+            self.dinerInfoTableView.hidden = YES;
+            self.voteBtn.hidden = YES;
             break;
         }
     }
@@ -266,5 +271,41 @@ fingerDidLeaveColumn:(EColumn *)eColumn
     cell.textLabel.text = dinner.name;
     cell.detailTextLabel.text = dinner.profile;
     return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+    DinnerInfo* dinner = [self.canteenVoteInfo.foodList objectAtIndex:indexPath.row];
+    if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        dinner.isSelected = NO;
+    }
+    else {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        dinner.isSelected = YES;
+    }
+}
+- (IBAction)voteBtnClick:(id)sender {
+    
+    NSMutableString* ids = [NSMutableString string];
+    
+    for (DinnerInfo* dinnerInfo in self.canteenVoteInfo.foodList) {
+        if (dinnerInfo.isSelected) {
+            [ids appendString:[NSString stringWithFormat:@"%zd,", dinnerInfo.foodId]];
+        }
+    }
+    NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:
+                         [NSString stringWithFormat:@"%zd", self.canteenVoteInfo.voteId],@"vote_id",[ids substringToIndex:(ids.length - 1)],@"id",
+                         nil];
+    
+    AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
+    [manager.requestSerializer setValue:@"/DongGuan/" forHTTPHeaderField:@"referer"];
+    // 这里的返回值是一个标准 json
+    [manager POST:URL_VOTE parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        [YLToast showWithText:@"投票成功"];
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [YLToast showWithText:error.localizedDescription];
+    }];
 }
 @end

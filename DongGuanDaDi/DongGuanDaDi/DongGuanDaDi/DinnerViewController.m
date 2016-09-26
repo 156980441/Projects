@@ -386,6 +386,7 @@ enum FoodBtnTpye
             else
             {
                 self.orderAllBtn.backgroundColor = [UIColor whiteColor];
+                [self.orderAllBtn setSelected:NO];
             }
             [self.seletedThreeMeals addObject:meals];
         }

@@ -10,6 +10,7 @@
 #import "Car.h"
 #import "CarOrderCurrentView.h"
 #import "YLToast.h"
+#import "YLDatePicker.h"
 
 #import "stdafx_DongGuanDaDi.h"
 #import "AFHTTPSessionManager.h"
@@ -41,6 +42,15 @@
     [carOrderView addSubview:innerView];
     carOrderView.reasonTxtView.layer.borderColor = [UIColor grayColor].CGColor;
     carOrderView.reasonTxtView.layer.borderWidth =1.0;
+    carOrderView.startDateTxtField.delegate = carOrderView;
+    carOrderView.startTimeTxtField.delegate = carOrderView;
+    carOrderView.endDateTxtField.delegate = carOrderView;
+    carOrderView.endTimeTxtField.delegate = carOrderView;
+    carOrderView.reasonTxtView.delegate = carOrderView;
+    carOrderView.picker = [[YLDatePicker alloc] init];
+    carOrderView.picker.delegate = carOrderView;
+    carOrderView.picker.frame = CGRectMake(0, 0, 300, 250);
+    carOrderView.passengerTxtField.keyboardType = UIKeyboardTypeNumberPad;
     innerView.frame = carOrderView.frame = CGRectMake(0, 0, self.tableView.frame.size.width, 400);//为什么必须设置？
     self.tableView.tableFooterView = carOrderView;
     
