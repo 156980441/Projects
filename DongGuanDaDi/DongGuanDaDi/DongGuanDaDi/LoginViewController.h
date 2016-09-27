@@ -14,7 +14,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *nameTxt;
 @property (strong, nonatomic) IBOutlet UITextField *passTxt;
 @property (strong, nonatomic) IBOutlet UIButton *loginBtn;
-@property (strong, nonatomic) IBOutlet UIImageView *launch;
+@property (strong, nonatomic) UIImageView *launch;
 - (IBAction)login:(id)sender;
 
 @property (nonatomic, strong) Staff *staff;

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class CarOrderCurrentView;
+@class Car;
 
 /**
  *  在 Xib 中 selection 设置成了 None，使用了 Xib 的嵌套
@@ -34,5 +35,7 @@
 @property (strong, nonatomic) IBOutlet CarOrderCurrentView *carOrderCurrentView;
 
 @property (nonatomic, strong) NSArray *appointCarsDataSource;
+
+@property (nonatomic, strong) Car *car;
 
 @end

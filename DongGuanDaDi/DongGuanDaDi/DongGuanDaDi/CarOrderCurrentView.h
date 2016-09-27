@@ -20,4 +20,6 @@
 @property (strong, nonatomic) YLDatePicker* picker;
 - (IBAction)submitBtnClick:(id)sender;
 
+@property (copy, nonatomic) void (^submitBtnClickBlock)(NSDate* startDate,NSDate* endDate);
+
 @end

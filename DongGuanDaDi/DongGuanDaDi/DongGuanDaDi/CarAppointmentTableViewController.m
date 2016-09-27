@@ -55,6 +55,80 @@
     carOrderView.picker.frame = CGRectMake(0, 0, 300, 250);
     carOrderView.passengerTxtField.keyboardType = UIKeyboardTypeNumberPad;
     innerView.frame = carOrderView.frame = CGRectMake(0, 0, self.tableView.frame.size.width, 400);//为什么必须设置？
+    
+    __weak CarOrderCurrentView* weak_carOrderView = carOrderView;
+    __weak CarAppointmentTableViewController* weak_self = self;
+    carOrderView.submitBtnClickBlock = ^(NSDate* startDate, NSDate* endDate){
+        if ([weak_carOrderView.passengerTxtField.text isEqualToString:@""] || [weak_carOrderView.reasonTxtView.text isEqualToString:@""] || [weak_carOrderView.startDateTxtField.text isEqualToString:@""] || [weak_carOrderView.endDateTxtField.text isEqualToString:@""]  || [weak_carOrderView.startTimeTxtField.text isEqualToString:@""] || [weak_carOrderView.endTimeTxtField.text isEqualToString:@""]) {
+            [YLToast showWithText:@"输入不能为空"];
+            return;
+        }
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init] ;
+        [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        
+        for (Car* car in weak_self.cars)
+        {
+            NSDate* appointTime = [formatter dateFromString:[NSString stringWithFormat:@"%@ %@:00",weak_carOrderView.startDateTxtField.text,weak_carOrderView.startTimeTxtField.text]];
+            NSDate *date=[formatter dateFromString:[NSString stringWithFormat:@"%@:00",car.endtime]];
+            if ([date compare:appointTime] == NSOrderedDescending) {
+                [YLToast showWithText:@"预约时间冲突，请重新预约"];
+                return;
+            }
+        }
+        
+        if ([weak_carOrderView.passengerTxtField.text isEqualToString:@"0"]) {
+            [YLToast showWithText:@"人数不能为 0"];
+            return;
+        }
+        
+        if (weak_carOrderView.passengerTxtField.text.integerValue > self.car.seating) {
+            [YLToast showWithText:@"随车人数不能大于座位数"];
+            return;
+        }
+        
+//        NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:
+//                             weak_carOrderView.passengerTxtField.text,@"peopleNumber",
+//                             weak_carOrderView.reasonTxtView.text,@"reason",
+//                             [NSString stringWithFormat:@"%@ %@",weak_carOrderView.endDateTxtField.text,weak_carOrderView.endTimeTxtField.text], @"end",
+//                             [NSString stringWithFormat:@"%@ %@",weak_carOrderView.startDateTxtField.text,weak_carOrderView.startTimeTxtField.text], @"start",
+//                             nil];
+        
+        NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:weak_carOrderView.passengerTxtField.text,@"peopleNumber",
+                             weak_carOrderView.reasonTxtView.text,@"reason",
+                             [NSString stringWithFormat:@"%@ %@",weak_carOrderView.endDateTxtField.text,weak_carOrderView.endTimeTxtField.text], @"end",
+                             [NSString stringWithFormat:@"%@ %@",weak_carOrderView.startDateTxtField.text,weak_carOrderView.startTimeTxtField.text],@"start",
+                             @"",@"driver",
+                             @"",@"officeId",
+                             weak_self.car.number,@"carNumber",
+                             nil];
+        
+        
+        
+        // test
+        //    NSDictionary* dic2 = [NSDictionary dictionaryWithObjectsAndKeys:
+        //                          @"2",@"peopleNumber",
+        //                          @"何少毅",@"driver",
+        //                          @"测试",@"reason",
+        //                          @"粤WQS25",@"carNumber",
+        //                          @"",@"officeId",
+        //                          @"2016-09-05", @"end",
+        //                          @"2016-09-04", @"start",
+        //                          nil];
+        
+        AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
+        [manager.requestSerializer setValue:@"/DongGuan/" forHTTPHeaderField:@"referer"];
+        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+        [manager POST:URL_CAR_APPOINTMENT_SUBMIT_TABLE parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+            [YLToast showWithText:@"预约成功"];
+            NSLog(@"%@",responseObject);
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            [YLToast showWithText:@"网络连接失败，请检查网络配置"];
+            NSLog(@"%@",error.description);
+        }];
+    };
+
+    
     self.tableView.tableFooterView = carOrderView;
     
     NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:

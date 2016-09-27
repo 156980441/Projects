@@ -55,39 +55,9 @@
 
 - (IBAction)submitBtnClick:(id)sender {
     
-    if ([self.passengerTxtField.text isEqualToString:@""] || [self.reasonTxtView.text isEqualToString:@""] || [self.startDateTxtField.text isEqualToString:@""] || [self.endDateTxtField.text isEqualToString:@""]  || [self.startTimeTxtField.text isEqualToString:@""] || [self.endTimeTxtField.text isEqualToString:@""]) {
-        [YLToast showWithText:@"输入不能为空"];
-        return;
+    if (self.submitBtnClickBlock) {
+        self.submitBtnClickBlock(self.startDate,self.endDate);
     }
-    
-    NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:
-                         self.passengerTxtField.text,@"peopleNumber",
-                         self.reasonTxtView.text,@"reason",
-                         [NSString stringWithFormat:@"%@ %@",self.endDateTxtField.text,self.endTimeTxtField.text], @"end",
-                         [NSString stringWithFormat:@"%@ %@",self.startDateTxtField.text,self.startTimeTxtField.text], @"start",
-                         nil];
-    // test
-//    NSDictionary* dic2 = [NSDictionary dictionaryWithObjectsAndKeys:
-//                          @"2",@"peopleNumber",
-//                          @"何少毅",@"driver",
-//                          @"测试",@"reason",
-//                          @"粤WQS25",@"carNumber",
-//                          @"",@"officeId",
-//                          @"2016-09-05", @"end",
-//                          @"2016-09-04", @"start",
-//                          nil];
-    
-    AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
-    [manager.requestSerializer setValue:@"/DongGuan/" forHTTPHeaderField:@"referer"];
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    [manager POST:URL_CAR_APPOINTMENT_SUBMIT_TABLE parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
-        [YLToast showWithText:@"预约成功"];
-        NSLog(@"%@",responseObject);
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        [YLToast showWithText:@"网络连接失败，请检查网络配置"];
-        NSLog(@"%@",error.description);
-    }];
-    
 }
 
 // 写在这里防止弹出键盘
