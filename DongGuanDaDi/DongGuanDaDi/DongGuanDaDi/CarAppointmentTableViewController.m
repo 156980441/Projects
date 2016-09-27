@@ -17,7 +17,7 @@
 #import "UIImageView+AFNetworking.h"
 
 @interface CarAppointmentTableViewController ()
-@property (nonatomic, strong) NSArray *dataSource;
+@property (nonatomic, strong) NSMutableArray *dataSource;
 @end
 
 @implementation CarAppointmentTableViewController
@@ -34,6 +34,9 @@
     self.title = [NSString stringWithFormat:@"%@预约情况",self.car.number];
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;// 不显示分割线，也可以在 storyboard 中控制。
+    
+    self.cars = [NSMutableArray array];
+    self.dataSource = [NSMutableArray array];
 
     // 这里类比 CarOrderCurrentView initWithCoder 方法
     CarOrderCurrentView* carOrderView = [[CarOrderCurrentView alloc] init];
@@ -64,12 +67,22 @@
     [manager POST:URL_CAR_RESERVED parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary* result = (NSDictionary*)responseObject;
         NSArray* carAppoints = [result objectForKey:@"carAppoints"];
-        for (NSDictionary* car in carAppoints) {
-            self.car.driver = [car objectForKey:@"driver"];
-            self.car.endtime = [car objectForKey:@"endTime"];
-            self.car.peopleNum = ((NSNumber*)[car objectForKey:@"followNumber"]).integerValue;
-            self.car.reason = [car objectForKey:@"reason"];
-            self.car.startTime = [car objectForKey:@"startTime"];
+        for (NSDictionary* dic_car in carAppoints) {
+            Car* car = [[Car alloc] init];
+            car.driver = [dic_car objectForKey:@"driver"];
+            car.endtime = [dic_car objectForKey:@"endTime"];
+            car.peopleNum = ((NSNumber*)[dic_car objectForKey:@"followNumber"]).integerValue;
+            car.reason = [dic_car objectForKey:@"reason"];
+            car.startTime = [dic_car objectForKey:@"startTime"];
+            [self.cars addObject:car];
+            
+            NSString* startStr = [NSString stringWithFormat:@"预约出车时间：%@",car.startTime];
+            NSString* endStr = [NSString stringWithFormat:@"预约还车时间：%@",car.endtime];
+            NSString* driver = [NSString stringWithFormat:@"预约人：%@",car.driver];
+            NSString* passengers = [NSString stringWithFormat:@"随车人数：%zd", car.peopleNum];
+            NSString* reason = [NSString stringWithFormat:@"出车事由：%@",car.reason];
+            NSArray* carAppointInfo = @[startStr,endStr,driver,passengers,reason];
+            [self.dataSource addObject:carAppointInfo];
         }
         
         UIImageView* imageView = [[UIImageView alloc] init];
@@ -77,13 +90,6 @@
         [imageView setImageWithURL:[NSURL URLWithString:imageURL]];
         imageView.frame = CGRectMake(0, 0, self.tableView.frame.size.width, 200);//为什么必须设置？
         self.tableView.tableHeaderView = imageView;
-        
-        NSString* startStr = [NSString stringWithFormat:@"预约出车时间：%@",self.car.startTime];
-        NSString* endStr = [NSString stringWithFormat:@"预约还车时间：%@",self.car.endtime];
-        NSString* driver = [NSString stringWithFormat:@"预约人：%@",self.car.driver];
-        NSString* passengers = [NSString stringWithFormat:@"随车人数：%zd", self.car.peopleNum];
-        NSString* reason = [NSString stringWithFormat:@"出车事由：%@",self.car.reason];
-        self.dataSource =@[startStr,endStr,driver,passengers,reason];
         
         [self.tableView reloadData];
 //        NSLog(@"%@",responseObject);
@@ -102,16 +108,18 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return self.dataSource.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.dataSource.count;
+    NSArray* carAppointInfo = [self.dataSource objectAtIndex:section];
+    return carAppointInfo.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"car_appointment_identifier" forIndexPath:indexPath];
-    cell.textLabel.text = [self.dataSource objectAtIndex:indexPath.row];
+    NSArray* carAppointInfo = [self.dataSource objectAtIndex:indexPath.section];
+    cell.textLabel.text = [carAppointInfo objectAtIndex:indexPath.row];
     
     // Configure the cell...
     

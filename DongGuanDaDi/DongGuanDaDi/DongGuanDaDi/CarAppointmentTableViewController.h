@@ -13,4 +13,5 @@
  */
 @interface CarAppointmentTableViewController : UITableViewController
 @property (nonatomic, strong) Car *car;
+@property (nonatomic, strong) NSMutableArray *cars;
 @end
