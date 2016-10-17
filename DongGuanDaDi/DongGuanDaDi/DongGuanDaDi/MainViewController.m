@@ -39,8 +39,10 @@
     
     self.collectionView.backgroundColor = [UIColor whiteColor];
     
-    self.dataSources = @[@"用餐",@"公车",@"通讯录",@"任务",@"监控",@"个人"];
-    self.imageDataSources = @[@"main_dinner",@"main_car",@"main_contact",@"main_office",@"main_map",@"main_person"];
+//    self.dataSources = @[@"用餐",@"公车",@"通讯录",@"任务",@"监控",@"个人"];
+//    self.imageDataSources = @[@"main_dinner",@"main_car",@"main_contact",@"main_office",@"main_map",@"main_person"];
+    self.dataSources = @[@"用餐",@"公车",@"通讯录",@"个人"];
+    self.imageDataSources = @[@"main_dinner",@"main_car",@"main_contact",@"main_person"];
 }
 
 
@@ -117,6 +119,31 @@
     }
     else if (1 == section)
     {
+//        if (0 == indexPath.row)
+//        {
+//            [self performSegueWithIdentifier:@"dinner" sender:self];
+//        }
+//        else if (1 == indexPath.row)
+//        {
+//            [self performSegueWithIdentifier:@"cars" sender:self];
+//        }
+//        else if (2 == indexPath.row)
+//        {
+//            [self performSegueWithIdentifier:@"addressList" sender:self];
+//        }
+//        else if (3 == indexPath.row)
+//        {
+//            [YLToast showWithText:@"暂不支持"];
+//        }
+//        else if (4 == indexPath.row)
+//        {
+//            [YLToast showWithText:@"暂不支持"];
+//        }
+//        else if (5 == indexPath.row)
+//        {
+//            [self performSegueWithIdentifier:@"personal" sender:self];
+//        }
+        
         if (0 == indexPath.row)
         {
             [self performSegueWithIdentifier:@"dinner" sender:self];
@@ -130,14 +157,6 @@
             [self performSegueWithIdentifier:@"addressList" sender:self];
         }
         else if (3 == indexPath.row)
-        {
-            [YLToast showWithText:@"暂不支持"];
-        }
-        else if (4 == indexPath.row)
-        {
-            [YLToast showWithText:@"暂不支持"];
-        }
-        else if (5 == indexPath.row)
         {
             [self performSegueWithIdentifier:@"personal" sender:self];
         }
