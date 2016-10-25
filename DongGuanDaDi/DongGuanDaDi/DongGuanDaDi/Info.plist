@@ -8,6 +8,18 @@
 	<string>东莞大堤请求访问您的麦克风，是否允许？</string>
 	<key>NSContactsUsageDescription</key>
 	<string>东莞大堤请求访问您的通讯录，是否允许？</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>东莞大堤请求访问您的蓝牙，是否允许？</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>东莞大堤请求访问您的日历，是否允许？</string>
+	<key>NSCameraUsageDescription</key>
+	<string>东莞大堤请求访问您的相机，是否允许？</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>东莞大堤请求访问您的位置，是否允许？</string>
+	<key>NSLocationUsageDescription</key>
+	<string>东莞大堤请求访问您的位置，是否允许？</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>东莞大堤请求访问您的位置，是否允许？</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
