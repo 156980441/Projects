@@ -595,6 +595,8 @@
 				TargetAttributes = {
 					19E5BBEF1D3F331600C1A1A9 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = CE7XVR5S2V;
+						ProvisioningStyle = Manual;
 					};
 					19E5BC081D3F331600C1A1A9 = {
 						CreatedOnToolsVersion = 7.3;
@@ -915,11 +917,17 @@
 			baseConfigurationReference = 7C6C8F20CA08950738227191 /* Pods-DongGuanDaDi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Yunlong Fan (CE7XVR5S2V)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Yunlong Fan (CE7XVR5S2V)";
+				DEVELOPMENT_TEAM = CE7XVR5S2V;
 				INFOPLIST_FILE = DongGuanDaDi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.snowball.DongGuanDaDi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fanyl.DongGuanDaDi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE = "d1f770bc-5d4b-4f51-9e46-48ca7855d909";
+				PROVISIONING_PROFILE_SPECIFIER = dong_guan_da_di;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -928,11 +936,17 @@
 			baseConfigurationReference = B36727BE6DEBF3748E9E51EA /* Pods-DongGuanDaDi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Yunlong Fan (CE7XVR5S2V)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Yunlong Fan (CE7XVR5S2V)";
+				DEVELOPMENT_TEAM = CE7XVR5S2V;
 				INFOPLIST_FILE = DongGuanDaDi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.snowball.DongGuanDaDi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fanyl.DongGuanDaDi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE = "d1f770bc-5d4b-4f51-9e46-48ca7855d909";
+				PROVISIONING_PROFILE_SPECIFIER = dong_guan_da_di;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
